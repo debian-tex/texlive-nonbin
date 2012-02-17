@@ -1,0 +1,11 @@
+texmf/doc/man/man1/texdoc.1        usr/share/man/man1
+texmf/doc/man/man1/texdoctk.1      usr/share/man/man1
+texmf/doc/man/man5/fmtutil.cnf.5   usr/share/man/man5
+texmf/doc/man/man5/updmap.cfg.5    usr/share/man/man5
+# originally in texlive-binaries, we install the man pages in texlive-base
+# since the pages are not in the source hierarchy, what a pain
+texmf/doc/man/man1/dvipdfm.1       usr/share/man/man1
+texmf/doc/man/man1/dvipdft.1       usr/share/man/man1
+texmf/doc/man/man1/ebb.1           usr/share/man/man1
+texmf/doc/man/man1/extractbb.1     usr/share/man/man1
+

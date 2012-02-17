@@ -1,0 +1,74 @@
+base: base-bin, doc-base
+base-bin:
+bibtex-extra: latex-base*
+chemistry: base*
+context: base*, pdfetex, metapost
+doc-base:
+doc-bg: doc-base
+doc-cs+sk: doc-base
+doc-de: doc-base
+doc-el: doc-base
+doc-en: doc-base
+doc-es: doc-base
+doc-fi: doc-base
+doc-fr: doc-base
+doc-it: doc-base
+doc-ja: doc-base
+doc-ko: doc-base
+doc-mn: doc-base
+doc-nl: doc-base
+doc-pl: doc-base
+doc-pt: doc-base
+doc-ru: doc-base
+doc-th: doc-base
+doc-uk: doc-base
+doc-vi: doc-base
+extra-utils: base
+font-utils: base
+fonts-extra: base*
+fonts-recommended: base*
+formats-extra: base*
+games: latex-base*
+generic-extra: base*
+generic-recommended: base*
+lang-african: base
+lang-armenian: base
+lang-cjk: base
+lang-croatian: base
+lang-cyrillic: base
+lang-czechslovak: base, latex-base, pdfetex
+lang-danish: base
+lang-dutch: base
+lang-finnish: base
+lang-french: base
+lang-german: base
+lang-greek: base
+lang-hebrew: base
+lang-hungarian: base
+lang-indic: base
+lang-italian: base
+lang-latin: base
+lang-manju: base
+lang-mongolian: base
+lang-norwegian: base
+lang-other: base
+lang-polish: latex-base, base
+lang-portuguese: base
+lang-spanish: base
+lang-swedish: base
+lang-tibetan: base
+lang-ukenglish: base
+lang-vietnamese: base
+latex-base: pdfetex
+latex-extra: latex-base*, pictures
+latex-recommended: latex-base*
+latex3: latex-base*
+math-extra: fonts-recommended, latex-base
+metapost: base
+music: latex-base*
+omega: base
+pdfetex: base
+pictures: base*
+plain-extra: base
+pstricks: base*, generic-recommended
+publishers: latex-base*

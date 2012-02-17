@@ -1,0 +1,29 @@
+Fix two errors in g-brief-cls (bug #423919 and #407968/#154266)
+---
+ texmf-dist/tex/latex/g-brief/g-brief.cls |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+Index: texlive-extra-2007/texmf-dist/tex/latex/g-brief/g-brief.cls
+===================================================================
+--- texlive-extra-2007.orig/texmf-dist/tex/latex/g-brief/g-brief.cls	2006-05-15 21:12:36.000000000 +0200
++++ texlive-extra-2007/texmf-dist/tex/latex/g-brief/g-brief.cls	2007-06-05 14:01:31.000000000 +0200
+@@ -198,7 +198,7 @@
+ \def\Land#1{\def\land{#1}} \def\land{}
+ \def\RetourAdresse#1{\def\retouradresse{#1}} \def\retouradresse{}
+ 
+-\def\Telefon#1{\def\telefon{#1}} \def\telefon{}
++%\def\Telefon#1{\def\telefon{#1}} \def\telefon{}
+ \def\Telefax#1{\def\telefax{#1}} \def\telefax{}
+ \def\Telex#1{\def\telex{#1}} \def\telex{}
+ \def\EMail#1{\def\email{#1}} \def\email{}
+@@ -299,8 +299,8 @@
+   \parbox[t]{3.5in}{\raggedright \ignorespaces {\normalsize \ifx
+       \gruss\empty \else \gruss \mbox{} \\[16.92mm] \fi \ifx
+       \unterschrift\empty \relax \else \ifklassisch
+-      \textsl{(\unterschrift)} \else \unterschrift \fi}
+-    \fi\strut} \ifx \anlagen\empty \else \vspace{4mm} \par \anlagen
++      \textsl{(\unterschrift)} \else \unterschrift \fi
++    \fi}\strut} \ifx \anlagen\empty \else \vspace{4mm} \par \anlagen
+   \par \fi \ifx \verteiler\empty \else \ifx \anlagen\empty
+   \vspace{4mm}\par \fi \verteiler \fi }
+ 

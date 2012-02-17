@@ -1,0 +1,63 @@
+What follows are individual license statements which override later entries,
+as the later entries are generated automatically.
+
+* computational-complexity (/usr/share/texmf-texlive/tex/latex/computational-complexity/)
+
+Sujet: Re: Licensing info in computational-complexity LaTeX class (Debian
+Bug#477152)
+Date: Tue, 22 Apr 2008 15:39:47 +0200
+De: Michael Nüsken <nuesken@bit.uni-bonn.de>
+Pour: Manuel Pegourie-Gonnard <mpg@elzevir.fr>
+Références: <20080421124959.14552.11248.reportbug@josh-mobile>
+<20080421141940.GG6688@gamma.logic.tuwien.ac.at>
+<480CDD3C.9080108@freedesktop.org>
+<87zlrnhs4b.fsf@riesling.zuerich.kuesterei.ch> <480DD74A.3050904@elzevir.fr>
+
+Hi Manuel!
+
+> Down there in the Debian bug tracking system, and also in the TeX
+> Live maintenance team, we're having problems with your LaTeX
+> class for "computational complexity" articles. Indeed, the main
+> dtx file states that the whole work is under LPPL, but the
+> preamble of the derived files states "you are not allowed to
+> distribute this file".
+> 
+> This is a contradiction, since the LPPL allows to distribute the
+> generated files, and a problem, since if the generated files can
+> actually not be distributed by Debian, TeX Live or MikTeX etc, it
+> means the end users must always install the package by hand,
+> which is a pain for most of them.
+> 
+> I believe you didn't really want to prevent the distribution of
+> the generated files, so would you please consider changing the
+> license statement in order to make it unambiguous?
+True, I overlooked that.  Of course, I want the files to be
+distributed freely.  I'll change it as soon as possible.  If it
+helps for the time being: I hereby declare that the LPPL shall be
+applied for the entire cc.dtx, cc.ins and all generated parts.
+
+> For example, the recommended way of using LPPL for such a work is
+> to state that your work is under LPPL like you do in your dtx,
+> then define which files constitute the work in your dtx's
+> preamble, like, for example:
+> 
+> % This work consists of the files pig.dtx and pig.ins
+> % and the derived file pig.sty.
+> 
+> and then, in each generated file, just write something like:
+> 
+> % (C) 2008 A. U. Thor
+> % This is a generated file.
+> % See pig.dtx for license information.
+> 
+> More info can be found at http://www.latex-project.org/lppl/, and
+> I'd be happy to further discuss the subject with you if you want.
+Thanks for the hints!  That's really helpful.
+
+Kind regards,
+|\  /| Michael Nüsken, b-it computer security,
+| \/ | Room 1.22, <http://www.b-it-center.de/>,
+|  \ | ++49/228/2699-214, ++49/228/2619334,
+|   \| <http://cosec.bit.uni-bonn.de/cosec/members/nuesken.html>.
+
+=============================================

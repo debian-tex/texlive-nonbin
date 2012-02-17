@@ -1,0 +1,117 @@
+After a change, repeat a "sensible" subset of already successful
+tests. When all is supposed to be finished, repeat the whole set.
+
+For a test to pass, the following must work: 
+
+Install, test papersize settings, remove, install, test papersize
+settings, purge
+
+DEBIAN_FRONTEND must be readline; messages must be readable and make
+sense
+
+Version tl-base:       	2009-12~6	2009-12~7	2009-12~8	2009-12~13	2009-12~14
+	tl-bin	       	2009-9~3	2009-9~3	2009-9~3	2009-9~6	2009-9~6
+1			
+Build:		       	pass		pass		pass		pass		skipped
+2
+Clean Install	       	pass		pass		pass		pass		skipped
+w/o libpaper	       
+3
+Clean Install	       	skipped		pass		pass		pass		skipped
+libpaper = a4
+4
+Clean Install	        skipped		fail 4)		pass		pass		skipped
+libpaper = letter	
+5
+Clean Install									
+libpaper = Monarch
+5a) noninteractive	skipped				pass		pass		skipped
+5b) readline(1st install),dialog(reinstall)
+			skipped				pass		pass		skipped
+
+6
+Install,remove,
+change libpaper,
+install
+6a) noninteractive,letter
+			skipped				pass		pass		skipped
+6b) dialog, Monarch	skipped				pass		pass		skipped
+7
+Upgrade from sid,	pass				pass		pass		skipped
+no libpaper
+8
+Upgrade from sid,	pass				pass,no fail	pass		skipped
+("Replacing although the files differ")
+libpaper = a4
+9
+Upgrade from sid,	pass				pass		pass		skipped
+libpaper = letter
+
+10
+Upgrade from sid
+libpaper = Monarch
+10a) noninteractive	pass				pass		pass		skipped
+10b) dialog		pass				pass		pass		skipped
+
+11
+Upgrade from sid,
+libpaper = letter	fail 3)				pass		pass		skipped
+dvipspaper = letter
+
+12
+Upgrade from sid,					pass		pass		skipped
+libpaper = letter
+pdftexpaper = letter
+
+13
+Upgrade from sid,					pass 5)		pass		skipped
+libpaper = letter
+dvipdfmxpaper = letter
+
+14
+Upgrade from sid,					fail		pass		skipped
+libpaper = letter
+xdvipaper = letter
+
+15
+Upgrade from sid							fail 7)		fail 8)
+libpaper = Monarch
+dvipspaper = letter
+
+16
+Upgrade from sid,									pass 9)
+non-paper-change in config.ps
+
+17
+Upgrade from sid,									fail
+force somefile.ucf-dist,
+check correct removal upon purge
+
+
+3) config.ps change: a4 stanza has been moved downwards below letter
+4) Error 3) is not by itself reproducible. However, when installing,
+removing and installing again, each papersize change is reported.  
+
+5) (with frontend dialog:) Here a bug showed up, but that must have
+been from a bad build of texlive-bin.: 
+     Before the dialog to choose binaries is shown, an other prompt
+     tells me that dvipdfmx.cfg has been changed. However, there are
+     no non-whitespace differences
+This is no longer reproducible, however there is at least a cosmetic
+problem:  dvipdfmx as shipped with TL 2009 contains
+p  a4
+with two spaces, whereas texconfig-sys only puts one space there.
+
+6) "unrelated" problem: There is no call at all to install
+pdftexconfig.tex after removing the "resurrect" code
+
+7) Although Monarch is not possible, the fact that the settings are
+different causes the debconf question to be asked, and then Monarch is
+fed to texconfig. Moreover, it looks like there is an "env" call
+somewhere. 
+
+8) forgot to db_subst one info.  Continue checking, since this is
+unrelated to coding logic.
+
+9) maybe just cosmetics: It asks about the non-papersize change.
+Maybe declaring the sid md5sum as default fixes this?

@@ -1,0 +1,28 @@
+
+cd tl2007
+
+for i in texlive*.changes ; do 
+	echo "Calling lintian $i"
+	bn=$(echo $i | sed -e 's/_.*$//')
+	lintian $i > $bn.lintian.log
+done
+perl ../scripts/generate-lin-report.pl *.lintian.log > lintian.log
+for i in texlive*.deb tetex*.deb ; do
+	bn=$(echo $i | sed -e 's/_.*$//')
+	if [ -r ../old/${bn}_*.deb ] ; then
+		echo "Calling debdiff for $i"
+		debdiff ../old/${bn}_*.deb $i > $bn.debdiff
+	else
+		echo $bn >> new-packages.txt
+	fi
+done
+for i in *.debdiff ; do
+	python ../scripts/tex-filter-debdiff.py <$i >$i.filtered
+done
+
+cd ..
+bash scripts/build-infra -p . -nosign tl2007
+
+make testbed
+mv tests/*.log tl2007/
+

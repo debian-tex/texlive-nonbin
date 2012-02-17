@@ -1,0 +1,141 @@
+# common.functions.preinst start
+# $Id$
+
+dpkg_md5sum()
+{
+    conffile="$1"
+    package="$2"
+    md5sum=$(dpkg-query -W -f='${Conffiles}' "$package" \
+            | grep -F " $conffile " | cut -d ' ' -f 3)
+    if [ -z "$md5sum" ]; then
+        echo "$conffile: md5sum not known." >&2
+        echo "It seems that this file is not handled by dpkg conffiles." >&2
+        # don't exit but return empty md5sum
+        md5sum=""
+        # exit 1
+    fi
+    echo $md5sum
+}
+
+check_move ()
+{
+    dodelete="$1"
+    orig="$2"
+    local package
+    package="$3"
+    new="$4"
+    version="$5"
+    if [ -r "$orig" ] ; then
+      mdorig=$(dpkg_md5sum "$orig" "$package")
+      if [ $(md5sum "$orig" | cut -f 1 -d ' ') = "$mdorig" ] ; then
+        rm "$orig"
+      else
+        mkdir -p $(dirname "$new")
+        mv "$orig" "$new".preinst-copy
+      fi
+    else
+      if [ -n "$version" ]; then
+	# there is a previous version, we are actually upgrading 
+        # (or reinstalling)
+        # in case we handle a foreign conffile (different package) $dodelete
+        # can be set to 0 (or != 1) in which case the .preinst-deleted file
+        # will not be created.
+        if [ "$dodelete" = 1 ] ; then
+          mkdir -p $(dirname "$new")
+          touch $new.preinst-deleted
+        fi
+      fi
+    fi
+}
+
+#
+# handle_config_file_preinst/postinst/prerm/postrm
+# handle those config files which are left over from old texlive and
+# tetex installations
+handle_config_file_preinst ()
+{
+    cfgfile="$1"
+    action="$2"
+    version="$3"
+    upgrade_needed=false
+    case "$action" in
+      install|upgrade)
+	if [ -n "$version" ] && dpkg --compare-versions "$version" ge 2007; then
+	  return 0
+	fi
+	;;
+      *)
+	return 0
+	;;
+    esac
+    
+    conf_relpath=${cfgfile#/etc/texmf/}
+    conf_oldpath="/etc/texmf/texlive/$conf_relpath"
+    # default package is texlive-base-bin
+    package=texlive-base-bin
+    case "$cfgfile" in 
+        /etc/texmf/dvips/config/*)
+            # special case for dvips config
+            conf_oldpath="/etc/texmf/texlive/dvips/${conf_oldpath#/etc/texmf/texlive/dvips/config/}"
+            ;;
+        # files which were only present in tetex
+        /etc/texmf/texdoctk/texdoctk.dat)
+            package=tetex-base
+            conf_oldpath="/etc/texdoctk/texdoctk.dat"
+            ;;
+        # symlink target had a different name
+        /etc/texmf/dvipdfm/config/config)
+            conf_oldpath="/etc/texmf/texlive/dvipdfm.cfg"
+            ;;
+        # for xdvi.cfg we first want to move tetex files, and later texlives
+        /etc/texmf/xdvi/xdvi.cfg)
+            # tetex version
+            # it could either be deleted, or tetex was never installed.
+            # We do not want to create .preinst-deleted, so we call
+            # check_move with first argument 0 which means that the
+            # preinst-deleted file will not be created
+            check_move 0 /etc/texmf/xdvi.cfg tetex-bin /etc/texmf/xdvi/xdvi.cfg $version
+            # now set the conf_oldpath to the texlive version
+            conf_oldpath="/etc/texmf/texlive/xdvi.cfg"
+            ;;   
+    esac
+    check_move 1 $conf_oldpath $package $cfgfile $version
+}
+
+resurrect_conffile_sid(){
+  cfgfile="$1"
+  package="$2"
+  action="$3"
+  version="$4"
+  template_source="/usr/share/$package"
+  basefile=$(basename $cfgfile)
+  dirname=$(dirname $cfgfile)
+
+  # continue only in the following cases:
+  # - we are upgrading
+  # - at least from version 2007 (not etch=2005)
+  case "$action" in
+    upgrade)
+      if [ -n "$version" ] && dpkg --compare-versions "$version" ge 2007; then
+        : do nothing
+      else
+        return 0
+      fi
+    ;;
+    *)
+      return 0
+    ;;
+  esac
+
+  if ! [ -f "$cfgfile" ]; then
+    mkdir -p $dirname
+    echo "Reinstalling deleted mandatory conffile $basefile" >&2
+    cp $template_source/$basefile $cfgfile
+  fi
+}
+
+# common.functions.preinst end
+# Local Variables:
+# mode: shell-script
+# End:
+# vim:set expandtab: #

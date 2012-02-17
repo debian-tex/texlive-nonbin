@@ -1,0 +1,41 @@
+Improve the comments in language.dat about english/language0 from DEK
+(DEK on tex-k)
+---
+ texmf/tex/generic/config/language.dat |    6 +++---
+ texmf/tex/generic/config/language.us  |    6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+Index: texlive-base-2007/texmf/tex/generic/config/language.dat
+===================================================================
+--- texlive-base-2007.orig/texmf/tex/generic/config/language.dat	2007-11-28 09:58:12.000000000 +0100
++++ texlive-base-2007/texmf/tex/generic/config/language.dat	2007-11-28 09:59:19.000000000 +0100
+@@ -20,9 +20,9 @@
+ % *PLEASE*, keep english as the default (first) here, and let it refer
+ % to hyphen.tex (not, e.g., ushyph.tex), and do not change the
+ % hyphen.tex file, or name some other file hyphen.tex.  hyphen.tex must
+-% remain the original file from Knuth, and it must be \language0.
+-% Otherwise DEK will not be happy when he retypesets the Art of Computer
+-% Programming and gets new hyphenation.
++% remain the original file from Knuth, and it must be \language0.  This
++% is one important aspect of ensuring that the original, frozen TeX
++% always produces the same line and page breaks.
+ % 
+ % The babel system allows you to easily change the active language for
+ % LaTeX. For more information, see the documentation in
+Index: texlive-base-2007/texmf/tex/generic/config/language.us
+===================================================================
+--- texlive-base-2007.orig/texmf/tex/generic/config/language.us	2007-11-28 09:58:12.000000000 +0100
++++ texlive-base-2007/texmf/tex/generic/config/language.us	2007-11-28 09:58:48.000000000 +0100
+@@ -20,9 +20,9 @@
+ % *PLEASE*, keep english as the default (first) here, and let it refer
+ % to hyphen.tex (not, e.g., ushyph.tex), and do not change the
+ % hyphen.tex file, or name some other file hyphen.tex.  hyphen.tex must
+-% remain the original file from Knuth, and it must be \language0.
+-% Otherwise DEK will not be happy when he retypesets the Art of Computer
+-% Programming and gets new hyphenation.
++% remain the original file from Knuth, and it must be \language0.  This
++% is one important aspect of ensuring that the original, frozen TeX
++% always produces the same line and page breaks.
+ % 
+ % The babel system allows you to easily change the active language for
+ % LaTeX. For more information, see the documentation in

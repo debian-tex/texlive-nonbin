@@ -1,0 +1,42 @@
+.TH PKFIX "1" "May 2006" "PKFIX 1.3, 2005/02/25" "User Commands"
+.SH NAME
+pkfix \- replace pk fonts in postscript files with type1 versions
+.SH SYNOPSIS
+pkfix [options] <inputfile.ps> <outputfile.ps>
+.SH DESCRIPTION
+This program tries to replace pk fonts in <inputfile.ps>
+by the type 1 versions. The result is written in <outputfile.ps>.
+.PP
+Options: (defaults in parenthesis)
+.TP
+\fB\-\-help\fR
+print usage
+.TP
+\fB\-\-\fR(no)quiet
+suppress messages                            (false)
+.TP
+\fB\-\-\fR(no)verbose
+verbose printing                             (false)
+.TP
+\fB\-\-\fR(no)debug
+debug informations                           (false)
+.TP
+\fB\-\-\fR(no)clean
+clear temp files                             (true)
+.TP
+\fB\-\-\fR(no)usetex
+use TeX for generating the DVI file          (false)
+.TP
+\fB\-\-tex\fR texcmd
+tex command name (plain format)              (tex)
+.TP
+\fB\-\-dvips\fR dvipscmd
+dvips command name                           (dvips)
+.TP
+\fB\-\-options\fR opt
+dvips options                                (\fB\-Ppdf\fR \fB\-G0\fR)
+.SH AUTHORS
+.B pkfix
+has been written by Heiko Oberdiek.  This manual page has been written
+by Norbert Preining for the Debian/GNU Linux distribution and may be
+freely used, modified and/or distributed by anyone.

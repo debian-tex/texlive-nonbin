@@ -1,0 +1,75 @@
+---
+ texmf-dist/tex/xelatex/xetex-def/xetex.def |   37 +++++++++++++++++++++++++----
+ 1 file changed, 33 insertions(+), 4 deletions(-)
+
+Index: texlive-base-2009/texmf-dist/tex/xelatex/xetex-def/xetex.def
+===================================================================
+--- texlive-base-2009.orig/texmf-dist/tex/xelatex/xetex-def/xetex.def	2010-01-05 11:32:50.000000000 +0900
++++ texlive-base-2009/texmf-dist/tex/xelatex/xetex-def/xetex.def	2010-01-05 11:32:55.000000000 +0900
+@@ -2,7 +2,7 @@
+ %% This is file `xetex.def',
+ %% based upon other drivers for LaTeX color and graphics support.
+ %%
+-%%  Copyright 2004, 2005, 2006, 2009  Ross Moore <ross@maths.mq.edu.au>
++%%  Copyright 2004, 2005, 2006, 2007, 2009  Ross Moore <ross@maths.mq.edu.au>
+ %%                        modified by Jonathan Kew <jonathan_kew@sil.org>
+ %%
+ %% This file is *not yet* part of the Standard LaTeX `Graphics Bundle'.
+@@ -13,8 +13,13 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%  Version History
+ %%
++%%  2009/11/21  [KB] Version v0.94  merge the two 0.93's.
++%%
+ %%  2009/10/28  [RRM] Version v0.93  fix big-point incompatibility;
+ %%
++%%  2007/10/25  [JK] Version v0.93  added EPS support from dvipdfmx.def
++%%              (for use with xdvipdfmx, default driver in xetex 0.997)
++%%
+ %%  2006/08/10  [JK] Version v0.92  correct type-check in \G@measure@QTm;
+ %%              remove \G@PDF@ext, apply \lowercase instead;
+ %%              make \XeTeXquote have catcode 12 rather than 11;
+@@ -58,7 +63,7 @@
+ %%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \ProvidesFile{xetex.def}
+-        [2009/10/28 v0.93 LaTeX color/graphics driver for XeTeX (RRM, mod. JK)]
++        [2009/11/22 v0.94 LaTeX color/graphics driver for XeTeX (RRM/JK)]
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ % make sure we can use " with correct catcode
+@@ -422,8 +427,32 @@
+ % ... though this default rule will try QuickTime anyway ...
+ \@namedef{Gin@rule@*}#1{{QTm}{QTm}{#1}}
+ 
+-% ... and add it's extension here
+-\def\Gin@extensions{.pdf,.png,.jpg,.bmp,.pict,.tif,.psd,.mac,.sga,.tga,.gif}
++% ... and add its extension here
++\def\Gin@extensions{.pdf,.eps,.ps,%
++                    .png,.jpg,.bmp,.pict,.tif,.psd,.mac,.sga,.tga,.gif}
++
++% xdvipdfmx is now the default driver, and can support EPS images,
++% so we borrow code for this from dvipdfmx.def (and add the extensions above)
++\def\Ginclude@eps#1{%
++ \message{<#1>}%
++  \bgroup
++  \def\@tempa{!}%
++  \dimen@\Gin@req@width
++  \dimen@ii.1bp%
++  \divide\dimen@\dimen@ii
++  \@tempdima\Gin@req@height
++  \divide\@tempdima\dimen@ii
++    \special{PSfile="#1"\space
++      llx=\Gin@llx\space
++      lly=\Gin@lly\space
++      urx=\Gin@urx\space
++      ury=\Gin@ury\space
++      \ifx\Gin@scalex\@tempa\else rwi=\number\dimen@\space\fi
++      \ifx\Gin@scaley\@tempa\else rhi=\number\@tempdima\space\fi
++      \ifGin@clip clip\fi}%
++  \egroup}
++\@namedef{Gin@rule@.ps}#1{{eps}{.ps}{#1}}
++\@namedef{Gin@rule@.eps}#1{{eps}{.eps}{#1}}
+ 
+ %
+ % Rotation & Scaling

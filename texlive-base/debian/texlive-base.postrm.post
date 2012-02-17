@@ -1,0 +1,40 @@
+# texlive-base.postrm.post 
+# written 2010 by Frank Küster frank@debian.org. this code is probably
+# not copyrightable.  If it is, it may be freely used, distributed
+# and/or modified.
+
+purge_file () {
+  local conffile
+  conffile="$1"
+  for ext in $PURGE_EXTENSIONS; do
+    rm -f "${conffile}.${ext}"
+  done
+  rm -f "${conffile}"
+}
+purge_ucf_file () {
+  local conffile
+  conffile="$1"
+  purge_file $conffile
+  if [ -x /usr/bin/ucf ]; then
+    ucf --purge "${conffile}"
+  fi
+  if [ -x /usr/bin/ucfr ]; then
+    ucfr --purge tex-common "${conffile}"
+  fi
+}
+
+PURGE_EXTENSIONS="ucf-dist ucf-new"
+
+UCF_FILES="\
+    dvips/config/config.ps \
+    tex/generic/config/pdftexconfig.tex \
+    dvipdfmx/dvipdfmx.cfg \
+    xdvi/XDvi"
+
+case $1 in
+  purge)
+    for file in $UCF_FILES; do
+      purge_ucf_file /etc/texmf/$file
+    done
+    ;;
+esac

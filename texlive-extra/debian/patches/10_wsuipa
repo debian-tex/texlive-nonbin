@@ -1,0 +1,70 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 10_wsuipa.dpatch by  <preining@logic.at>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix shell script containing explanations outside any comment char
+
+@DPATCH@
+ texmf-dist/fonts/source/public/wsuipa/compilefonts |   52 ++++++++++-----------
+ 1 files changed, 26 insertions(+), 26 deletions(-)
+
+Index: texlive-extra-2007.dfsg.1/texmf-dist/fonts/source/public/wsuipa/compilefonts
+===================================================================
+--- texlive-extra-2007.dfsg.1.orig/texmf-dist/fonts/source/public/wsuipa/compilefonts	2006-07-12 15:37:10.000000000 +0200
++++ texlive-extra-2007.dfsg.1/texmf-dist/fonts/source/public/wsuipa/compilefonts	2007-01-22 18:49:26.000000000 +0100
+@@ -28,29 +28,29 @@
+     done
+ done
+ 
+-------------------------------------8<------------------------------------
+-The 300pk fonts in this directory should be sufficient for use with most
+-standard 300dpi laserprinters.  If you use a recent version of dvips, it
+-will call metafont on the fly to generate the fonts it needs as long as
+-it can find the .mf files.  If you use xdvi or maxview as your
+-previewer, the 300pk fonts should be sufficient.  For other previewers,
+-however, you will probably have to generate your own screen fonts.  The
+-easiest way to use metafont to do this is with the script, compilefonts,
+-based on a script, CompileFonts, by James Clark, the author of groff.
+-However, it is essential that the mode chosen be one which is in
+-/usr/local/lib/tex/mf/inputs/modes.mf (or wherever on one's installation
+-this file is kept).  E.g. for 120dpi fonts for dvipage under Sunview,
+-choose mode=OneTwoZero.  For 110dpi fonts for dvivga under Xenix, use
+-mode=IBMVGA and dpi=110.  If one is using dvivga under MS-DOS, it will
+-be necessary to rename the fonts because of filename limitations under
+-MS-DOS.  Use the directory structure and filenames in your dvivga
+-installation as a model.
+-
+-Let me repeat again that the modes MUST be defined in modes.mf.  If
+-you need the above modes and they are not present, ask your system
+-administrator to obtain a more up-to-date modes.mf file.  (One should
+-always be available at a nearby CTAN archive site.)
+-
+-It is recommended that compilefonts be invoked in the background as
+-the process can be lengthy (15 minutes on a Sun IPC).  To do this,
+-type "compilefonts &" at your Unix shell prompt.
++# ------------------------------------8<------------------------------------
++# The 300pk fonts in this directory should be sufficient for use with most
++# standard 300dpi laserprinters.  If you use a recent version of dvips, it
++# will call metafont on the fly to generate the fonts it needs as long as
++# it can find the .mf files.  If you use xdvi or maxview as your
++# previewer, the 300pk fonts should be sufficient.  For other previewers,
++# however, you will probably have to generate your own screen fonts.  The
++# easiest way to use metafont to do this is with the script, compilefonts,
++# based on a script, CompileFonts, by James Clark, the author of groff.
++# However, it is essential that the mode chosen be one which is in
++# /usr/local/lib/tex/mf/inputs/modes.mf (or wherever on one's installation
++# this file is kept).  E.g. for 120dpi fonts for dvipage under Sunview,
++# choose mode=OneTwoZero.  For 110dpi fonts for dvivga under Xenix, use
++# mode=IBMVGA and dpi=110.  If one is using dvivga under MS-DOS, it will
++# be necessary to rename the fonts because of filename limitations under
++# MS-DOS.  Use the directory structure and filenames in your dvivga
++# installation as a model.
++# 
++# Let me repeat again that the modes MUST be defined in modes.mf.  If
++# you need the above modes and they are not present, ask your system
++# administrator to obtain a more up-to-date modes.mf file.  (One should
++# always be available at a nearby CTAN archive site.)
++# 
++# It is recommended that compilefonts be invoked in the background as
++# the process can be lengthy (15 minutes on a Sun IPC).  To do this,
++# type "compilefonts &" at your Unix shell prompt.

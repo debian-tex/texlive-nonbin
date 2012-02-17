@@ -1,0 +1,17 @@
+# texlive-latex-base postinst.pre begin
+
+## 20110524, FK: remove the following code completely if we are sure
+# Cleanup after Bug #420390 for sid users
+# This is already done in the preinst, but only for upgrades. We redo it 
+# in the postinst, too in case that we are dealing with a install from
+# rc or purged state.
+case  "$1" in
+  configure)
+    resurrect_conffile_sid /etc/texmf/tex/latex/config/color.cfg texlive-base
+    resurrect_conffile_sid /etc/texmf/tex/latex/config/graphics.cfg texlive-base
+    ;;
+  *)
+    ;;
+esac
+
+# texlive-latex-base postinst.pre end

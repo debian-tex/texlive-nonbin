@@ -1,0 +1,18 @@
+
+README.source
+
+Packaging TeX Live for Debian is a huge task. Development is done in
+a very specific layout and source packages are generated from that.
+
+If you want to know how the *orig.tar.gz* and the *source* packages are 
+generated, please check out the Debian TeX Live packaging infrastructure at
+	http://svn.debian.org/wsvn/debian-tex/texlive2009/trunk/
+where you will find a README file explaining everything in detail. Or get it
+at
+	http://svn.debian.org/wsvn/debian-tex/texlive2009/trunk/README
+
+The source packages itself use a mixture of quilt and .diff.gz for the 
+modifications of the upstream source. If you want to change something it is
+best to use the quilt approach as documented in 
+	/usr/share/doc/quilt/README.source
+

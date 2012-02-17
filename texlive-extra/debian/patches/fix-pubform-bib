@@ -1,0 +1,17 @@
+---
+ texmf-dist/bibtex/bib/acmconf/pubform.bib |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: texlive-extra-2007/texmf-dist/bibtex/bib/acmconf/pubform.bib
+===================================================================
+--- texlive-extra-2007.orig/texmf-dist/bibtex/bib/acmconf/pubform.bib	2007-09-04 18:23:36.000000000 +0200
++++ texlive-extra-2007/texmf-dist/bibtex/bib/acmconf/pubform.bib	2007-09-04 18:24:13.000000000 +0200
+@@ -36,7 +36,7 @@
+ %%   Minus         \-     Point         \.     Solidus       \/
+ %%   Colon         \:     Semicolon     \;     Less than     \<
+ %%   Equals        \=     Greater than  \>     Question mark \?
+-%%   Commercial at \@     Left bracket  \[     Backslash     \\
++%%   Commercial at ..     Left bracket  \[     Backslash     \\
+ %%   Right bracket \]     Circumflex    \^     Underscore    \_
+ %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+ %%   Right brace   \}     Tilde         \~}

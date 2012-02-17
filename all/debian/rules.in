@@ -1,0 +1,117 @@
+<: :>//
+#!/usr/bin/make -f
+# 
+# debian/rules file for <:=$srcpackage:>
+# $Id$
+
+include /usr/share/quilt/quilt.make
+
+PACKAGES=<:=$binpackages:>
+METAPACKAGES=<:=$metapackages:>
+
+SHELL=/bin/bash
+
+
+build: build-stamp
+
+build-stamp: $(QUILT_STAMPFN)
+	touch build-stamp
+
+clean: unpatch
+	for i in $(PACKAGES) $(METAPACKAGES) ; do \
+	  rm -f debian/$$i.{README.Debian,links,links.generated} ; \
+	  rm -f debian/$$i.{postinst,postrm,preinst,prerm} ; \
+	  rm -f debian/$$i.{maps,languages,formats} ; \
+	done
+<: if ($srcpackage eq "texlive-base") { _:>//
+	rm -f debian/texlive-base.cnf
+<: } :>//
+	# texlive contains some .orig files we need to keep otherwise
+	# the copy will fail due to the files occurring in the tlpdb
+<: if ($srcpackage eq "texlive-lang") { _:>//
+	# we have to keep texlive-lang/texmf-dist/fonts/source/cmcyr/coding.bak
+	dh_clean -Xcoding.bak -X.orig
+<: } else { _:>//
+	dh_clean -X.orig
+<: } :>//
+	rm -f configure-stamp
+	rm -f build-stamp
+	rm -f install-stamp
+
+install: install-stamp
+
+install-stamp: build-stamp
+	# make sure we have texmf/web2c otherwise the media detection
+	# might break (like in texlive-lang)
+	mkdir -p texmf/web2c
+	perl debian/tpm2deb-bin.pl --nosource $(PACKAGES) $(METAPACKAGES)
+	bash debian/fix-bin-dangling-links.sh
+	for i in $(PACKAGES) $(METAPACKAGES) ; do \
+	  if [ -d debian/$$i.root ] ; then bash debian/merge-dist-tree debian/$$i.root debian/$$i ; fi ; \
+	  bash debian/generate-license-file $$i ; \
+	  install -D --mode=644 debian/$$i.override debian/$$i/usr/share/lintian/overrides/$$i ; \
+	  install -D --mode=755 debian/bug.script debian/$$i/usr/share/bug/$$i/script ; \
+	  install -D --mode=644 debian/bug.control debian/$$i/usr/share/bug/$$i/control ; \
+	  bash debian/create-doc-links $$i texlive-doc > debian/$$i.links ; \
+	  if [ -r debian/$$i.links.dist ] ; then cat debian/$$i.links.dist >> debian/$$i.links ; fi ; \
+	  if [ -r debian/$$i.README ] ; then cat debian/$$i.README > debian/$$i.README.Debian ; fi ; \
+	  cat debian/README.Debian >> debian/$$i.README.Debian ; \
+	done
+	touch install-stamp
+
+binary-arch:
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_install
+	dh_installdirs
+	dh_installmenu
+	dh_installdocs -A debian/README.source
+<: if ($srcpackage eq "texlive-base") { _:>//
+	dh_installdocs -p texlive-common README readme-txt.dir readme-html.dir debian/CHANGES.packaging
+	dh_installtex -Ntexlive-base -A --priority=10	\
+		$(patsubst %,-N%,$(METAPACKAGES))	\
+		--flavor=lsr:full
+	dh_installtex -ptexlive-base --priority=10	\
+		--flavor=format:build_all		\
+		--flavor=lsr:full			\
+		hyphenfile=debian/texlive-base.cnf=09
+	# /usr/bin/mf has been created by dh_installtex as symlink to mf-nowin
+	# but is also shipped by texlive-base-bin, remove it.
+	rm debian/texlive-base/usr/bin/mf
+	# furthermore we want to have etex and pdfetex as links in 
+	# texlive-base-bin and not in texlive-base, remove them here
+	# and add them via dh_link in texlive-base-binaries
+	rm debian/texlive-base/usr/bin/etex 
+	rm debian/texlive-base/usr/bin/pdfetex
+	# for the libpaper hook, install templates and
+	# translations. No need to modify postrm. I hope it accepts
+	# the missing config script
+	dh_installdebconf -n
+	cp debian/texlive-base.libpaper debian/texlive-base/etc/libpaper.d/texlive-base
+	chmod a+x debian/texlive-base/etc/libpaper.d/texlive-base
+	cp debian/md5sums/* debian/texlive-base/usr/share/texlive-base/
+<: } else { _:>//
+	dh_installtex -A --priority=10 --flavor=lsr:full
+<: } :>//
+	dh_installchangelogs
+	bash debian/convert-info-files-to-unix.sh
+	bash debian/fix-manpages.sh
+	dh_installinfo
+	dh_installmime
+	dh_link
+	dh_compress -X.pdf
+	dh_fixperms
+	# we also have to fix the permissions of the link targets from /usr/bin
+	bash debian/fix-bin-symlink-targets-permissions.sh
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+
+.PHONY: build clean binary-indep binary-arch binary install
+
+# eof

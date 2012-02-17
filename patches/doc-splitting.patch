@@ -1,0 +1,97 @@
+Index: all/debian/tpm2debcommon.pm
+===================================================================
+--- all/debian/tpm2debcommon.pm	(revision 3046)
++++ all/debian/tpm2debcommon.pm	(working copy)
+@@ -246,6 +246,35 @@
+ 			}
+ 		}
+ 	}
++	# we do the doc splitting now
++	foreach my $coll (keys %{$TpmData{'TLCore'}}) {
++		if (is_blacklisted($coll,"")) { next; }
++		my ($bin_pkg) = tpm2debname("TLCore/$coll");
++		if (defined($Config{'docsplitting'}{$bin_pkg})) {
++			# first creat new bin package and add doc files
++			$TeXLive{'binary'}{"$bin_pkg-doc"}{'section'} = "Documentation" ; # ?????????????? RIGHT?
++			$TeXLive{'binary'}{"$bin_pkg-doc"}{'type'}        = 'TLCore';
++			$TeXLive{'binary'}{"$bin_pkg-doc"}{'realtype'}    = 'TLCore';
++			$TeXLive{'binary'}{"$bin_pkg-doc"}{'docfiles'}    = $TeXLive{'binary'}{$bin_pkg}{'docfiles'};
++			$TeXLive{'binary'}{$bin_pkg}{'docfiles'} = undef;
++			$TeXLive{'binary'}{"$bin_pkg-doc"}{'license'}     = $TpmData{'TLCore'}{$coll}{'License'};
++			$TeXLive{'binary'}{"$bin_pkg-doc"}{'title'} = "Documentation files for $bin_pkg";
++			# what else do we have to set here ????
++			# add a recommends
++			$TeXLive{'binary'}{$bin_pkg}{'recommends'} = [ @{$TeXLive{'binary'}{$bin_pkg}{'recommends'}}, "$bin_pkg-doc" ];
++			# add source mapping
++			my $srcpkg = $TeXLive{'binary'}{$bin_pkg}{'source_package'};
++			$TeXLive{'source'}{$srcpkg}{'binary_packages'} = [ @{$TeXLive{'source'}{$srcpkg}{'binary_packages'}}, "$bin_pkg-doc" ];
++			#
++			# now we have to move all the DocFiles of all INCLUDED
++			# package/tpms into $bin_pkg and remove them from the original
++			# packages
++			foreach my $incpkg (@{$TeXLive{'binary'}{$bin_pkg}{'includedpackages'}}) {
++				$TeXLive{'binary'}{"$bin_pkg-doc"}{'docfiles'}    = [ @{$TeXLive{'binary'}{"$bin_pkg-doc"}{'docfiles'}}, @{$TeXLive{'binary'}{$incpkg}{'docfiles'}} ];
++				$TeXLive{'binary'}{$incpkg}{'docfiles'} = undef;
++			}
++		}
++	}
+ 	#
+ 	# Now for the source part
+ 	#
+@@ -656,6 +685,11 @@
+ 			$Config{'title'}{$a} = "$b";
+ 			next;
+ 		}
++		if ($type eq "docsplitting") {
++			$opt_debug && print STDERR  "\n";
++			$Config{'docsplitting'}{$a} = 1;
++			next;
++		}
+ 		if ($type eq "build-dep") {
+ 			my ($b) = @rest;
+ 			$opt_debug && print STDERR  "b=$b.\n";
+Index: all/debian/tpm2deb.cfg
+===================================================================
+--- all/debian/tpm2deb.cfg	(revision 3046)
++++ all/debian/tpm2deb.cfg	(working copy)
+@@ -781,6 +781,25 @@
+ # aleph: Is both the (obsolete) name of a programming language, and of
+ # an omega variant 
+ conflicts;texlive-omega;aleph
++#
++# docsplitting
++# texlive-base source package
++docsplitting;texlive-latex-base
++replaces;texlive-latex-base-doc;texlive-latex-base (<= 2007-11)
++docsplitting;texlive-latex-recommended
++replaces;texlive-latex-recommended-doc;texlive-latex-recommended (<= 2007-11)
++docsplitting;texlive-fonts-recommended
++replaces;texlive-fonts-recommended-doc;texlive-fonts-recommended (<= 2007-11)
++# texlive-extra
++docsplitting;texlive-latex-extra
++replaces;texlive-latex-extra-doc;texlive-latex-extra (<= 2007-3)
++docsplitting;texlive-pstricks
++replaces;texlive-pstricks-doc;texlive-pstricks (<= 2007-3)
++docsplitting;texlive-publishers
++replaces;texlive-publishers-doc;texlive-publishers (<= 2007-3)
++docsplitting;texlive-humanities
++replaces;texlive-humanities-doc;texlive-humanities (<= 2007-3)
++# other candidates: ...
+ #  
+ # NON-FREE STUFF
+ #
+Index: all/debian/CHANGES.packaging
+===================================================================
+--- all/debian/CHANGES.packaging	(revision 3047)
++++ all/debian/CHANGES.packaging	(working copy)
+@@ -4,6 +4,10 @@
+ # $Id$
+ #
+ 
++2007-08-20
++  * implement doc splitting, so that we can build separate -doc packages
++    for every collection we want to [np]
++
+ 2007-08-16
+   * fix FTBFS on hurd-i386, adding patch icu-powerpc-buildfix-patch from
+     Samuel Thibault (Closes: #437949) [np]

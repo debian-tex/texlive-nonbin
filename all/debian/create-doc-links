@@ -1,0 +1,21 @@
+#
+# create-doc-links
+#
+# (c) 2006 Norbert Preining
+# $Id$
+# create links from every file under /usr/share/doc/$1/ to
+# /usr/share/doc/$2/
+#
+
+pref="./debian/$1"
+src="usr/share/doc/$1"
+dst="usr/share/doc/$2"
+
+mkdir -p "$dst"
+
+for f in $(cd "$pref/$src"; find . -mindepth 2 -type f) ; do
+  g=$(echo $f | cut -b 3-)
+  echo "$src/$g" "$dst/$g"
+done
+
+

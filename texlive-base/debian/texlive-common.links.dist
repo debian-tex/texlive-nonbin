@@ -1,0 +1,7 @@
+usr/share/doc/texlive-doc usr/share/texmf-texlive/doc
+var/lib/texmf/ls-R-TEXLIVE usr/share/texmf-texlive/ls-R
+usr/share/doc/texlive-common/readme-txt.dir usr/share/doc/texlive-doc/readme-txt.dir
+usr/share/doc/texlive-common/readme-html.dir usr/share/doc/texlive-doc/readme-html.dir
+usr/share/doc/texlive-common/README.Debian usr/share/doc/texlive-doc/README.Debian
+usr/share/doc/texlive-common/README.source usr/share/doc/texlive-doc/README.source
+usr/share/doc/texlive-common/CHANGES.packaging usr/share/doc/texlive-doc/CHANGES.packaging

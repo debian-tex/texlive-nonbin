@@ -1,0 +1,33 @@
+Description: Remove bashism
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=581138
+Forwarded: Jobst Hoffmann <j.hoffmann@fh-aachen.de>
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+--- a/texmf-dist/scripts/listings-ext/listings-ext.sh
++++ b/texmf-dist/scripts/listings-ext/listings-ext.sh
+@@ -49,7 +49,7 @@
+ 
+ show_usage() # display help massage
+ {
+-      echo -e ${USAGE}
++      printf "${USAGE}"
+       exit ${ERR_HELP}
+ }
+ print_header()
+@@ -347,7 +347,7 @@
+ then
+     if [ -f "${OUTFILE}" ]
+     then
+-        echo -e "%--> file \"${OUTFILE}\" already exists, creating backup"
++        echo "%--> file \"${OUTFILE}\" already exists, creating backup"
+         mv ${OUTFILE} ${OUTFILE}~
+     fi
+     exec > ${OUTFILE}           # redirect stdout to ${OUTFILE}
+@@ -357,7 +357,7 @@
+ 
+ # now take all remaining arguments (should be all filenames) and do the job
+ for arg do
+-    echo -e "%-->" processing file \"$arg\" 1>&2  # echo the current
++    echo "%-->" processing file \"$arg\" 1>&2  # echo the current
+                                                   # filename to stderr
+     do_the_job $arg
+ done

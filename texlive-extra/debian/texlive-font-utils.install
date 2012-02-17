@@ -1,0 +1,8 @@
+texmf/doc/man/man1/afm2afm.1       usr/share/man/man1
+texmf/doc/man/man1/autoinst.1      usr/share/man/man1
+texmf/doc/man/man1/cmap2enc.1      usr/share/man/man1
+texmf/doc/man/man1/epstopdf.1      usr/share/man/man1
+texmf/doc/man/man1/font2afm.1      usr/share/man/man1
+texmf/doc/man/man1/ot2kpx.1        usr/share/man/man1
+texmf/doc/man/man1/pfm2kpx.1       usr/share/man/man1
+texmf/doc/man/man1/showglyphs.1    usr/share/man/man1

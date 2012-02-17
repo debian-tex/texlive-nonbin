@@ -1,0 +1,308 @@
+tpm2deb-bin:
+------------
+make_deb
+	toplevel
+
+make_maintainer
+	make_deb
+		toplevel
+do_remap_and_copy
+	make_deb
+		toplevel
+
+
+$sysdebdest
+$sysbasedir
+$sysbindest
+$sysrundest
+$sysdocdest
+$sysetcdest
+        make_deb
+                toplevel
+$texmfdist
+        do_remap_and_copy
+                make_deb
+                        toplevel
+$optdestination
+        make_deb
+                toplevel
+$opt_nosource
+        make_deb
+
+
+
+tpm2deb-source:
+---------------
+make_orig_tar
+	toplevel
+make_deb_source
+	toplevel
+
+read_changelog
+	make_deb_source
+		toplevel
+	before make_orig_tar
+		toplevel
+create_override_file
+	make_deb_source
+		toplevel
+make_deb_control
+	make_deb_source
+		toplevel
+get_arch
+	make_deb_source
+		toplevel
+	via global var make_orig_tar
+		toplevel
+
+$changelog
+$changelogversion
+$changelogextraversion
+$changelogrevision
+$changelogdistribution
+$allowed_dists
+        read_changelog
+                make_deb_source
+                        toplevel
+                before make_orig_tar
+                        toplevel
+$opt_nosrcpkg
+        make_deb_source
+                toplevel
+$opt_noremove
+        make_deb_source
+                toplevel
+$oldsrcdir
+        make_deb_source
+                toplevel
+
+
+
+tpm2deb-util:
+-------------
+store_tpm
+	toplevel
+file_and_tpm
+	toplevel
+dump_tpm_data
+	toplevel
+dump_texlive_data
+	toplevel
+list_doc_dirs
+	toplevel
+get_internal_deps
+	toplevel
+
+
+tpm2deb-common:
+---------------
+build_data_hash
+	initfunction
+load_collection_tpm_data
+	initfunction
+check_consistency
+	initfunction
+initialize_config_file_data
+	initfunction
+is_blacklisted
+	make_deb_control
+		make_deb_source
+			toplevel
+	build_data_hash
+		initfunction
+get_all_files
+	copy_collection_files
+		make_orig_tar
+			toplevel
+	list_doc_dirs
+		toplevel
+	toplevel
+	make_deb_control
+		make_deb_source
+			toplevel
+	make_deb
+		toplevel
+get_all_executes
+	make_deb
+		toplevel
+	make_maintainer
+		make_deb
+			toplevel
+	dump_texlive_data
+		toplevel
+myopen
+	ovunque
+mycopy
+	do_remap_and_copy
+		make_deb
+			toplevel
+	copy_collection_files
+		make_orig_tar
+			toplevel
+	make_deb_source
+		toplevel
+ismember
+	makemaintainer
+		make_deb
+			toplevel
+	check_consistency
+		initfunction
+
+
+@FileMappings
+%FileMapActions
+	initialize_config_file_data
+		initfunction
+	do_remap_and_copy
+		make_deb
+			toplevel
+%PackageBlackList
+	initialize_config_file_data
+		initfunction
+	is_blacklisted
+		make_deb_control
+			make_deb_source
+				toplevel
+		build_data_hash
+			initfunction
+@FileBlackList
+	make_orig_tar
+		toplevel
+	make_deb
+		toplevel
+	initialize_config_file_data
+		initfunction
+%Depends
+%Conflicts
+%Suggests
+%Recommends
+%Provides
+%Replaces
+%AddExecute
+%MovedTo
+	build_data_hash
+		initfunction
+	initialize_config_file_data
+		initfunction
+%SourcePackageMapping
+	initialize_config_file_data
+		initfunction
+	get_arch
+		make_deb_source
+			toplevel
+		via global var make_orig_tar
+			toplevel
+@SpecialActions
+@SpecialActionsConfig
+	initialize_config_file_data
+		initfunction
+	make_deb
+		toplevel
+@Sources
+	make_deb_source
+		toplevel
+	initialize_config_file_data
+		initfunction
+	build_data_hash
+		initfunction
+%Architecture
+	initialize_config_file_data
+		initfunction
+	get_arch
+		make_deb_source
+			toplevel
+		via global var make_orig_tar
+			toplevel
+%TpmData
+	initfunction
+	store_tpm
+		initfuntion
+	build_data_hash
+		initfuntion
+	load_collection_tpm_data
+		initfuntion
+	file_and_tpm
+		toplevel
+	dump_tpm_data
+		toplevel
+	get_internal_deps
+		toplevel
+%ExtraPackages
+	 build_data_hash
+		initfuntion
+	 initialize_config_file_data
+		initfuntion
+%ExtraFormat
+	make_maintainer
+		make_deb
+			toplevel
+	initialize_config_file_data
+		initfuntion
+%NameMapping
+	build_data_hash
+		initfuntion
+	initialize_config_file_data
+		initfuntion
+%Description
+	make_deb_control
+		initfuntion
+	initialize_config_file_data
+		initfuntion
+%Title
+	make_deb_control
+		make_deb_source
+			toplevel
+	initialize_config_file_data
+		initfuntion
+%BuildDep
+%BuildDepIndep
+%Maintainer
+%Priority
+%Uploaders
+%Section
+%Standards
+$AllMaintainer
+$AllPriority
+$AllUploaders
+$AllSection
+$AllStandards
+	make_deb_control
+		make_deb_source
+			toplevel
+	initialize_config_file_data
+		initfunction
+$texlivecommonversion
+%LatestVersion
+	build_data_hash
+		initfunction
+	initialize_config_file_data
+		initfunction
+$arch
+	make_orig_tar
+		toplevel
+	make_deb_control
+	beginning of main (does Tpm.pm need it?)
+$opt_master
+	head of scripts
+$opt_debug
+	ovunque
+$globalreclevel
+	when calling get_all_files and get_all_executes
+		deb and deb_source
+$TpmGlobalPath
+	main, Tpm:MasterDir. Tpm.pm?
+$DataGlobalPath = $Master = $TpmGlobalPath
+	make_orig_tar
+		toplevel
+	make_deb
+		toplevel
+	make_maintainer
+		make_deb
+			toplevel
+	do_remap_and_copy
+		make_deb
+			toplevel
+$parser
+	??? nowhere???
+$startdir
+	top init

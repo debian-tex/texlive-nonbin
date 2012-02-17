@@ -1,0 +1,100 @@
+#
+# build-infra
+#
+# script to sign all changes, debs, dsc, create Release and Contents files,
+# and sign the Release files.
+#
+# Norbert Preining
+#
+component=TeX
+sign=1
+
+# per default sign with my key ;-)
+signkey=0x09C5B094
+
+while true ; do
+    case "$1" in 
+	-p) component="$2" ; shift ; shift ;;
+	-nosign) sign=0; shift;;
+	-k) signkey="$2" ; shift ; shift ;;
+	--) shift; break;;
+	*) break;
+    esac
+done
+
+if [ "X$1" = "X" ] ; then
+	list="pool new cm-super updpkg check"
+else
+	list="$*"
+fi
+
+path=`pwd`/$component
+
+conffile=`mktemp`
+
+printf '
+APT {
+  FTPArchive {
+    Release {
+      Codename "unstable";
+      Origin "TeX live for Debian maintainers at TeX User Group";
+      Label "texlive";
+      Architectures "i386 all source";
+    };
+  };
+};
+
+Dir {
+' > $conffile
+
+printf "\tArchiveDir \"$path\";\n\tCacheDir \"$path\";\n};\n\n" >> $conffile
+
+printf '
+Default {
+        Packages::Compress ". gzip";
+        Sources::Compress ". gzip";
+        Contents::Compress "gzip";
+        Packages::Extensions ".deb";
+        Sources::Extensions ".dsc";
+};
+' >> $conffile
+
+for p in $list ; do
+	printf "BinDirectory \"$p\" {
+        Packages \"$p/Packages\";
+        Sources \"$p/Sources\";
+        Contents \"$p/Contents-i386\";
+};\n" >> $conffile
+done
+
+#
+# first do the signing of .changes and .dsc
+#
+# forget this for now ...
+changesfiles=""
+for p in $list ; do
+  changesfiles="$changesfiles $(ls $component/$p/*.changes $component/$p/*.dsc 2>/dev/null)"
+done
+if [ $sign = 1 ] ; then
+# better not sign all the binary deb, only the dsc and changes
+#  dpkg-sig -p --sign-changes force_full --sign builder $changesfiles
+   for p in $changesfiles ; do
+      debsign -k$signkey $p
+   done
+fi
+
+#
+# now the release files
+#
+apt-ftparchive generate $conffile
+
+for sd in $list ; do
+	apt-ftparchive -oAPT::FTPArchive::Release::Suite=$sd  -c $conffile release $component/$sd > $component/$sd/Release
+	rm -f $component/$sd/Release.gpg
+	if [ $sign = 1 ] ; then
+	  gpg -abs -o $component/$sd/Release.gpg $component/$sd/Release
+	fi
+done
+
+rm $conffile
+

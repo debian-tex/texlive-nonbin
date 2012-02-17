@@ -1,0 +1,11 @@
+usr/share/texmf-texlive/scripts/fontools/afm2afm usr/bin/afm2afm
+usr/share/texmf-texlive/scripts/fontools/autoinst usr/bin/autoinst
+usr/share/texmf-texlive/scripts/fontools/cmap2enc usr/bin/cmap2enc
+usr/share/texmf-texlive/scripts/fontools/font2afm usr/bin/font2afm
+usr/share/texmf-texlive/scripts/accfonts/mkt1font usr/bin/mkt1font
+usr/share/texmf-texlive/scripts/fontools/ot2kpx usr/bin/ot2kpx
+usr/share/texmf-texlive/scripts/fontools/pfm2kpx usr/bin/pfm2kpx
+usr/share/texmf-texlive/scripts/fontools/showglyphs usr/bin/showglyphs
+usr/share/texmf-texlive/scripts/accfonts/vpl2ovp usr/bin/vpl2ovp
+usr/share/texmf-texlive/scripts/accfonts/vpl2vpl usr/bin/vpl2vpl
+usr/share/texmf-texlive/scripts/epstopdf/epstopdf.pl usr/bin/epstopdf

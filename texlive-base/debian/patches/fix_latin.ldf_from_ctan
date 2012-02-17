@@ -1,0 +1,41 @@
+---
+ texmf-dist/tex/generic/babel/latin.ldf |    9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+Index: texlive-base-2007/texmf-dist/tex/generic/babel/latin.ldf
+===================================================================
+--- texlive-base-2007.orig/texmf-dist/tex/generic/babel/latin.ldf	2007-10-30 21:37:30.000000000 +0100
++++ texlive-base-2007/texmf-dist/tex/generic/babel/latin.ldf	2007-10-30 21:37:39.000000000 +0100
+@@ -7,7 +7,7 @@
+ %% latin.dtx  (with options: `code')
+ %% This is a generated file.
+ %% 
+-%% Copyright 1989-2005 Johannes L. Braams and any individual authors
++%% Copyright 1989-2007 Johannes L. Braams and any individual authors
+ %% listed elsewhere in this file.  All rights reserved.
+ %% 
+ %% This file was generated from file(s) of the Babel system.
+@@ -37,12 +37,12 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+ %% 
+-%% Copyright 1999-2001 Claudio Beccari All rights reserved.
++%% Copyright 1999-2007 Claudio Beccari All rights reserved.
+ \ProvidesFile{latin.ldf}
+-        [2005/11/17 v2.0g Latin support from the babel system]
++        [2007/10/19 v2.0h Latin support from the babel system]
+ %% File `latin.dtx'
+ %% Babel package for LaTeX version 2e
+-%% Copyright (C) 1989 - 2005
++%% Copyright (C) 1989 - 2007
+ %%           by Johannes Braams, TeXniek
+ %% Please report errors to: J.L. Braams babel at braams.cistron.nl
+ %%                          Claudio Beccari beccari at polito.it
+@@ -181,7 +181,6 @@
+ \catcode`\^ 7\relax
+ \addto\extraslatin{\def\LatinMarksOn{\shorthandon{^}\shorthandon{=}}}
+ \addto\extraslatin{\def\LatinMarksOff{\shorthandoff{^}\shorthandoff{=}}}
+-\addtoextraslatin{\LatinMarksOff}
+ \initiate@active@char{"}%
+ \addto\extraslatin{\bbl@activate{"}%
+ }

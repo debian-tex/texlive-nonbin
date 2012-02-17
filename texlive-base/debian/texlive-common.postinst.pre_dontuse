@@ -1,0 +1,18 @@
+# texlive-common.postinst.pre begin
+
+#case "$1" in
+#  configure|reconfigure)
+#    /usr/share/tex-common/tetex-bin-upgrade
+#    ;;
+#esac
+
+# rename old stuff from tetex:
+for i in updmap.d/10tetex-base.cfg fmt.d/01tetex.cnf language.d/00tetex.cnf language.d/10tetex.cnf ; do
+	if [ -r /etc/texmf/$i ] ; then
+		mv /etc/texmf/$i /etc/texmf/$i.obsolete
+		echo "Obsolete config file /etc/texmf/$i has been renamed" >&2
+		echo "as /etc/texmf/$i.obsolete." >&2
+	fi
+done
+
+# texlive-common.postinst.pre end

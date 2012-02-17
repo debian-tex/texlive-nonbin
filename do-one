@@ -1,0 +1,27 @@
+#set -x
+pkg=$1
+
+
+perl tpm2deb-source.pl --master=/var/www/norbert/tlnet make-orig-tar $pkg
+
+# for in-system builds:
+cd $pkg
+version=$(dpkg-parsechangelog | grep ^Version | awk '{print$2}')
+cd ..
+
+upversion=$(echo $version | sed -e 's/-.*$//')
+debrevision=$(echo $version | sed -e 's/^.*-//')
+
+perl tpm2deb-source.pl --noremove --nosrcpkg --master=/var/www/norbert/tlnet make-deb-source $pkg
+cd ${pkg}-$upversion
+dpkg-buildpackage -us -uc -rfakeroot
+cd ..
+rm -rf ${pkg}-$upversion
+
+
+# for cowbuilder builds
+#perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-deb-source $pkg
+#sudo /usr/sbin/cowbuilder --build --buildresult . ${pkg}_2007*.dsc
+
+
+

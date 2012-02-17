@@ -1,0 +1,103 @@
+
+Dear ftp masters!
+
+After the first try to submit the texlive packages and the rejection a
+long discussion on debian-devel developed [1] [2]. I have prepared a 
+new set of packages and plan to upload them to experimental via my 
+sponsor. Following is a description of the changes/advances of the
+packages wrt to last version.
+
+Contents:
+=========
+1) packages names and source packages
+2) removed and new packages, reuse of stuff already in Debian
+3) interaction with tetex and other packages
+4) Removal of problematic material
+5) Testing procedure
+
+
+1) packages names and source packages
+=====================================
+
+The packages have been renamed according to standards used in Debian, as
+discussed in the above mentioned thread. Furthermore, there are now only
+five source packages (texlive-bin for arch=any, and texlive-doc,
+texlive-lang, texlive-base, texlive-extra) grouped after importance and
+arch.
+
+2) removed and new packages, reuse of stuff already in Debian
+=============================================================
+
+Sevaral packages have been removed (texlive-ps-utils, texlive-ttf-utils,
+texlive-graphics-tools, texlive-lang-arab, texlive-htmlxml, texlive-lang-cjk) 
+as they are either not directly related to TeX (former three) and/or 
+are present in Debian (later three). Bugs and patches have been filed and 
+send to those packages in need of upgrade (arabtex is already updated,
+tipa expects an NMU). Especially the removal of texlive-lang-cjk reduced
+the packages (orig.tar.gz, source, bin) a lot.
+Some TeX packages are not included in the source and binary debian packages,
+as they are in Debian and need only some fixes (prosper, texpower,
+tpslifonts, tipa, lcdf-typetools). These packages have been repackaged
+(only changed control file) and put on the tug server [3] for interim use.
+A new packages texlive has been created which pulls in all texlive
+packages plus those which are already in Debian and not build from 
+texlive sources, to get a complete system mirroring an installation
+of TeX live from the original DVD.
+More packages are in the process of being singled out respectivly updated
+in the Debian repository, to reduce duplication.
+
+3) interaction with tetex and other packages
+============================================
+
+The dependencies of some of the texlive packages have been modified that
+they can be used with tetex3 (in unstable). This will bring many of the
+fonts and style files up to now not available for teTeX on Debian into
+easy reach.
+
+A graphics showing the dependencies of the the texlive packages and
+marking those which can be installed together with tetex is included
+in the texlive-doc-base package (tl4deb-deptree.pdf).
+
+Packages depending only on teTeX but working with texlive have been 
+repackaged (only control file edited) and put onto the tug server to be
+used with the texlive packages. As soon as texlive enters Debian, I will
+file bugs to the respective packages.
+
+4) Removal of problematic material
+==================================
+
+At the request of the author, XyMTeX will be removed from next
+years TeX live. It has been already removed from the debian packages
+of this year, both from .orig.tar.gz and from the binary deb.
+
+Furthermore, ppower has also been removed as it contains a jar file 
+without sources. There is an ITP [4] and I hope the maintainer can get
+the java sources and build a proper Debian package.
+
+5) Testing procedure
+====================
+
+Each single package has gone through a full aptitude install - remove -
+install - purge cycle in a clean pbuilder chroot.
+
+All packages succeeded this test but `texlive', but the breakage of `texlive'
+is bound to an error in texinfo, which calls fmtutil-sys without assuring
+that texlive-base-bin is configured. This error will be fixed in the next
+upload of texinfo.
+
+
+References
+==========
+
+[1] Start of the thread
+    http://lists.debian.org/debian-devel/2005/11/msg01649.html
+
+[2] Continuation next month
+    http://lists.debian.org/debian-devel/2005/12/msg00000.html
+
+[3] tug webserver with updated packages
+    deb(-src) http://www.tug.org/texlive/Debian/ updpkg/
+
+[4] ITP ppower4
+    http://lists.debian.org/debian-devel/2005/12/msg00052.html
+

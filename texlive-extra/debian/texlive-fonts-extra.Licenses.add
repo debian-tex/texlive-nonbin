@@ -1,0 +1,36 @@
+What follows are individual license statements which override later entries,
+as the later entries are generated automatically.
+
+* bbm fonts (/usr/share/texmf-texlive/fonts/*/public/bbm/)
+
+Frank Küster a écrit :
+> Bonjour Gilles,
+>   
+Hello
+> are you the author of the bbm TeX fonts?  
+Yes I am.
+> If yes, I would like to ask
+> you for a clarification regarding their license.
+>
+> Neither the font files nor the readme file contains an explicit license
+> statement. In the old days, it has mostly just been assumed that any
+> upload to CTAN is "free", but that is actually not the case, and today
+> we need to be more careful about that.
+>
+>   
+Yes that is what I assume : free use and modification of all files (the 
+driver files for LaTeX2e are not my work anyway).
+> In order to be happily included in TeXLive or MikTeX, today the the most
+> popular TeX distributions, we would need an explicit license statement
+> which allows to use the fonts freely (even in a commercial environment),
+> to distribute them and to create and distribute modified derivatives. 
+I do not intend to do any more work on these fonts (and there are some 
+bugs particularly with bbmtt) so feel free to add any licensing 
+information concerning these.
+> We would be glad to hear from you and be able to clarify this.
+>   
+If you need any more clarification, you're welcome.
+-- 
+Gilles Robert
+
+=============================================

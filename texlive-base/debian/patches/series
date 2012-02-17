@@ -1,0 +1,23 @@
+#10_fmtutil_fixes
+#32_fpl_fixes
+#koma-script-usekomafont-fix
+#fix-missing-mathpple-activation
+#fix_latin.ldf_from_ctan
+#dek-comments
+#update-booktabs
+#fix-txfonts-precapprox
+dvipdfmx.cfg_whitespace
+fix-info-dir-sections
+fix-pgf2pdf-script
+dvipdfm-config-no-rungs
+dvipdfmx-cid-x.map-add-jis
+fix-xyframe.tex.patch
+#2011# texdoc-update
+#2011#should be moved to separate texdoc.cnf in /etc/texmf#texdoc-viewer-use-see
+#2011#disable# texdoc-support-zipped
+#2011#disable# update-lualatex-modules
+#2011#upstream# upstream-xetex.def-fixes
+#2011#upstream?# upstream-pdftex.def-fixes
+#2011#disabled# epspdf-call-ruby-explicitely
+#2011#upstream# fix-bashism
+

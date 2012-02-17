@@ -1,0 +1,88 @@
+# texlive-base postinst.pre begin
+# initial version 2010 by Frank Küster, frank@debian.org
+# probably not copyrightable as it looks now, but anyway the code maybe 
+# freely copied, distributed and/or modified
+# changelog:
+# 2010-08-15 initial version; ucf and libpaper-specific code for
+#            pagesize configuration 
+
+# install configuration files that set a papersize, and handle upgrades smoothly
+
+# We want to use the libpaper hook after the config files have been
+# installed, and only show papersize-related questions at that
+# time. Therefore, ignore any papersize changes in upstream's files.
+# This is the plan:
+
+# 1. if the files exit - no matter whether as conffiles or ucf-managed
+#    configuration files -, get the papersize settings in them and set
+#    the setting in the new, ucf-managed files to be the same.  We can
+#    use texconfig-sys for that, since we depend on texlive-binaries
+# 2. install the adapted new files with ucf
+# 3. at configuration time, if libpaper has not been used before
+#    (i.e. on new installs or upgrades from older versions), call the
+#    libpaper hook
+# (4.) if we later add binaries that have a papersize setting in their
+#    conffile, we need to check the versions that we are upgrading from
+#    the right version. Then set the chooser question to unseen and run
+#    the libpaper hook.
+
+pkgdir=/usr/share/texlive-base
+tempdir_paper=$(mktemp -d)
+mkdir -p $tempdir_paper/dvips/config
+mkdir -p $tempdir_paper/tex/generic/config
+mkdir    $tempdir_paper/dvipdfmx
+mkdir    $tempdir_paper/xdvi
+cp $pkgdir/config.ps $tempdir_paper/dvips/config/
+cp $pkgdir/pdftexconfig.tex $tempdir_paper/tex/generic/config/
+cp $pkgdir/dvipdfmx.cfg $tempdir_paper/dvipdfmx/
+cp $pkgdir/XDvi $tempdir_paper/xdvi/
+cp $pkgdir/config.ps.md5sum $tempdir_paper/dvips/config/
+cp $pkgdir/pdftexconfig.tex.md5sum $tempdir_paper/tex/generic/config/
+cp $pkgdir/dvipdfmx.cfg.md5sum $tempdir_paper/dvipdfmx/
+cp $pkgdir/XDvi.md5sum $tempdir_paper/xdvi/
+
+# if the paper setting in dvipdfmx.cfg still contains two spaces, remove one
+if [ -e /etc/texmf/dvipdfmx/dvipdfmx.cfg ]; then
+   sed -i '/^p/ s/^p[[:space:]]\{2\}/p /' /etc/texmf/dvipdfmx/dvipdfmx.cfg
+fi
+
+# texconfig-sys only works after calling mktexlsr
+mktexlsr /usr/share/texmf-texlive /usr/share/texmf /var/lib/texmf 
+for binary in dvips dvipdfmx xdvi pdftex; do
+  if localpaper=$(texconfig-sys $binary paperconf); then
+    # stop ucf from asking by setting UCF_FORCE_CONFNEW
+    # TEXMFSYSVAR needs to be set, so that texconfig-sys won't create
+    # pdftex formats in the real hierarchy
+    UCF_FORCE_CONFFNEW=true TEXMFSYSCONFIG=$tempdir_paper TEXMFSYSVAR=$tempdir_paper \
+      texconfig-sys $binary paper $localpaper no-recreate-formats >/dev/null 2>&1
+  else
+    # this means that there is no existing configuration file. Do nothing.
+    # Warning: texconfig will only fail if it has the "set -e" patch!
+    :
+  fi
+done
+ucf --purge $tempdir_paper/dvips/config/config.ps # >/dev/null 2>&1
+ucf --purge $tempdir_paper/tex/generic/config/pdftexconfig.tex # >/dev/null 2>&1
+ucf --purge $tempdir_paper/dvipdfmx/dvipdfmx.cfg # >/dev/null 2>&1
+ucf --purge $tempdir_paper/xdvi/XDvi >/dev/null # 2>&1
+
+# Now install the files with their paper size adapted to the current local setting
+
+ucf --three-way --debconf-ok $tempdir_paper/dvips/config/config.ps \
+                             /etc/texmf/dvips/config/config.ps
+ucf --three-way --debconf-ok $tempdir_paper/tex/generic/config/pdftexconfig.tex \
+                             /etc/texmf/tex/generic/config/pdftexconfig.tex
+ucf --three-way --debconf-ok $tempdir_paper/dvipdfmx/dvipdfmx.cfg \
+                             /etc/texmf/dvipdfmx/dvipdfmx.cfg
+ucf --three-way --debconf-ok $tempdir_paper/xdvi/XDvi /etc/texmf/xdvi/XDvi
+
+rm -rf $tempdir_paper
+
+if [ "$1" = "configure" ]; then
+  old_version=$2
+  last_version_without_libpaper=2009-11 # update, we are not going to upload now!
+  if [ -n $old_version ] || dpkg --compare-versions $old_version lt $last_version_without_libpaper; then
+    # we are installing from scratch or upgrading from an older version
+    /etc/libpaper.d/texlive-base
+  fi
+fi

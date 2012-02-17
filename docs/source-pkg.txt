@@ -1,0 +1,99 @@
+texlive-bin	96M
+-----------
+texlive-basicbin 		texlive-base-bin
+texlive-binextra 		texlive-extra-utils
+texlive-fontbin			texlive-font-utils
+texlive-htmlxml			texlive-htmlxml
+texlive-metapost		texlive-metapost
+texlive-omega			texlive-omega
+texlive-pdfetex			texlive-pdfetex
+texlive-psutils			texlive-psutils
+texlive-ttfutils		texlive-ttfutils
+texlive-music			texlive-music
+texlive-langindic		texlive-lang-indic
+texlive-graphicstools		texlive-graphics-tools
+texlive-langcjk			texlive-lang-cjk
+	
+texlive-doc	57M
+-----------
+Reasoning: The documenatation is actually in a specific language, so we use
+the respective language code.
+texlive-documentation-base	texlive-doc-base
+texlive-documentation-bulgarian texlive-doc-bg
+texlive-documentation-czechslovak texlive-doc-cs
+texlive-documentation-dutch 	texlive-doc-nl
+texlive-documentation-english	texlive-doc-en
+texlive-documentation-finnish	texlive-doc-fi
+texlive-documentation-french	texlive-doc-fr
+texlive-documentation-german	texlive-doc-de
+texlive-documentation-greek	texlive-doc-el
+texlive-documentation-italian	texlive-doc-it
+texlive-documentation-japanese	texlive-doc-ja
+texlive-documentation-korean	texlive-doc-ko
+texlive-documentation-mongolian	texlive-doc-mn
+texlive-documentation-polish	texlive-doc-pl
+texlive-documentation-portuguese texlive-doc-pt
+texlive-documentation-russian	texlive-doc-ru
+texlive-documentation-spanish	texlive-doc-es
+texlive-documentation-thai	texlive-doc-th
+texlive-documentation-ukrainian	texlive-doc-uk
+texlive-documentation-vietnamese	texlive-doc-vn
+
+texlive-lang	37M
+------------
+Reasoning: We use names instead of codes as several of these packages include
+support for different languages/variants (greek: various versions of greek 
+with different iso codes, ...)
+texlive-langafrican 		texlive-lang-african
+texlive-langarab		texlive-lang-arab
+texlive-langarmenian		texlive-lang-armenian
+texlive-langcroatian		texlive-lang-croatian
+texlive-langcyrillic		texlive-lang-cyrillic
+texlive-langczechslovak		texlive-lang-czechslovak
+texlive-langdanish		texlive-lang-danish
+texlive-langdutch		texlive-lang-dutch
+texlive-langfinnish		texlive-lang-finnish
+texlive-langfrench		texlive-lang-french
+texlive-langgerman		texlive-lang-german
+texlive-langgreek		texlive-lang-greek
+texlive-langhebrew		texlive-lang-hebrew
+texlive-langhungarian		texlive-lang-hungarian
+texlive-langitalian		texlive-lang-italian
+texlive-langlatin		texlive-lang-latin
+texlive-langmanju		texlive-lang-manju
+texlive-langmongolian		texlive-lang-mongolian
+texlive-langnorwegian		texlive-lang-norwegian
+texlive-langother		texlive-lang-other
+texlive-langpolish		texlive-lang-polish
+texlive-langportuguese		texlive-lang-portuguese
+texlive-langspanish		texlive-lang-spanish
+texlive-langswedish		texlive-lang-swedish
+texlive-langtibetan		texlive-lang-tibetan
+texlive-langukenglish		texlive-lang-ukenglish
+texlive-langvietnamese		texlive-lang-vietnamese
+
+texlive-base		78M
+------------
+texlive-basic 			texlive-base
+texlive-context			texlive-context
+texlive-genericrecommended	texlive-generic-recommended
+texlive-latex			texlive-latex-base
+texlive-latexrecommended	texlive-latex-recommended
+texlive-fontsrecommended	texlive-fonts-recommended
+texlive-pictures		texlive-pictures
+
+texlive-extra		172M
+-------------
+texlive-bibtexextra 		texlive-bibtex-extra
+texlive-formatsextra		texlive-formats-extra
+texlive-genericextra		texlive-generic-extra
+texlive-mathextra		texlive-math-extra
+texlive-plainextra		texlive-plain-extra
+texlive-latexextra		texlive-latex-extra
+texlive-latex3			texlive-latex3
+texlive-fontsextra		texlive-fonts-extra
+texlive-chemistry		texlive-chemistry
+texlive-games			texlive-games
+texlive-pstricks		texlive-pstricks
+texlive-publishers		texlive-publishers
+

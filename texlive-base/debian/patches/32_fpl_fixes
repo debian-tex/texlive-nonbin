@@ -1,0 +1,36 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 32_fpl_fixes.dpatch
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: fix some file section
+
+@DPATCH@
+ texmf-dist/tpm/fpl.tpm |    8 ++++----
+ 1 files changed, 4 insertions(+), 4 deletions(-)
+
+Index: texlive-base-2007.dfsg.1/texmf-dist/tpm/fpl.tpm
+===================================================================
+--- texlive-base-2007.dfsg.1.orig/texmf-dist/tpm/fpl.tpm	2006-12-19 12:12:37.000000000 +0100
++++ texlive-base-2007.dfsg.1/texmf-dist/tpm/fpl.tpm	2007-01-22 14:06:11.000000000 +0100
+@@ -29,10 +29,6 @@
+ texmf-dist/fonts/afm/public/fpl/fplbj8a.afm
+ texmf-dist/fonts/afm/public/fpl/fplrc8a.afm
+ texmf-dist/fonts/afm/public/fpl/fplrij8a.afm
+-texmf-dist/fonts/afm/public/fpl/pplb9d-kern.afm
+-texmf-dist/fonts/afm/public/fpl/pplbi9d-kern.afm
+-texmf-dist/fonts/afm/public/fpl/pplrc9d-kern.afm
+-texmf-dist/fonts/afm/public/fpl/pplri9d-kern.afm
+ texmf-dist/fonts/type1/public/fpl/fplbij8a.pfb
+ texmf-dist/fonts/type1/public/fpl/fplbij8a.pfm
+ texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb
+@@ -44,6 +40,10 @@
+ texmf-dist/tpm/fpl.tpm
+     </TPM:RunFiles>
+     <TPM:SourceFiles size="237722">
++texmf-dist/fonts/afm/public/fpl/pplb9d-kern.afm
++texmf-dist/fonts/afm/public/fpl/pplbi9d-kern.afm
++texmf-dist/fonts/afm/public/fpl/pplrc9d-kern.afm
++texmf-dist/fonts/afm/public/fpl/pplri9d-kern.afm
+ texmf-dist/source/fonts/fpl/Makefile
+ texmf-dist/source/fonts/fpl/fpl/AddException
+ texmf-dist/source/fonts/fpl/fpl/AddGPL

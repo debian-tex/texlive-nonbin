@@ -1,0 +1,31 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 10_pathfixes.dpatch by  <preining@logic.at>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fixes wrong paths in various scripts to make lintian shut up.
+
+@DPATCH@
+ texmf-dist/source/latex/calendar/mkaddr.tcl    |    2 +-
+ texmf-dist/source/latex/wordcount/wordcount.sh |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+Index: texlive-extra-2007.dfsg.1/texmf-dist/source/latex/calendar/mkaddr.tcl
+===================================================================
+--- texlive-extra-2007.dfsg.1.orig/texmf-dist/source/latex/calendar/mkaddr.tcl	2006-07-12 15:42:19.000000000 +0200
++++ texlive-extra-2007.dfsg.1/texmf-dist/source/latex/calendar/mkaddr.tcl	2007-01-22 18:49:44.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/tclsh
++#!/usr/bin/tclsh
+ if {[catch "kanji defaultInputCode EUC" errormsg]}\
+    {puts "Running $argv0 without Japanese support."
+     puts "For Japanese support, you need to use a Japanized"
+Index: texlive-extra-2007.dfsg.1/texmf-dist/source/latex/wordcount/wordcount.sh
+===================================================================
+--- texlive-extra-2007.dfsg.1.orig/texmf-dist/source/latex/wordcount/wordcount.sh	2006-07-12 15:42:10.000000000 +0200
++++ texlive-extra-2007.dfsg.1/texmf-dist/source/latex/wordcount/wordcount.sh	2007-01-22 18:49:44.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/bin/sh
++#! /bin/sh
+ # wordcount.sh 1.2 Copyright 2000/02/21 Michael John Downes
+ # This script has no restrictions on its use, distribution, or sale.
+ #
