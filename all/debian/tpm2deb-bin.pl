@@ -63,7 +63,7 @@ my $sysetcdest = '$basedir/etc/texmf';
 
 my %configfiles; # hash of (symbolic) array references, one for each package
 
-my $texmfdist = "texmf-texlive";
+my $texmfdist = "texmf-dist";
 my $opt_nosource=0;
 my $optdestination="";
 our $opt_onlyscripts=0;
@@ -223,7 +223,7 @@ sub make_deb_copy_to_rightplace {
 		#close (SOURCE);
 		print USLANG "% DO NOT CHANGE THE FOLLOWING LINE UNLESS YOU\n";
 		print USLANG "% REALLY KNOW WHAT YOU ARE DOING\n";
-		print USLANG "USEFILE /usr/share/texmf-texlive/tex/generic/config/language.us /usr/share/texmf-texlive/tex/generic/config/language.us.def\n";
+		print USLANG "USEFILE /usr/share/texlive/texmf/tex/generic/config/language.us /usr/share/texlive/texmf/tex/generic/config/language.us.def\n";
 		close (USLANG);
 	}
 }
@@ -435,9 +435,9 @@ sub make_maintainer {
 #
 sub get_texmf_relpath {
 	my ($filename) = @_;
-	$filename =~ s{texmf-dist}{texmf};
-	$filename =~ s{texmf-doc}{texmf};
-	$filename =~ s{texmf/}{};
+	#$filename =~ s{texmf-dist}{texmf};
+	#$filename =~ s{texmf-doc}{texmf};
+	#$filename =~ s{texmf/}{};
 	return $filename;
 }
 
@@ -450,11 +450,11 @@ sub get_texmf_relpath {
 #   example:
 #     mapping;texmf/tex/generic/config/language.dat;link;/var/lib/texmf/tex/generic/config/language.dat
 # - relative filenames in which case 
-#         $texmfdist  =   /usr/share/texmf-texlive
+#         $texmfdist  =   /usr/share/texlive/texmf-dist
 #   is prepended, eg:
 #        mapping;texmf-dist/fonts/map/dvips/ibygrk/ibycus4.map;remap;fonts/source/public/ibygrk/ibycus4.map
 #   in this case ibycus4.map is remapped to 
-#     /usr/share/texmf-texlive/fonts/source/public/ibygrk/ibycus4.map
+#     /usr/share/texlive/texmf-dist/fonts/source/public/ibygrk/ibycus4.map
 #
 # The filenames CAN contain backreferences to patterns:
 # mapping;texmf[^/]*/doc/man/man(.*)/(.*);remap;/usr/share/man/man$1/$2
@@ -466,11 +466,11 @@ sub do_remap_and_copy {
 	#
 	sub make_destinationname {
 		my ($path) = @_;
-		$path =~ s#^texmf-dist#$texmfdist#;
+		#$path =~ s#^texmf-dist#$texmfdist#;
 		#
 		# we do map *ALL* files into $texmfdist, not only the dist files
 		#
-		$path =~ s#^texmf/#$texmfdist/#;
+		#$path =~ s#^texmf/#$texmfdist/#;
 		return("$path");
 	}
 	sub absolute_path {
