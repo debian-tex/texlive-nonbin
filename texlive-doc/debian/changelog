@@ -1,8 +1,8 @@
-texlive-doc (2011.20120216-0.1) unstable; urgency=low
+texlive-doc (2011.20120226-1~1) unstable; urgency=low
 
   * new upstreams
 
- -- Norbert Preining <preining@debian.org>  Fri, 17 Feb 2012 11:27:38 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 26 Feb 2012 22:15:48 +0900
 
 texlive-doc (2009-2) unstable; urgency=low
 
