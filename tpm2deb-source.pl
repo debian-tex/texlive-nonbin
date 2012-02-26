@@ -189,7 +189,7 @@ sub make_orig_tar {
 	sub unpack_package {
 		my ($pkg, $dest) = @_;
 		if ($TeXLive{'binary'}{$pkg}{'relocated'}) {
-			$dest .= "/texmf-texlive";
+			$dest .= "/texmf-dist";
 		}
 		File::Path::mkpath($dest);
 		if (-r "$Master/archive/$pkg.tar.xz") {
