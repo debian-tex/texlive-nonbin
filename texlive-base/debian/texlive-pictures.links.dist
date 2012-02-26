@@ -1,4 +1,0 @@
-usr/share/texmf-texlive/scripts/epspdf/epspdf.rb usr/bin/epspdf
-usr/share/texmf-texlive/scripts/epspdf/epspdftk.tcl usr/bin/epspdftk
-usr/share/texmf-texlive/scripts/cachepic/cachepic.tlu usr/bin/cachepic
-usr/share/texmf-texlive/scripts/fig4latex/fig4latex usr/bin/fig4latex
