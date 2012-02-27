@@ -1,3 +1,9 @@
+texlive-base (2011.20120226-1~2) unstable; urgency=low
+
+  * new build with some fixes
+
+ -- Norbert Preining <preining@debian.org>  Tue, 28 Feb 2012 08:22:02 +0900
+
 texlive-base (2011.20120226-1~1) unstable; urgency=low
 
   * new upstream

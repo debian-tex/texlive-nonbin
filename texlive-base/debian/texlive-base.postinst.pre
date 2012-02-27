@@ -47,7 +47,7 @@ if [ -e /etc/texmf/dvipdfmx/dvipdfmx.cfg ]; then
 fi
 
 # texconfig-sys only works after calling mktexlsr
-mktexlsr /usr/share/texmf-texlive /usr/share/texmf /var/lib/texmf 
+mktexlsr /usr/share/texlive/texmf /usr/share/texlive/texmf-dist /usr/share/texmf /var/lib/texmf 
 for binary in dvips dvipdfmx xdvi pdftex; do
   if localpaper=$(texconfig-sys $binary paperconf); then
     # stop ucf from asking by setting UCF_FORCE_CONFNEW
