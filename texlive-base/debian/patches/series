@@ -21,3 +21,4 @@ fix-xyframe.tex.patch
 #2011#disabled# epspdf-call-ruby-explicitely
 #2011#upstream# fix-bashism
 
+texmf.cnf-debian
