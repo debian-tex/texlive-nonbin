@@ -68,6 +68,10 @@ my $allowed_dists = "(unstable|UNRELEASED|sarge-backports|etch-backports|stable-
 
 our $Master;
 
+if (defined($opt_master)) {
+	$Master = $opt_master;
+}
+
 if (!($opt_master =~ m,^/.*$,,)) {
 	$Master = `pwd`;
 	chomp($Master);
@@ -76,14 +80,6 @@ if (!($opt_master =~ m,^/.*$,,)) {
 	$Master = $opt_master;
 }
 
-#
-# put Master/Tools/ into the include path to find TeX Live perl modules
-#
-unshift (@INC, "$Master/tlpkg");
-#
-# these we can only load now that we have correctly set the path to Master
-#
-require TeXLive::TLPDB;
 
 File::Basename::fileparse_set_fstype('unix');
 
@@ -107,9 +103,9 @@ my $date;
 my $arch;
 my $shortl;
 
-sub main {
-	my ($cmd,@packages) = @_;
-	$arch = "all";
+sub setup_search_path_and_load {
+	unshift (@INC, "$Master/tlpkg");
+	require TeXLive::TLPDB;
 	$::tlpdb = TeXLive::TLPDB->new(root => "$Master");
 	die "Cannot load tlpdb!" unless defined($::tlpdb);
 	initialize_config_file_data("all/debian/tpm2deb.cfg");
@@ -118,12 +114,16 @@ sub main {
 	build_data_hash();
 	#print Dumper(\%TeXLive);
 	check_consistency();
-	if ("$cmd" eq "make-control") {
-		foreach my $package (@packages) {
-			$arch = get_arch($package);
-			make_deb_control($package,"$package.control");
-		}
-		exit 0;
+}
+
+sub main {
+	my ($cmd,@packages) = @_;
+	$arch = "all";
+	if ("$cmd" eq "make-orig-tar") {
+		die "Need path to tlnet for orig building, specify with --master"
+			if (! $opt_master);
+		$Master = $opt_master;
+		setup_search_path_and_load();
 	}
 	foreach my $package (@packages) {
 		# 
@@ -132,6 +132,9 @@ sub main {
 		$arch = get_arch($package);
 		print "Working on $package, arch=$arch\n";
 		if ("$cmd" eq "make-deb-source") {
+			undef $::tlpdb;
+			undef %TeXLive;
+			undef %Config;
 			make_deb_source($package);
 		} elsif ("$cmd" eq "make-orig-tar") {
 			read_changelog($package);
@@ -381,6 +384,10 @@ sub make_deb_source {
 	my $debdest = "$tmpdir/debian";
 	# $texlivedest = "$tmpdir/Master";
 	my $texlivedest = "$tmpdir";
+	#
+	# setup all the stuff
+	$Master = $tmpdir;
+	setup_search_path_and_load();
 	# dpkg-source cannot handle new symlinks
 	my $symlinklist = `find $mydir/all/ -type l`;
 	die("Symlinks $symlinklist detected in $mydir/all") if $symlinklist;
