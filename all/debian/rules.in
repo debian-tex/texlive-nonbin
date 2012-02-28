@@ -72,14 +72,18 @@ binary-indep: build install
 	dh_installdocs -p texlive-common README readme-txt.dir readme-html.dir debian/CHANGES.packaging
 	dh_installtex -Ntexlive-base -A --priority=10	\
 		$(patsubst %,-N%,$(METAPACKAGES))	\
-		--flavor=lsr:full --flavor=tree:texlive
+		--flavor=lsr:full,tree:texlive
 	dh_installtex -ptexlive-base --priority=10	\
 		--flavor=format:build_all		\
-		--flavor=lsr:full --flavor=tree:texlive	\
+		--flavor=lsr:full,tree:texlive	\
 		hyphenfile=debian/texlive-base.cnf=09
 	# /usr/bin/mf has been created by dh_installtex as symlink to mf-nowin
 	# but is also shipped by texlive-base-bin, remove it.
 	rm debian/texlive-base/usr/bin/mf
+	#
+	# there is also a link for mptopdf, no idea who is creating that
+	# TODO
+	rm debian/texlive-base/usr/bin/mptopdf
 	# furthermore we want to have etex and pdfetex as links in 
 	# texlive-base-bin and not in texlive-base, remove them here
 	# and add them via dh_link in texlive-base-binaries
@@ -93,7 +97,7 @@ binary-indep: build install
 	chmod a+x debian/texlive-base/etc/libpaper.d/texlive-base
 	cp debian/md5sums/* debian/texlive-base/usr/share/texlive-base/
 <: } else { _:>//
-	dh_installtex -A --priority=10 --flavor=lsr:full
+	dh_installtex -A --priority=10 --flavor=lsr:full,tree:texlive
 <: } :>//
 	dh_installchangelogs
 	bash debian/convert-info-files-to-unix.sh
