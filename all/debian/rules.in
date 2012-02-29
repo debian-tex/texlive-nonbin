@@ -88,6 +88,11 @@ binary-indep: build install
 	# and add them via dh_link in texlive-base-binaries
 	rm debian/texlive-base/usr/bin/etex 
 	rm debian/texlive-base/usr/bin/pdfetex
+	# remove info files that are present in texlive-binaries
+	rm debian/texlive-base/usr/share/info/dvips.info.gz
+	rm debian/texlive-base/usr/share/info/web2c.info.gz
+	rm debian/texlive-base/usr/share/info/kpathsea.info.gz
+	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/info
 	# for the libpaper hook, install templates and
 	# translations. No need to modify postrm. I hope it accepts
 	# the missing config script
