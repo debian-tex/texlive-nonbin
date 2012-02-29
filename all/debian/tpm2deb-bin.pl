@@ -616,8 +616,11 @@ sub do_remap_and_copy {
 			if (defined($TeXLive{'all'}{'linkedscript'}{$file})) {
 				unless ($opt_onlyscripts == 1) {
 					&mkpath($bindest);
-					symlink("../share/texlive/$file", "$bindest/$TeXLive{'all'}{'linkedscript'}{$file}") or
-						die "Cannot symlink $bindest/$TeXLive{'all'}{'linkedscript'}{$file} -> ../share/texlive/$file: $!\n"
+					my @foo = split ",", $TeXLive{'all'}{'linkedscript'}{$file};
+					for my $i (@foo) {
+						symlink("../share/texlive/$file", "$bindest/$i") or
+							die "Cannot symlink $bindest/$i -> ../share/texlive/$file: $!\n"
+					}
 				};
 			}
 			$returnvalue = "$defaultpathcomponent/$defaultdestname";
