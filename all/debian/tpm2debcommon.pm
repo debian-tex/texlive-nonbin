@@ -746,6 +746,11 @@ sub initialize_config_file_data {
 			$opt_debug && print STDERR "Dropped depends of $a on @{$Config{'depends_not'}{$a}}\n";
 			next;
 		}
+		if ($type eq "linkedscript") {
+			my ($b) = @rest;
+			$TeXLive{'all'}{'linkedscript'}{$a} = $b;
+			next;
+		}
 		print STDERR "tpm2deb.cfg: Unknown directive: $type. Maybe an empty line?\n Exiting!\n"; 
 		exit 1;
 	}

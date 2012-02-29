@@ -80,10 +80,9 @@ binary-indep: build install
 	# /usr/bin/mf has been created by dh_installtex as symlink to mf-nowin
 	# but is also shipped by texlive-base-bin, remove it.
 	rm debian/texlive-base/usr/bin/mf
-	#
-	# there is also a link for mptopdf, no idea who is creating that
-	# TODO
-	rm debian/texlive-base/usr/bin/mptopdf
+	# remove updmap(-sys), they are shipped in texlive-binaries
+	rm debian/texlive-base/usr/bin/updmap
+	rm debian/texlive-base/usr/bin/updmap-sys
 	# furthermore we want to have etex and pdfetex as links in 
 	# texlive-base-bin and not in texlive-base, remove them here
 	# and add them via dh_link in texlive-base-binaries

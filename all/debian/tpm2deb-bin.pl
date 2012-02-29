@@ -607,8 +607,19 @@ sub do_remap_and_copy {
 			$returnvalue = $finaldest;
 		} else {
 			$opt_debug && print STDERR "NORMAL COPY: $basedir$defaultpathcomponent/$defaultdestname\n";
-			&mkpath(dirname("$basedir$defaultpathcomponent/$defaultdestname"));
-			mycopy("$Master/$file","$basedir$defaultpathcomponent/$defaultdestname");
+			my $finaldest = "$basedir$defaultpathcomponent/$defaultdestname";
+			&mkpath(dirname($finaldest));
+			mycopy("$Master/$file", $finaldest);
+			#
+			# if a file name matches a linked script, also create the
+			# actual link
+			if (defined($TeXLive{'all'}{'linkedscript'}{$file})) {
+				unless ($opt_onlyscripts == 1) {
+					&mkpath($bindest);
+					symlink("../share/texlive/$file", "$bindest/$TeXLive{'all'}{'linkedscript'}{$file}") or
+						die "Cannot symlink $bindest/$TeXLive{'all'}{'linkedscript'}{$file} -> ../share/texlive/$file: $!\n"
+				};
+			}
 			$returnvalue = "$defaultpathcomponent/$defaultdestname";
 		}
 	}
@@ -620,4 +631,4 @@ sub do_remap_and_copy {
 ### tab-width: 4
 ### indent-tabs-mode: t
 ### End:
-# vim:set tabstop=4: #
+# vim:set tabstop=4 autoindent: #
