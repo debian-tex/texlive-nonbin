@@ -39,6 +39,7 @@ $globalreclevel = 1;
 $oldsrcdir = "./src";
 
 use Getopt::Long;
+use File::Spec;
 
 GetOptions ("debug!", 	# debug mode
 			"nosrcpkg!",			# dont build source package
@@ -106,6 +107,8 @@ my $shortl;
 sub setup_search_path_and_load {
 	unshift (@INC, "$Master/tlpkg");
 	require TeXLive::TLPDB;
+	print "Master = $Master\n";
+	$::opt_verbosity = 1;
 	$::tlpdb = TeXLive::TLPDB->new(root => "$Master");
 	die "Cannot load tlpdb!" unless defined($::tlpdb);
 	initialize_config_file_data("all/debian/tpm2deb.cfg");
@@ -266,6 +269,8 @@ sub make_orig_tar {
 		#copy_collection_files($coll,$texlivedest,$types);
 	}
 	#
+	# necessary for media detection!
+	&mkpath("$texlivedest/texmf/web2c");
 	# 
 	# copy the files necessary for tpm2deb.pl from the Tools directory
 	#
@@ -386,7 +391,7 @@ sub make_deb_source {
 	my $texlivedest = "$tmpdir";
 	#
 	# setup all the stuff
-	$Master = $tmpdir;
+	$Master = File::Spec->rel2abs($tmpdir);
 	setup_search_path_and_load();
 	# dpkg-source cannot handle new symlinks
 	my $symlinklist = `find $mydir/all/ -type l`;

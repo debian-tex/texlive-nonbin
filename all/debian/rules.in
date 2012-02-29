@@ -30,9 +30,9 @@ clean: unpatch
 	# the copy will fail due to the files occurring in the tlpdb
 <: if ($srcpackage eq "texlive-lang") { _:>//
 	# we have to keep texlive-lang/texmf-dist/fonts/source/cmcyr/coding.bak
-	dh_clean -Xcoding.bak -X.orig
+	dh_clean -Xcoding.bak -X.orig -X.bak
 <: } else { _:>//
-	dh_clean -X.orig
+	dh_clean -X.orig -X.bak
 <: } :>//
 	rm -f configure-stamp
 	rm -f build-stamp
