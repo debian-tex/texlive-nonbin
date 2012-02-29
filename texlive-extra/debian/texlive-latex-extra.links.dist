@@ -1,7 +1,0 @@
-usr/share/texmf-texlive/scripts/glossaries/makeglossaries usr/bin/makeglossaries
-usr/share/texmf-texlive/scripts/pax/pdfannotextractor.pl usr/bin/pdfannotextractor
-usr/share/texmf-texlive/scripts/perltex/perltex usr/bin/perltex
-usr/share/texmf-texlive/scripts/splitindex/perl/splitindex.pl usr/bin/splitindex
-usr/share/texmf-texlive/scripts/svn-multi/svn-multi.pl usr/bin/svn-multi
-usr/share/texmf-texlive/scripts/vpe/vpe.pl usr/bin/vpe
-usr/share/texmf-texlive/scripts/pst-pdf/ps4pdf usr/bin/ps4pdf
