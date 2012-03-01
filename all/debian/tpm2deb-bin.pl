@@ -259,6 +259,8 @@ sub make_deb_execute_actions {
 			push @maplines, "Map $first\n";
 		} elsif ($what eq 'addMixedMap') {
 			push @maplines, "MixedMap $first\n";
+		} elsif ($what eq 'addKanjiMap') {
+			push @maplines, "KanjiMap $first\n";
 		} elsif ($what eq 'AddFormat') {
 			my %r = TeXLive::TLUtils::parse_AddFormat_line(join(" ", $first, @rest));
 			if (defined($r{"error"})) {
