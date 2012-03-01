@@ -4,7 +4,9 @@
 # debian/rules file for <:=$srcpackage:>
 # $Id$
 
+<: if ($srcpackage ne "texlive-lang") { _:>//
 include /usr/share/quilt/quilt.make
+<: } :>//
 
 PACKAGES=<:=$binpackages:>
 METAPACKAGES=<:=$metapackages:>
@@ -14,10 +16,16 @@ SHELL=/bin/bash
 
 build: build-stamp
 
-build-stamp: $(QUILT_STAMPFN)
+build-stamp: <: if ($srcpackage ne "texlive-lang") { _:>// $(QUILT_STAMPFN) <: } :>
+<: if ($srcpackage eq "texlive-lang") { _:>//
+	# SHOULD BE DELETED FOR FINAL 2012 SINCE uptex WILL BE INTEGRATED!
+	tar -xf debian/uptex.tar.xz
+	tar -xf debian/uptex.doc.tar.xz
+	tar -xf debian/uptex.source.tar.xz
+<: } :>//
 	touch build-stamp
 
-clean: unpatch
+clean: if ($srcpackage ne "texlive-lang") { _:>// unpatch <: } :>
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  rm -f debian/$$i.{README.Debian,links,links.generated} ; \
 	  rm -f debian/$$i.{postinst,postrm,preinst,prerm} ; \
@@ -28,11 +36,21 @@ clean: unpatch
 <: } :>//
 	# texlive contains some .orig files we need to keep otherwise
 	# the copy will fail due to the files occurring in the tlpdb
-<: if ($srcpackage eq "texlive-lang") { _:>//
-	# we have to keep texlive-lang/texmf-dist/fonts/source/cmcyr/coding.bak
-	dh_clean -Xcoding.bak -X.orig -X.bak
-<: } else { _:>//
 	dh_clean -X.orig -X.bak
+<: if ($srcpackage eq "texlive-lang") { _:>//
+	# SHOULD BE DELETED FOR FINAL 2012 SINCE uptex WILL BE INTEGRATED!
+	rm -rf texmf-dist/doc/uplatex
+	rm -rf texmf-dist/doc/uptex
+	rm -rf texmf-dist/source/fonts/uptex
+	rm -rf texmf-dist/source/uplatex
+	rm -rf texmf-dist/fonts/map/dvipdfmx/uptex
+	rm -rf texmf-dist/fonts/tfm/uptex
+	rm -rf texmf-dist/fonts/vf/uptex
+	rm -rf texmf-dist/scripts/uptex
+	rm -rf texmf-dist/tex/uplatex
+	rm -rf texmf-dist/tex/uptex
+	rm -rf tlpkg/tlpobj/uptex.*
+	# end of TEMP
 <: } :>//
 	rm -f configure-stamp
 	rm -f build-stamp
