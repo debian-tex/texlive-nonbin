@@ -4,10 +4,6 @@
 # debian/rules file for <:=$srcpackage:>
 # $Id$
 
-<: if ($srcpackage ne "texlive-lang") { _:>//
-include /usr/share/quilt/quilt.make
-<: } :>//
-
 PACKAGES=<:=$binpackages:>
 METAPACKAGES=<:=$metapackages:>
 
@@ -16,7 +12,7 @@ SHELL=/bin/bash
 
 build: build-stamp
 
-build-stamp: <: if ($srcpackage ne "texlive-lang") { _:>// $(QUILT_STAMPFN) <: } :>
+build-stamp:
 <: if ($srcpackage eq "texlive-lang") { _:>//
 	# SHOULD BE DELETED FOR FINAL 2012 SINCE uptex WILL BE INTEGRATED!
 	tar -xf debian/uptex.tar.xz
@@ -25,7 +21,7 @@ build-stamp: <: if ($srcpackage ne "texlive-lang") { _:>// $(QUILT_STAMPFN) <: }
 <: } :>//
 	touch build-stamp
 
-clean: if ($srcpackage ne "texlive-lang") { _:>// unpatch <: } :>
+clean: 
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  rm -f debian/$$i.{README.Debian,links,links.generated} ; \
 	  rm -f debian/$$i.{postinst,postrm,preinst,prerm} ; \

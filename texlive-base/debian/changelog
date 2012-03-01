@@ -1,3 +1,9 @@
+texlive-base (2011.20120226-1~4) unstable; urgency=low
+
+  * switch to v7/quilt
+
+ -- Norbert Preining <preining@debian.org>  Thu, 01 Mar 2012 11:51:13 +0900
+
 texlive-base (2011.20120226-1~3) unstable; urgency=low
 
   * include symlinks to scripts, needs new texlive-binaries
