@@ -55,7 +55,7 @@ set +e
 for dir in $(kpsexpand '$TEXMF' | sed -e 's/,/ /g;s/[!{}]//g;'); do
   ls_R_files="$ls_R_files $(ls $dir/ls-R 2>/dev/null)";
 done
-ls_R_files="$ls_R_files $(ls /usr/share/texmf-texlive/ls-R 2>/dev/null)"
+ls_R_files="$ls_R_files $(ls /usr/share/texlive/texmf*/ls-R 2>/dev/null)"
 
 echo "######################################" >&3
 echo " List of ls-R files" >&3

@@ -12,7 +12,7 @@ set -e
 for i in `find debian/ -wholename 'debian/texlive-*/usr/bin/*' -type l` ; do
 	ln=`readlink $i`
 	case "$ln" in 
-	../share/texmf-texlive/*)
+	../share/texlive/*)
 	  # set the executable bit on the target
 	  dn=`dirname $i`
 	  target="$dn/$ln"

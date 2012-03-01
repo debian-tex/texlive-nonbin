@@ -3,11 +3,11 @@ extra-license-file
 script-not-executable
 wrong-name-for-upstream-changelog
 texlive-lang-german: spelling-error-in-description german German
-texlive-fonts-recommended: unusual-interpreter ./usr/share/texmf-texlive/source/fonts/fpl/fpl/TeXPalladioL-BoldItalicOsF.pe #!fontforge
-texlive-fonts-recommended: unusual-interpreter ./usr/share/texmf-texlive/source/fonts/fpl/fpl/TeXPalladioL-BoldOsF.pe #!fontforge
-texlive-fonts-recommended: unusual-interpreter ./usr/share/texmf-texlive/source/fonts/fpl/fpl/TeXPalladioL-ItalicOsF.pe #!fontforge
-texlive-fonts-recommended: unusual-interpreter ./usr/share/texmf-texlive/source/fonts/fpl/fpl/TeXPalladioL-SC.pe #!fontforge
-texlive-fonts-recommended: unusual-interpreter ./usr/share/texmf-texlive/source/fonts/hfbright/simplify-rename.pe #!pfaedit
+texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-BoldItalicOsF.pe #!fontforge
+texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-BoldOsF.pe #!fontforge
+texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-ItalicOsF.pe #!fontforge
+texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-SC.pe #!fontforge
+texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/hfbright/simplify-rename.pe #!pfaedit
 texlive-base source: maintainer-script-lacks-debhelper-token debian/common.functions.preinst
 texlive-base source: maintainer-script-lacks-debhelper-token debian/common.functions.postinst
 texlive-base source: maintainer-script-lacks-debhelper-token debian/common.functions.postrm

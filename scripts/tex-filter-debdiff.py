@@ -33,7 +33,8 @@ import sys, os, re, getopt
 #
 # Note: "^/usr/share/doc/texlive" matches /usr/share/doc/texlive-lang-french
 #       and many others...
-filter_in_regexes = [r"^/usr/share/texmf-texlive",
+filter_in_regexes = [r"^/usr/share/texlive/texmf",
+		     r"^/usr/share/texlive/texmf-dist",
                      r"^/usr/share/doc/texlive"]
 
 # "Configuration files", for the purpose of locating which of them were moved
