@@ -1,3 +1,9 @@
+texlive-lang (2011.20120226-1~4) unstable; urgency=low
+
+  * unify numbering, full rebuild
+
+ -- Norbert Preining <preining@debian.org>  Thu, 01 Mar 2012 11:59:17 +0900
+
 texlive-lang (2011.20120226-1~2) unstable; urgency=low
 
   * include uptex runfiles, they will be also in final version

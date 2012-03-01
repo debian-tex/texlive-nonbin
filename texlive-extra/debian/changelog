@@ -1,3 +1,9 @@
+texlive-extra (2011.20120226-1~4) unstable; urgency=low
+
+  * unify numbering, full rebuild, V7/quilt
+
+ -- Norbert Preining <preining@debian.org>  Thu, 01 Mar 2012 11:59:36 +0900
+
 texlive-extra (2011.20120226-1~1) unstable; urgency=low
 
   * new upstream, first try
