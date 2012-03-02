@@ -3,7 +3,7 @@ echo "=== TeX Live Test System ==="
 echo "=== Test 4: dist-upgrade texlive from sid to test ==="
 echo ""
 echo "=== START INSTALL UNSTABLE VERSION"
-apt-get install --allow-unauthenticated --assume-yes texlive       # 2007
+apt-get install --allow-unauthenticated --assume-yes texlive       # 2009
 echo "deb file:/ pool/" >> /etc/apt/sources.list
 gunzip -c /pool/Packages.gz > /var/lib/apt/lists/_pool_Packages
 echo "=== START INSTALL TEST VERSION"

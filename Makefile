@@ -5,6 +5,7 @@ OLDPKG?=$(PWD)/old
 OLDSOURCES?=$(PWD)/src
 CURRENTDIR=$(PWD)
 SOURCES ?= texlive-base texlive-doc texlive-lang texlive-extra
+TMPDIR?=/var/tmp
 
 # for update-liclines
 catalogue_loc ?= ../../../../texcatalogue/trunk/
@@ -73,7 +74,7 @@ linda:
 lintian:
 	cd pool && \
 	for i in *.changes ; do \
-		lintian $$i > `basename $$i .changes`.lintian.log ; \
+		TMPDIR=${TMPDIR} lintian $$i > `basename $$i .changes`.lintian.log ; \
 	done || true
 	mkdir -p log
 	mv pool/*.log log
