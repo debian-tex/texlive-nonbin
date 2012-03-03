@@ -61,8 +61,6 @@ my $sysdocdest = '$basedir/usr/share/doc/$package';
 my $sysdoccomponent = '/usr/share/doc/$package';
 my $sysetcdest = '$basedir/etc/texmf';
 
-my %configfiles; # hash of (symbolic) array references, one for each package
-
 my $texmfdist = "texmf-dist";
 my $opt_nosource=0;
 my $optdestination="";
@@ -127,12 +125,10 @@ sub main {
 		#
 		# copy files etc.
 		# 
-		# this affects the following global vars: @{$configfiles{$package}}.
 		make_deb($package); #unless ($opt_onlyscripts);
 		#
 		# create the maintainer scripts
 		#
-		# this uses the following global vars: @{$configfiles{$package}}.
 		make_maintainer($package,$debdest) unless ($opt_onlycopy);
 	}
 }
@@ -343,8 +339,6 @@ sub make_deb {
 		print STDERR "DOCFILES: ", @{$lists{'DocFiles'}}, "\n";
 		print STDERR "BINFILES: ", @{$lists{'BinFiles'}}, "\n";
 	}
-# 	# clean @configfiles
-	@{$configfiles{$package}} = ();
 	&mkpath($docdest);
 	#
 	# DO REMAPPINGS and COPY FILES TO DEST
@@ -381,7 +375,7 @@ sub make_deb {
 # make_maintainer
 #
 # create maintainer scripts. 
-# This function uses global vars: @{$configfiles{$package}}, $debdest
+# This function uses global vars: $debdest
 #
 sub make_maintainer {
 	sub merge_into {
@@ -402,9 +396,8 @@ sub make_maintainer {
 			(-r "$debdest/$type.post") ||
 			(-r "$debdest/$package.$type.pre") || 
 			(-r "$debdest/$package.$type.post") ||
-			( ($type ne "prerm") && ($#{$configfiles{$package}} >= 0) )) 
+			($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0))
 		{
-			$opt_debug && print STDERR "\nconfigfiles:\n@{$configfiles{$package}}\n";
 			open(MAINTSCRIPT, ">$debdest/$package.$type")
 				or die("Cannot open $debdest/$package.$type for writing");
 			print MAINTSCRIPT "#!/bin/sh -e\n";
@@ -412,19 +405,20 @@ sub make_maintainer {
 			merge_into("$debdest/common.functions.$type", MAINTSCRIPT);
 			merge_into("$debdest/$type.pre", MAINTSCRIPT);
 			merge_into("$debdest/$package.$type.pre", MAINTSCRIPT);
-			# handling of conffile moves (2005 has /etc/texmf/texlive, 2007 has /etc/texmf)
 			#
-			# preinst moves, postinst renames conffile to
-			# conffile.dpkg-new if it was previously deleted, postrm
-			# makes error-unwind for preinst.
-			# prerm needs no code.
-			my $maintscript_func = "handle_config_file_" . $type;
-			if (! @{$configfiles{$package}} && $opt_debug ) { print "\nNo conffiles for this package\n"};
-			CONFMOVE: do {
-				foreach my $cf (@{$configfiles{$package}}) {
-					print MAINTSCRIPT "$maintscript_func $cf \$1 \$2\n"
+			# handling of conffile moves
+			if ($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0) {
+				print MAINTSCRIPT "if dpkg-maintscript-helper supports rm_conffile; then\n"
+					unless ($type eq "prerm");
+				for my $conffile (@{$TeXLive{'binary'}{$package}{'remove_conffile'}}) {
+					my $srcpkg = $TeXLive{'binary'}{$package}{'source_package'};
+					my $oldversion = $TeXLive{'source'}{$srcpkg}{'old_version'};
+					print MAINTSCRIPT " dpkg-maintscript-helper rm_conffile $conffile $oldversion  -- \"\$\@\"\n"
+						unless ($type eq "prerm");
 				}
-			} unless ($type eq "prerm");
+				print MAINTSCRIPT "fi\n" unless ($type eq "prerm");
+			}
+			#
 			# add debhelper stuff and post-parts.
 			print MAINTSCRIPT "\n#DEBHELPER#\n";
 			merge_into("$debdest/$package.$type.post", MAINTSCRIPT);
@@ -515,9 +509,6 @@ sub do_remap_and_copy {
 				&mkpath(dirname("$basedir$supplieddestname"));
 				mycopy("$Master/$file","$basedir$supplieddestname");
 				$returnvalue = $supplieddestname;
-				if ($act eq "config-move") { 
-					push @{$configfiles{$package}}, "$supplieddestname" ;
-				}
 			} elsif (($act eq "copy") || ($act eq "config-copy")) {
 				$opt_debug && print STDERR "copy\n";
 				# first install it into the normal path
@@ -526,9 +517,6 @@ sub do_remap_and_copy {
 				&mkpath(dirname("$basedir$supplieddestname"));
 				mycopy("$Master/$file","$basedir$supplieddestname");
 				$returnvalue = $supplieddestname;
-				if ($act eq "config-copy") { 
-					push @{$configfiles{$package}}, "$supplieddestname" ;
-				}
 			} elsif ($act eq "copy-move") {
 				$opt_debug && print STDERR "copy-move\n";
 				my ($configpath,$secondpath) = split(/,/ , $supplieddestname);
@@ -561,9 +549,6 @@ sub do_remap_and_copy {
 					symlink($supplieddestname, "$basedir$defaultpathcomponent/$defaultdestname") or
 						die "Cannot symlink $basedir$defaultpathcomponent/$defaultdestname -> $supplieddestname: $!\n"
 				};
-				if ($act eq "config-move-link") { 
-					push @{$configfiles{$package}}, "$supplieddestname" ;
-				}
 				$returnvalue = $supplieddestname; ## ?? or $defaultdestname????
 			} elsif ($act eq "add-link") {
 				$opt_debug && print STDERR "add-link\n";

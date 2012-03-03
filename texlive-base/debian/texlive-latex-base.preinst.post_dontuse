@@ -1,8 +1,0 @@
-# texlive-latex-base.preinst.post begin
-
-## 20110524, FK: remove the following code completely if we are sure
-# Cleanup after Bug #420390 for sid users
-resurrect_conffile_sid /etc/texmf/tex/latex/config/color.cfg texlive-base "$1" "$2"
-resurrect_conffile_sid /etc/texmf/tex/latex/config/graphics.cfg texlive-base "$1" "$2"
-
-# texlive-latex-base.preinst.post end

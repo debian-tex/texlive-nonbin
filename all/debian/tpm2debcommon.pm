@@ -674,6 +674,12 @@ sub initialize_config_file_data {
 			$TeXLive{'all'}{'tl_common_version'} = "$a";
 			next;
 		}
+		if ($type eq "old-version") {
+			my ($b) = @rest;
+			$opt_debug && print STDERR  "b=$b.\n";
+			$TeXLive{'source'}{$a}{'old_version'} = "$b";
+			next;
+		}
 		if ($type eq "latest-version") {
 			my ($b) = @rest;
 			$opt_debug && print STDERR  "b=$b.\n";
@@ -749,6 +755,12 @@ sub initialize_config_file_data {
 		if ($type eq "linkedscript") {
 			my ($b) = @rest;
 			$TeXLive{'all'}{'linkedscript'}{$a} = $b;
+			next;
+		}
+		# removeconffile;texlive-lang-french;etc/texmf/language.d/10texlive-lang-french.cnf
+		if ($type eq "removeconffile") {
+			my ($b) = @rest;
+			push @{$TeXLive{'binary'}{$a}{'remove_conffile'}}, $b;
 			next;
 		}
 		print STDERR "tpm2deb.cfg: Unknown directive: $type. Maybe an empty line?\n Exiting!\n"; 
