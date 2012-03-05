@@ -141,6 +141,11 @@ sidtests:
 		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool" $$i 2>&1 | tee $$i.log ; \
 	done
 
+sidupgrade:
+	sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool" \
+		--basepath /var/cache/pbuilder/texlive.cow \
+		tests/sidupgrade.sh 2>&1 | tee tests/sidupgrade.log
+
 etchtests:
 	-for i in ./tests/etch-test*.sh ; do \
 		sudo /usr/sbin/cowbuilder --execute --basepath /var/cache/pbuilder/etch.cow --bindmounts "./pool" $$i | tee $$i.log  ; \
