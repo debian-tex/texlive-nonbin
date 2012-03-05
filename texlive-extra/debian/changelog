@@ -1,3 +1,9 @@
+texlive-extra (2011.20120226-1~5) unstable; urgency=low
+
+  * conf file trial
+
+ -- Norbert Preining <preining@debian.org>  Sat, 03 Mar 2012 14:09:09 +0900
+
 texlive-extra (2011.20120226-1~4) unstable; urgency=low
 
   * unify numbering, full rebuild, V7/quilt

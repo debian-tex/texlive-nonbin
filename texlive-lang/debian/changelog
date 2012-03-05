@@ -1,3 +1,9 @@
+texlive-lang (2011.20120226-1~5) unstable; urgency=low
+
+  * conf file trial
+
+ -- Norbert Preining <preining@debian.org>  Sat, 03 Mar 2012 14:08:59 +0900
+
 texlive-lang (2011.20120226-1~4) unstable; urgency=low
 
   * unify numbering, full rebuild
