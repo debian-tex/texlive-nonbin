@@ -12,7 +12,7 @@ sub do_log_file {
 	close FOO;
 	foreach $l (@lines) {
 		chomp $l;
-		($type, $pkg, $rest) = split /: /, $l;
+		($type, $pkg, $rest) = split /: /, $l, 3;
 		($tag,@inf) = split / /, $rest;
 		if ($type eq 'E') {
 			local %foo = %{$Errors{$tag}};
