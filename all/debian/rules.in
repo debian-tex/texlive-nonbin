@@ -9,8 +9,9 @@ METAPACKAGES=<:=$metapackages:>
 
 SHELL=/bin/bash
 
-
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
 
 build-stamp:
 <: if ($srcpackage eq "texlive-lang") { _:>//

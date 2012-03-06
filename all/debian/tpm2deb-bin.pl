@@ -390,13 +390,29 @@ sub make_maintainer {
 	my ($package,$debdest) = @_;
 	print "Making maintainer scripts for $package in $debdest...\n";
 	&mkpath($debdest);
+	# create debian/maintscript
+	if ((-r "$debdest/$package.maintscript.dist") ||
+	    ($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0)) {
+		open(MAINTHELP, ">$debdest/$package.maintscript")
+			or die("Cannot open $debdest/$package.maintscript for writing");
+		merge_into("$debdest/$package.maintscript.dist", MAINTSCRIPT);
+		#
+		# handling of conffile moves
+		if ($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0) {
+			for my $conffile (@{$TeXLive{'binary'}{$package}{'remove_conffile'}}) {
+				my $srcpkg = $TeXLive{'binary'}{$package}{'source_package'};
+				my $oldversion = $TeXLive{'source'}{$srcpkg}{'old_version'};
+				print MAINTHELP "rm_conffile $conffile $oldversion\n";
+			}
+		}
+		close(MAINTHELP);
+	}
 	for my $type (qw/postinst preinst postrm prerm/) {
 		$opt_debug && print STDERR "Handling $type ";
 		if ((-r "$debdest/$type.pre") ||
 			(-r "$debdest/$type.post") ||
 			(-r "$debdest/$package.$type.pre") || 
-			(-r "$debdest/$package.$type.post") ||
-			($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0))
+			(-r "$debdest/$package.$type.post"))
 		{
 			open(MAINTSCRIPT, ">$debdest/$package.$type")
 				or die("Cannot open $debdest/$package.$type for writing");
@@ -405,19 +421,6 @@ sub make_maintainer {
 			merge_into("$debdest/common.functions.$type", MAINTSCRIPT);
 			merge_into("$debdest/$type.pre", MAINTSCRIPT);
 			merge_into("$debdest/$package.$type.pre", MAINTSCRIPT);
-			#
-			# handling of conffile moves
-			if ($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0) {
-				print MAINTSCRIPT "if dpkg-maintscript-helper supports rm_conffile; then\n"
-					unless ($type eq "prerm");
-				for my $conffile (@{$TeXLive{'binary'}{$package}{'remove_conffile'}}) {
-					my $srcpkg = $TeXLive{'binary'}{$package}{'source_package'};
-					my $oldversion = $TeXLive{'source'}{$srcpkg}{'old_version'};
-					print MAINTSCRIPT " dpkg-maintscript-helper rm_conffile $conffile $oldversion  -- \"\$\@\"\n"
-						unless ($type eq "prerm");
-				}
-				print MAINTSCRIPT "fi\n" unless ($type eq "prerm");
-			}
 			#
 			# add debhelper stuff and post-parts.
 			print MAINTSCRIPT "\n#DEBHELPER#\n";

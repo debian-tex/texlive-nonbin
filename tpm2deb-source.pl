@@ -614,10 +614,13 @@ sub make_deb_control {
 				write CONTROL;
 			}
 		}
+		if (@deslines) {
+			print CONTROL " .\n";
+		}
 		if ($#lop < 0) {
 			next;
 		}
-		print CONTROL " .\n This package includes the following CTAN packages:\n";
+		print CONTROL " This package includes the following CTAN packages:\n";
 		foreach my $p (@lop) {
 			next if is_blacklisted($p,$pkg);
 			# ignore split out arch packages
