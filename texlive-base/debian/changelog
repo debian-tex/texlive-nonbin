@@ -1,38 +1,8 @@
-texlive-base (2011.20120226-1~6) unstable; urgency=low
+texlive-base (2011.20120226-1) experimental; urgency=low
 
-  * new build after several changes
+  * new upstream, too many changes
 
- -- Norbert Preining <preining@debian.org>  Tue, 06 Mar 2012 14:00:50 +0900
-
-texlive-base (2011.20120226-1~5) unstable; urgency=low
-
-  * conf file trial
-
- -- Norbert Preining <preining@debian.org>  Sat, 03 Mar 2012 14:08:51 +0900
-
-texlive-base (2011.20120226-1~4) unstable; urgency=low
-
-  * switch to v7/quilt
-
- -- Norbert Preining <preining@debian.org>  Thu, 01 Mar 2012 11:51:13 +0900
-
-texlive-base (2011.20120226-1~3) unstable; urgency=low
-
-  * include symlinks to scripts, needs new texlive-binaries
-
- -- Norbert Preining <preining@debian.org>  Wed, 29 Feb 2012 09:43:46 +0900
-
-texlive-base (2011.20120226-1~2) unstable; urgency=low
-
-  * new build with some fixes
-
- -- Norbert Preining <preining@debian.org>  Tue, 28 Feb 2012 08:22:02 +0900
-
-texlive-base (2011.20120226-1~1) unstable; urgency=low
-
-  * new upstream
-
- -- Norbert Preining <preining@debian.org>  Sun, 26 Feb 2012 14:38:15 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 06 Mar 2012 21:33:13 +0900
 
 texlive-base (2009-15) unstable; urgency=low
 

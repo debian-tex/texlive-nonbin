@@ -1,38 +1,8 @@
-texlive-doc (2011.20120226-1~6) unstable; urgency=low
+texlive-doc (2011.20120226-1) experimental; urgency=low
 
-  * new build after several changes
+  * new upstream, too many changes
 
- -- Norbert Preining <preining@debian.org>  Tue, 06 Mar 2012 14:01:05 +0900
-
-texlive-doc (2011.20120226-1~5) unstable; urgency=low
-
-  * conf file trial
-
- -- Norbert Preining <preining@debian.org>  Sat, 03 Mar 2012 14:09:04 +0900
-
-texlive-doc (2011.20120226-1~4) unstable; urgency=low
-
-  * V3/quilt, unify numbering
-
- -- Norbert Preining <preining@debian.org>  Thu, 01 Mar 2012 11:58:53 +0900
-
-texlive-doc (2011.20120226-1~1) unstable; urgency=low
-
-  * new upstreams
-
- -- Norbert Preining <preining@debian.org>  Sun, 26 Feb 2012 22:15:48 +0900
-
-texlive-doc (2009-2) unstable; urgency=low
-
-  * first upload to unstable
-
- -- Norbert Preining <preining@debian.org>  Wed, 09 Dec 2009 23:03:13 +0900
-
-texlive-doc (2009-1) experimental; urgency=low
-
-  * new upstream release, experimental packages
-
- -- Norbert Preining <preining@debian.org>  Thu, 12 Nov 2009 20:51:39 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 06 Mar 2012 21:33:16 +0900
 
 texlive-doc (2007.dfsg.1-1) unstable; urgency=medium
 
