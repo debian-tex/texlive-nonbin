@@ -1,0 +1,51 @@
+---
+ texmf-dist/scripts/epstopdf/epstopdf.pl |    3 +--
+ texmf-dist/scripts/pkfix/pkfix.pl       |    3 +--
+ texmf-dist/scripts/pst2pdf/pst2pdf      |    3 +--
+ texmf-dist/scripts/vpe/vpe.pl           |    3 +--
+ 4 files changed, 4 insertions(+), 8 deletions(-)
+
+Index: texlive-extra-2011.20120226/texmf-dist/scripts/epstopdf/epstopdf.pl
+===================================================================
+--- texlive-extra-2011.20120226.orig/texmf-dist/scripts/epstopdf/epstopdf.pl	2010-05-20 08:29:01.000000000 +0900
++++ texlive-extra-2011.20120226/texmf-dist/scripts/epstopdf/epstopdf.pl	2012-03-06 11:56:20.044077005 +0900
+@@ -1,5 +1,4 @@
+-eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
+-  if 0;
++#! /usr/bin/perl -w
+ use strict;
+ 
+ # $Id: epstopdf.pl 18319 2010-05-17 16:34:21Z karl $
+Index: texlive-extra-2011.20120226/texmf-dist/scripts/pkfix/pkfix.pl
+===================================================================
+--- texlive-extra-2011.20120226.orig/texmf-dist/scripts/pkfix/pkfix.pl	2011-04-23 09:59:42.000000000 +0900
++++ texlive-extra-2011.20120226/texmf-dist/scripts/pkfix/pkfix.pl	2012-03-06 11:57:05.072093011 +0900
+@@ -1,5 +1,4 @@
+-eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
+-    if 0;
++#! /usr/bin/perl -w
+ use strict;
+ $^W=1; # turn warning on
+ #
+Index: texlive-extra-2011.20120226/texmf-dist/scripts/pst2pdf/pst2pdf
+===================================================================
+--- texlive-extra-2011.20120226.orig/texmf-dist/scripts/pst2pdf/pst2pdf	2011-12-15 11:01:37.000000000 +0900
++++ texlive-extra-2011.20120226/texmf-dist/scripts/pst2pdf/pst2pdf	2012-03-06 11:56:41.516084668 +0900
+@@ -1,5 +1,4 @@
+-eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
+-  if 0;
++#! /usr/bin/perl -w
+ 
+ use strict;				# to be sure, that all is safe ... :-)
+ 
+Index: texlive-extra-2011.20120226/texmf-dist/scripts/vpe/vpe.pl
+===================================================================
+--- texlive-extra-2011.20120226.orig/texmf-dist/scripts/vpe/vpe.pl	2008-05-14 08:33:51.000000000 +0900
++++ texlive-extra-2011.20120226/texmf-dist/scripts/vpe/vpe.pl	2012-03-06 11:57:21.596098864 +0900
+@@ -1,5 +1,4 @@
+-eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
+-  if 0;
++#! /usr/bin/perl -w
+ use strict;
+ #
+ # vpe.pl
