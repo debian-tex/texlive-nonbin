@@ -12,7 +12,7 @@ cd ..
 upversion=$(echo $version | sed -e 's/-.*$//')
 debrevision=$(echo $version | sed -e 's/^.*-//')
 
-perl tpm2deb-source.pl --noremove --nosrcpkg --master=/var/www/norbert/tlnet make-deb-source $pkg
+perl tpm2deb-source.pl --noremove --nosrcpkg make-deb-source $pkg
 cd ${pkg}-$upversion
 dpkg-buildpackage -us -uc -rfakeroot
 cd ..
