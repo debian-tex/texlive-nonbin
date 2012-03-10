@@ -3,7 +3,7 @@ texlive-base (2011.20120226-2) experimental; urgency=low
   * UNRELEASED
   * do not blacklist glyphlist, NEEDS NEW ORIG.TAR.GZ (Closes: #663171)
 
- -- Norbert Preining <preining@debian.org>  Sat, 10 Mar 2012 11:21:23 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 10 Mar 2012 12:12:39 +0900
 
 texlive-base (2011.20120226-1) experimental; urgency=low
 

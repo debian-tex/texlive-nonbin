@@ -4,6 +4,22 @@
 # $Id$
 #
 
+2012-03-10
+
+  * [all] remove tpm2license call from generate-licenses, it does not
+    do anything useful. Remove it also from tex-common!
+
+texlive-base (2011.20120226-1) experimental
+texlive-doc (2011.20120226-1) experimental
+texlive-extra (2011.20120226-1) experimental
+texlive-lang (2011.20120226-1) experimental
+
+2012-02-??
+
+  * [all] packaging TL2012, too many changes
+
+[LONG BREAK]
+
 2010-11-10
 
   * [bin] add upstream patch from Mathias Kende fixing segfaults on MIPS
