@@ -17,13 +17,8 @@ cat debian/Licenses.header > debian/$pkg.Licenses.gen
 if [ -r debian/$pkg.Licenses.add ] ; then
 	cat debian/$pkg.Licenses.add >> debian/$pkg.Licenses.gen
 fi
-#perl /usr/share/tex-common/tpm2licenses		\
-#	--Catalogue=file:./debian/tpm2liclines				\
-#	--package=texlive						\
-#	--tpmdir=./debian/$pkg/usr/share/texlive/texmf/tpm		\
-#	--listallfiles							\
-#	--texmfPath="./debian/$pkg/usr/share/texlive/texmf ./debian/$pkg/usr/share/texlive/texmf-dist ./debian/$pkg/usr/share/doc/$pkg" 2>/dev/null	\
-#	| sed -e 's,^\./debian/[^/]*/usr,/usr,' >> debian/$pkg.Licenses.gen
+
+cat debian/Licenses.packages > debian/$pkg.Licenses.gen
 
 mv debian/$pkg.Licenses.gen debian/$pkg/usr/share/doc/$pkg/Licenses
 

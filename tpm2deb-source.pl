@@ -107,6 +107,7 @@ my $shortl;
 sub setup_search_path_and_load {
 	unshift (@INC, "$Master/tlpkg");
 	require TeXLive::TLPDB;
+	require TeXLive::TLUtils;
 	print "Master = $Master\n";
 	$::opt_verbosity = 1;
 	$::tlpdb = TeXLive::TLPDB->new(root => "$Master");
@@ -269,7 +270,7 @@ sub make_orig_tar {
 		#copy_collection_files($coll,$texlivedest,$types);
 	}
 	# remove blacklisted files, don't care if they were actually installed
-	for my $f (@{$TeXLive{'all'}{'file_blacklist'}) {
+	for my $f (@{$TeXLive{'all'}{'file_blacklist'}}) {
 		`rm -f \"$texlivedest/$f\"`;
 	}
 	# remove binary files
@@ -309,6 +310,40 @@ sub make_orig_tar {
 	system("tar -cf - $tmpdir | gzip -c9 > ${src_package}_${version}.orig.tar.gz") == 0
 	    or die("Error creating orig.tar.gz");
 	if (!$opt_debug && !$opt_noremove) { system("rm -rf $tmpdir"); }
+}
+
+sub create_license_file {
+	my ($sourcepkg, $texlivedest) = @_;
+	open FOO, ">$texlivedest/debian/Licenses.packages" or 
+		die "Cannot open $texlivedest/debian/Licenses.packages: $!";
+	print FOO "Licenses for source package $sourcepkg\n\n";
+	my %allpacks;
+	foreach my $coll (@{$TeXLive{'source'}{$sourcepkg}{'binary_packages'}}) {
+		for my $p (@{$TeXLive{'binary'}{$coll}{'includedpackages'}}) {
+			$allpacks{$p} = 1;
+		}
+	}
+	chdir $texlivedest or die "Can't chdir to $texlivedest: $!";
+	print "mydir/texlivedest = $mydir/$texlivedest\n";
+	for my $p (sort keys %allpacks) {
+		my $tlp = $::tlpdb->get_package($p);
+		$tlp->cancel_reloc_prefix;
+		my @filelist;
+		push @filelist, $tlp->runfiles;
+		push @filelist, $tlp->docfiles;
+		push @filelist, $tlp->srcfiles;
+		my $lic = exists $tlp->cataloguedata->{'license'} ?
+			$tlp->cataloguedata->{'license'} : "";
+		my @files_dirs = TeXLive::TLUtils::collapse_dirs(@filelist);
+		print FOO "$p: $lic\n";
+		for (@files_dirs) {
+			s!^$mydir/$texlivedest/!!;
+			if (-d $_) { print FOO "$_/*\n"; }
+			else { print FOO "$_\n"; }
+		}
+	}
+	chdir ($mydir);
+	close(FOO);
 }
 
 #
@@ -441,6 +476,7 @@ sub make_deb_source {
 	foreach my $coll (@{$TeXLive{'source'}{$package}{'binary_packages'}}) {
 		create_override_file($coll,$package,$debdest,@locont);
 	} 
+	create_license_file($package, $texlivedest);
 	# 
 	# Building the source package
 	#
