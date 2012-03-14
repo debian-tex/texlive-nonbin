@@ -1,8 +1,8 @@
-texlive-lang (2011.20120226-2) experimental; urgency=low
+texlive-lang (2011.20120314-1) experimental; urgency=low
 
-  * UNRELEASED
+  * new upstream with proper blacklist handling
 
- -- Norbert Preining <preining@debian.org>  Sat, 10 Mar 2012 12:13:22 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 14 Mar 2012 16:52:30 +0900
 
 texlive-lang (2011.20120226-1) experimental; urgency=low
 

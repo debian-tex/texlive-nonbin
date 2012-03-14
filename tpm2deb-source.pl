@@ -268,6 +268,12 @@ sub make_orig_tar {
 		copy_unpack_included_packages($coll, $texlivedest);
 		#copy_collection_files($coll,$texlivedest,$types);
 	}
+	# remove blacklisted files, don't care if they were actually installed
+	for my $f (@{$TeXLive{'all'}{'file_blacklist'}) {
+		`rm -f \"$texlivedest/$f\"`;
+	}
+	# remove binary files
+	`rm -rf \"$texlivedest/bin\"`;
 	#
 	# necessary for media detection!
 	&mkpath("$texlivedest/texmf/web2c");
