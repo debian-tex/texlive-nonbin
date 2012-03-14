@@ -33,8 +33,6 @@ collections gone because the containing TeX packages are in Debian
 		replaced by arabtex
 	collection-htmlxml (would have been texlive-htmlxml)
 		replaced by xmltex, jadetex, passivetex, tex4ht
-	collection-langcjk (would have been texlive-lang-cjk)
-		replaced by latex-cjk-all
 
 If a package is removed from a collection/Debian package due to the
 existence of an equivalent package in Debian, the collection/Debian package
