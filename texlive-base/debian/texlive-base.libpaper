@@ -28,10 +28,14 @@ test -x /usr/share/texmf/texconfig/tcfmgr || exit 0
 . /usr/share/debconf/confmodule
 db_version 2.0
 
-dvips=$(texconfig-sys dvips paperconf)
-xdvi=$(texconfig-sys xdvi paperconf)
-pdftex=$(texconfig-sys pdftex paperconf)
-dvipdfmx=$(texconfig-sys dvipdfmx paperconf)
+path="/home/frank/src/Packages/texlive2012/texlive-nonbin/trunk/texlive-base/debian/texlive-base.root/usr/share/texlive-base/"
+#path=/usr/share/texlive-base
+paper_prg=$path/tl-paper.pl
+
+dvips=$($paper_prg get dvips)
+xdvi=$($paper_prg get xdvi)
+pdftex=$($paper_prg get pdftex)
+dvipdfmx=$($paper_prg get dvipdfmx)
 
 LibpaperPaper=$(paperconf)
 
@@ -47,7 +51,7 @@ if [ $FourPapersAllSame = true ]; then
   if [ $dvips = $LibpaperPaper ]; then
     exit 0
   else
-    if texconfig-sys paper $LibpaperPaper; then
+    if $paper_prg set all $LibpaperPaper; then
       # all is well
       exit 0
     else
@@ -85,8 +89,12 @@ else
   IFS=$OLD_IFS
 
   for binary in "$@"; do
-    if texconfig-sys $binary paper $LibpaperPaper; then
+    if $paper_prg list $binary | grep "^$LibpaperPaper\$"; then
+      # use this instead once set has a proper return code
+      # if $paper_prg set $binary $LibpaperPaper; then 
+
       # all is well
+      $paper_prg set $binary $LibpaperPaper
       :
     else
       db_subst texlive-base/texconfig_ignorant binary "$binary"

@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl
 
 BEGIN {
   $^W = 1;
@@ -32,7 +32,7 @@ sub main {
   my $action = shift @ARGV;
   if ($action =~ m/^status$/i) {  # "tl-paper status" shows the current settings
     TeXLive::TLPaper::paper_all($texmfsysconfig,undef);
-  
+    
   } elsif ($action =~ m/^list$/i) { # "tl-paper list prg" lists options for prg
     my $prg = shift @ARGV;
     if (!$prg) {
@@ -70,6 +70,15 @@ sub main {
       TeXLive::TLPaper::do_paper($prg,$texmfsysconfig,$newpaper);
     }
   
+  } elsif ($action =~ m/^get$/i) { # "tl-paper get prg" gets paper setting for prg
+    my $prg = shift @ARGV;
+    if ($prg !~ m/^(xdvi|pdftex|dvips|dvipdfmx|dvipdfm|context)$/i) {
+      usage();
+      exit 1;
+    }
+    my ($current_paper, @other_options) = TeXLive::TLPaper::get_paper_list($prg);
+    print "$current_paper\n";
+    
   } else {
     usage();
     exit 1;
@@ -83,10 +92,11 @@ tl-paper: inquire and set paper settings for various programs in the TeX World.
 
 
 usage:
-  tl-paper list <program>
-  tl-paper status
-  tl-paper set <program> <newpaper>
-  tl-paper set all <a4|letter>
+  tl-paper list <program>     lists available papers, current paper first
+  tl-paper status             lists all current settings
+  tl-paper get <program>      prints the current paper for <program>
+  tl-paper set <program> <newpaper>    sets new paper for <program>
+  tl-paper set all <a4|letter>         sets new paper for all programs
 
 ";
 }
