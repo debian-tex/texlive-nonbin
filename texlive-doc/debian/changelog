@@ -1,3 +1,9 @@
+texlive-doc (2011.20120314-2) experimental; urgency=low
+
+  * UNRELEASED
+
+ -- Norbert Preining <preining@debian.org>  Mon, 19 Mar 2012 22:32:41 +0900
+
 texlive-doc (2011.20120314-1) experimental; urgency=low
 
   * new upstream with proper blacklist handling

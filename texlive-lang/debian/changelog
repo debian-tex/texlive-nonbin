@@ -1,3 +1,11 @@
+texlive-lang (2011.20120314-2) experimental; urgency=low
+
+  * UNRELEASED
+  * replace otf/ttf fonts with links to the files in the
+    respective Debian package, depend on that package
+
+ -- Norbert Preining <preining@debian.org>  Mon, 19 Mar 2012 22:32:08 +0900
+
 texlive-lang (2011.20120314-1) experimental; urgency=low
 
   * new upstream with proper blacklist handling

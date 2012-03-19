@@ -4,6 +4,22 @@
 # $Id$
 #
 
+
+2012-03-19
+
+  * [base] include tl-paper.pl and reworked libpaper handling (fk)
+  * [all] replace otf/ttf fonts with links to the files in the 
+    respective Debian package, depend on that package
+
+texlive-base (2011.20120314-1) experimental
+texlive-doc (2011.20120314-1) experimental
+texlive-extra (2011.20120314-1) experimental
+texlive-lang (2011.20120314-1) experimental
+
+2012-03-13
+
+  * [all] do proper blacklist handling, it was hosed
+
 2012-03-10
 
   * [all] remove tpm2license call from generate-licenses, it does not
