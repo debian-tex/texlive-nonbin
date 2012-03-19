@@ -17,7 +17,11 @@ QUICK HOWTO TO BUILD A SOURCE PACKAGE
   changelog and defines the version number!)
 . call
 	perl ./tpm2deb-source.pl make-deb-source $sourcepackage
-  where $sourcepackage is one of texlive-{bin,base,extra,doc,lang} or 'all'
+  where $sourcepackage is one of texlive-{base,extra,doc,lang} or 'all'
+. texlive-bin is a separate package, that is located parallel to
+  the current location in svn. texlive-bin is a completely normal
+  Debian package without any meta-generation.
+
 
 After this you should have a normal Debian source package
 ----------------------------------------------------
@@ -64,8 +68,8 @@ us developers. It also gives the release points.
 1) Layout of the directory:
 ===========================
 
-The 5 directories
-	texlive-bin -base -extra -doc -lang
+The 4 directories
+	texlive-base -extra -doc -lang
 have the same structure like an unpacked source package, ie they contain a
 	debian/
 subdirectory and optionally other subdirectories.
@@ -81,27 +85,14 @@ tpm2deb-source.pl
 	the central script for building a .orig.tar.gz and a source
 	package
 
-tpm.data
-	The tpm data from TeX live 2005 as saved via 
-		scripts/tpm2deb-tool.pl store-tpm
-	call. When starting, tpm2deb-source.pl checks wether this file
-	exists and reads it instead of reading all tpm files. This
-	speeds up the process a lot, but we shouldn't forget that we
-	have to update this with a new version of tpm data when available!
-
 Makefile
 	not strictly essential, but it shows what you really have to do
 	to generate a source package. Don't forget to call it with the
 	correct MASTER setting, e.g. 
-		MASTER=/src/TeX/texlive/Master make foobar
+		MASTER=/checkout/of/tlnet make foobar
 	if you have need access to it at the foobar command (mostly
 	only at source package build time when you also create a new
 	.orig.tar.gz). 
-
-orig.tar.gz-addons/
-	This directory contains again directories for each source package,
-	and under these dirs files are placed that should be included
-	into the .orig.tar.gz
 
 TODO
 	well, obvious
@@ -160,20 +151,21 @@ etc/
 
 The Debian TeXLive repository does not contain the actual sources,
 only the files needed to create Debian packages from them.  You have
-to get the sources separately. 
+to get the sources separately. Since TL2012 we are building from
+a tlnet distribution, that is a set of .tar.xz files and some
+infrastructure. This is the primarly distribution of TeX Live 
+nowadays.
 
-Please check out the current tag from the texlive subversion repository,
-e.g. for release 2007.0:
+Please get a copy of tlnet from CTAN the ctan network
 
-	svn co svn://tug.org/texlive/tags/texlive-2007.0
+	http://mirror.ctan.org/systems/texlive/tlnet/
 
 Then call in the texlive-new trunk repository:
-	perl tpm2deb-source.pl make-orig-tar --master=/path/to/texlive-2007.0/Master $srcpackage
-where $srcpackage is one of texlive-{base,bin,extra,doc,lang}.
+	perl tpm2deb-source.pl make-orig-tar --master=/path/to/tlnet $srcpackage
+where $srcpackage is one of texlive-{base,extra,doc,lang}.
 
-This does nothing else than copying all the necessary files from the
-Master to the source package directory, adds the stuff from orig.tar.gz-addons,
-and creats the orig.tar.gz file from it.
+This does nothing else than unpacking the necessary archives from tlnet,
+to the source package directory, and creates the orig.tar.gz file from it.
 
 Note that the blacklist: statements (see below) are taking action here, too,
 so that blacklisted files and tpms are NOT included in the .orig.tar.gz.
@@ -205,7 +197,7 @@ If you want to build a single source package, say texlive-base, call
 NOTE: If you have your .orig.tar.gz in ./src/ then you can leave out the
 --oldsource line!
 	
-As usual, $sourcepackage can be one of texlive-{base,bin,extra,lang,doc}
+As usual, $sourcepackage can be one of texlive-{base,extra,lang,doc}
 or 'all' to build all of them.
 
 
@@ -215,7 +207,7 @@ or 'all' to build all of them.
 Besides the rest as found in rules(.in) the main action is taken by
 	perl debian/tpm2deb-bin.pl $packages
 which does the following for each binary package $pkg
-	- copy all the files to debian/$pkg/u/s/texmf-texlive/...
+	- copy all the files to debian/$pkg/u/s/texlive/texmf(-dist)/...
 	  this honors the remap/blacklist/etc directives in the 
 	  config file (see below).
 	  Main function here is the do_remap_and_copy function.
@@ -248,24 +240,9 @@ After this the debian/rules file continues and does the following
 4.1) I need to add/change files, where should I do that
 =======================================================
 
-There are 3 places where files can be changed/added:
+There are 2 places where files can be changed/added:
 
-4.1a) add a file to the orig.tar.gz
---------------------------------
-just drop the file into orig.tar.gz-addons/<src-package>/.... and it will
-be included as soon as you rebuild a .orig.tar.gz file. Example:
-  orig.tar.gz-addons/texlive-lang/texmf-dist/tex/csplain/base/csplain.ini
-which was necessary due to the fixed license statement.
-
-Remember that you can *remove* a file in the .orig.tar.gz file using the
-tpm2deb directive
-  blacklist;file;...
-
-Time done: at .orig.tar.gz build time
-Advantage: you can add binary files without encoding etc
-Disadvantage: rebuilding of .orig.tar.gz, and it is getting *unclean*
-
-4.1b) add the file via the .diff.gz
+4.1a) add the file via the .diff.gz
 --------------------------------
 just drop a file into trunk/<src-package>/...
 No binary files possible
@@ -276,7 +253,7 @@ Time done: at source patching time, before building
 Advantage: the usual Debian way, but it circumvents quilt
 Disadvantage: no binary files possible
 
-4.1c) add the file to the finished tree
+4.1b) add the file to the finished tree
 ------------------------------------
 you can add files to the *final* tree by putting them into
   trunk/<src-package>/debian/<bin-package-name>.root/
@@ -344,8 +321,8 @@ then if present the file $srcpacakge/debian/$binpackage.Licenses.add
 followed by the automatically generated content
 (generated by all/debian/generate-license-file).
 
-5d) rules.in, tpm.data, lintian.override
-----------------------------------------
+5d) rules.in, lintian.override
+-------------------------------
 rules.in
 	An eperl script from which the real debian/rules file is
 	generated at source package build time. It is called with
@@ -474,16 +451,9 @@ mapping;<origfilename>;<action>;<arg>
 7) License Information Procedure
 ================================
 
-Once in a while and after Catalogue update:
--------------------------------------------
-create a file tpm:licstring where tpm is an arbitrary tpm name (without
-the .tpm) and licstring is the license string as obtained from the catalogue.
-
-done with tpm2license, see Makefile
-
 At bin package build time:
 --------------------------
-see debian/rules, the script generate-license-information is called, which
-in turn calls tpm2licenses.
+see debian/rules, the script generate-license-information is called.
 
 For now ignore the remap/etc stuff from tpm2deb.cfg
+

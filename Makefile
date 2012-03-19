@@ -1,6 +1,6 @@
 LANG=C
 
-MASTER?=/src/TeX/texlive-svn/Master
+MASTER?=/var/www/norbert/tlnet
 OLDPKG?=$(PWD)/old
 OLDSOURCES?=$(PWD)/src
 CURRENTDIR=$(PWD)
