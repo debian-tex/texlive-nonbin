@@ -4,9 +4,6 @@ BEGIN {
   $^W = 1;
   chomp ($mydir = `dirname $0`);
   unshift (@INC, "/usr/share/texlive/tlpkg");
-
-  # for TESTING ONLY
-  unshift (@INC, "/src/TeX/texlive-svn/Master/tlpkg");
 }
 
 $^W = 1;
