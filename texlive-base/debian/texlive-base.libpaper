@@ -23,13 +23,12 @@
 # Done.
 
 # If texlive-base is removed, just  do nothing. 
-test -x /usr/share/texmf/texconfig/tcfmgr || exit 0
+test -x /usr/share/texlive/texmf/texconfig/tcfmgr || exit 0
 
 . /usr/share/debconf/confmodule
 db_version 2.0
 
-path="/home/frank/src/Packages/texlive2012/texlive-nonbin/trunk/texlive-base/debian/texlive-base.root/usr/share/texlive-base/"
-#path=/usr/share/texlive-base
+path=/usr/share/texlive-base
 paper_prg=$path/tl-paper.pl
 
 dvips=$($paper_prg get dvips)
