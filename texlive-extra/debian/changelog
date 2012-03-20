@@ -1,3 +1,10 @@
+texlive-extra (2011.20120314-3) experimental; urgency=low
+
+  * Add a Suggests: texlive-latex-base for the texlive-extra-utils package
+    (closes: #664646)
+
+ -- Frank Küster <frank@debian.org>  Tue, 20 Mar 2012 09:54:04 +0100
+
 texlive-extra (2011.20120314-2) experimental; urgency=low
 
   * UNRELEASED
