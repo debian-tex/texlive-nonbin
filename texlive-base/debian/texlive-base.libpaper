@@ -31,6 +31,58 @@ db_version 2.0
 path=/usr/share/texlive-base
 paper_prg=$path/tl-paper.pl
 
+
+#####################################
+#
+# code from dh_installtex postinst-tex snippet
+#
+####################################
+dhit_libkpathsea_configured ()
+{
+    kpsewhich --version >/dev/null 2>&1
+}
+dhit_update_lsr_files ()
+{
+    tempfile=$(mktemp -p /tmp mktexlsr.XXXXXXXX)
+    printf "Running mktexlsr. This may take some time... "
+    if mktexlsr $* > $tempfile 2>&1 ; then
+        rm -f $tempfile
+        echo "done."
+    else
+        exec >&2
+        echo
+        echo "mktexlsr $* failed. Output has been stored in"
+        echo "$tempfile"
+        echo "Please include this file if you report a bug."
+        echo
+        exit 1
+    fi
+}
+dhit_build_format ()
+{
+
+    tempfile=$(mktemp -p /tmp fmtutil.XXXXXXXX)
+    printf "Building format(s) $*.\n\tThis may take some time... "
+    if fmtutil-sys "$@" > $tempfile 2>&1 ; then
+        rm -f $tempfile
+        echo "done."
+    else
+        exec >&2
+        echo
+        echo "fmtutil-sys failed. Output has been stored in"
+        echo "$tempfile"
+        echo "Please include this file if you report a bug."
+        echo
+        exit 1
+    fi
+}
+#####################################
+#
+# end code from dh_installtex postinst-tex snippet
+#
+####################################
+
+
 dvips=$($paper_prg get dvips)
 xdvi=$($paper_prg get xdvi)
 pdftex=$($paper_prg get pdftex)
@@ -51,7 +103,13 @@ if [ $FourPapersAllSame = true ]; then
     exit 0
   else
     if $paper_prg set all $LibpaperPaper; then
-      # all is well
+      if dhit_libkpathsea_configured; then
+        if which mktexlsr >/dev/null; then
+          dhit_update_lsr_files /var/lib/texmf
+        fi
+        dhit_build_format --refresh
+      fi
+      # finished now
       exit 0
     else
       # texconfig-sys didn't understand the paper name
@@ -94,6 +152,16 @@ else
 
       # all is well
       $paper_prg set $binary $LibpaperPaper
+      if dhit_libkpathsea_configured; then
+        if which mktexlsr >/dev/null; then
+          dhit_update_lsr_files /var/lib/texmf
+        fi
+        # only rebuild when pdftex has changed, all others are
+        # run time files
+        if [ $binary eq "pdftex" ] ; then
+          dhit_build_format --refresh
+        fi
+      fi
       :
     else
       db_subst texlive-base/texconfig_ignorant binary "$binary"
@@ -106,3 +174,7 @@ else
   done
 
 fi
+
+
+# Let vim know that we don't want tabs
+# vim:set expandtab tabstop=2 autoindent: #
