@@ -1,6 +1,5 @@
 texlive-base (2011.20120314-2) experimental; urgency=low
 
-  * UNRELEASED
   * libpaper changes (fk):
     - include tl-paper in /usr/bin
     - add code to texlive-base.libpaper to recreate formats and
@@ -8,8 +7,9 @@ texlive-base (2011.20120314-2) experimental; urgency=low
   * replace otf/ttf fonts with links to the files in the
     respective Debian package, depend on that package
   * support for language.dat.lua
+  * remove useless /etc/texmf/hyphen.d/09texlive-base.cnf (rm_conffile)
 
- -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 22:22:13 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 23:28:34 +0900
 
 texlive-base (2011.20120314-1) experimental; urgency=low
 

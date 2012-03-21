@@ -9,6 +9,8 @@
   * [base] link also language.dat.lua
   * [base] do not generate hyphen.d/09texlive-base.cnf with USEFILE
     directive, it is superseeded by tex-common 3.4
+  * [all] debian/rules: fix removal of .hyphens files
+  * [all] tpm2deb-bin.pl: generate proper hyphen.d files
 
 2012-03-19
 
