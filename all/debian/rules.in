@@ -88,9 +88,7 @@ binary-indep: build install
 		$(patsubst %,-N%,$(METAPACKAGES))	\
 		--flavor=lsr:full,tree:texlive
 	dh_installtex -ptexlive-base --priority=10	\
-		--flavor=format:build_all		\
-		--flavor=lsr:full,tree:texlive	\
-		hyphenfile=debian/texlive-base.cnf=09
+		--flavor=format:build_all,lsr:full,tree:texlive
 	# /usr/bin/mf has been created by dh_installtex as symlink to mf-nowin
 	# but is also shipped by texlive-base-bin, remove it.
 	rm debian/texlive-base/usr/bin/mf
