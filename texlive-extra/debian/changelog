@@ -1,10 +1,7 @@
+<<<<<<< .mine
 texlive-extra (2011.20120314-2) experimental; urgency=low
 
-  [ Frank Küster ]
-  * Add a Suggests: texlive-latex-base for the texlive-extra-utils package
-    (closes: #664646)
-
-  [ Norbert Preining ]
+  * UNRELEASED
   * replace otf/ttf fonts with links to the files in the
     respective Debian package, depend on that package
 
