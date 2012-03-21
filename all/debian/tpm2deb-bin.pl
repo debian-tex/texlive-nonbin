@@ -210,18 +210,6 @@ sub make_deb_copy_to_rightplace {
 	#	my $finalfn = do_remap_and_copy($package,$file,$bincomponent,'^bin/[^/]*/(.*)$','/usr/bin/$1');
 	#	do_special($file,$finalfn);
 	#}
-	if ($package eq 'texlive-base') {
-		open(USLANG,">$debdest/texlive-base.cnf")
-			or die("Cannot open $debdest/texlive-base.cnf for writing!");
-		#open (SOURCE,"$Master/texmf/tex/generic/config/language.us")
-		#	or die("Cannot open $Master/texmf/tex/generic/config/language.us");
-		#while (<SOURCE>) { print USLANG; }
-		#close (SOURCE);
-		print USLANG "% DO NOT CHANGE THE FOLLOWING LINE UNLESS YOU\n";
-		print USLANG "% REALLY KNOW WHAT YOU ARE DOING\n";
-		print USLANG "USEFILE /usr/share/texlive/texmf/tex/generic/config/language.us /usr/share/texlive/texmf/tex/generic/config/language.us.def\n";
-		close (USLANG);
-	}
 	if ($package eq 'texlive-common') {
 		&mkpath("$debdest/texlive-common/usr/share/texlive/tlpkg");
 		mycopy("$Master/tlpkg/TeXLive","$debdest/texlive-common/usr/share/texlive/tlpkg/");

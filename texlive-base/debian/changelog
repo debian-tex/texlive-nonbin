@@ -7,8 +7,9 @@ texlive-base (2011.20120314-2) experimental; urgency=low
       update ls-R database after paper changes
   * replace otf/ttf fonts with links to the files in the
     respective Debian package, depend on that package
+  * support for language.dat.lua
 
- -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 11:42:16 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 22:22:13 +0900
 
 texlive-base (2011.20120314-1) experimental; urgency=low
 

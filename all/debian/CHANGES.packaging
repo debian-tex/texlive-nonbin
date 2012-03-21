@@ -4,6 +4,11 @@
 # $Id$
 #
 
+2012-03-21
+
+  * [base] link also language.dat.lua
+  * [base] do not generate hyphen.d/09texlive-base.cnf with USEFILE
+    directive, it is superseeded by tex-common 3.4
 
 2012-03-19
 
