@@ -1,12 +1,14 @@
 texlive-base (2011.20120314-2) experimental; urgency=low
 
   * UNRELEASED
-  * include tl-paper.pl and reworked libpaper handling (fk)
+  * libpaper changes (fk):
+    - include tl-paper in /usr/bin
+    - add code to texlive-base.libpaper to recreate formats and
+      update ls-R database after paper changes
   * replace otf/ttf fonts with links to the files in the
     respective Debian package, depend on that package
-  * add code to recreate formats after libpaper changes
 
- -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 11:36:14 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 11:42:16 +0900
 
 texlive-base (2011.20120314-1) experimental; urgency=low
 
