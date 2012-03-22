@@ -4,6 +4,23 @@ texlive-extra (2011.20120322-1) unstable; urgency=low
     respective Debian package, depend on that package
   * upload to unstable
 
+  [ Hilmar Preuße ]
+
+  List of fixed bugs in new TeX Live
+  * new version of pst-dbicons (Closes: #619615)
+  * flashcards does not fail with "Package geometry Error"
+    (Closes: #501520)
+  * epstopdf --nogs writes to standard output (Closes: #568167)
+  * custom-bib made bibtex fail in specific cases (Closes: #580053)
+  * endless loop in font2afm when converting OTF files (Closes: #641460)
+  * revtex4-1 does handle multiple affiliations (Closes: #591927)
+  * footbib again compatible with LaTeX (Closes: #605960)
+  * ecv no longer clashes with ifpdf (Closes: #629448)
+  * new version of exam.cls (Closes: #639375)
+  * new version of Antykwa Półtawskiego font (Closes: #602437)
+  * new version of American Chemical Society (Closes: #632934)
+  * todo don't complain about bad space factor (Closes: #470141)
+
  -- Norbert Preining <preining@debian.org>  Thu, 22 Mar 2012 16:58:17 +0900
 
 texlive-extra (2011.20120314-1) experimental; urgency=low

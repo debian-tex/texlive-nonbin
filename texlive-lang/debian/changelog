@@ -5,6 +5,12 @@ texlive-lang (2011.20120322-1) unstable; urgency=low
   * rebuild against new tex-common with support for language.dat.lua
   * upload to unstable
 
+  [ Hilmar Preuße ]
+
+  List of fixed bugs in new TeX Live
+  * upstream fixed description of some language packages
+    (Closes: #613661)
+
  -- Norbert Preining <preining@debian.org>  Thu, 22 Mar 2012 16:57:31 +0900
 
 texlive-lang (2011.20120314-1) experimental; urgency=low
