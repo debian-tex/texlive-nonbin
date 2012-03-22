@@ -20,6 +20,8 @@ texlive-extra (2011.20120322-1) unstable; urgency=low
   * new version of Antykwa Półtawskiego font (Closes: #602437)
   * new version of American Chemical Society (Closes: #632934)
   * todo don't complain about bad space factor (Closes: #470141)
+  * Workaround added to pdfcrop for buggy ghostscript that
+    print the BoundingBox data twice (Closes: #600684)
 
  -- Norbert Preining <preining@debian.org>  Thu, 22 Mar 2012 16:58:17 +0900
 
