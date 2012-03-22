@@ -1,11 +1,10 @@
-<<<<<<< .mine
-texlive-extra (2011.20120314-2) experimental; urgency=low
+texlive-extra (2011.20120322-1) unstable; urgency=low
 
-  * UNRELEASED
   * replace otf/ttf fonts with links to the files in the
     respective Debian package, depend on that package
+  * upload to unstable
 
- -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 23:44:43 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 22 Mar 2012 16:58:17 +0900
 
 texlive-extra (2011.20120314-1) experimental; urgency=low
 

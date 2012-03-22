@@ -1,5 +1,6 @@
-texlive-base (2011.20120314-2) experimental; urgency=low
+texlive-base (2011.20120322-1) unstable; urgency=low
 
+  * upload to unstable
   * libpaper changes (fk):
     - include tl-paper in /usr/bin
     - add code to texlive-base.libpaper to recreate formats and
@@ -9,7 +10,7 @@ texlive-base (2011.20120314-2) experimental; urgency=low
   * support for language.dat.lua
   * remove useless /etc/texmf/hyphen.d/09texlive-base.cnf (rm_conffile)
 
- -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 23:28:34 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 22 Mar 2012 16:56:15 +0900
 
 texlive-base (2011.20120314-1) experimental; urgency=low
 

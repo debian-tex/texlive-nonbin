@@ -4,6 +4,19 @@
 # $Id$
 #
 
+texlive-base (2011.20120322-1) unstable
+texlive-doc (2011.20120322-1) unstable
+texlive-extra (2011.20120322-1) unstable
+texlive-lang (2011.20120322-1) unstable
+texlive-bin (2011.20120322-1) unstable
+tex-common (3.4) unstable
+
+
+2012-03-22
+
+  * [base] rebuild with new tex-common, we need it for language.dat.lua
+    handling
+
 2012-03-21
 
   * [base] link also language.dat.lua

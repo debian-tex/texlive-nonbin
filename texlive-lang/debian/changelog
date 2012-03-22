@@ -1,10 +1,11 @@
-texlive-lang (2011.20120314-2) experimental; urgency=low
+texlive-lang (2011.20120322-1) unstable; urgency=low
 
   * replace otf/ttf fonts with links to the files in the
     respective Debian package, depend on that package
   * rebuild against new tex-common with support for language.dat.lua
+  * upload to unstable
 
- -- Norbert Preining <preining@debian.org>  Wed, 21 Mar 2012 22:39:54 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 22 Mar 2012 16:57:31 +0900
 
 texlive-lang (2011.20120314-1) experimental; urgency=low
 
