@@ -16,16 +16,15 @@ texlive-base (2011.20120322-1) unstable; urgency=low
 
   List of fixed bugs in new TeX Live
   * New version of polyglossia (Closes: #644207)
-    * fixed for language "brazil" (Closes: #607158)
+    * has fixes for language "brazil" (Closes: #607158)
   * again contains oldgerm.pdf (Closes: #588378)
   * texdoc aliasing sometimes doesn't work (hopefully fixed)
     (Closes: #607351)
   * new version of microtype works with lualatex (Closes: #648658)
-  * hyperref not confused by confused by tag-macro in equations
-    (Closes: #574440)
+  * hyperref not confused by tag-macro in equations (Closes: #574440)
   * \MALE symbol not missing when compiled with pdflatex (marvosym)
     (Closes: #467183)
-  * clarifies in rotating.pdf how to handle rotated pictures
+  * clarification in rotating.pdf how to handle rotated pictures
     (Closes: #122635)
   * has new version of pgfplots (Closes: #660724)
 
