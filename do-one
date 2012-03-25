@@ -2,7 +2,7 @@
 pkg=$1
 
 
-perl tpm2deb-source.pl --master=/var/www/norbert/tlnet make-orig-tar $pkg
+#perl tpm2deb-source.pl --master=/var/www/norbert/tlnet make-orig-tar $pkg
 
 # for in-system builds:
 cd $pkg
