@@ -1,0 +1,18 @@
+
+# remove empty directories after upgrade from 2009 to 2011+
+#
+if [ "$1" = "configure" ] ; then
+  old_version=$2
+  if [ -n $old_version ] || dpkg --compare-versions $old_version lt 2011 ; then
+    rmdir --ignore-fail-on-non-empty /etc/texmf/texdoc
+    rmdir --ignore-fail-on-non-empty /etc/texmf/metafont/misc
+    rmdir --ignore-fail-on-non-empty /etc/texmf/metafont
+    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex/config
+    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex/contour
+    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex/pict2e
+    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex
+    rmdir --ignore-fail-on-non-empty /etc/texmf/tex
+  fi
+fi
+
+

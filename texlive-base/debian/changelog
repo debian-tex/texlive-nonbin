@@ -1,3 +1,11 @@
+texlive-base (2011.20120322-2) unstable; urgency=low
+
+  * UNRELEASED
+  * on upgrade from 2009, try to remove old directories of conffiles
+    that have been removed via maintscript (Closes: #665795)
+
+ -- Norbert Preining <preining@debian.org>  Mon, 26 Mar 2012 22:39:14 +0900
+
 texlive-base (2011.20120322-1) unstable; urgency=low
 
   * upload to unstable
