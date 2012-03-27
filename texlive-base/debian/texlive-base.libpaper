@@ -28,8 +28,6 @@ test -x /usr/share/texlive/texmf/texconfig/tcfmgr || exit 0
 . /usr/share/debconf/confmodule
 db_version 2.0
 
-paper_prg=tl-paper
-
 
 #####################################
 #
@@ -82,10 +80,10 @@ dhit_build_format ()
 ####################################
 
 
-dvips=$($paper_prg get dvips)
-xdvi=$($paper_prg get xdvi)
-pdftex=$($paper_prg get pdftex)
-dvipdfmx=$($paper_prg get dvipdfmx)
+dvips=$(tl-paper get dvips)
+xdvi=$(tl-paper get xdvi)
+pdftex=$(tl-paper get pdftex)
+dvipdfmx=$(tl-paper get dvipdfmx)
 
 LibpaperPaper=$(paperconf)
 
@@ -101,7 +99,7 @@ if [ $FourPapersAllSame = true ]; then
   if [ $dvips = $LibpaperPaper ]; then
     exit 0
   else
-    if $paper_prg set all $LibpaperPaper; then
+    if tl-paper set all $LibpaperPaper; then
       if dhit_libkpathsea_configured; then
         if which mktexlsr >/dev/null; then
           dhit_update_lsr_files /var/lib/texmf
@@ -145,12 +143,12 @@ else
   IFS=$OLD_IFS
 
   for binary in "$@"; do
-    if $paper_prg list $binary | grep "^$LibpaperPaper\$"; then
+    if tl-paper list $binary | grep "^$LibpaperPaper\$"; then
       # use this instead once set has a proper return code
-      # if $paper_prg set $binary $LibpaperPaper; then 
+      # if tl-paper set $binary $LibpaperPaper; then 
 
       # all is well
-      $paper_prg set $binary $LibpaperPaper
+      tl-paper set $binary $LibpaperPaper
       if dhit_libkpathsea_configured; then
         if which mktexlsr >/dev/null; then
           dhit_update_lsr_files /var/lib/texmf
