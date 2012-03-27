@@ -9,33 +9,24 @@ settings, purge
 DEBIAN_FRONTEND must be readline; messages must be readable and make
 sense
 
-Version tl-base:       	~14
-	tl-bin	       	6
-1			
-Build:		       	
-2
-Clean Install	       	
-w/o libpaper	       
-3
-Clean Install	       	
-libpaper = a4
-4
-Clean Install	        
-libpaper = letter	
+Version tl-base:       	2011.20120322-1
+	tl-bin	       	2011.20120322-1
+
 5
 Clean Install		
 libpaper = Monarch
-5a) noninteractive	
+5a) noninteractive	pass
 5b) readline(1st install),dialog(reinstall)
-			
+			pass
 
 6
 Install,remove,
 change libpaper,
 install
 6a) noninteractive,letter
+			pass
 			
-6b) dialog, Monarch	
+6b) dialog, Monarch	pass
 7
 Upgrade from sid,	
 no libpaper
