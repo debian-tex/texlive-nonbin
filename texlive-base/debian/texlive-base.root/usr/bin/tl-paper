@@ -43,8 +43,8 @@ sub main {
   } elsif ($action =~ m/^list$/i) { # "tl-paper list prg" lists options for prg
     my $prg = shift @ARGV;
     if (!$prg) {
-      usage();
-      exit 1;
+      # currently, pdftex has the most restricted set of paper sizes
+      $prg = "pdftex";
     }
     # the following actually also *reads* the configuration and returns
     # a list where the first item is the one selected.
@@ -68,7 +68,7 @@ sub main {
       if ($newpaper !~ /^(a4|letter)$/) {
         # we cannot deal with that for now, only a4|letter supported for
         # all programs
-        usage();
+        print "tl-paper: cannot change setting for all programs to $newpaper\n\n";
         exit 1;
       }
       TeXLive::TLPaper::paper_all($texmfsysconfig,$newpaper);
