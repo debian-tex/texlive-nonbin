@@ -1,3 +1,10 @@
+texlive-lang (2011.20120322-2) unstable; urgency=low
+
+  * UNRELEASED
+  * add dependency texlive-lang-cjk -> texlive-latex-base (Closes: #666195)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 30 Mar 2012 09:42:45 +0900
+
 texlive-lang (2011.20120322-1) unstable; urgency=low
 
   * replace otf/ttf fonts with links to the files in the
