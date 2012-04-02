@@ -1,10 +1,12 @@
 texlive-base (2011.20120322-2) unstable; urgency=low
 
-  * UNRELEASED
   * on upgrade from 2009, try to remove old directories of conffiles
     that have been removed via maintscript (Closes: #665795)
+  * make sure that debconf templates are installed (Closes: #666680)
+    (special thanks to Andreas Beckmann for helpful comments and ideas!)
+  * use tl-paper instead of texconfig-sys in texlive-base postinst
 
- -- Norbert Preining <preining@debian.org>  Mon, 26 Mar 2012 22:39:14 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 02 Apr 2012 19:48:36 +0900
 
 texlive-base (2011.20120322-1) unstable; urgency=low
 

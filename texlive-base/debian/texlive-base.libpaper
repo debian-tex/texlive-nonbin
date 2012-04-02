@@ -155,7 +155,7 @@ else
         fi
         # only rebuild when pdftex has changed, all others are
         # run time files
-        if [ $binary eq "pdftex" ] ; then
+        if [ "$binary" = "pdftex" ] ; then
           dhit_build_format --refresh
         fi
       fi

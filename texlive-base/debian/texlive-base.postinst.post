@@ -4,14 +4,18 @@
 if [ "$1" = "configure" ] ; then
   old_version=$2
   if [ -n $old_version ] || dpkg --compare-versions $old_version lt 2011 ; then
-    rmdir --ignore-fail-on-non-empty /etc/texmf/texdoc
-    rmdir --ignore-fail-on-non-empty /etc/texmf/metafont/misc
-    rmdir --ignore-fail-on-non-empty /etc/texmf/metafont
-    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex/config
-    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex/contour
-    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex/pict2e
-    rmdir --ignore-fail-on-non-empty /etc/texmf/tex/latex
-    rmdir --ignore-fail-on-non-empty /etc/texmf/tex
+    for i in /etc/texmf/texdoc            \
+             /etc/texmf/metafont/misc     \
+             /etc/texmf/metafont          \
+             /etc/texmf/tex/latex/config  \
+             /etc/texmf/tex/latex/contour \
+             /etc/texmf/tex/latex/pict2e  \
+             /etc/texmf/tex/latex         \
+             /etc/texmf/tex ; do
+      if [ -d $i ] ; then
+        rmdir --ignore-fail-on-non-empty $i
+      fi
+    done
   fi
 fi
 

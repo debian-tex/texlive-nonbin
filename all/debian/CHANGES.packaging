@@ -4,6 +4,18 @@
 # $Id$
 #
 
+texlive-base (2011.20120322-2) unstable
+texlive-lang (2011.20120322-2) unstable
+
+2012-04-02
+
+  * [base] make sure that debconf templates are installed (Closes: #666680)
+  * [base] use tl-paper instead of texconfig-sys in texlive-base postinst
+
+2012-03-XX
+
+  * [lang] add missing dependency texlive-lang-cjk -> texlive-latex-base
+
 texlive-base (2011.20120322-1) unstable
 texlive-doc (2011.20120322-1) unstable
 texlive-extra (2011.20120322-1) unstable
