@@ -37,6 +37,7 @@ sub main {
   $ENV{"TEXMFVAR"} = $texmfsysvar;
 
   my $action = shift @ARGV;
+  $action = "status" if !defined($action);
   if ($action =~ m/^status$/i) {  # "tl-paper status" shows the current settings
     TeXLive::TLPaper::paper_all($texmfsysconfig,undef);
     
@@ -91,7 +92,7 @@ sub main {
       exit 1;
     }
     my ($current_paper, @other_options) = TeXLive::TLPaper::get_paper_list($prg);
-    print "$current_paper\n";
+    print "$current_paper\n" if defined($current_paper);
     
   } else {
     usage();

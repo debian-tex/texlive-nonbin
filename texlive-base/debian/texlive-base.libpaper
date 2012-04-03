@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# created 2010 by Frank Küster frank@debian.org
+# created 2010 by Frank KÃ¼ster frank@debian.org
 # The code may be freely copied, distributed and/or modified
 
 # The plan: 
@@ -89,14 +89,14 @@ LibpaperPaper=$(paperconf)
 
 FourPapersAllSame=false
 
-if [ $dvips = $xdvi ] && \
-   [ $dvips = $pdftex ] && \
-   [ $dvips = $dvipdfmx ]; then
+if [ "$dvips" = "$xdvi" ] && \
+   [ "$dvips" = "$pdftex" ] && \
+   [ "$dvips" = "$dvipdfmx" ]; then
   FourPapersAllSame=true
 fi
 
 if [ $FourPapersAllSame = true ]; then
-  if [ $dvips = $LibpaperPaper ]; then
+  if [ "$dvips" = $LibpaperPaper ]; then
     exit 0
   else
     if tl-paper set all $LibpaperPaper; then

@@ -1,3 +1,12 @@
+texlive-base (2011.20120322-3) unstable; urgency=low
+
+  * UNRELEASED
+  * tl-paper: make sure that some side conditions are caught properly
+    (Closes: #666995)
+  * texlive-base.libpaper: don't assume that tl-paper returns something
+
+ -- Norbert Preining <preining@debian.org>  Tue, 03 Apr 2012 18:03:57 +0900
+
 texlive-base (2011.20120322-2) unstable; urgency=low
 
   * on upgrade from 2009, try to remove old directories of conffiles
