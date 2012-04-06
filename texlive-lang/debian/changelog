@@ -1,3 +1,9 @@
+texlive-lang (2011.20120322-3) unstable; urgency=low
+
+  * UNRELEASED
+
+ -- Norbert Preining <preining@debian.org>  Fri, 06 Apr 2012 13:01:37 +0900
+
 texlive-lang (2011.20120322-2) unstable; urgency=low
 
   * add dependency texlive-lang-cjk -> texlive-latex-base (Closes: #666195)
