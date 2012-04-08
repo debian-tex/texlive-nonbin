@@ -1,0 +1,58 @@
+
+Integration of libpaper into dvips/dvipdfmx/xdvi/pdftex
+
+General overview
+================
+* No files in under /etc/texmf are created or used
+* the main distribution files in /usr/share/texlive/... are patched to include
+  paper specific additional config files
+* these paper specific config files are located in /var/lib/texmf/...
+  by the libpaper hook
+
+Details:
+========
+
+/etc/texmf files to be removed and purged from ucf:
+	pdftex:		/etc/texmf/tex/generic/config/pdftexconfig.tex
+	dvips:		/etc/texmf/dvips/config/config.ps
+	dvipdfmx:	/etc/texmf/dvipdfmx/dvipdfmx.cfg
+	XDvi:		/etc/texmf/xdvi/XDvi
+original files to be patched:
+	pdftex:		/usr/share/texlive/texmf/tex/generic/config/pdftexconfig.tex
+	dvips:		/usr/share/texlive/texmf/dvips/config/config.ps
+	dvipdfmx:	/usr/share/texlive/texmf/dvipdfmx/dvipdfmx.cfg
+	XDvi:		/usr/share/texlive/texmf/xdvi/XDvi
+generated files:
+	pdftex:		/var/lib/texmf/tex/generic/config/pdftexconfig-paper.tex
+	dvips:		/var/lib/texmf/dvips/config/config-paper.ps
+	dvipdfmx:	/var/lib/texmf/dvipdfmx/dvipdfmx.cfg
+	XDvi:		/var/lib/texmf/xdvi/XDvi
+additional directives:
+	pdftex:		\include (if exists?) pdftexconfig-paper.tex
+	dvips:		cconfig-paper.ps
+	dvipdfmx:	i dvipdfmx-paper.cfg
+	XDvi:		#include XDvi-paper (???)
+
+
+Coding changes:
+* binaries
+  dvips included upstream
+  dvipdfmx/xdvipdfmx needs patching from us (till now), patch prepared
+  xdvi/pdftex by default
+
+* libpaper.texlive-base
+  no changes necessary
+
+* tl-paper and TLPaper.pm
+  changes in searching of which config file to use
+  might be applied upstream, too?
+
+* postinst from texlive-base (or preinst)
+  ucf clean all these files in /etc/ and remove them
+
+* additional things to do
+  several tpm2deb.cfg drop directive most be disabled
+
+
+np
+20120408
