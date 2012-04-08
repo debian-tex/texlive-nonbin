@@ -1,4 +1,4 @@
-texlive-base (2011.20120322-3) unstable; urgency=low
+texlive-base (2011.20120408-1) unstable; urgency=low
 
   * UNRELEASED NEEDS NEW UPSTREAM RELEASE!!!
   * tl-paper: make sure that some side conditions are caught properly
@@ -10,7 +10,7 @@ texlive-base (2011.20120322-3) unstable; urgency=low
   * libpaper rework:
     - keep original config files for the four progs in /u/s/texlive/...
 
- -- Norbert Preining <preining@debian.org>  Sun, 08 Apr 2012 14:16:08 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 08 Apr 2012 14:35:13 +0900
 
 texlive-base (2011.20120322-2) unstable; urgency=low
 

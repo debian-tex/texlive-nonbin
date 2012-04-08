@@ -46,12 +46,20 @@ Coding changes:
 * tl-paper and TLPaper.pm
   changes in searching of which config file to use
   might be applied upstream, too?
+  There is already support for something similar, but broken in TLPaper.pm. It uses
+  %paper_config_path_component for the output, and if the respective entry is
+  undefined, %default_paper_config_path_component. But we cannot changed
+  the former by now. I will change that upstream to our %paper_config_path_component
+  and let tl-paper use that, too.
+  That fixes the writing part, but not the reading part. We should split tis
+  into a our var that reads the files, too!!!
 
 * postinst from texlive-base (or preinst)
   ucf clean all these files in /etc/ and remove them
 
 * additional things to do
   several tpm2deb.cfg drop directive most be disabled
+  DONE
 
 
 np
