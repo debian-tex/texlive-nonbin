@@ -23,9 +23,18 @@ use Pod::Usage;
 use Getopt::Long qw(:config no_autoabbrev permute);
 use TeXLive::TLPaper;
 
+# overwrite the default paper config settings
+our %paper_config_name = (
+  "xdvi"     => "XDvi-paper",
+  "pdftex"   => "pdftexconfig-paper.tex",
+  "dvips"    => "config-paper.ps",
+  "dvipdfmx" => "dvipdfmx-paper.cfg",
+  "dvipdfm"  => "config-paper",
+  "context"  => "cont-sys-paper.tex",
+);
+
 binmode(STDOUT, ":utf8");
 binmode(STDERR, ":utf8");
-
 
 &main();
 

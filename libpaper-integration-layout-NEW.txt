@@ -35,15 +35,15 @@ additional directives:
 
 
 Coding changes:
-* binaries
+* binaries DONE
   dvips included upstream
   dvipdfmx/xdvipdfmx needs patching from us (till now), patch prepared
   xdvi/pdftex by default
 
-* libpaper.texlive-base
+* libpaper.texlive-base DONE
   no changes necessary
 
-* tl-paper and TLPaper.pm
+* tl-paper and TLPaper.pm DONE
   changes in searching of which config file to use
   might be applied upstream, too?
   There is already support for something similar, but broken in TLPaper.pm. It uses
@@ -54,12 +54,14 @@ Coding changes:
   That fixes the writing part, but not the reading part. We should split tis
   into a our var that reads the files, too!!!
 
+  TLPaper.pm changes committed to texlive-svn
+  tl-paper updated
+
 * postinst from texlive-base (or preinst)
   ucf clean all these files in /etc/ and remove them
 
-* additional things to do
+* additional things to do DONE
   several tpm2deb.cfg drop directive most be disabled
-  DONE
 
 
 np
