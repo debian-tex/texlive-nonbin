@@ -23,3 +23,7 @@ fix-xyframe.tex.patch
 
 texmf.cnf-debian
 fix-scripts
+dvips-config-paper-factorization
+dvipdfmx-config-paper-factorization
+pdftex-config-paper-factorization
+xdvi-config-paper-factorization

@@ -9,8 +9,10 @@ texlive-base (2011.20120408-1) unstable; urgency=low
   * texlive-xetex recommends tipa (Closes: #667026)
   * libpaper rework:
     - keep original config files for the four progs in /u/s/texlive/...
+    - factorize out the paper setting of the four progs in separate files
+      (debian/patches/*factorize)
 
- -- Norbert Preining <preining@debian.org>  Sun, 08 Apr 2012 14:35:13 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 08 Apr 2012 22:02:03 +0900
 
 texlive-base (2011.20120322-2) unstable; urgency=low
 
