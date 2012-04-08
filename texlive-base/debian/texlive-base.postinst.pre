@@ -2,99 +2,48 @@
 # initial version 2010 by Frank Küster, frank@debian.org
 # probably not copyrightable as it looks now, but anyway the code maybe 
 # freely copied, distributed and/or modified
-# changelog:
-# 2010-08-15 initial version; ucf and libpaper-specific code for
-#            pagesize configuration 
 
-# install configuration files that set a papersize, and handle upgrades smoothly
 
-#
-# Load confmodule to make sure that the template is available
-# even if it is only used in the tl-paper script.
-# Otherwise it will break, see bug #666680
-# The respective paragraph in the debconf-devel man page is:
-#      Note that if your package's sole use of debconf is  in  the  postrm,
-#      you  should  make  your  package's  postinst  source /usr/share/deb‐
-#      conf/confmodule, to give debconf a chance to load up your  templates
-#      file  into  its  database. Then the templates will be available when
-#      your package is being purged.
-# that probably applies also to usage outside of postrm
-
-. /usr/share/debconf/confmodule
-
-# We want to use the libpaper hook after the config files have been
-# installed, and only show papersize-related questions at that
-# time. Therefore, ignore any papersize changes in upstream's files.
-# This is the plan:
-
-# 1. if the files exit - no matter whether as conffiles or ucf-managed
-#    configuration files -, get the papersize settings in them and set
-#    the setting in the new, ucf-managed files to be the same.  We can
-#    use tl-paper for that, since we depend on texlive-binaries
-# 2. install the adapted new files with ucf
-# 3. at configuration time, if libpaper has not been used before
-#    (i.e. on new installs or upgrades from older versions), call the
-#    libpaper hook
-# (4.) if we later add binaries that have a papersize setting in their
-#    conffile, we need to check the versions that we are upgrading from
-#    the right version. Then set the chooser question to unseen and run
-#    the libpaper hook.
-
-pkgdir=/usr/share/texlive-base
-tempdir_paper=$(mktemp -d)
-mkdir -p $tempdir_paper/dvips/config
-mkdir -p $tempdir_paper/tex/generic/config
-mkdir    $tempdir_paper/dvipdfmx
-mkdir    $tempdir_paper/xdvi
-cp $pkgdir/config.ps $tempdir_paper/dvips/config/
-cp $pkgdir/pdftexconfig.tex $tempdir_paper/tex/generic/config/
-cp $pkgdir/dvipdfmx.cfg $tempdir_paper/dvipdfmx/
-cp $pkgdir/XDvi $tempdir_paper/xdvi/
-cp $pkgdir/config.ps.md5sum $tempdir_paper/dvips/config/
-cp $pkgdir/pdftexconfig.tex.md5sum $tempdir_paper/tex/generic/config/
-cp $pkgdir/dvipdfmx.cfg.md5sum $tempdir_paper/dvipdfmx/
-cp $pkgdir/XDvi.md5sum $tempdir_paper/xdvi/
-
-# if the paper setting in dvipdfmx.cfg still contains two spaces, remove one
-if [ -e /etc/texmf/dvipdfmx/dvipdfmx.cfg ]; then
-   sed -i '/^p/ s/^p[[:space:]]\{2\}/p /' /etc/texmf/dvipdfmx/dvipdfmx.cfg
-fi
-
-# tl-paper only works after calling mktexlsr
-mktexlsr /usr/share/texlive/texmf /usr/share/texlive/texmf-dist /usr/share/texmf /var/lib/texmf 
+mktexlsr /usr/share/texlive/texmf /usr/share/texmf /var/lib/texmf 
 for binary in dvips dvipdfmx xdvi pdftex; do
   if localpaper=$(tl-paper get $binary); then
-    # stop ucf from asking by setting UCF_FORCE_CONFNEW
-    # TEXMFSYSVAR needs to be set, so that tl-paper won't create
-    # pdftex formats in the real hierarchy
-    UCF_FORCE_CONFFNEW=true TEXMFSYSCONFIG=$tempdir_paper TEXMFSYSVAR=$tempdir_paper \
       tl-paper set $binary $localpaper
-  else
-    # this means that there is no existing configuration file. Do nothing.
-    # Warning: texconfig will only fail if it has the "set -e" patch!
-    :
   fi
 done
-ucf --purge $tempdir_paper/dvips/config/config.ps # >/dev/null 2>&1
-ucf --purge $tempdir_paper/tex/generic/config/pdftexconfig.tex # >/dev/null 2>&1
-ucf --purge $tempdir_paper/dvipdfmx/dvipdfmx.cfg # >/dev/null 2>&1
-ucf --purge $tempdir_paper/xdvi/XDvi >/dev/null # 2>&1
 
-# Now install the files with their paper size adapted to the current local setting
 
-ucf --three-way --debconf-ok $tempdir_paper/dvips/config/config.ps \
-                             /etc/texmf/dvips/config/config.ps
-ucf --three-way --debconf-ok $tempdir_paper/tex/generic/config/pdftexconfig.tex \
-                             /etc/texmf/tex/generic/config/pdftexconfig.tex
-ucf --three-way --debconf-ok $tempdir_paper/dvipdfmx/dvipdfmx.cfg \
-                             /etc/texmf/dvipdfmx/dvipdfmx.cfg
-ucf --three-way --debconf-ok $tempdir_paper/xdvi/XDvi /etc/texmf/xdvi/XDvi
+purge_file () {
+  local conffile
+  conffile="$1"
+  for ext in $PURGE_EXTENSIONS; do
+    rm -f "${conffile}.ucf-dist"
+    rm -f "${conffile}.ucf-new"
+  done
+  if [ -r "${conffile}" ] ; then
+    mv "${conffile}" "${conffile}.disabled"
+  fi
+}
+purge_ucf_file () {
+  local conffile
+  conffile="$1"
+  purge_file $conffile
+  if [ -x /usr/bin/ucf ]; then
+    ucf --purge "${conffile}" >/dev/null 2>&1
+  fi
+  if [ -x /usr/bin/ucfr ]; then
+    ucfr --purge tex-common "${conffile}" >/dev/null 2>&1
+  fi
+}
 
-rm -rf $tempdir_paper
+# do clean out old ucf registering in any case!
+purge_ucf_file /etc/texmf/dvips/config/config.ps
+purge_ucf_file /etc/texmf/tex/generic/config/pdftexconfig.tex
+purge_ucf_file /etc/texmf/dvipdfmx/dvipdfmx.cfg
+purge_ucf_file /etc/texmf/xdvi/XDvi
 
 if [ "$1" = "configure" ]; then
   old_version=$2
-  last_version_without_libpaper=2009-11 # update, we are not going to upload now!
+  last_version_without_libpaper=2009-11
   if [ -n $old_version ] || dpkg --compare-versions $old_version lt $last_version_without_libpaper; then
     # we are installing from scratch or upgrading from an older version
     /etc/libpaper.d/texlive-base

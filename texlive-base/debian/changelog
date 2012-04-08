@@ -13,8 +13,10 @@ texlive-base (2011.20120408-1) unstable; urgency=low
       (debian/patches/*factorize)
     - texlive-base depends on a version of texlive-binaries which ships
       programs (dvipdfmx, dvips) that are able to load sub-config files
+    - purge ucf files and rename them to .disabled if present
+      (texlive-base.postinst.pre)
 
- -- Norbert Preining <preining@debian.org>  Sun, 08 Apr 2012 22:18:29 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 08 Apr 2012 22:49:16 +0900
 
 texlive-base (2011.20120322-2) unstable; urgency=low
 
