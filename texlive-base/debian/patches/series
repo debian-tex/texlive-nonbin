@@ -20,7 +20,6 @@ fix-xyframe.tex.patch
 #2011#upstream?# upstream-pdftex.def-fixes
 #2011#disabled# epspdf-call-ruby-explicitely
 #2011#upstream# fix-bashism
-
 texmf.cnf-debian
 fix-scripts
 dvips-config-paper-factorization
