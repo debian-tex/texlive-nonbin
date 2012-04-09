@@ -106,7 +106,7 @@ binary-indep: build install
 	dh_installdebconf -n
 	cp debian/texlive-base.libpaper debian/texlive-base/etc/libpaper.d/texlive-base
 	chmod a+x debian/texlive-base/etc/libpaper.d/texlive-base
-	cp debian/md5sums/* debian/texlive-base/usr/share/texlive-base/
+	#cp debian/md5sums/* debian/texlive-base/usr/share/texlive-base/
 <: } else { _:>//
 	dh_installtex -A --priority=10 --flavor=lsr:full,tree:texlive
 <: } :>//
