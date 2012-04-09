@@ -26,9 +26,9 @@ norbert:
 	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-orig-tar texlive-base texlive-extra texlive-doc texlive-lang
 	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-deb-source texlive-base texlive-extra texlive-doc texlive-lang
 
-all: sources pbuilder lintian packages debdiff deepdiff installtests etch-update-tests switchtest
+all: sources pbuilder lintian packages debdiff deepdiff installtests sidtests testingtests
 
-simpleall: sources pbuilder lintian packages debdiff deepdiff simpleinstalltests switchtest
+simpleall: sources pbuilder lintian packages debdiff deepdiff
 
 origtar:
 	perl tpm2deb-source.pl make-orig-tar --master=$(MASTER) $(SOURCES)
@@ -103,67 +103,37 @@ debdiff:
 packages:
 	bash scripts/build-infra -p . -nosign pool
 
-#	dpkg-scanpackages pool /dev/null | gzip -9c > pool/Packages.gz
-#	dpkg-scansources pool /dev/null | gzip -9c > pool/Sources.gz
-
 installtests:
 	-for i in pool/*.deb ; do \
 		debname=`basename $$i` ;				\
-		debname=`echo $$debname | sed -e 's/_2007.*\.deb//'` ;	\
+		debname=`echo $$debname | sed -e 's/_201.*\.deb//'` ;	\
 		echo $$debname ... ;					\
-		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./scripts/test-script.sh $$debname 2>&1 | tee log/$$debname.installtest.log ;	\
-	done
-
-etch-update-tests:
-	-for i in pool/*.deb ; do \
-		debname=`basename $$i` ;				\
-		debname=`echo $$debname | sed -e 's/_2007.*\.deb//'` ;	\
-		echo $$debname ... ;					\
-		sudo /usr/sbin/pbuilder --execute --basetgz /var/cache/pbuilder/etch.tgz --bindmounts "./pool $(ADDBINDMOUNTS)" ./scripts/etch-upgrade.sh $$debname 2>&1 | tee log/$$debname.etch-upgrade.log ;	\
+		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./scripts/test2012.sh $$debname 2>&1 | tee log/$$debname.installtest.log ;	\
 	done
 
 simpleinstalltests:
 	-for i in pool/*.deb ; do \
 		debname=`basename $$i` ;				\
-		debname=`echo $$debname | sed -e 's/_2007.*\.deb//'` ;	\
+		debname=`echo $$debname | sed -e 's/_201.*\.deb//'` ;	\
 		echo $$debname ... ;					\
 		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./scripts/simple-test-script.sh $$debname 2>&1 | tee log/$$debname.simpleinstalltest.log ;	\
 	done
 
 
-switchtest:
-	sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./scripts/tetex-texlive-switch-test.sh 2>&1 | tee log/tetex-texlive-switch-test.log
-
-testbed: sidtests etchtests
+testbed: sidtests testingtests
 
 sidtests:
-	-for i in ./tests/test*.sh ; do \
+	-for i in ./tests/sid/test*.sh ; do \
 		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool" $$i 2>&1 | tee $$i.log ; \
 	done
 
-sidupgrade:
-	sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool" \
-		--basepath /var/cache/pbuilder/texlive.cow \
-		tests/sidupgrade.sh 2>&1 | tee tests/sidupgrade.log
-
-testingupgrade:
-	sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool" \
-		--basepath /var/cache/pbuilder/testing.cow \
-		tests/testingupgrade.sh 2>&1 | tee tests/testingupgrade.log
-
-etchtests:
-	-for i in ./tests/etch-test*.sh ; do \
-		sudo /usr/sbin/cowbuilder --execute --basepath /var/cache/pbuilder/etch.cow --bindmounts "./pool" $$i | tee $$i.log  ; \
+testingtests:
+	-for i in ./tests/testing/test*.sh ; do \
+		sudo /usr/sbin/cowbuilder --execute \
+			--basepath /var/cache/pbuilder/testing.cow \
+			--bindmounts "./pool" $$i 2>&1 | tee $$i.log ; \
+		mv pool/testing-test-*-files-* ./tests/testing/ ; \
 	done
-
-update-tpm2liclines:
-	perl tpm2licenses 	\
-		--catalogue=$(catalogue_loc) 	\
-		--package=texlive			\
-		--tpmdir=$(tpmdir_loc)	\
-		--what=license	> all/debian/tpm2liclines.new
-	@echo "New tpm2liclines created in all/debian/tpm2liclines.new"
-	@echo "Move it by hand to all/debian/tpm2liclines"
 
 
 clean:

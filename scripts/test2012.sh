@@ -9,7 +9,7 @@ debname="$1"
 # and then exit
 #
 report_errors() {
-    for i in /tmp/texlive.* ; do
+    for i in /tmp/texlive.* /tmp/updmap* /tmp/mktexlsr* /tmp/fmtutil* ; do
 	echo "======= ERROR FILE $i ==========="
 	cat $i
 	echo "======= END OF ERROR FILE $i ==========="
@@ -22,8 +22,8 @@ apt-get install $aptargs $debname || report_errors
 
 #
 # install the sources.list line
-echo "deb file:/ tl2012-pre/" >> /etc/apt/sources.list
-gunzip -c /tl2012-pre/Packages.gz > /var/lib/apt/lists/_tl2012-pre_Packages
+echo "deb file:/ pool/" >> /etc/apt/sources.list
+gunzip -c /pool/Packages.gz > /var/lib/apt/lists/_pool_Packages
 
 #
 # now run the tests
