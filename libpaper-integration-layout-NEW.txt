@@ -1,5 +1,6 @@
 
 Integration of libpaper into dvips/dvipdfmx/xdvi/pdftex
+DONE
 
 General overview
 ================
@@ -57,7 +58,7 @@ Coding changes:
   TLPaper.pm changes committed to texlive-svn
   tl-paper updated
 
-* postinst from texlive-base (or preinst)
+* postinst from texlive-base (or preinst) DONE
   ucf clean all these files in /etc/ and remove them
 
 * additional things to do DONE
