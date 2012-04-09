@@ -25,7 +25,7 @@ libpaper_files="/etc/texmf/dvips/config/config.ps \
                /etc/texmf/dvipdfmx/dvipdfmx.cfg \
                /etc/texmf/xdvi/XDvi"
 
-base "$1" in
+case "$1" in
   configure|reconfigure)
 
   old_version=$2
