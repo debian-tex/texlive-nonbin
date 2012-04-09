@@ -1,4 +1,4 @@
-texlive-base (2011.20120408-1) unstable; urgency=low
+texlive-base (2011.20120409-1~1) unstable; urgency=low
 
   * UNRELEASED NEEDS NEW UPSTREAM RELEASE!!!
   * tl-paper: make sure that some side conditions are caught properly
@@ -13,10 +13,10 @@ texlive-base (2011.20120408-1) unstable; urgency=low
       (debian/patches/*factorize)
     - texlive-base depends on a version of texlive-binaries which ships
       programs (dvipdfmx, dvips) that are able to load sub-config files
-    - purge ucf files and rename them to .disabled if present
-      (texlive-base.postinst.pre)
+    - use dpkg-maintscript-helper and ucf/ucfr to get rid of the config
+      files
 
- -- Norbert Preining <preining@debian.org>  Sun, 08 Apr 2012 22:49:16 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 09 Apr 2012 10:56:27 +0900
 
 texlive-base (2011.20120322-2) unstable; urgency=low
 

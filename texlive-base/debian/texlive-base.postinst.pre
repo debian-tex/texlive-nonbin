@@ -4,47 +4,49 @@
 # freely copied, distributed and/or modified
 
 
-mktexlsr /usr/share/texlive/texmf /usr/share/texmf /var/lib/texmf 
-for binary in dvips dvipdfmx xdvi pdftex; do
-  if localpaper=$(tl-paper get $binary); then
-      tl-paper set $binary $localpaper
-  fi
-done
-
-
-purge_file () {
-  local conffile
-  conffile="$1"
-  for ext in $PURGE_EXTENSIONS; do
-    rm -f "${conffile}.ucf-dist"
-    rm -f "${conffile}.ucf-new"
-  done
-  if [ -r "${conffile}" ] ; then
-    mv "${conffile}" "${conffile}.disabled"
-  fi
-}
 purge_ucf_file () {
   local conffile
   conffile="$1"
-  purge_file $conffile
+  rm -f "${conffile}.ucf-dist"
+  rm -f "${conffile}.ucf-new"
   if [ -x /usr/bin/ucf ]; then
     ucf --purge "${conffile}" >/dev/null 2>&1
   fi
   if [ -x /usr/bin/ucfr ]; then
-    ucfr --purge tex-common "${conffile}" >/dev/null 2>&1
+    ucfr --purge texlive-base "${conffile}" >/dev/null 2>&1
   fi
 }
 
-# do clean out old ucf registering in any case!
-purge_ucf_file /etc/texmf/dvips/config/config.ps
-purge_ucf_file /etc/texmf/tex/generic/config/pdftexconfig.tex
-purge_ucf_file /etc/texmf/dvipdfmx/dvipdfmx.cfg
-purge_ucf_file /etc/texmf/xdvi/XDvi
+# libpaper upgrade path
+# * first remove the config files config.ps, pdftexconfig.tex,
+#   dvipdfmx.cfg, XDvi with dpkg-maintscript-helper
+#   attention: that has to be done in preinst, postinst, and postrm
+# * purge the ucf attribution
+
+libpaper_upgrade_version=2011.20120322-2
+libpaper_files="/etc/texmf/dvips/config/config.ps \
+               /etc/texmf/tex/generic/config/pdftexconfig.tex \
+               /etc/texmf/dvipdfmx/dvipdfmx.cfg \
+               /etc/texmf/xdvi/XDvi"
+
+for i in $libpaper_files ; do
+  dpkg-maintscript-helper rm_conffile $i $libpaper_upgrade_version -- "$@"
+done
 
 if [ "$1" = "configure" ]; then
   old_version=$2
-  last_version_without_libpaper=2009-11
-  if [ -n $old_version ] || dpkg --compare-versions $old_version lt $last_version_without_libpaper; then
+  for i in $libpaper_files ; do
+    purge_ucf_file $i
+  done
+
+  mktexlsr /usr/share/texlive/texmf /usr/share/texmf /var/lib/texmf 
+  for binary in dvips dvipdfmx xdvi pdftex; do
+    if localpaper=$(tl-paper get $binary); then
+      tl-paper set $binary $localpaper
+    fi
+  done
+
+  if [ -n $old_version ] || dpkg --compare-versions $old_version lt $libpaper_upgrade_version; then
     # we are installing from scratch or upgrading from an older version
     /etc/libpaper.d/texlive-base
   fi

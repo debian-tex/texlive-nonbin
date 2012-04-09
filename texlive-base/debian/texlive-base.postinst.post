@@ -3,14 +3,20 @@
 #
 if [ "$1" = "configure" ] ; then
   old_version=$2
-  if [ -n $old_version ] || dpkg --compare-versions $old_version lt 2011 ; then
+  if [ -n $old_version ] || dpkg --compare-versions $old_version le 2011.20120322-2 ; then
     for i in /etc/texmf/texdoc            \
+             /etc/texmf/dvips/config      \
+             /etc/texmf/dvips             \
+             /etc/texmf/dvipdfmx          \
+             /etc/texmf/xdvi              \
              /etc/texmf/metafont/misc     \
              /etc/texmf/metafont          \
              /etc/texmf/tex/latex/config  \
              /etc/texmf/tex/latex/contour \
              /etc/texmf/tex/latex/pict2e  \
              /etc/texmf/tex/latex         \
+             /etc/texmf/tex/generic/config         \
+             /etc/texmf/tex/generic       \
              /etc/texmf/tex ; do
       if [ -d $i ] ; then
         rmdir --ignore-fail-on-non-empty $i
