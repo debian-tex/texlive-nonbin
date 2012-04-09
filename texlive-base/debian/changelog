@@ -7,7 +7,7 @@ texlive-base (2011.20120409-1~1) unstable; urgency=low
   * (upstream fix) make TLPaper less noise if it cannot find a proper
     paper definition
   * texlive-xetex recommends tipa (Closes: #667026)
-  * libpaper rework:
+  * libpaper rework (Closes: #665947)
     - keep original config files for the four progs in /u/s/texlive/...
     - factorize out the paper setting of the four progs in separate files
       (debian/patches/*factorize)
