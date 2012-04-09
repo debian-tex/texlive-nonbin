@@ -1,8 +1,6 @@
 #!/bin/sh
 echo "=== TeX Live Test System ==="
 echo "=== Test testing upgrade: dist-upgrade texlive from testing to test ==="
-echo "=== INSTALL APTITUDE"
-apt-get install  --allow-unauthenticated --assume-yes  aptitude
 aptargs="--without-recommends --assume-yes -o Aptitude::CmdLine::Ignore-Trust-Violations=yes"
 echo "=== START INSTALL TESTING VERSION"
 aptitude install $aptargs texlive

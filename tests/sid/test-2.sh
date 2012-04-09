@@ -3,8 +3,6 @@
 echo "=== TeX Live Test System ==="
 echo "=== Test 2: install/remove/install/purge texlive/2012 ==="
 echo ""
-echo "=== INSTALL APTITUDE"
-apt-get install  --allow-unauthenticated --assume-yes  aptitude
 aptargs="--without-recommends --assume-yes -o Aptitude::CmdLine::Ignore-Trust-Violations=yes"
 echo "=== START INSTALL TEST VERSION"
 echo "deb file:/ pool/" >> /etc/apt/sources.list
