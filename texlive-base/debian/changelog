@@ -13,12 +13,12 @@ texlive-base (2011.20120409-1~1) unstable; urgency=low
       (debian/patches/*factorize)
     - texlive-base depends on a version of texlive-binaries which ships
       programs (dvipdfmx, dvips) that are able to load sub-config files
-    - use dpkg-maintscript-helper and ucf/ucfr to get rid of the config
-      files
+    - use ucf/ucfr/ucfq to get rid of the config files (determine their
+      change status and make backup if changed, otherwise remove)
   * includes fixed thumbpdf.sty fixing texi2dvi problems (Closes: #666532)
     WARNING: NEEDS NEW UPSTREAM ... PROBABLY FROM 20120410 on !!!!
 
- -- Norbert Preining <preining@debian.org>  Mon, 09 Apr 2012 11:46:31 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 09 Apr 2012 22:19:50 +0900
 
 texlive-base (2011.20120322-2) unstable; urgency=low
 

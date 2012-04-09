@@ -3,17 +3,14 @@
 # probably not copyrightable as it looks now, but anyway the code maybe 
 # freely copied, distributed and/or modified
 
-
-purge_ucf_file () {
-  local conffile
-  conffile="$1"
-  rm -f "${conffile}.ucf-dist"
-  rm -f "${conffile}.ucf-new"
-  if [ -x /usr/bin/ucf ]; then
-    ucf --purge "${conffile}" >/dev/null 2>&1
-  fi
-  if [ -x /usr/bin/ucfr ]; then
-    ucfr --purge texlive-base "${conffile}" >/dev/null 2>&1
+ucf_is_changed() {
+  file=$1
+  if  [ "$(ucfq --with-colons $file | cut -f 4 --delimiter=:)" = "Yes" ] ; the
+n
+    # shell return codes are reverted!
+    return 0
+  else
+    return 1
   fi
 }
 
@@ -29,16 +26,30 @@ libpaper_files="/etc/texmf/dvips/config/config.ps \
                /etc/texmf/dvipdfmx/dvipdfmx.cfg \
                /etc/texmf/xdvi/XDvi"
 
-for i in $libpaper_files ; do
-  dpkg-maintscript-helper rm_conffile $i $libpaper_upgrade_version -- "$@"
-done
+base "$1" in
+  configure|reconfigure)
 
-if [ "$1" = "configure" ]; then
   old_version=$2
-  for i in $libpaper_files ; do
-    purge_ucf_file $i
+  for file in $libpaper_files ; do
+    if [ -r $file ] ; then
+      if ucf_is_changed $file ; then
+        cat > $file.postinst-bak <<EOF
+This file is no longer used and has therefore been renamed by the postinst 
+script of the texlive-base package.
+EOF
+        cat $file >> $file.postinst-bak
+      fi
+      rm $file
+      rm -f $file.ucf-old
+      rm -f $file.ucf-new
+      rm -f $file.ucf-dist
+    fi
+    ucf --purge $file
+    if test -x "`which ucfr`" ; then
+      ucfr --purge texlive-base $file
+    fi
   done
-
+     
   mktexlsr /usr/share/texlive/texmf /usr/share/texmf /var/lib/texmf 
   for binary in dvips dvipdfmx xdvi pdftex; do
     if localpaper=$(tl-paper get $binary); then
@@ -50,4 +61,9 @@ if [ "$1" = "configure" ]; then
     # we are installing from scratch or upgrading from an older version
     /etc/libpaper.d/texlive-base
   fi
-fi
+  ;;
+
+  *)
+  ;;
+esac
+

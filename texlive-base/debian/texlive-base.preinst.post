@@ -1,16 +1,5 @@
 # texlive-base preinst.post begin
 
-libpaper_upgrade_version=2011.20120322-2
-libpaper_files="/etc/texmf/dvips/config/config.ps \
-                /etc/texmf/tex/generic/config/pdftexconfig.tex \
-                /etc/texmf/dvipdfmx/dvipdfmx.cfg \
-                /etc/texmf/xdvi/XDvi"
-
-for i in $libpaper_files ; do 
-  dpkg-maintscript-helper rm_conffile $i $libpaper_upgrade_version -- "$@" 
-done
-
-
 # make sure that no strange old duplicate lines are hanging around in
 # 10texlive-base.cnf
 # but do the sed command only if the key line below actually occurs, so
