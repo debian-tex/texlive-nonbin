@@ -5,7 +5,7 @@
 # query and change paper settings using TLPaper
 # this is independent from tlmgr
 #
-# Copyright 2011 Norbert Preining
+# Copyright 2011, 2012 Norbert Preining
 # This file is licensed under the GNU General Public License version 3
 # or any later version.
 #
@@ -48,7 +48,7 @@ sub main {
   my $action = shift @ARGV;
   $action = "status" if !defined($action);
   if ($action =~ m/^status$/i) {  # "tl-paper status" shows the current settings
-    TeXLive::TLPaper::paper_all($texmfsysconfig,undef);
+    TeXLive::TLPaper::paper_all($texmfsysvar,undef);
     
   } elsif ($action =~ m/^list$/i) { # "tl-paper list prg" lists options for prg
     my $prg = shift @ARGV;
@@ -81,10 +81,10 @@ sub main {
         print "tl-paper: cannot change setting for all programs to $newpaper\n\n";
         exit 1;
       }
-      TeXLive::TLPaper::paper_all($texmfsysconfig,$newpaper);
+      TeXLive::TLPaper::paper_all($texmfsysvar,$newpaper);
     
     } else {
-      TeXLive::TLPaper::do_paper($prg,$texmfsysconfig,$newpaper);
+      TeXLive::TLPaper::do_paper($prg,$texmfsysvar,$newpaper);
     }
   
     # we probably have changed the paper, so run the execute actions
