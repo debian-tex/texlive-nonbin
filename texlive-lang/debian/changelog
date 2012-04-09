@@ -1,8 +1,9 @@
 texlive-lang (2011.20120322-3) unstable; urgency=low
 
   * UNRELEASED
+  * texlive-lang-cjk now provides ptex-base and ptex-bin
 
- -- Norbert Preining <preining@debian.org>  Fri, 06 Apr 2012 13:01:37 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 09 Apr 2012 12:01:02 +0900
 
 texlive-lang (2011.20120322-2) unstable; urgency=low
 
