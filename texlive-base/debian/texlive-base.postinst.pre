@@ -5,8 +5,7 @@
 
 ucf_is_changed() {
   file=$1
-  if  [ "$(ucfq --with-colons $file | cut -f 4 --delimiter=:)" = "Yes" ] ; the
-n
+  if  [ "$(ucfq --with-colons $file | cut -f 4 --delimiter=:)" = "Yes" ] ; then
     # shell return codes are reverted!
     return 0
   else
