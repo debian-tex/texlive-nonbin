@@ -236,6 +236,9 @@ sub build_data_hash {
 		if (defined($Config{'bin-section'}{$pkg})) {
 			$TeXLive{'binary'}{$pkg}{'section'} = $Config{'bin-section'}{$pkg};
 		}
+		if (defined($Config{'bin-priority'}{$pkg})) {
+			$TeXLive{'binary'}{$pkg}{'priority'} = $Config{'bin-priority'}{$pkg};
+		}
 	}
 	#
 	# we do the doc splitting now
@@ -418,6 +421,9 @@ sub build_data_hash {
 		$TeXLive{'binary'}{$meta_package}{'description'} = $Config{'description'}{$meta_package};
 		if (defined($Config{'bin-section'}{$meta_package})) {
 			$TeXLive{'binary'}{$meta_package}{'section'} = $Config{'bin-section'}{$meta_package};
+		}
+		if (defined($Config{'bin-priority'}{$meta_package})) {
+			$TeXLive{'binary'}{$meta_package}{'priority'} = $Config{'bin-priority'}{$meta_package};
 		}
 	}
 }
@@ -704,6 +710,12 @@ sub initialize_config_file_data {
 			} else {
 				$Config{'priority'}{$a} = "$b";
 			}
+			next;
+		}
+		if ($type eq "bin-priority") {
+			my ($b) = @rest;
+			$opt_debug && print STDERR  "b=$b.\n";
+			$Config{'bin-priority'}{$a} = "$b";;
 			next;
 		}
 		if ($type eq "uploaders") {

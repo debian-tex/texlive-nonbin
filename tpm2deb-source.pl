@@ -570,6 +570,9 @@ sub make_deb_control {
 		if (defined($TeXLive{'binary'}{$pkg}{'section'})) {
 			print CONTROL "Section: $TeXLive{'binary'}{$pkg}{'section'}\n";
 		}
+		if (defined($TeXLive{'binary'}{$pkg}{'priority'})) {
+			print CONTROL "Priority: $TeXLive{'binary'}{$pkg}{'priority'}\n";
+		}
 		print CONTROL "Architecture: $arch\n";
 		my @AllDepends = @{$TeXLive{'binary'}{$pkg}{'depends'}};
 		# in case that we have binaries included we add the dep
