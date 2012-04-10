@@ -1,9 +1,9 @@
 texlive-lang (2011.20120410-1) unstable; urgency=low
 
-  * ptex-* take over: create transitional ptex-bin/base packages that depends on 
-    texlive-lang-cjk (Closes: #665479)
+  * ptex-* take over: create transitional ptex-bin package that depends on 
+    texlive-lang-cjk, try to fix upgrades (Closes: #665479)
 
- -- Norbert Preining <preining@debian.org>  Tue, 10 Apr 2012 13:32:42 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 10 Apr 2012 14:09:02 +0900
 
 texlive-lang (2011.20120322-2) unstable; urgency=low
 
