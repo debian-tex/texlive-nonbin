@@ -124,6 +124,7 @@ simpleinstalltests:
 sid-tests:
 	mkdir -p ./tests/log
 	-for i in ./tests/sid/test*.sh ; do \
+		rm -f ./tests/log/sid-`basename $$i .sh`.log ; \
 		sudo /usr/sbin/cowbuilder --execute \
 			--bindmounts "./pool" $$i 2>&1 | \
 			tee ./tests/log/sid-`basename $$i .sh`.log ; \
@@ -132,6 +133,7 @@ sid-tests:
 testing-tests:
 	mkdir -p ./tests/log
 	-for i in ./tests/testing/test*.sh ; do \
+		rm -f ./tests/log/testing-`basename $$i .sh`.log ; \
 		sudo /usr/sbin/cowbuilder --execute \
 			--basepath /var/cache/pbuilder/testing.cow \
 			--bindmounts "./pool" $$i 2>&1 | \
@@ -142,6 +144,7 @@ testing-tests:
 stable-tests:
 	mkdir -p ./tests/log
 	-for i in ./tests/stable/test*.sh ; do \
+		rm -f ./tests/log/stable-`basename $$i .sh`.log ; \
 		sudo /usr/sbin/cowbuilder --execute \
 			--basepath /var/cache/pbuilder/stable.cow \
 			--bindmounts "./pool" $$i 2>&1 | \
