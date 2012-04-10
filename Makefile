@@ -26,7 +26,7 @@ norbert:
 	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-orig-tar texlive-base texlive-extra texlive-doc texlive-lang
 	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-deb-source texlive-base texlive-extra texlive-doc texlive-lang
 
-all: sources pbuilder lintian packages debdiff deepdiff installtests sidtests testingtests
+all: sources pbuilder lintian packages debdiff deepdiff alltests
 
 simpleall: sources pbuilder lintian packages debdiff deepdiff
 
@@ -103,6 +103,8 @@ debdiff:
 packages:
 	bash scripts/build-infra -p . -nosign pool
 
+alltests: installtests stable-tests testing-tests sid-tests
+
 installtests:
 	-for i in pool/*.deb ; do \
 		debname=`basename $$i` ;				\
@@ -119,20 +121,32 @@ simpleinstalltests:
 		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./tests/scripts/simple-test-script.sh $$debname 2>&1 | tee log/$$debname.simpleinstalltest.log ;	\
 	done
 
-
-testbed: sidtests testingtests
-
-sidtests:
+sid-tests:
+	mkdir -p ./tests/log
 	-for i in ./tests/sid/test*.sh ; do \
-		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool" $$i 2>&1 | tee $$i.log ; \
+		sudo /usr/sbin/cowbuilder --execute \
+			--bindmounts "./pool" $$i 2>&1 | \
+			tee ./tests/log/sid-`basename $$i .sh`.log ; \
 	done
 
-testingtests:
+testing-tests:
+	mkdir -p ./tests/log
 	-for i in ./tests/testing/test*.sh ; do \
 		sudo /usr/sbin/cowbuilder --execute \
 			--basepath /var/cache/pbuilder/testing.cow \
-			--bindmounts "./pool" $$i 2>&1 | tee $$i.log ; \
-		mv pool/testing-test-*-files-* ./tests/testing/ ; \
+			--bindmounts "./pool" $$i 2>&1 | \
+			tee ./tests/log/testing-`basename $$i .sh`.log ; \
+		mv pool/testing-test-*-files-* ./tests/log/ ; \
+	done
+
+stable-tests:
+	mkdir -p ./tests/log
+	-for i in ./tests/stable/test*.sh ; do \
+		sudo /usr/sbin/cowbuilder --execute \
+			--basepath /var/cache/pbuilder/stable.cow \
+			--bindmounts "./pool" $$i 2>&1 | \
+			tee ./tests/log/stable-`basename $$i .sh`.log ; \
+		mv pool/stable-test-*-files-* ./tests/log/ ; \
 	done
 
 
