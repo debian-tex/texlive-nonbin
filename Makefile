@@ -110,7 +110,7 @@ installtests:
 		debname=`basename $$i` ;				\
 		debname=`echo $$debname | sed -e 's/_201.*\.deb//'` ;	\
 		echo $$debname ... ;					\
-		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./tests/scripts/test2012.sh $$debname 2>&1 | tee log/$$debname.installtest.log ;	\
+		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./tests/scripts/test-script.sh $$debname 2>&1 | tee log/$$debname.installtest.log ;	\
 	done
 
 simpleinstalltests:

@@ -5,34 +5,11 @@ aptargs="--assume-yes --allow-unauthenticated --no-install-recommends"
 debname="$1"
 
 #
-case $debname in
-  texlive-full)
-    echo "NOT TESTING texlive-full, too much work ;-)"
-    exit 0
-    ;;
-  texlive-latex-extra)
-    debname="texlive-latex-extra texlive-latex-recommended texlive-fonts-recommended"
-    ;;
-  texlive-fonts-recommended)
-    debname="texlive-latex-base texlive-fonts-recommended"
-    ;;
-  texlive-fonts-extra)
-    debname="texlive-latex-base texlive-fonts-recommended texlive-latex-recommended texlive-fonts-extra"
-    ;;
-  texlive-lang-*)
-    debname="texlive-base $debname"
-    ;;
-  texlive-music)
-    debname="texlive-base $debname"
-    ;;
-esac
-
-#
 # report_errors should cat out all the /tmp/texlive.* files for debugging
 # and then exit
 #
 report_errors() {
-    for i in /tmp/texlive.* ; do
+    for i in /tmp/texlive.* /tmp/fmtutil* /tmp/updmap* /tmp/mktexlsr* ; do
 	echo "======= ERROR FILE $i ==========="
 	cat $i
 	echo "======= END OF ERROR FILE $i ==========="
