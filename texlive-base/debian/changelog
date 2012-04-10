@@ -1,6 +1,5 @@
-texlive-base (2011.20120409-1~1) unstable; urgency=low
+texlive-base (2011.20120410-1) unstable; urgency=low
 
-  * UNRELEASED NEEDS NEW UPSTREAM RELEASE!!!
   * tl-paper: make sure that some side conditions are caught properly
     (Closes: #666995)
   * texlive-base.libpaper: don't assume that tl-paper returns something
@@ -16,9 +15,8 @@ texlive-base (2011.20120409-1~1) unstable; urgency=low
     - use ucf/ucfr/ucfq to get rid of the config files (determine their
       change status and make backup if changed, otherwise remove)
   * includes fixed thumbpdf.sty fixing texi2dvi problems (Closes: #666532)
-    WARNING: NEEDS NEW UPSTREAM ... PROBABLY FROM 20120410 on !!!!
 
- -- Norbert Preining <preining@debian.org>  Mon, 09 Apr 2012 22:19:50 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 10 Apr 2012 10:26:42 +0900
 
 texlive-base (2011.20120322-2) unstable; urgency=low
 

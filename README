@@ -98,13 +98,6 @@ TODO
 	well, obvious
 
 scripts/
-	test-script.sh 
-		this script is called in the pbuilder test run. It tries to
-		install the previous version, then with the new version
-		install remove install purge 
-	simple-test-script.sh
-		same as above without installing the previous version, so
-		simply install remove install purge
 	generate-lin-report.pl
 		summarize all the .lintian.log files into one lintian.log
 		file, used in Makefile target lintian and linda
@@ -138,6 +131,12 @@ src/	(maybe not present)
 	it in a check out, but you could create it and put the orig.tar.gz
 	into it ;-)
 
+tests/
+	tests/scripts: scripts that are run for 
+		install-remove-install-purge etc tests
+	tests/stable tests/testing tests/sid
+		upgrade from the respective releases
+	
 patches/
 	some patches that implement(ed) ideas, some of which were included
 	some have been rejected (for now)
