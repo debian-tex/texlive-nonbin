@@ -1,0 +1,16 @@
+#texlive-fonts-extra;usr/share/texlive/texmf-dist/fonts/opentype/public/libertineotf/LinLibertine_aZL.otf;fonts-linuxlibertine
+
+for i in $(grep duplicate-font-file |	\
+	sed 	-e 's/^W: //'				\
+	    	-e 's/: duplicate-font-file /;/'	\
+		-e 's/ also in /;/') ; do
+  pkg=$(echo $i | awk -F";" '{print$1}')
+  tlpath=$(echo $i | awk -F";" '{print$2}')
+  debpkg=$(echo $i | awk -F";" '{print$3}')
+  fntname=$(basename $tlpath)
+  debpath=$(grep /$fntname /var/lib/dpkg/info/$debpkg.list | sed -e 's!^/!!')
+  echo "$debpath $tlpath" >> $pkg.links.dist
+  echo "depends;$pkg;$debpkg" >> tpmadds
+  shortn=$(echo $tlpath | sed -e 's!^usr/share/texlive/!!')
+  echo "blacklist;file;$shortn" >> tpmadds
+done

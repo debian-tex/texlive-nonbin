@@ -4,8 +4,9 @@ texlive-extra (2011.20120423-1) unstable; urgency=low
     - includes updates ucs package (Closes: #635382)
   * break against scalable-cyrfonts-tex as it ships fonts with the same
     names as in texlive-fonts-extra
+  * adjust links and blacklist for new libertine fonts location in TL
 
- -- Norbert Preining <preining@debian.org>  Mon, 23 Apr 2012 11:53:51 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 24 Apr 2012 08:22:35 +0900
 
 texlive-extra (2011.20120322-1) unstable; urgency=low
 
