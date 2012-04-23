@@ -3,8 +3,9 @@ texlive-lang (2011.20120423-1) unstable; urgency=low
   * new upstream snapshot
   * remove texlive-lang-cyrillic suggests scalable-cyrfonts-tex, as they
     are incompatible and break other fonts in TeX Live
+  * texlive-lang-cjk: provide and conflict with ptex-jisfonts (Closes: #669692)
 
- -- Norbert Preining <preining@debian.org>  Mon, 23 Apr 2012 11:54:49 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 23 Apr 2012 11:58:04 +0900
 
 texlive-lang (2011.20120410-1) unstable; urgency=low
 
