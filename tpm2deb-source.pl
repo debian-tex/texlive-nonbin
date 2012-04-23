@@ -200,14 +200,18 @@ sub make_orig_tar {
 		}
 		File::Path::mkpath($dest);
 		if (-r "$Master/archive/$pkg.tar.xz") {
+			print "$pkg: run ";
 			`tar -C $dest -xf $Master/archive/$pkg.tar.xz`;
 		}
 		if (-r "$Master/archive/$pkg.doc.tar.xz") {
+			print "doc ";
 			`tar -C $dest -xf $Master/archive/$pkg.doc.tar.xz`;
 		}
 		if (-r "$Master/archive/$pkg.source.tar.xz") {
+			print "src";
 			`tar -C $dest -xf $Master/archive/$pkg.source.tar.xz`;
 		}
+		print "\n";
 	}
 	sub copy_unpack_included_packages {
 		my ($binpkg, $dest) = @_;

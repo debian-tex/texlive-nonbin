@@ -9,6 +9,8 @@ mv *.deb *.orig.tar.gz *.debian.tar.gz *.dsc *.changes pool/
 mkdir -p log
 mv *.log log/
 
+make packages lintian stable-tests testing-tests sid-tests
+
 #bash do-checks
 
 #rsync -avz -delete tl2007 tug:/home/httpd/html/texlive/Debian/
