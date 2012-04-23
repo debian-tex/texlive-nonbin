@@ -644,6 +644,14 @@ sub make_deb_control {
 			print CONTROL "Replaces: ", join(", ", @AllReplaces), "\n";
 		}
 		#
+		# Breaks
+		#
+		my @AllBreaks = @{$TeXLive{'binary'}{$pkg}{'breaks'}};
+		if ($#AllBreaks >= 0) {
+			makeuniq(\@AllBreaks);
+			print CONTROL "Breaks: ", join(", ", @AllBreaks), "\n";
+		}
+		#
 		print CONTROL "Description: TeX Live: $title\n";
 		#
 		my @deslines = split(/\n/, $description);

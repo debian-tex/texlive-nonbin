@@ -233,6 +233,9 @@ sub build_data_hash {
 		if (defined($Config{'replaces'}{$pkg})) {
 			$TeXLive{'binary'}{$pkg}{'replaces'} = [ @{$Config{'replaces'}{$pkg}} ];
 		}
+		if (defined($Config{'breaks'}{$pkg})) {
+			$TeXLive{'binary'}{$pkg}{'breaks'} = [ @{$Config{'breaks'}{$pkg}} ];
+		}
 		if (defined($Config{'bin-section'}{$pkg})) {
 			$TeXLive{'binary'}{$pkg}{'section'} = $Config{'bin-section'}{$pkg};
 		}
@@ -315,6 +318,9 @@ sub build_data_hash {
 			}
 			if (defined($Config{'replaces'}{$doc_pkg})) {
 				$TeXLive{'binary'}{$doc_pkg}{'replaces'} = [ @{$Config{'replaces'}{$doc_pkg}} ];
+			}
+			if (defined($Config{'breaks'}{$doc_pkg})) {
+				$TeXLive{'binary'}{$doc_pkg}{'breaks'} = [ @{$Config{'breaks'}{$doc_pkg}} ];
 			}
 			#
 			# now we have to move all the DocFiles of all INCLUDED
@@ -410,6 +416,7 @@ sub build_data_hash {
 		$TeXLive{'binary'}{$meta_package}{'suggests'}    = [ @{$Config{'suggests'}{$meta_package}} ];
 		$TeXLive{'binary'}{$meta_package}{'recommends'}  = [ @{$Config{'recommends'}{$meta_package}} ];
 		$TeXLive{'binary'}{$meta_package}{'replaces'}    = [ @{$Config{'replaces'}{$meta_package}} ];
+		$TeXLive{'binary'}{$meta_package}{'breaks'}    = [ @{$Config{'breaks'}{$meta_package}} ];
 		if ($meta_package eq "texlive-common") {
 			$TeXLive{'binary'}{$meta_package}{'conflicts'}   = [ @{$Config{'conflicts'}{$meta_package}}, @conflictpkgs ];
 		} else {
@@ -556,6 +563,12 @@ sub initialize_config_file_data {
 			my ($b) = @rest;
 			$opt_debug && print STDERR  "b=$b.\n";
 			$Config{'replaces'}{$a} = [ @{$Config{'replaces'}{$a}}, split(/[ \t]*,[ \t]*/,$b) ];
+			next;
+		}
+		if ($type eq "breaks") {
+			my ($b) = @rest;
+			$opt_debug && print STDERR  "b=$b.\n";
+			$Config{'breaks'}{$a} = [ @{$Config{'breaks'}{$a}}, split(/[ \t]*,[ \t]*/,$b) ];
 			next;
 		}
 		if ($type eq "execute") {

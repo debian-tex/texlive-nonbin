@@ -1,10 +1,11 @@
-texlive-extra (2011.20120322-2) unstable; urgency=low
+texlive-extra (2011.20120423-1) unstable; urgency=low
 
-  * UNRELEASED
+  * new upstream snapshot
+    - includes updates ucs package (Closes: #635382)
   * break against scalable-cyrfonts-tex as it ships fonts with the same
     names as in texlive-fonts-extra
 
- -- Norbert Preining <preining@debian.org>  Fri, 13 Apr 2012 10:44:10 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 23 Apr 2012 11:53:51 +0900
 
 texlive-extra (2011.20120322-1) unstable; urgency=low
 
