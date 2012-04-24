@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texlive-base 2009-11\n"
 "Report-Msgid-Bugs-To: texlive-base@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-25 08:04+0200\n"
+"POT-Creation-Date: 2012-04-24 14:30+0900\n"
 "PO-Revision-Date: 2011-08-28 19:43+0200\n"
 "Last-Translator: Slavko <linux@slavino.sk>\n"
 "Language-Team: Slovak <debian-l10n-slovak@lists.debian.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid "Unmanageable system paper size (${libpaperPaper})"
 msgstr "Neznáma systémová veľkosť strany ${libpaperPaper}"
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid ""
 "The currently defined system-wide paper size is ${libpaperPaper}. However, "
 "the TeX configuration system cannot handle this paper size for ${binary}."
@@ -34,13 +34,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid "The setting will remain unchanged."
 msgstr "Nastavenie ostane nezmenené."
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid ""
 "The following command can show the list of known paper sizes for ${binary}:"
 msgstr ""
@@ -48,13 +48,13 @@ msgstr ""
 
 #. Type: multiselect
 #. Description
-#: ../templates:3001
+#: ../texlive-base.templates:3001
 msgid "TeX binaries that should use the system paper size:"
 msgstr "Binárne súbory TeX, ktoré by mali používať systémovú veľkosť strany:"
 
 #. Type: multiselect
 #. Description
-#: ../templates:3001
+#: ../texlive-base.templates:3001
 msgid ""
 "This system's TeX binaries currently use different default paper sizes. "
 "Please choose which of them should get the system paper size "

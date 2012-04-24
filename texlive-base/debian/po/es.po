@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texlive-base 2009-14\n"
 "Report-Msgid-Bugs-To: texlive-base@packages.debian.org\n"
-"POT-Creation-Date: 2011-08-25 08:04+0200\n"
+"POT-Creation-Date: 2012-04-24 14:30+0900\n"
 "PO-Revision-Date: 2011-08-30 13:50+0200\n"
 "Last-Translator: Francisco Javier Cuadrado <fcocuadrado@gmail.com>\n"
 "Language-Team: Debian l10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -39,13 +39,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid "Unmanageable system paper size (${libpaperPaper})"
 msgstr "Tamaño de página del sistema inmanejable (${libpaperPaper})"
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid ""
 "The currently defined system-wide paper size is ${libpaperPaper}. However, "
 "the TeX configuration system cannot handle this paper size for ${binary}."
@@ -56,13 +56,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid "The setting will remain unchanged."
 msgstr "El ajuste se mantendrá sin cambios."
 
 #. Type: error
 #. Description
-#: ../templates:2001
+#: ../texlive-base.templates:2001
 msgid ""
 "The following command can show the list of known paper sizes for ${binary}:"
 msgstr ""
@@ -71,14 +71,14 @@ msgstr ""
 
 #. Type: multiselect
 #. Description
-#: ../templates:3001
+#: ../texlive-base.templates:3001
 msgid "TeX binaries that should use the system paper size:"
 msgstr ""
 "Los binarios de TeX que deberían utilizar el tamaño de página del sistema:"
 
 #. Type: multiselect
 #. Description
-#: ../templates:3001
+#: ../texlive-base.templates:3001
 msgid ""
 "This system's TeX binaries currently use different default paper sizes. "
 "Please choose which of them should get the system paper size "
