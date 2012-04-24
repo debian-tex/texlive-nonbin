@@ -2,8 +2,9 @@ texlive-base (2011.20120424-1) unstable; urgency=low
 
   * new upstream snapshot
   * texlive-xetex: add breaks against texlive-math-extra (Closes: #670109)
+  * update po-debconf stuff
 
- -- Norbert Preining <preining@debian.org>  Tue, 24 Apr 2012 08:38:10 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 24 Apr 2012 14:31:49 +0900
 
 texlive-base (2011.20120410-1) unstable; urgency=low
 
