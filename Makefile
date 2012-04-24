@@ -121,6 +121,40 @@ simpleinstalltests:
 		sudo /usr/sbin/cowbuilder --execute --bindmounts "./pool $(ADDBINDMOUNTS)" ./tests/scripts/simple-test-script.sh $$debname 2>&1 | tee log/$$debname.simpleinstalltest.log ;	\
 	done
 
+sid1-tests:
+	mkdir -p ./tests/log
+	-for i in ./tests/sid/test-1.sh ; do \
+		rm -f ./tests/log/sid-`basename $$i .sh`.log ; \
+		sudo /usr/sbin/cowbuilder --execute \
+			--bindmounts "./pool" $$i 2>&1 | \
+			tee ./tests/log/sid-`basename $$i .sh`.log ; \
+	done
+
+overwrite-tests: sid-overwrite testing-overwrite stable-overwrite
+
+sid-overwrite:
+	mkdir -p ./tests/log
+	rm -f ./tests/log/sid-test-forceoverwrite.log
+	sudo  /usr/sbin/cowbuilder --execute \
+	  --bindmounts "./pool" ./tests/sid/test-forceoverwrite.sh 2>&1 | \
+	  tee ./tests/log/sid-test-forceoverwrite.log
+
+testing-overwrite:
+	mkdir -p ./tests/log
+	rm -f ./tests/log/testing-test-forceoverwrite.log
+	sudo  /usr/sbin/cowbuilder --execute \
+	  --basepath /var/cache/pbuilder/testing.cow \
+	  --bindmounts "./pool" ./tests/testing/test-forceoverwrite.sh 2>&1 | \
+	  tee ./tests/log/testing-test-forceoverwrite.log
+
+stable-overwrite:
+	mkdir -p ./tests/log
+	rm -f ./tests/log/stable-test-forceoverwrite.log
+	sudo  /usr/sbin/cowbuilder --execute \
+	  --basepath /var/cache/pbuilder/stable.cow \
+	  --bindmounts "./pool" ./tests/stable/test-forceoverwrite.sh 2>&1 | \
+	  tee ./tests/log/stable-test-forceoverwrite.log
+
 sid-tests:
 	mkdir -p ./tests/log
 	-for i in ./tests/sid/test*.sh ; do \
@@ -130,10 +164,22 @@ sid-tests:
 			tee ./tests/log/sid-`basename $$i .sh`.log ; \
 	done
 
+testing1-tests:
+	mkdir -p ./tests/log
+	-for i in ./tests/testing/test-1.sh ; do \
+		rm -f ./tests/log/testing-`basename $$i .sh`.log ; \
+		rm -f ./tests/log/testing-`basename $$i .sh`-files-* ; \
+		sudo /usr/sbin/cowbuilder --execute \
+			--basepath /var/cache/pbuilder/testing.cow \
+			--bindmounts "./pool" $$i 2>&1 | \
+			tee ./tests/log/testing-`basename $$i .sh`.log ; \
+		mv pool/testing-test-*-files-* ./tests/log/ ; \
+
 testing-tests:
 	mkdir -p ./tests/log
 	-for i in ./tests/testing/test*.sh ; do \
 		rm -f ./tests/log/testing-`basename $$i .sh`.log ; \
+		rm -f ./tests/log/testing-`basename $$i .sh`-files-* ; \
 		sudo /usr/sbin/cowbuilder --execute \
 			--basepath /var/cache/pbuilder/testing.cow \
 			--bindmounts "./pool" $$i 2>&1 | \
@@ -145,6 +191,7 @@ stable-tests:
 	mkdir -p ./tests/log
 	-for i in ./tests/stable/test*.sh ; do \
 		rm -f ./tests/log/stable-`basename $$i .sh`.log ; \
+		rm -f ./tests/log/stable-`basename $$i .sh`-files-* ; \
 		sudo /usr/sbin/cowbuilder --execute \
 			--basepath /var/cache/pbuilder/stable.cow \
 			--bindmounts "./pool" $$i 2>&1 | \
