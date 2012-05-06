@@ -1,8 +1,13 @@
 texlive-base (2011.2012XXXX-1) unstable; urgency=low
 
+  [ Norbert Preining ]
   * UNRELEASED
 
- -- Norbert Preining <preining@debian.org>  Wed, 25 Apr 2012 12:00:50 +0900
+  [ Frank Küster ]
+  * add Breaks/Replaces for texlive-latex-base against older context
+    (Closes: #671716). 
+
+ -- Frank Küster <frank@debian.org>  Sun, 06 May 2012 22:59:13 +0200
 
 texlive-base (2011.20120424-1) unstable; urgency=low
 
