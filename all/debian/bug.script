@@ -14,10 +14,18 @@ EOF
 getkey
 
 cat >&3 <<EOF
+IMPORTANT INFORMATION: We will only consider bug reports concerning
+the packaging of TeX Live as relevant. If you have problems with
+combination of packages in a LaTeX document, please consult your
+local TeX User Group, the comp.text.tex user group, the author of
+the original .sty file, or any other help resource. 
+
+   *** The Debian TeX Team is *no* LaTeX Help Desk ***
+
 If you report an error when running one of the TeX-related binaries 
 (latex, pdftex, metafont,...), or if the bug is related to bad or wrong
 output, please include a MINIMAL example input file that produces the
-error in your report. 
+error in your report.
 
 Please run your example with
 	(pdf)latex -recorder ...
