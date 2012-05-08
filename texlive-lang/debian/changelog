@@ -1,6 +1,5 @@
-texlive-lang (2011.2012XXXX-1) unstable; urgency=low
+texlive-lang (2011.20120508-1) unstable; urgency=low
 
-  * UNRELEASED
   * update uptex packages from tlptexlive, uptex 1.10
 
  -- Norbert Preining <preining@debian.org>  Wed, 02 May 2012 08:23:19 +0900

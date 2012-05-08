@@ -10,6 +10,7 @@ mkdir -p log
 mv *.log log/
 
 #make packages lintian sid-tests testing-tests stable-tests
+make packages lintian testing-tests stable-tests
 
 #bash do-checks
 
