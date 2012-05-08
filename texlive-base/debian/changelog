@@ -2,6 +2,8 @@ texlive-base (2011.2012XXXX-1) unstable; urgency=low
 
   [ Norbert Preining ]
   * UNRELEASED
+  * new upstream release:
+    . new xecjk package (Closes: #668562)
 
   [ Frank Küster ]
   * add Breaks/Replaces for texlive-latex-base against older context
