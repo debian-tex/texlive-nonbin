@@ -2,6 +2,10 @@ texlive-extra (2011.2012XXXX-1) unstable; urgency=low
 
   * UNRELEASED
   * new upstream snapshot (Closes: #670336)
+  * texpower take over (Closes: #NO BUG NUMBER FOR FTBFS of old texpower)
+    . ship the TL packages texpower and tpslifonts (formerly blacklisted)
+    . provide a dummy transitional package texpower
+    . add the necessary conflicts and depends
 
  -- Norbert Preining <preining@debian.org>  Wed, 25 Apr 2012 12:01:15 +0900
 
