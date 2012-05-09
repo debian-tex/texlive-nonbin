@@ -2,11 +2,11 @@
  tlpkg/texlive.tlpdb |  360 ++++++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 360 insertions(+)
 
-Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
+Index: texlive-lang-2011.20120509/tlpkg/texlive.tlpdb
 ===================================================================
---- texlive-lang-2011.20120226.orig/tlpkg/texlive.tlpdb	2012-02-29 12:29:34.000000000 +0900
-+++ texlive-lang-2011.20120226/tlpkg/texlive.tlpdb	2012-03-01 10:09:32.400796064 +0900
-@@ -34737,6 +34737,7 @@
+--- texlive-lang-2011.20120509.orig/tlpkg/texlive.tlpdb	2012-05-09 13:56:27.802615265 +0900
++++ texlive-lang-2011.20120509/tlpkg/texlive.tlpdb	2012-05-09 13:58:30.926355165 +0900
+@@ -35275,6 +35275,7 @@
  depend ptex
  depend thailatex
  depend uhc
@@ -14,13 +14,13 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
  depend wadalab
  depend zhmetrics
  depend zhspacing
-@@ -185820,3 +185821,362 @@
+@@ -189177,3 +189178,362 @@
  catalogue-license lppl
  catalogue-version 1.2a
  
 +name uptex
 +category Package
-+revision 11
++revision 12
 +depend ptex
 +depend hyph-utf8
 +depend adobemapping
@@ -32,9 +32,9 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
 +execute AddFormat name=euptex  engine=euptex options="*euptex.ini"                                patterns=language.def
 +execute AddFormat name=uplatex engine=euptex options="*uplatex.ini"                                patterns=language.dat
 +execute addKanjiMap uptex-@kanjiEmbed@@kanjiVariant@.map
-+docfiles size=178
++docfiles size=179
 + texmf-dist/doc/uplatex/base/README_uplatex.txt
-+ texmf-dist/doc/uptex/base/00reaadme_uptex.txt
++ texmf-dist/doc/uptex/base/00readme_uptex.txt
 + texmf-dist/doc/uptex/base/01uptex_doc_utf8.txt
 + texmf-dist/doc/uptex/base/02uptex_changelog_utf8.txt
 + texmf-dist/doc/uptex/base/README_uptex.txt
@@ -128,7 +128,7 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
 + texmf-dist/source/uplatex/base/uplfmt.ins
 + texmf-dist/source/uplatex/base/uplfonts.dtx
 + texmf-dist/source/uplatex/base/uplvers.dtx
-+runfiles size=6278
++runfiles size=6286
 + texmf-dist/fonts/map/dvipdfmx/uptex/uptex-noEmbed.map
 + texmf-dist/fonts/tfm/uptex/jis/upgbm-h.tfm
 + texmf-dist/fonts/tfm/uptex/jis/upgbm-hq.tfm
@@ -257,7 +257,7 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
 +
 +name uptex.i386-cygwin
 +category Package
-+revision 8
++revision 13
 +shortdesc i386-cygwin files of uptex
 +binfiles arch=i386-cygwin size=424
 + bin/i386-cygwin/convbkmk
@@ -287,9 +287,9 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
 +
 +name uptex.i386-linux
 +category Package
-+revision 8
++revision 13
 +shortdesc i386-linux files of uptex
-+binfiles arch=i386-linux size=424
++binfiles arch=i386-linux size=459
 + bin/i386-linux/convbkmk
 + bin/i386-linux/euptex
 + bin/i386-linux/upbibtex
@@ -302,9 +302,9 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
 +
 +name uptex.i386-netbsd
 +category Package
-+revision 8
++revision 13
 +shortdesc i386-netbsd files of uptex
-+binfiles arch=i386-netbsd size=410
++binfiles arch=i386-netbsd size=409
 + bin/i386-netbsd/convbkmk
 + bin/i386-netbsd/euptex
 + bin/i386-netbsd/upbibtex
@@ -332,7 +332,7 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
 +
 +name uptex.win32
 +category Package
-+revision 8
++revision 13
 +shortdesc win32 files of uptex
 +binfiles arch=win32 size=521
 + bin/win32/convbkmk.exe
@@ -364,9 +364,9 @@ Index: texlive-lang-2011.20120226/tlpkg/texlive.tlpdb
 +
 +name uptex.x86_64-linux
 +category Package
-+revision 9
++revision 13
 +shortdesc x86_64-linux files of uptex
-+binfiles arch=x86_64-linux size=457
++binfiles arch=x86_64-linux size=447
 + bin/x86_64-linux/convbkmk
 + bin/x86_64-linux/euptex
 + bin/x86_64-linux/upbibtex
