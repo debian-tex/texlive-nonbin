@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aptargs="--assume-yes --allow-unauthenticated --no-install-recommends"
+aptargs="--assume-yes --allow-unauthenticated"
 
 echo "=== TeX Live Test System ==="
 echo "=== Test 2: install/remove/install/purge texlive/2012 ==="

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aptargs="--assume-yes --allow-unauthenticated --no-install-recommends"
+aptargs="--assume-yes --allow-unauthenticated"
 
 echo "=== TeX Live Test System ==="
 echo "=== Test testing upgrade: dist-upgrade texlive from testing to test ==="

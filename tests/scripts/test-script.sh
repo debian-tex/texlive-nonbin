@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-aptargs="--assume-yes --allow-unauthenticated --no-install-recommends"
+aptargs="--assume-yes --allow-unauthenticated"
 
 debname="$1"
 
