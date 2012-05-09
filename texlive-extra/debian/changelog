@@ -1,4 +1,4 @@
-texlive-extra (2011.20120508-1) unstable; urgency=low
+texlive-extra (2011.20120509-1) unstable; urgency=low
 
   * new upstream snapshot (Closes: #670336)
   * texpower take over
@@ -6,6 +6,10 @@ texlive-extra (2011.20120508-1) unstable; urgency=low
     . provide a dummy transitional package texpower
     . add the necessary conflicts and depends
   * fix wrong link in README.source (Closes: #671920)
+  * pdfjam take over (actually done already earlier)
+    . ship the TL package pdfjam
+    . provide a dummy transitional package pdfjam
+    . add the necessary conflicts and depends
 
  -- Norbert Preining <preining@debian.org>  Wed, 25 Apr 2012 12:01:15 +0900
 
