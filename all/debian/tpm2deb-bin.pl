@@ -111,6 +111,10 @@ sub main {
 	die "Cannot load tlpdb!" unless defined($::tlpdb);
 	initialize_config_file_data("debian/tpm2deb.cfg");
 	build_data_hash();
+    #    use Data::Dumper;
+	#    $Data::Dumper::Indent = 1;
+    #    print Dumper(\%TeXLive);
+    #    exit(1);
 	check_consistency();
 	foreach my $package (@packages) {
 		# 
@@ -317,9 +321,14 @@ sub make_deb {
 	}
 	# real start
 	my ($package) = @_;
-	my %lists = %{&get_all_files($package,$globalreclevel)};
-	my $title = $TeXLive{'binary'}{$package}{'title'};
-	my $description = $TeXLive{'binary'}{$package}{'description'};
+	my $type_of_package = 'binary';
+	if (defined($TeXLive{'mbinary'}{$package})) {
+		# this is a meta package!
+		$type_of_package = 'mbinary';
+	}
+	my %lists = %{&get_all_files($package, $globalreclevel)};
+	my $title = $TeXLive{$type_of_package}{$package}{'title'};
+	my $description = $TeXLive{$type_of_package}{$package}{'description'};
 	eval { mkpath($rundest) };
 	if ($@) {
 		die "Couldn't create dir: $@";

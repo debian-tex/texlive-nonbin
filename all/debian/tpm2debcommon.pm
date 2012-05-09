@@ -133,8 +133,8 @@ sub build_data_hash {
 		$TeXLive{'binary'}{$pkg}{'relocated'}   = $tlp->relocated;
 		# items that can be overwritten by the configuration file
 		$TeXLive{'binary'}{$pkg}{'title'} =
-			$Config{'title'}{$pkg} ? 
-				$Config{'title'}{$pkg} : $tlp->shortdesc;
+			$Config{'shortdesc'}{$pkg} ? 
+				$Config{'shortdesc'}{$pkg} : $tlp->shortdesc;
 		$TeXLive{'binary'}{$pkg}{'description'} =
 			$Config{'description'}{$pkg} ?
 				$Config{'description'}{$pkg} : $tlp->longdesc;
@@ -398,39 +398,39 @@ sub build_data_hash {
 	# Additional (meta)packages
 	$TeXLive{'all'}{'meta_packages'} = [ @{$Config{'add_packages'}} ];
 	foreach my $meta_package (@{$Config{'add_packages'}}) {
-		$TeXLive{'binary'}{$meta_package}{'type'} = "TLCore" ;
+		$TeXLive{'mbinary'}{$meta_package}{'type'} = "TLCore" ;
 
 		# Dependencies
 		if ($meta_package eq "texlive-full") {
-			$TeXLive{'binary'}{$meta_package}{'depends'}   = [ @{$Config{'depends'}{$meta_package}}, @allpkgs ];
+			$TeXLive{'mbinary'}{$meta_package}{'depends'}   = [ @{$Config{'depends'}{$meta_package}}, @allpkgs ];
 		} elsif ($meta_package eq "texlive-lang-all") {
 			my @foo = ();
 			foreach my $a (@allpkgs) {
 				if ($a =~ /^texlive-lang-/) { push @foo, $a; }
 			}
-			$TeXLive{'binary'}{$meta_package}{'depends'}   = [ @{$Config{'depends'}{$meta_package}}, @foo ];
+			$TeXLive{'mbinary'}{$meta_package}{'depends'}   = [ @{$Config{'depends'}{$meta_package}}, @foo ];
 		} else {
-			$TeXLive{'binary'}{$meta_package}{'depends'}   = [ @{$Config{'depends'}{$meta_package}} ];
+			$TeXLive{'mbinary'}{$meta_package}{'depends'}   = [ @{$Config{'depends'}{$meta_package}} ];
 		};
-		$opt_debug && print STDERR "metapackage: $meta_package, Depends: @{$TeXLive{'binary'}{$meta_package}{'depends'}}\n";
-		$TeXLive{'binary'}{$meta_package}{'suggests'}    = [ @{$Config{'suggests'}{$meta_package}} ];
-		$TeXLive{'binary'}{$meta_package}{'recommends'}  = [ @{$Config{'recommends'}{$meta_package}} ];
-		$TeXLive{'binary'}{$meta_package}{'replaces'}    = [ @{$Config{'replaces'}{$meta_package}} ];
-		$TeXLive{'binary'}{$meta_package}{'breaks'}    = [ @{$Config{'breaks'}{$meta_package}} ];
+		$opt_debug && print STDERR "metapackage: $meta_package, Depends: @{$TeXLive{'mbinary'}{$meta_package}{'depends'}}\n";
+		$TeXLive{'mbinary'}{$meta_package}{'suggests'}    = [ @{$Config{'suggests'}{$meta_package}} ];
+		$TeXLive{'mbinary'}{$meta_package}{'recommends'}  = [ @{$Config{'recommends'}{$meta_package}} ];
+		$TeXLive{'mbinary'}{$meta_package}{'replaces'}    = [ @{$Config{'replaces'}{$meta_package}} ];
+		$TeXLive{'mbinary'}{$meta_package}{'breaks'}    = [ @{$Config{'breaks'}{$meta_package}} ];
 		if ($meta_package eq "texlive-common") {
-			$TeXLive{'binary'}{$meta_package}{'conflicts'}   = [ @{$Config{'conflicts'}{$meta_package}}, @conflictpkgs ];
+			$TeXLive{'mbinary'}{$meta_package}{'conflicts'}   = [ @{$Config{'conflicts'}{$meta_package}}, @conflictpkgs ];
 		} else {
-			$TeXLive{'binary'}{$meta_package}{'conflicts'}   = [ @{$Config{'conflicts'}{$meta_package}} ];
+			$TeXLive{'mbinary'}{$meta_package}{'conflicts'}   = [ @{$Config{'conflicts'}{$meta_package}} ];
 		}
 	  
 		# Short and long description
-		$TeXLive{'binary'}{$meta_package}{'title'}       = $Config{'title'}{$meta_package};
-		$TeXLive{'binary'}{$meta_package}{'description'} = $Config{'description'}{$meta_package};
+		$TeXLive{'mbinary'}{$meta_package}{'title'}       = $Config{'title'}{$meta_package};
+		$TeXLive{'mbinary'}{$meta_package}{'description'} = $Config{'description'}{$meta_package};
 		if (defined($Config{'bin-section'}{$meta_package})) {
-			$TeXLive{'binary'}{$meta_package}{'section'} = $Config{'bin-section'}{$meta_package};
+			$TeXLive{'mbinary'}{$meta_package}{'section'} = $Config{'bin-section'}{$meta_package};
 		}
 		if (defined($Config{'bin-priority'}{$meta_package})) {
-			$TeXLive{'binary'}{$meta_package}{'priority'} = $Config{'bin-priority'}{$meta_package};
+			$TeXLive{'mbinary'}{$meta_package}{'priority'} = $Config{'bin-priority'}{$meta_package};
 		}
 	}
 }
@@ -666,6 +666,12 @@ sub initialize_config_file_data {
 				. "$b\n";
 			next;
 		}
+		if ($type eq "shortdesc") {
+			my ($b) = @rest;
+			$opt_debug && print STDERR  "b=$b.\n";
+			$Config{'shortdesc'}{$a} = "$b";
+			next;
+		}
 		if ($type eq "title") {
 			my ($b) = @rest;
 			$opt_debug && print STDERR  "b=$b.\n";
@@ -811,7 +817,21 @@ sub is_blacklisted {
 	}
 }
 
+#
+# this function is called for debian package names
+# we have to make sure that dummy transitional meta packages
+# with the *SAME* name as a TeX Live package do not pull in 
+# files from the TeX Live package.
 sub get_all_files {
+	my ($pkg, $rl) = @_;
+	if (defined($TeXLive{'mbinary'}{$pkg})) {
+		my %files;
+		return(\%files);
+	}
+	return(get_all_files_real($pkg, $rl));
+}
+
+sub get_all_files_real {
 	my ($entry,$reclevel) = @_;
 	my @requires = @{$TeXLive{'binary'}{$entry}{'includedpackages'}};
 	my %files;
@@ -823,7 +843,7 @@ sub get_all_files {
 	if ($reclevel > 0) {
 		foreach my $r (@requires) {
 			$opt_debug && print STDERR  "  package " . $r . "\n";
-			my %foo = %{&get_all_files($r,$reclevel-1)};
+			my %foo = %{&get_all_files_real($r,$reclevel-1)};
 			push @{$files{'BinFiles'}}, @{$foo{'BinFiles'}};
 			push @{$files{'DocFiles'}}, @{$foo{'DocFiles'}};
 			push @{$files{'RunFiles'}}, @{$foo{'RunFiles'}};

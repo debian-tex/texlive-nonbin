@@ -551,13 +551,17 @@ sub make_deb_control {
 	#
 	my @pkglist = ();
 	foreach my $pkg (@{$TeXLive{'source'}{$package}{'binary_packages'}}) {
+		my $type_of_package = 'binary';
+		if (defined($TeXLive{'mbinary'}{$pkg})) {
+			$type_of_package = 'mbinary';
+		}
 		my %lists = %{&get_all_files($pkg,$globalreclevel)};
-		my $title = $TeXLive{'binary'}{$pkg}{'title'};
+		my $title = $TeXLive{$type_of_package}{$pkg}{'title'};
 		my @lop = ();
 		my $contains_binaries = 0;
 		# check that some packages are actually included before adding
 		# intro text below to the control file
-		foreach my $p (@{$TeXLive{'binary'}{$pkg}{'includedpackages'}}) {
+		foreach my $p (@{$TeXLive{$type_of_package}{$pkg}{'includedpackages'}}) {
 			my $subtype = $TeXLive{'binary'}{$p}{'type'};
 			if ($p =~ m/\.i386-linux$/) {
 				$contains_binaries = 1 ;
@@ -566,19 +570,19 @@ sub make_deb_control {
 				push @lop, $p;
 			}
 		}
-		my $description = $TeXLive{'binary'}{$pkg}{'description'};
-		if (defined($TeXLive{'binary'}{$pkg}{'description'})) {
-			$description = $TeXLive{'binary'}{$pkg}{'description'};
+		my $description = $TeXLive{$type_of_package}{$pkg}{'description'};
+		if (defined($TeXLive{$type_of_package}{$pkg}{'description'})) {
+			$description = $TeXLive{$type_of_package}{$pkg}{'description'};
 		}
 		print CONTROL "\nPackage: $pkg\n";
-		if (defined($TeXLive{'binary'}{$pkg}{'section'})) {
-			print CONTROL "Section: $TeXLive{'binary'}{$pkg}{'section'}\n";
+		if (defined($TeXLive{$type_of_package}{$pkg}{'section'})) {
+			print CONTROL "Section: $TeXLive{$type_of_package}{$pkg}{'section'}\n";
 		}
-		if (defined($TeXLive{'binary'}{$pkg}{'priority'})) {
-			print CONTROL "Priority: $TeXLive{'binary'}{$pkg}{'priority'}\n";
+		if (defined($TeXLive{$type_of_package}{$pkg}{'priority'})) {
+			print CONTROL "Priority: $TeXLive{$type_of_package}{$pkg}{'priority'}\n";
 		}
 		print CONTROL "Architecture: $arch\n";
-		my @AllDepends = @{$TeXLive{'binary'}{$pkg}{'depends'}};
+		my @AllDepends = @{$TeXLive{$type_of_package}{$pkg}{'depends'}};
 		# in case that we have binaries included we add the dep
 		# onto texlive-bin-$source
 		if ($contains_binaries) {
@@ -610,7 +614,7 @@ sub make_deb_control {
 		#
 		# Conflicts
 		#
-		my @AllConflicts = @{$TeXLive{'binary'}{$pkg}{'conflicts'}};
+		my @AllConflicts = @{$TeXLive{$type_of_package}{$pkg}{'conflicts'}};
 		if ($#AllConflicts >= 0) {
 			makeuniq(\@AllConflicts);
 			print CONTROL "Conflicts: ", join(", ", @AllConflicts), "\n";
@@ -618,7 +622,7 @@ sub make_deb_control {
 		#
 		# Recommends
 		#
-		my @AllRecommends = @{$TeXLive{'binary'}{$pkg}{'recommends'}};
+		my @AllRecommends = @{$TeXLive{$type_of_package}{$pkg}{'recommends'}};
 		if ($#AllRecommends >= 0) {
 			makeuniq(\@AllRecommends);
 			print CONTROL "Recommends: ", join(", ", @AllRecommends), "\n";
@@ -626,7 +630,7 @@ sub make_deb_control {
 		#
 		# Provides
 		#
-		my @AllProvides = @{$TeXLive{'binary'}{$pkg}{'provides'}};
+		my @AllProvides = @{$TeXLive{$type_of_package}{$pkg}{'provides'}};
 		if ($#AllProvides >= 0) {
 			makeuniq(\@AllProvides);
 			print CONTROL "Provides: ", join(", ", @AllProvides), "\n";
@@ -634,7 +638,7 @@ sub make_deb_control {
 		#
 		# Suggests
 		#
-		my @AllSuggests = @{$TeXLive{'binary'}{$pkg}{'suggests'}};
+		my @AllSuggests = @{$TeXLive{$type_of_package}{$pkg}{'suggests'}};
 		if ($#AllSuggests >= 0) {
 			makeuniq(\@AllSuggests);
 			print CONTROL "Suggests: ", join(", ", @AllSuggests), "\n";
@@ -642,7 +646,7 @@ sub make_deb_control {
 		#
 		# Replaces
 		#
-		my @AllReplaces = @{$TeXLive{'binary'}{$pkg}{'replaces'}};
+		my @AllReplaces = @{$TeXLive{$type_of_package}{$pkg}{'replaces'}};
 		if ($#AllReplaces >= 0) {
 			makeuniq(\@AllReplaces);
 			print CONTROL "Replaces: ", join(", ", @AllReplaces), "\n";
@@ -650,7 +654,7 @@ sub make_deb_control {
 		#
 		# Breaks
 		#
-		my @AllBreaks = @{$TeXLive{'binary'}{$pkg}{'breaks'}};
+		my @AllBreaks = @{$TeXLive{$type_of_package}{$pkg}{'breaks'}};
 		if ($#AllBreaks >= 0) {
 			makeuniq(\@AllBreaks);
 			print CONTROL "Breaks: ", join(", ", @AllBreaks), "\n";
