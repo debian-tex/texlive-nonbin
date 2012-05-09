@@ -196,7 +196,6 @@ stable-tests:
 			--basepath /var/cache/pbuilder/stable.cow \
 			--bindmounts "./pool" $$i 2>&1 | \
 			tee ./tests/log/stable-`basename $$i .sh`.log ; \
-		mv pool/stable-test-*-files-* ./tests/log/ ; \
 	done
 
 
