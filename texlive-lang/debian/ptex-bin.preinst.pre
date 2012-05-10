@@ -1,0 +1,34 @@
+# ptex-bin preinst.pre
+#
+# we need to revert the stuff the old ptex-bin did in it's
+# installation, i.e., everything from the old ptex-bin postrm
+#
+
+case "$1" in
+install|upgrade)
+  if dpkg --compare-versions "$2" le "2011.20120509-1" ; then
+    rm -f /etc/texmf/texmf.d/30ptex*
+    rm -f /etc/texmf/fmt.d/30ptex*
+    rm -f /etc/texmf/texmf.d/20ptex*
+    rm -f /etc/texmf/fmt.d/20ptex*
+
+    # these will give a warning message for installations who
+    # did install ptex-bin only from 2011 and not the old one
+    #   No diversion 'diversion of ....none removed.
+    # but fortunately dpkg-divert returns 0 in this case
+    # so we do not need to care too much for that
+    dpkg-divert --package ptex-bin --remove --rename --divert \
+      /usr/bin/pltotf.nonja /usr/bin/pltotf
+
+    dpkg-divert --package ptex-bin --remove --rename --divert \
+      /usr/share/man/man1/pltotf.nonja.1.gz /usr/share/man/man1/pltotf.1.gz
+
+    dpkg-divert --package ptex-bin --remove --rename --divert \
+      /usr/bin/tftopl.nonja /usr/bin/tftopl
+
+    dpkg-divert --package ptex-bin --remove --rename --divert \
+      /usr/share/man/man1/tftopl.nonja.1.gz /usr/share/man/man1/tftopl.1.gz
+  fi
+esac
+
+

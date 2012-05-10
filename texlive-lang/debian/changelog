@@ -1,3 +1,10 @@
+texlive-lang (2011.2012XXXX-1) UNRELEASED; urgency=low
+
+  * undo changes by the old ptex-bin package in the current preinst of 
+    ptex-bin (diversions, files under /etc) (Closes: #670494)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 11 May 2012 08:24:31 +0900
+
 texlive-lang (2011.20120509-1) unstable; urgency=low
 
   * update uptex packages from tlptexlive, uptex 1.10
