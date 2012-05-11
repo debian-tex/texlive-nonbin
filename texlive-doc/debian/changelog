@@ -1,3 +1,9 @@
+texlive-doc (2011.20120511-1) unstable; urgency=low
+
+  * switch to xz compression for orig and deb
+
+ -- Norbert Preining <preining@debian.org>  Fri, 11 May 2012 10:11:46 +0900
+
 texlive-doc (2011.20120509-1) unstable; urgency=low
 
   * new upstream snapshot

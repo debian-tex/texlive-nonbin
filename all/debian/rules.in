@@ -130,7 +130,7 @@ binary-indep: build install
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums
-	dh_builddeb
+	dh_builddeb -- -Zxz
 
 binary: binary-indep binary-arch
 

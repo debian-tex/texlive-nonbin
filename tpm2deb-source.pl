@@ -246,8 +246,9 @@ sub make_orig_tar {
 	my $debdest = "$tmpdir/debian";
 
 	# don't regenerate an already existing tarball
-	if ( -f "${src_package}_${version}.orig.tar.gz" ) {
-		print "${src_package}_${version}.orig.tar.gz already exists, skipping.\n";
+	if ( -f "${src_package}_${version}.orig.tar.gz" ||
+	     -f "${src_package}_${version}.orig.tar.xz") {
+		print "${src_package}_${version}.orig.tar.(gz|xz) already exists, skipping.\n";
 		return 0;
 	}
 
@@ -311,8 +312,8 @@ sub make_orig_tar {
 	#
 	# make the original source package
 	#
-	system("tar -cf - $tmpdir | gzip -c9 > ${src_package}_${version}.orig.tar.gz") == 0
-	    or die("Error creating orig.tar.gz");
+	system("tar -cf - $tmpdir | xz > ${src_package}_${version}.orig.tar.xz") == 0
+	    or die("Error creating orig.tar.xz");
 	if (!$opt_debug && !$opt_noremove) { system("rm -rf $tmpdir"); }
 }
 
@@ -393,7 +394,7 @@ sub create_override_file {
 #
 # make_deb_source
 #
-# We have to build a `real' debian package with .orig.tar.gz and a diff
+# We have to build a `real' debian package with .orig.tar.xz and a diff
 # file. For this we start by putting the necessary files from the texmf trees
 # into some subdirectory, and create the rest of the files via a diff
 #
@@ -414,19 +415,29 @@ sub make_deb_source {
 	# check for different places of old sources
 	my $sourcedone = 0;
 	my $oldorig;
-	if (-r "./${package}_${version}.orig.tar.gz") {
-		$oldorig = "./${package}_${version}.orig.tar.gz";
+	for my $t (qw!./${package}_${version}.orig.tar.gz 
+	              ./${package}_${version}.orig.tar.xz
+				  $oldsrcdir/${package}_${version}.orig.tar.gz
+				  $oldsrcdir/${package}_${version}.orig.tar.xz!) {
+	  if (-r $t) {
+	  	$oldorig = $t;
 		$sourcedone = 1;
-	} elsif (-r "$oldsrcdir/${package}_${version}.orig.tar.gz") {
-		$oldorig = "$oldsrcdir/${package}_${version}.orig.tar.gz";
-		system("cp $oldorig .") == 0 or die("Cannot cp $oldorig .!\n");
-		$sourcedone = 1;
+		last;
+	  }
 	}
+	#if (-r "./${package}_${version}.orig.tar.gz") {
+	#	$oldorig = "./${package}_${version}.orig.tar.gz";
+	#	$sourcedone = 1;
+	#} elsif (-r "$oldsrcdir/${package}_${version}.orig.tar.gz") {
+	#	$oldorig = "$oldsrcdir/${package}_${version}.orig.tar.gz";
+	#	system("cp $oldorig .") == 0 or die("Cannot cp $oldorig .!\n");
+	#	$sourcedone = 1;
+	#}
 	if ($sourcedone) {
 		print "Reusing $oldorig file for source package building!\n";
-		system("tar -xzf $oldorig") == 0 or die("Error untarring");
+		system("tar -xf $oldorig") == 0 or die("Error untarring");
 	} else {
-		die("Please create a .orig.tar.gz first!\n");
+		die("Please create a .orig.tar.xz first!\n");
 	}
 	my $tmpdir = "${package}-${version}";
 	mkpath($tmpdir);
