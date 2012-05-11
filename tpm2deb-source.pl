@@ -415,10 +415,10 @@ sub make_deb_source {
 	# check for different places of old sources
 	my $sourcedone = 0;
 	my $oldorig;
-	for my $t (qw!./${package}_${version}.orig.tar.gz 
-	              ./${package}_${version}.orig.tar.xz
-				  $oldsrcdir/${package}_${version}.orig.tar.gz
-				  $oldsrcdir/${package}_${version}.orig.tar.xz!) {
+	for my $t ("${package}_${version}.orig.tar.gz",
+	           "./${package}_${version}.orig.tar.xz",
+			   "$oldsrcdir/${package}_${version}.orig.tar.gz",
+			   "$oldsrcdir/${package}_${version}.orig.tar.xz") {
 	  if (-r $t) {
 	  	$oldorig = $t;
 		$sourcedone = 1;
