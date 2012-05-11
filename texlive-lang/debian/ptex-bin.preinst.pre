@@ -7,10 +7,10 @@
 case "$1" in
 install|upgrade)
   if dpkg --compare-versions "$2" le "2011.20120509-1" ; then
-    rm -f /etc/texmf/texmf.d/30ptex*
-    rm -f /etc/texmf/fmt.d/30ptex*
-    rm -f /etc/texmf/texmf.d/20ptex*
-    rm -f /etc/texmf/fmt.d/20ptex*
+    rm -f /etc/texmf/texmf.d/30ptex.cnf
+    rm -f /etc/texmf/fmt.d/30ptex.cnf
+    rm -f /etc/texmf/texmf.d/20ptex.cnf
+    rm -f /etc/texmf/fmt.d/20ptex.cnf
 
     # these will give a warning message for installations who
     # did install ptex-bin only from 2011 and not the old one
