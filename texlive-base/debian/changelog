@@ -1,10 +1,10 @@
-texlive-base (2011.20120509-2) UNRELEASED; urgency=low
+texlive-base (2011.2012XXXX-1) UNRELEASED; urgency=low
 
   * texlive-xetex needs to depend on tipa, otherwise tipa will not be
     installed on upgrades from stable, and xunicode will not work
     (Closes: #672348)
-    The real fix is on upstream TeX Live side to separate out t3enc
-    out of tipa, and include it in texlive-base.
+  * fix a (harmless) logic error in the postinst of texlive-base
+    (no effective change)
 
  -- Norbert Preining <preining@debian.org>  Thu, 10 May 2012 22:19:07 +0900
 

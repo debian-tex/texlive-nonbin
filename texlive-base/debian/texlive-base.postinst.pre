@@ -56,7 +56,10 @@ EOF
     fi
   done
 
-  if [ -n $old_version ] || dpkg --compare-versions $old_version lt $libpaper_upgrade_version; then
+  # we could actually only test with dpkg and drop the -z test because on 
+  # new installation $old_version is empty, and the empty string is lt NNN
+  # but for readability and understandability, let us keep it proper
+  if [ -z $old_version ] || dpkg --compare-versions $old_version lt $libpaper_upgrade_version; then
     # we are installing from scratch or upgrading from an older version
     /etc/libpaper.d/texlive-base
   fi
