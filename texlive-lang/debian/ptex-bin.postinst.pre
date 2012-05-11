@@ -17,7 +17,9 @@ undivert()
 
 case "$1" in
 configure|reconfigure)
-  if [ -n "$2" ] && dpkg --compare-versions "$2" le "2011.20120509-1" ; then
+  # le-nl treats empty string as later than any version, so the
+  # test will be false for new installations, which is what we want
+  if dpkg --compare-versions "$2" le-nl "2011.20120509-1" ; then
     rm -f /etc/texmf/texmf.d/30ptex.cnf
     rm -f /etc/texmf/fmt.d/30ptex.cnf
     rm -f /etc/texmf/texmf.d/20ptex.cnf
