@@ -1,9 +1,11 @@
-texlive-lang (2011.20120511-1) unstable; urgency=low
+texlive-lang (2012.20120514-1) unstable; urgency=low
 
+  * new upstream snapshot based on TL2012 tlpretest
   * undo changes by the old ptex-bin package in the current postinst of 
     ptex-bin (diversions, files under /etc) (Closes: #670494)
     (thanks to Andreas Beckmann for suggestions and code)
   * switch to xz compression for orig and deb
+  * remove uptex tar.gz and uptex tlpobj patch, now included upstream
 
  -- Norbert Preining <preining@debian.org>  Fri, 11 May 2012 08:24:31 +0900
 

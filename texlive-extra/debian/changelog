@@ -1,5 +1,6 @@
-texlive-extra (2011.20120511-1) unstable; urgency=low
+texlive-extra (2012.20120514-1) unstable; urgency=low
 
+  * new upstream snapshot based on TL2012 tlpretest
   * switch to xz compression for orig and deb (Closes: #672428)
 
  -- Norbert Preining <preining@debian.org>  Fri, 11 May 2012 10:12:28 +0900

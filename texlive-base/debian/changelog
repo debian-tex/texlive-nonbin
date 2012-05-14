@@ -1,5 +1,6 @@
-texlive-base (2011.20120511-1) unstable; urgency=low
+texlive-base (2012.20120514-1) unstable; urgency=low
 
+  * new upstream snapshot based on TL2012 tlpretest
   * texlive-xetex needs to depend on tipa, otherwise tipa will not be
     installed on upgrades from stable, and xunicode will not work
     (Closes: #672348)
