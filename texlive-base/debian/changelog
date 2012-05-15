@@ -1,4 +1,4 @@
-texlive-base (2012.20120514-1) unstable; urgency=low
+texlive-base (2012.20120515-1) unstable; urgency=low
 
   * new upstream snapshot based on TL2012 tlpretest
   * texlive-xetex needs to depend on tipa, otherwise tipa will not be
@@ -8,7 +8,7 @@ texlive-base (2012.20120514-1) unstable; urgency=low
     (no effective change)
   * switch to xz compression for orig and deb
 
- -- Norbert Preining <preining@debian.org>  Thu, 10 May 2012 22:19:07 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 15 May 2012 14:42:14 +0900
 
 texlive-base (2011.20120509-1) unstable; urgency=low
 
