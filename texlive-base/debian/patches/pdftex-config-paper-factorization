@@ -4,19 +4,19 @@
  tlpkg/texlive.tlpdb                             |    1 +
  3 files changed, 7 insertions(+), 2 deletions(-)
 
-Index: texlive-base-2011.20120408/texmf/tex/generic/config/pdftexconfig-paper.tex
+Index: texlive-base-2012.20120515/texmf/tex/generic/config/pdftexconfig-paper.tex
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ texlive-base-2011.20120408/texmf/tex/generic/config/pdftexconfig-paper.tex	2012-04-08 22:07:26.700512201 +0900
++++ texlive-base-2012.20120515/texmf/tex/generic/config/pdftexconfig-paper.tex	2012-05-15 14:56:13.486954258 +0900
 @@ -0,0 +1,4 @@
 +% paper size settings, included from pdftexconfig.tex for pdftex
 +\pdfpagewidth=210 true mm
 +\pdfpageheight=297 true mm
 +\endinput
-Index: texlive-base-2011.20120408/texmf/tex/generic/config/pdftexconfig.tex
+Index: texlive-base-2012.20120515/texmf/tex/generic/config/pdftexconfig.tex
 ===================================================================
---- texlive-base-2011.20120408.orig/texmf/tex/generic/config/pdftexconfig.tex	2012-04-08 22:07:13.288407002 +0900
-+++ texlive-base-2011.20120408/texmf/tex/generic/config/pdftexconfig.tex	2012-04-08 22:07:26.700512201 +0900
+--- texlive-base-2012.20120515.orig/texmf/tex/generic/config/pdftexconfig.tex	2010-05-15 03:11:48.000000000 +0900
++++ texlive-base-2012.20120515/texmf/tex/generic/config/pdftexconfig.tex	2012-05-15 14:56:13.818953720 +0900
 @@ -3,8 +3,8 @@
  \pdfoutput=1
  \pdfcompresslevel=9
@@ -28,11 +28,11 @@ Index: texlive-base-2011.20120408/texmf/tex/generic/config/pdftexconfig.tex
  \pdfhorigin=1 true in
  \pdfvorigin=1 true in
  \pdfpkresolution=600
-Index: texlive-base-2011.20120408/tlpkg/texlive.tlpdb
+Index: texlive-base-2012.20120515/tlpkg/texlive.tlpdb
 ===================================================================
---- texlive-base-2011.20120408.orig/tlpkg/texlive.tlpdb	2012-04-08 22:07:23.124484439 +0900
-+++ texlive-base-2011.20120408/tlpkg/texlive.tlpdb	2012-04-08 22:07:26.740512529 +0900
-@@ -121027,6 +121027,7 @@
+--- texlive-base-2012.20120515.orig/tlpkg/texlive.tlpdb	2012-05-15 14:56:08.026962727 +0900
++++ texlive-base-2012.20120515/tlpkg/texlive.tlpdb	2012-05-15 14:56:13.862953663 +0900
+@@ -122546,6 +122546,7 @@
   texmf/scripts/simpdftex/simpdftex
   texmf/tex/generic/config/pdftex-dvi.tex
   texmf/tex/generic/config/pdftexconfig.tex

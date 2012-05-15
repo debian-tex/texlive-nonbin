@@ -4,10 +4,10 @@
  tlpkg/texlive.tlpdb               |    1 +
  3 files changed, 14 insertions(+), 9 deletions(-)
 
-Index: texlive-base-2011.20120408/texmf/dvipdfmx/dvipdfmx-paper.cfg
+Index: texlive-base-2012.20120515/texmf/dvipdfmx/dvipdfmx-paper.cfg
 ===================================================================
 --- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ texlive-base-2011.20120408/texmf/dvipdfmx/dvipdfmx-paper.cfg	2012-04-08 21:54:57.281590736 +0900
++++ texlive-base-2012.20120515/texmf/dvipdfmx/dvipdfmx-paper.cfg	2012-05-15 14:56:07.974962804 +0900
 @@ -0,0 +1,11 @@
 +%% PDF Document Settings
 +%%
@@ -20,10 +20,10 @@ Index: texlive-base-2011.20120408/texmf/dvipdfmx/dvipdfmx-paper.cfg
 +
 +p a4
 +
-Index: texlive-base-2011.20120408/texmf/dvipdfmx/dvipdfmx.cfg
+Index: texlive-base-2012.20120515/texmf/dvipdfmx/dvipdfmx.cfg
 ===================================================================
---- texlive-base-2011.20120408.orig/texmf/dvipdfmx/dvipdfmx.cfg	2012-04-08 21:47:16.927218134 +0900
-+++ texlive-base-2011.20120408/texmf/dvipdfmx/dvipdfmx.cfg	2012-04-08 21:54:39.157525291 +0900
+--- texlive-base-2012.20120515.orig/texmf/dvipdfmx/dvipdfmx.cfg	2012-05-15 14:54:22.467127335 +0900
++++ texlive-base-2012.20120515/texmf/dvipdfmx/dvipdfmx.cfg	2012-05-15 14:56:07.974962804 +0900
 @@ -25,16 +25,9 @@
  
  %C  0x0000
@@ -43,13 +43,13 @@ Index: texlive-base-2011.20120408/texmf/dvipdfmx/dvipdfmx.cfg
  
  %% Annotation Box Margin:
  %%
-Index: texlive-base-2011.20120408/tlpkg/texlive.tlpdb
+Index: texlive-base-2012.20120515/tlpkg/texlive.tlpdb
 ===================================================================
---- texlive-base-2011.20120408.orig/tlpkg/texlive.tlpdb	2012-04-08 22:05:30.375500144 +0900
-+++ texlive-base-2011.20120408/tlpkg/texlive.tlpdb	2012-04-08 22:05:57.567757387 +0900
-@@ -51367,6 +51367,7 @@
+--- texlive-base-2012.20120515.orig/tlpkg/texlive.tlpdb	2012-05-15 14:55:59.066976644 +0900
++++ texlive-base-2012.20120515/tlpkg/texlive.tlpdb	2012-05-15 14:56:08.026962727 +0900
+@@ -51906,6 +51906,7 @@
   texmf/doc/man/man1/extractbb.man1.pdf
- runfiles size=40
+ runfiles size=42
   texmf/dvipdfmx/dvipdfmx.cfg
 + texmf/dvipdfmx/dvipdfmx-paper.cfg
   texmf/fonts/cmap/README

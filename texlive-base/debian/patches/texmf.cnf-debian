@@ -1,12 +1,12 @@
 ---
- texmf/web2c/texmf.cnf |   23 +++++++++++++----------
- 1 file changed, 13 insertions(+), 10 deletions(-)
+ texmf/web2c/texmf.cnf |   47 ++++++++++++++++++++++++++---------------------
+ 1 file changed, 26 insertions(+), 21 deletions(-)
 
-Index: texlive-base-2011.20120226/texmf/web2c/texmf.cnf
+Index: texlive-base-2012.20120515/texmf/web2c/texmf.cnf
 ===================================================================
---- texlive-base-2011.20120226.orig/texmf/web2c/texmf.cnf	2011-12-22 08:58:58.000000000 +0900
-+++ texlive-base-2011.20120226/texmf/web2c/texmf.cnf	2012-02-27 09:29:53.543144369 +0900
-@@ -53,19 +53,22 @@
+--- texlive-base-2012.20120515.orig/texmf/web2c/texmf.cnf	2012-05-13 08:34:52.000000000 +0900
++++ texlive-base-2012.20120515/texmf/web2c/texmf.cnf	2012-05-15 14:55:48.926992412 +0900
+@@ -55,19 +55,22 @@
  
  % The tree containing runtime files related to the specific
  % distribution and version.
@@ -34,7 +34,7 @@ Index: texlive-base-2011.20120226/texmf/web2c/texmf.cnf
  
  % Per-user texmf tree(s) -- organized per the TDS, as usual.  To define
  % more than one per-user tree, set this to a list of directories in
-@@ -92,7 +95,7 @@
+@@ -94,7 +97,7 @@
  % versions should take precedence over those -- although it is generally
  % a source of confusion to have different versions of a package
  % installed, whatever the trees, so try to avoid it.
@@ -43,7 +43,7 @@ Index: texlive-base-2011.20120226/texmf/web2c/texmf.cnf
  
  % Where to look for ls-R files.  There need not be an ls-R in the
  % directories in this path, but if there is one, Kpathsea will use it.
-@@ -100,18 +103,18 @@
+@@ -102,18 +105,18 @@
  % does not create ls-R files in the non-!! elements -- because if an
  % ls-R is present, it will be used, and the disk will not be searched.
  % This is arguably a bug in kpathsea.
@@ -65,12 +65,40 @@ Index: texlive-base-2011.20120226/texmf/web2c/texmf.cnf
  
  % On some systems, there will be a system tree which contains all the font
  % files that may be created as well as the formats.  For example
-@@ -463,7 +466,7 @@
- % 
- % For security reasons, it is better not to include . in this path.
+@@ -481,22 +484,24 @@
+ % explicitly list every directory.  Arguably more understandable this
+ % way anyway.
  %
--TEXMFCNF = {$SELFAUTOLOC,$SELFAUTODIR,$SELFAUTOPARENT}{,{/share,}/texmf{-local,}/web2c}
-+TEXMFCNF = /etc/texmf/web2c;/usr/share/texlive/texmf/web2c;/usr/share/texlive/texmf-dist/web2c;/usr/local/share/texmf/web2c
+-TEXMFCNF = {\
+-$SELFAUTOLOC,\
+-$SELFAUTOLOC/share/texmf-local/web2c,$SELFAUTOLOC/share/texmf/web2c,\
+-$SELFAUTOLOC/texmf-local/web2c,$SELFAUTOLOC/texmf/web2c,\
+-$SELFAUTODIR,\
+-$SELFAUTODIR/share/texmf-local/web2c,$SELFAUTODIR/share/texmf/web2c,\
+-$SELFAUTODIR/texmf-local/web2c,$SELFAUTODIR/texmf/web2c,\
+-$SELFAUTOPARENT/../texmf-local/web2c,\
+-$SELFAUTOPARENT,\
+-$SELFAUTOPARENT/share/texmf-local/web2c,$SELFAUTOPARENT/share/texmf/web2c,\
+-$SELFAUTOPARENT/texmf-local/web2c,$SELFAUTOPARENT/texmf/web2c\
+-}
++%TEXMFCNF = {\
++%$SELFAUTOLOC,\
++%$SELFAUTOLOC/share/texmf-local/web2c,$SELFAUTOLOC/share/texmf/web2c,\
++%$SELFAUTOLOC/texmf-local/web2c,$SELFAUTOLOC/texmf/web2c,\
++%$SELFAUTODIR,\
++%$SELFAUTODIR/share/texmf-local/web2c,$SELFAUTODIR/share/texmf/web2c,\
++%$SELFAUTODIR/texmf-local/web2c,$SELFAUTODIR/texmf/web2c,\
++%$SELFAUTOPARENT/../texmf-local/web2c,\
++%$SELFAUTOPARENT,\
++%$SELFAUTOPARENT/share/texmf-local/web2c,$SELFAUTOPARENT/share/texmf/web2c,\
++%$SELFAUTOPARENT/texmf-local/web2c,$SELFAUTOPARENT/texmf/web2c\
++%}
+ %
+ % For reference, here is the old brace-using definition:
+ %TEXMFCNF = {$SELFAUTOLOC,$SELFAUTODIR,$SELFAUTOPARENT}{,{/share,}/texmf{-local,}/web2c}
  
++TEXMFCNF = /etc/texmf/web2c;/usr/share/texlive/texmf/web2c;/usr/share/texlive/texmf-dist/web2c;/usr/local/share/texmf/web2c
++
  % kpathsea 3.5.3 and later sets these at runtime. To avoid empty
  % expansions from binaries linked against an earlier version of the
+ % library, we set $progname and $engine to something non-empty:
