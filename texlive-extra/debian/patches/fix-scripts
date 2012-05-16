@@ -6,21 +6,21 @@
  texmf-dist/scripts/vpe/vpe.pl                         |    3 +--
  5 files changed, 5 insertions(+), 9 deletions(-)
 
-Index: texlive-extra-2011.20120424/texmf-dist/scripts/epstopdf/epstopdf.pl
+Index: texlive-extra-2012.20120516/texmf-dist/scripts/epstopdf/epstopdf.pl
 ===================================================================
---- texlive-extra-2011.20120424.orig/texmf-dist/scripts/epstopdf/epstopdf.pl	2010-05-20 08:29:01.000000000 +0900
-+++ texlive-extra-2011.20120424/texmf-dist/scripts/epstopdf/epstopdf.pl	2012-04-24 14:10:46.481174468 +0900
+--- texlive-extra-2012.20120516.orig/texmf-dist/scripts/epstopdf/epstopdf.pl	2012-05-12 19:58:45.000000000 +0900
++++ texlive-extra-2012.20120516/texmf-dist/scripts/epstopdf/epstopdf.pl	2012-05-16 10:17:34.588798026 +0900
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
 +#! /usr/bin/perl -w
  use strict;
  
- # $Id: epstopdf.pl 18319 2010-05-17 16:34:21Z karl $
-Index: texlive-extra-2011.20120424/texmf-dist/scripts/pkfix/pkfix.pl
+ # $Id: epstopdf.pl 26303 2012-05-11 22:54:04Z karl $
+Index: texlive-extra-2012.20120516/texmf-dist/scripts/pkfix/pkfix.pl
 ===================================================================
---- texlive-extra-2011.20120424.orig/texmf-dist/scripts/pkfix/pkfix.pl	2012-04-19 08:22:58.000000000 +0900
-+++ texlive-extra-2011.20120424/texmf-dist/scripts/pkfix/pkfix.pl	2012-04-24 14:10:46.481174468 +0900
+--- texlive-extra-2012.20120516.orig/texmf-dist/scripts/pkfix/pkfix.pl	2012-04-19 08:22:58.000000000 +0900
++++ texlive-extra-2012.20120516/texmf-dist/scripts/pkfix/pkfix.pl	2012-05-16 10:17:34.592798017 +0900
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -    if 0;
@@ -28,10 +28,10 @@ Index: texlive-extra-2011.20120424/texmf-dist/scripts/pkfix/pkfix.pl
  use strict;
  $^W=1; # turn warning on
  #
-Index: texlive-extra-2011.20120424/texmf-dist/scripts/pst2pdf/pst2pdf
+Index: texlive-extra-2012.20120516/texmf-dist/scripts/pst2pdf/pst2pdf
 ===================================================================
---- texlive-extra-2011.20120424.orig/texmf-dist/scripts/pst2pdf/pst2pdf	2011-12-15 11:01:37.000000000 +0900
-+++ texlive-extra-2011.20120424/texmf-dist/scripts/pst2pdf/pst2pdf	2012-04-24 14:10:46.493174523 +0900
+--- texlive-extra-2012.20120516.orig/texmf-dist/scripts/pst2pdf/pst2pdf	2011-12-15 11:01:37.000000000 +0900
++++ texlive-extra-2012.20120516/texmf-dist/scripts/pst2pdf/pst2pdf	2012-05-16 10:17:34.600798011 +0900
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -39,10 +39,10 @@ Index: texlive-extra-2011.20120424/texmf-dist/scripts/pst2pdf/pst2pdf
  
  use strict;				# to be sure, that all is safe ... :-)
  
-Index: texlive-extra-2011.20120424/texmf-dist/scripts/vpe/vpe.pl
+Index: texlive-extra-2012.20120516/texmf-dist/scripts/vpe/vpe.pl
 ===================================================================
---- texlive-extra-2011.20120424.orig/texmf-dist/scripts/vpe/vpe.pl	2012-04-20 01:17:34.000000000 +0900
-+++ texlive-extra-2011.20120424/texmf-dist/scripts/vpe/vpe.pl	2012-04-24 14:10:46.501174559 +0900
+--- texlive-extra-2012.20120516.orig/texmf-dist/scripts/vpe/vpe.pl	2012-04-20 01:17:34.000000000 +0900
++++ texlive-extra-2012.20120516/texmf-dist/scripts/vpe/vpe.pl	2012-05-16 10:17:34.604797996 +0900
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -50,10 +50,10 @@ Index: texlive-extra-2011.20120424/texmf-dist/scripts/vpe/vpe.pl
  use strict;
  #
  # vpe.pl
-Index: texlive-extra-2011.20120424/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh
+Index: texlive-extra-2012.20120516/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh
 ===================================================================
---- texlive-extra-2011.20120424.orig/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh	2012-03-17 08:09:50.000000000 +0900
-+++ texlive-extra-2011.20120424/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh	2012-04-24 14:12:17.085558706 +0900
+--- texlive-extra-2012.20120516.orig/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh	2012-03-17 08:09:50.000000000 +0900
++++ texlive-extra-2012.20120516/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh	2012-05-16 10:17:34.604797996 +0900
 @@ -1,4 +1,4 @@
 -%!/usr/bin/env bash
 +#!/bin/bash

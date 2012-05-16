@@ -14,12 +14,6 @@ build-arch: build-stamp
 build-indep: build-stamp
 
 build-stamp:
-<: if ($srcpackage eq "texlive-lang") { _:>//
-	# SHOULD BE DELETED FOR FINAL 2012 SINCE uptex WILL BE INTEGRATED!
-	tar -xf debian/uptex.tar.xz
-	tar -xf debian/uptex.doc.tar.xz
-	tar -xf debian/uptex.source.tar.xz
-<: } :>//
 	touch build-stamp
 
 clean: 
@@ -34,21 +28,6 @@ clean:
 	# texlive contains some .orig files we need to keep otherwise
 	# the copy will fail due to the files occurring in the tlpdb
 	dh_clean -X.orig -X.bak
-<: if ($srcpackage eq "texlive-lang") { _:>//
-	# SHOULD BE DELETED FOR FINAL 2012 SINCE uptex WILL BE INTEGRATED!
-	rm -rf texmf-dist/doc/uplatex
-	rm -rf texmf-dist/doc/uptex
-	rm -rf texmf-dist/source/fonts/uptex
-	rm -rf texmf-dist/source/uplatex
-	rm -rf texmf-dist/fonts/map/dvipdfmx/uptex
-	rm -rf texmf-dist/fonts/tfm/uptex
-	rm -rf texmf-dist/fonts/vf/uptex
-	rm -rf texmf-dist/scripts/uptex
-	rm -rf texmf-dist/tex/uplatex
-	rm -rf texmf-dist/tex/uptex
-	rm -rf tlpkg/tlpobj/uptex.*
-	# end of TEMP
-<: } :>//
 	rm -f configure-stamp
 	rm -f build-stamp
 	rm -f install-stamp
