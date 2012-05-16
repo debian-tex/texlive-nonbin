@@ -26,3 +26,4 @@ dvips-config-paper-factorization
 dvipdfmx-config-paper-factorization
 pdftex-config-paper-factorization
 xdvi-config-paper-factorization
+debian_updmap-search-path

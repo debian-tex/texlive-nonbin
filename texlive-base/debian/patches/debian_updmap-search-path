@@ -1,0 +1,17 @@
+---
+ texmf/scripts/tetex/updmap.pl |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: texlive-base-2012.20120516/texmf/scripts/tetex/updmap.pl
+===================================================================
+--- texlive-base-2012.20120516.orig/texmf/scripts/tetex/updmap.pl	2012-05-15 20:09:26.000000000 +0900
++++ texlive-base-2012.20120516/texmf/scripts/tetex/updmap.pl	2012-05-16 16:56:39.464414209 +0900
+@@ -30,7 +30,7 @@
+     exit 1;
+   }
+   chomp($TEXMFROOT);
+-  unshift (@INC, "$TEXMFROOT/tlpkg");
++  unshift (@INC, "/usr/share/texlive/tlpkg");
+ }
+ 
+ 
