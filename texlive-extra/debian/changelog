@@ -1,3 +1,9 @@
+texlive-extra (2012.20120516-2) UNRELEASED; urgency=low
+
+  * nothing by now
+
+ -- Norbert Preining <preining@debian.org>  Thu, 17 May 2012 07:54:02 +0900
+
 texlive-extra (2012.20120516-1) unstable; urgency=low
 
   * new upstream snapshot based on TL2012 tlpretest
