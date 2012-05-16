@@ -18,6 +18,6 @@ echo "=== START INSTALL"
 apt-get install $aptargs texlive-full
 
 echo "=== START PURGE"
-apt-get purge $aptargs '~ntexlive'
+aptitude purge '~ntexlive'
 
 echo "=== END"
