@@ -1,0 +1,22 @@
+---
+ texmf-dist/texdoc/texdoc.cnf |    7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+Index: texlive-base-2012.20120516/texmf-dist/texdoc/texdoc.cnf
+===================================================================
+--- texlive-base-2012.20120516.orig/texmf-dist/texdoc/texdoc.cnf	2012-01-04 05:06:58.000000000 +0900
++++ texlive-base-2012.20120516/texmf-dist/texdoc/texdoc.cnf	2012-05-21 09:06:03.257045149 +0900
+@@ -61,8 +61,11 @@
+ # For each "ext" in zipext_list, you must define a "unzip_ext" unzipper.
+ # The unzipped data must be printed on stdout. Example:
+ #
+-# zipext_list = gz
+-# unzip_gz    = gzip -d -c
++zipext_list = gz bz2 xz
++unzip_gz    = gzip -d -c
++unzip_bz2   = bzip2 -d -c
++unzip_xz    = xz --decompress --stdout
++
+ 
+ ## User interaction
+ 

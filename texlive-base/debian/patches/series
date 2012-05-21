@@ -27,3 +27,4 @@ dvipdfmx-config-paper-factorization
 pdftex-config-paper-factorization
 xdvi-config-paper-factorization
 debian_updmap-search-path
+texdoc-enable-zip
