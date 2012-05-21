@@ -1,14 +1,27 @@
-#not necessary anymore? # dvipdfmx.cfg_whitespace
+# the following patch only adjusts a space, I think it was used
+# for the old paper adjustment code, but is not needed anymore
+# dvipdfmx.cfg_whitespace
+#
+# for epspdf this seems to be upstream, need to fix texpwer, too
 fix-info-dir-sections
+# could be merged into the later fix-scripts patch
 fix-pgf2pdf-script
+# debian internal config
 dvipdfm-config-no-rungs
+# contacted upstream for this patch, might be included upstream
 dvipdfmx-cid-x.map-add-jis
+# contacted upstream xypic for this
 fix-xyframe.tex.patch
+# debian internal
 texmf.cnf-debian
+# fix for various invocations
 fix-scripts
+# debian internal stuff
 dvips-config-paper-factorization
 dvipdfmx-config-paper-factorization
 pdftex-config-paper-factorization
 xdvi-config-paper-factorization
+# debian internal, location of modules is different
 debian_updmap-search-path
+# debian adaption
 texdoc-see-and-zip
