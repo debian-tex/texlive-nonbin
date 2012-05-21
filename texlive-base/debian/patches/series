@@ -8,8 +8,6 @@ fix-info-dir-sections
 fix-pgf2pdf-script
 # debian internal config
 dvipdfm-config-no-rungs
-# contacted upstream for this patch, might be included upstream
-dvipdfmx-cid-x.map-add-jis
 # contacted upstream xypic for this
 fix-xyframe.tex.patch
 # debian internal
