@@ -1,4 +1,4 @@
-dvipdfmx.cfg_whitespace
+#not necessary anymore? # dvipdfmx.cfg_whitespace
 fix-info-dir-sections
 fix-pgf2pdf-script
 dvipdfm-config-no-rungs
