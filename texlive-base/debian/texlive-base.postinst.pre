@@ -58,7 +58,7 @@ EOF
 
   # the test for "lt" gives true even if $old_version is empty, so 
   # on new installs, this is what we want
-  if dpkg --compare-versions $old_version lt $libpaper_upgrade_version; then
+  if dpkg --compare-versions "$old_version" lt $libpaper_upgrade_version; then
     # we are installing from scratch or upgrading from an older version
     /etc/libpaper.d/texlive-base
   fi
