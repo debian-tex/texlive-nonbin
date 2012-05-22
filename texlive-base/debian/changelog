@@ -1,5 +1,6 @@
 texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
 
+  [ Norbert Preining ]
   * NEW UPSTREAM NECESSARY
   * nothing by now
   * give big fat warning and advice what to do when --syncwithtrees is called
@@ -7,6 +8,9 @@ texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
   * remove old patches (partially applied upstream)
   * update of xeCJK give now warning on uninitialized CJK font
     (Closes: #673205)
+
+  [ Hilmar Preuße ]
+  * fix URL for LaTeX mininal example.
 
  -- Norbert Preining <preining@debian.org>  Tue, 22 May 2012 13:16:54 +0900
 
