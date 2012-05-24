@@ -8,8 +8,6 @@ fix-info-dir-sections
 fix-pgf2pdf-script
 # debian internal config
 dvipdfm-config-no-rungs
-# contacted upstream xypic for this
-fix-xyframe.tex.patch
 # debian internal
 texmf.cnf-debian
 # fix for various invocations

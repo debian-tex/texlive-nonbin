@@ -2,18 +2,18 @@ texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
 
   [ Norbert Preining ]
   * NEW UPSTREAM NECESSARY
-  * nothing by now
   * give big fat warning and advice what to do when --syncwithtrees is called
   * enable gz/bz2/xz compression for texdoc (Closes: #673258)
   * remove old patches (partially applied upstream)
   * update of xeCJK give now warning on uninitialized CJK font
     (Closes: #673205)
   * fix comparison of empty version (Closes: #674022)
+  * remove fix-xyframe patch, fixed in upstream
 
   [ Hilmar Preuße ]
   * fix URL for LaTeX mininal example.
 
- -- Norbert Preining <preining@debian.org>  Wed, 23 May 2012 08:04:17 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 24 May 2012 10:01:33 +0900
 
 texlive-base (2012.20120516-1) unstable; urgency=low
 
