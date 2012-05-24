@@ -11,7 +11,7 @@ texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
   * remove fix-xyframe patch, fixed in upstream
 
   [ Hilmar Preuße ]
-  * fix URL for LaTeX mininal example.
+  * fix URL for LaTeX minimal example.
 
  -- Norbert Preining <preining@debian.org>  Thu, 24 May 2012 10:01:33 +0900
 
