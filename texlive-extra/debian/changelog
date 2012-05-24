@@ -1,8 +1,10 @@
 texlive-extra (2012.20120516-2) UNRELEASED; urgency=low
 
-  * nothing by now
+  * UNRELEASED
+  * add transitional dummy texlive-latex3 package to upgrade to
+    texlive-latex-recommended (Closes: #673797)
 
- -- Norbert Preining <preining@debian.org>  Thu, 17 May 2012 07:54:02 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 24 May 2012 10:39:44 +0900
 
 texlive-extra (2012.20120516-1) unstable; urgency=low
 
