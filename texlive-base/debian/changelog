@@ -8,9 +8,11 @@ texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
    - remove old patches (partially applied upstream)
    - remove fix-xyframe patch, fixed in upstream
    - texdoc cweb now finds cwebman (Closes: #674185)
+   - new koma-script fixes links in documentation (Closes: #671997)
   * Debian changes
     - patches/debian_updmap-search-path
-      give big fat warning and advice what to do when --syncwithtrees is called
+      give big fat warning and advice what to do when updmap --syncwithtrees 
+      is called
     - patches/texdoc-see-and-zip
       enable gz/bz2/xz compression for texdoc (Closes: #673258)
     - texlive-base.postinst: fix comparison of empty version (Closes: #674022)
@@ -18,7 +20,7 @@ texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
   [ Hilmar Preuße ]
   * fix URL for LaTeX minimal example.
 
- -- Norbert Preining <preining@debian.org>  Fri, 25 May 2012 07:53:24 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 25 May 2012 16:13:01 +0900
 
 texlive-base (2012.20120516-1) unstable; urgency=low
 
