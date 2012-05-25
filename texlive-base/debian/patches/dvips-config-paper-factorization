@@ -1065,7 +1065,7 @@ Index: texlive-base-2012.20120516/texmf/dvips/config/config.ps
 +% WARNING FOR SYSTEM ADMINISTRATORS
 +% If you make a copy and drop this line, you have to include 
 +% paper sizes manually!
-+cconfig-paper.ps
++config-paper.ps
  
  % use -t unknown with a \special{papersize=...} for a nonstandard page size.
  @ unknown 0in 0in
