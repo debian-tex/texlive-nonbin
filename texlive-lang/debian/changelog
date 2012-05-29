@@ -1,9 +1,9 @@
-texlive-lang (2012.20120516-2) UNRELEASED; urgency=low
+texlive-lang (2012.20120529-1) unstable; urgency=low
 
-  * nothing by now
+  * new upstream checkout
   * include pmpost.mp in texlive-lang-cjk (Closes: #673351)
 
- -- Norbert Preining <preining@debian.org>  Fri, 18 May 2012 17:22:53 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 29 May 2012 19:19:17 +0900
 
 texlive-lang (2012.20120516-1) unstable; urgency=low
 

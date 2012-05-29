@@ -1,7 +1,6 @@
-texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
+texlive-base (2012.20120529-1) unstable; urgency=low
 
   [ Norbert Preining ]
-  * NEW UPSTREAM NECESSARY
   * new upstream checkout
    - update of xeCJK give now warning on uninitialized CJK font 
      (Closes: #673205)
@@ -20,7 +19,7 @@ texlive-base (2012.2012NNNN-1) UNRELEASED; urgency=low
   [ Hilmar Preuße ]
   * fix URL for LaTeX minimal example.
 
- -- Norbert Preining <preining@debian.org>  Fri, 25 May 2012 16:13:01 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 29 May 2012 19:18:25 +0900
 
 texlive-base (2012.20120516-1) unstable; urgency=low
 

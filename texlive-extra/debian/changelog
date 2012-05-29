@@ -1,11 +1,11 @@
-texlive-extra (2012.20120516-2) UNRELEASED; urgency=low
+texlive-extra (2012.20120529-1) unstable; urgency=low
 
-  * UNRELEASED
+  * new upstream checkout
   * add transitional dummy texlive-latex3 package to upgrade to
     texlive-latex-recommended (Closes: #673797)
   * don't ship STIX fonts, but link from fonts-stix and depend on it
 
- -- Norbert Preining <preining@debian.org>  Tue, 29 May 2012 08:16:41 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 29 May 2012 19:19:02 +0900
 
 texlive-extra (2012.20120516-1) unstable; urgency=low
 
