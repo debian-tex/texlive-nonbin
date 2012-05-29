@@ -15,11 +15,15 @@ texlive-base (2012.20120529-1) unstable; urgency=low
     - patches/texdoc-see-and-zip
       enable gz/bz2/xz compression for texdoc (Closes: #673258)
     - texlive-base.postinst: fix comparison of empty version (Closes: #674022)
+    - go back to use ~/.texmf-var and ~/.texmf-config for TEXMFVAR/CONFIG
 
   [ Hilmar Preuße ]
   * fix URL for LaTeX minimal example.
 
- -- Norbert Preining <preining@debian.org>  Tue, 29 May 2012 19:18:25 +0900
+  [ Frank Küster ]
+  * fix texconfig usage and interference with Debian methods
+
+ -- Norbert Preining <preining@debian.org>  Wed, 30 May 2012 07:54:43 +0900
 
 texlive-base (2012.20120516-1) unstable; urgency=low
 

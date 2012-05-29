@@ -1,11 +1,11 @@
 ---
- texmf/web2c/texmf.cnf |   47 ++++++++++++++++++++++++++---------------------
- 1 file changed, 26 insertions(+), 21 deletions(-)
+ texmf/web2c/texmf.cnf |   51 +++++++++++++++++++++++++++-----------------------
+ 1 file changed, 28 insertions(+), 23 deletions(-)
 
-Index: texlive-base-2012.20120515/texmf/web2c/texmf.cnf
+Index: texlive-base-2012.20120529/texmf/web2c/texmf.cnf
 ===================================================================
---- texlive-base-2012.20120515.orig/texmf/web2c/texmf.cnf	2012-05-13 08:34:52.000000000 +0900
-+++ texlive-base-2012.20120515/texmf/web2c/texmf.cnf	2012-05-15 14:55:48.926992412 +0900
+--- texlive-base-2012.20120529.orig/texmf/web2c/texmf.cnf	2012-05-13 08:34:52.000000000 +0900
++++ texlive-base-2012.20120529/texmf/web2c/texmf.cnf	2012-05-30 07:53:16.753785962 +0900
 @@ -55,19 +55,22 @@
  
  % The tree containing runtime files related to the specific
@@ -34,6 +34,19 @@ Index: texlive-base-2012.20120515/texmf/web2c/texmf.cnf
  
  % Per-user texmf tree(s) -- organized per the TDS, as usual.  To define
  % more than one per-user tree, set this to a list of directories in
+@@ -76,10 +79,10 @@
+ TEXMFHOME = ~/texmf
+ 
+ % TEXMFVAR, where texconfig/updmap/fmtutil store cached runtime data.
+-TEXMFVAR = ~/.texlive2012/texmf-var
++TEXMFVAR = ~/.texmf-var
+ 
+ % TEXMFCONFIG, where texconfig/updmap/fmtutil store configuration data.
+-TEXMFCONFIG = ~/.texlive2012/texmf-config
++TEXMFCONFIG = ~/.texmf-config
+ 
+ % List all the texmf trees.
+ %
 @@ -94,7 +97,7 @@
  % versions should take precedence over those -- although it is generally
  % a source of confusion to have different versions of a package
