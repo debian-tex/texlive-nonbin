@@ -2,10 +2,10 @@
  texmf/scripts/tetex/updmap.pl |   17 ++++++++++++++++-
  1 file changed, 16 insertions(+), 1 deletion(-)
 
-Index: texlive-base-2012.20120516/texmf/scripts/tetex/updmap.pl
+Index: texlive-base-2012.20120529/texmf/scripts/tetex/updmap.pl
 ===================================================================
---- texlive-base-2012.20120516.orig/texmf/scripts/tetex/updmap.pl	2012-05-19 14:08:24.411260951 +0900
-+++ texlive-base-2012.20120516/texmf/scripts/tetex/updmap.pl	2012-05-19 14:15:53.039738708 +0900
+--- texlive-base-2012.20120529.orig/texmf/scripts/tetex/updmap.pl	2012-05-21 22:21:20.000000000 +0900
++++ texlive-base-2012.20120529/texmf/scripts/tetex/updmap.pl	2012-05-29 19:45:55.547477002 +0900
 @@ -29,7 +29,7 @@
      exit 1;
    }
@@ -15,7 +15,7 @@ Index: texlive-base-2012.20120516/texmf/scripts/tetex/updmap.pl
  }
  
  
-@@ -339,6 +339,21 @@
+@@ -344,6 +344,21 @@
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";
