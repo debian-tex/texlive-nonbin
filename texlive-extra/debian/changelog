@@ -1,3 +1,9 @@
+texlive-extra (2012.201206DD-1) UNRELEASED; urgency=low
+
+  * new upstream UNRELEASED
+
+ -- Norbert Preining <preining@debian.org>  Wed, 30 May 2012 15:10:05 +0900
+
 texlive-extra (2012.20120529-1) unstable; urgency=low
 
   * new upstream checkout
