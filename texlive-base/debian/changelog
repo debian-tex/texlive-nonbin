@@ -1,12 +1,12 @@
-texlive-base (2012.201206DD-1) UNRELEASED; urgency=low
+texlive-base (2012.20120610-1) unstable; urgency=low
 
-  * new upstream UNRELEASED
+  * new upstream checkout (final TL2012)
   * set TEXMFVAR and TEXMFCONFIG back to ~/.texmf-var and ~/.texmf-config
   * adjust OSFONTDIR in texmf.cnf
   * fix and update debian updmap patch to work with updated updmap.pl:
     move TEXMFLOCAL also over TEXMFDEBIAN
 
- -- Norbert Preining <preining@debian.org>  Sun, 10 Jun 2012 09:54:23 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 10 Jun 2012 22:20:38 +0900
 
 texlive-base (2012.20120529-1) unstable; urgency=low
 
