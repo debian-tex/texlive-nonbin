@@ -1,11 +1,11 @@
 ---
- texmf/scripts/tetex/updmap.pl |   17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+ texmf/scripts/tetex/updmap.pl |   26 ++++++++++++++++++++++++--
+ 1 file changed, 24 insertions(+), 2 deletions(-)
 
 Index: texlive-base-2012.20120529/texmf/scripts/tetex/updmap.pl
 ===================================================================
---- texlive-base-2012.20120529.orig/texmf/scripts/tetex/updmap.pl	2012-05-21 22:21:20.000000000 +0900
-+++ texlive-base-2012.20120529/texmf/scripts/tetex/updmap.pl	2012-05-29 19:45:55.547477002 +0900
+--- texlive-base-2012.20120529.orig/texmf/scripts/tetex/updmap.pl	2012-06-10 09:45:56.206357557 +0900
++++ texlive-base-2012.20120529/texmf/scripts/tetex/updmap.pl	2012-06-10 09:52:17.459406288 +0900
 @@ -29,7 +29,7 @@
      exit 1;
    }
@@ -15,7 +15,31 @@ Index: texlive-base-2012.20120529/texmf/scripts/tetex/updmap.pl
  }
  
  
-@@ -344,6 +344,21 @@
+@@ -302,8 +302,13 @@
+     #
+     if ($found || $old_updmap_local_found) {
+       my @tmp;
++      my $local_pushed = 0;
++      chomp(my $TEXMFDEBIAN =`kpsewhich --var-value=TEXMFDEBIAN`);
+       for my $f (@used_files) {
+-        if ($f =~ m!\Q$TEXMFMAIN/\E!) {
++        # make sure that TEXMFLOCAL is also moved above TEXMFDEBIAN
++        # and do not push it two times!
++        if ($f =~ m!\Q$TEXMFMAIN/\E|\Q$TEXMFDEBIAN/\E!) {
++          if (!$local_pushed) {
+           if ($old_updmap_local_found) {
+             push @tmp, "$TEXMFLOCAL/web2c/updmap-local.cfg";
+           } else {
+@@ -311,6 +316,8 @@
+             # we know that TEXMFLOCAL/web2c/updmap.cfg exists!
+             push @tmp, "$TEXMFLOCAL/web2c/updmap.cfg";
+           }
++          $local_pushed = 1;
++          }
+           push @tmp, $f;
+         } else {
+           if ($f !~ m!\Q$TEXMFLOCAL\E!) {
+@@ -393,6 +400,21 @@
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";
