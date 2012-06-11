@@ -1,8 +1,8 @@
-texlive-lang (2012.20120610-1) unstable; urgency=low
+texlive-lang (2012.20120611-1) unstable; urgency=low
 
-  * new upstream checkout (final TL2012)
+  * new upstream checkout (TL2012 release)
 
- -- Norbert Preining <preining@debian.org>  Sun, 10 Jun 2012 22:20:17 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 11 Jun 2012 12:02:00 +0900
 
 texlive-lang (2012.20120529-1) unstable; urgency=low
 
