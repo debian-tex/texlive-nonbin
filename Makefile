@@ -157,7 +157,7 @@ stable-overwrite:
 
 sid-tests:
 	mkdir -p ./tests/log
-	-for i in ./tests/sid/test*.sh ; do \
+	-for i in ./tests/sid/test-?.sh ; do \
 		rm -f ./tests/log/sid-`basename $$i .sh`.log ; \
 		sudo /usr/sbin/cowbuilder --execute \
 			--bindmounts "./pool" $$i 2>&1 | \
@@ -177,7 +177,7 @@ testing1-tests:
 
 testing-tests:
 	mkdir -p ./tests/log
-	-for i in ./tests/testing/test*.sh ; do \
+	-for i in ./tests/testing/test-?.sh ; do \
 		rm -f ./tests/log/testing-`basename $$i .sh`.log ; \
 		rm -f ./tests/log/testing-`basename $$i .sh`-files-* ; \
 		sudo /usr/sbin/cowbuilder --execute \
@@ -189,7 +189,7 @@ testing-tests:
 
 stable-tests:
 	mkdir -p ./tests/log
-	-for i in ./tests/stable/test*.sh ; do \
+	-for i in ./tests/stable/test-?.sh ; do \
 		rm -f ./tests/log/stable-`basename $$i .sh`.log ; \
 		rm -f ./tests/log/stable-`basename $$i .sh`-files-* ; \
 		sudo /usr/sbin/cowbuilder --execute \

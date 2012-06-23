@@ -10,9 +10,9 @@ mkdir -p log
 mv *.log log/
 
 make packages lintian
-make sid-tests
+#make sid-tests
 #make testing-tests
-make stable-tests
+#make stable-tests
 
 #bash do-checks
 
