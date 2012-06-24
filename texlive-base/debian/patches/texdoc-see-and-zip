@@ -10,11 +10,11 @@ Index: texlive-base-2012.20120516/texmf-dist/texdoc/texdoc.cnf
  # viewer_pdf = xpdf             # works
  # viewer_pdf = xpdf %s &        # works even better
  
-+viewer_pdf = (see %s) &
-+viewer_ps  = (see %s) &
-+viewer_dvi = (see %s) &
-+viewer_html = (see %s) &
-+viewer_txt = (see %s) &
++viewer_pdf = (xdg-open %s) &
++viewer_ps  = (xdg-open %s) &
++viewer_dvi = (xdg-open %s) &
++viewer_html = (xdg-open %s) &
++viewer_txt = (xdg-open %s) &
 +
  # If you want to enable support for zipped documentation (see below),
  # you may want to adapt viewer_* so that it starts a subshell:

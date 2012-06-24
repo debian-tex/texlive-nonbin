@@ -1,3 +1,10 @@
+texlive-base (2012.20120611-2) unstable; urgency=low
+
+  * texdoc: switch from see to xdg-open, change dependency from mime-support
+    to xdg-utils
+
+ -- Norbert Preining <preining@debian.org>  Sun, 24 Jun 2012 18:29:49 +0900
+
 texlive-base (2012.20120611-1) unstable; urgency=low
 
   * new upstream checkout (TL2012 release)
