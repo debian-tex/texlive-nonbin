@@ -21,3 +21,4 @@ xdvi-config-paper-factorization
 debian_updmap-search-path
 # debian adaption
 texdoc-see-and-zip
+fix-natbib-add-spaces
