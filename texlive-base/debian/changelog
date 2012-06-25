@@ -1,3 +1,11 @@
+texlive-base (2012.20120611-3) unstable; urgency=low
+
+  * texlive-base.postinst(.post): fix logic error in testing whether old
+    dirs should be removed, thanks for spotting to Anders Kaseorg.
+    (Closes: #679042)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 26 Jun 2012 07:31:31 +0900
+
 texlive-base (2012.20120611-2) unstable; urgency=low
 
   * texdoc: switch from see to xdg-open, change dependency from mime-support

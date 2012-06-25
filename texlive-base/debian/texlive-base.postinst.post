@@ -3,7 +3,9 @@
 #
 if [ "$1" = "configure" ] ; then
   old_version=$2
-  if [ -n $old_version ] || dpkg --compare-versions $old_version le 2011.20120322-2 ; then
+  # le-nl treats empty string as later than any version, so the
+  # test will be false for new installations, which is what we want
+  if dpkg --compare-versions "$old_version" le-nl 2011.20120322-2 ; then
     for i in /etc/texmf/texdoc            \
              /etc/texmf/dvips/config      \
              /etc/texmf/dvips             \
