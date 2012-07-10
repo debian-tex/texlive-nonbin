@@ -80,9 +80,8 @@ binary-indep: build install
 	rm debian/texlive-base/usr/bin/etex 
 	rm debian/texlive-base/usr/bin/pdfetex
 	# for the libpaper hook, install templates and
-	# translations. No need to modify postrm. I hope it accepts
-	# the missing config script
-	dh_installdebconf -n
+	# translations. 
+	dh_installdebconf
 	cp debian/texlive-base.libpaper debian/texlive-base/etc/libpaper.d/texlive-base
 	chmod a+x debian/texlive-base/etc/libpaper.d/texlive-base
 	#cp debian/md5sums/* debian/texlive-base/usr/share/texlive-base/
