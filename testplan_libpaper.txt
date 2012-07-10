@@ -1,0 +1,81 @@
+After a change, repeat a "sensible" subset of already successful
+tests. When all is supposed to be finished, repeat the whole set.
+
+For a test to pass, the following must work: 
+
+Install, test papersize settings, remove, install, test papersize
+settings, purge
+
+DEBIAN_FRONTEND must be readline; messages must be readable and make
+sense
+
+Version tl-base:       	2011.20120322-1
+	tl-bin	       	2011.20120322-1
+
+5
+Clean Install		
+libpaper = Monarch
+5a) noninteractive	pass
+5b) readline(1st install),dialog(reinstall)
+			pass
+
+6
+Install,remove,
+change libpaper,
+install
+6a) noninteractive,letter
+			pass
+			
+6b) dialog, Monarch	pass
+7
+Upgrade from sid,	
+no libpaper
+8
+Upgrade from sid,	
+("Replacing although the files differ")
+libpaper = a4
+9
+Upgrade from sid,	
+libpaper = letter
+
+10
+Upgrade from sid
+libpaper = Monarch
+10a) noninteractive	
+10b) dialog		
+
+11
+Upgrade from sid,
+libpaper = letter	
+dvipspaper = letter
+
+12
+Upgrade from sid,	
+libpaper = letter
+pdftexpaper = letter
+
+13
+Upgrade from sid,	
+libpaper = letter
+dvipdfmxpaper = letter
+
+14
+Upgrade from sid,	
+libpaper = letter
+xdvipaper = letter
+
+15
+Upgrade from sid	
+libpaper = Monarch
+dvipspaper = letter
+
+16
+Upgrade from sid,
+non-paper-change in config.ps
+
+17
+Upgrade from sid,
+force somefile.ucf-dist,
+check correct removal upon purge
+
+
