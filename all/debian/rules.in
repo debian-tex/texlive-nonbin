@@ -100,6 +100,7 @@ binary-indep: build install
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/info
 <: } :>//
 	dh_installmime
+	dh_lintian
 	dh_link
 	dh_compress -X.pdf
 	dh_fixperms
