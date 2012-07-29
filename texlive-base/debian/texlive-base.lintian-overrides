@@ -1,8 +1,0 @@
-# The libpaper hook only uses debconf in order to display messages
-# It doesn't use debconf as a registry
-texlive-base binary: debconf-is-not-a-registry
-
-# texconfig and xdvi are in texlive-binaries, but essentially
-# non-functional without texlive-base. Therefore, texlive-base adds
-# the menu entries
-texlive-base binary: menu-command-not-in-package
