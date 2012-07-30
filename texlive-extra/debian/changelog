@@ -1,3 +1,10 @@
+texlive-extra (2012.20120611-2) unstable; urgency=low
+
+  * fix broken mf2pt1 info file that triggered broken info/dir file
+    under certain circumstances (Closes: #683201)
+
+ -- Norbert Preining <preining@debian.org>  Mon, 30 Jul 2012 11:08:33 +0900
+
 texlive-extra (2012.20120611-1) unstable; urgency=low
 
   * new upstream checkout (TL2012 release)

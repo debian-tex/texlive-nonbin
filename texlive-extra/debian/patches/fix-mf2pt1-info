@@ -1,0 +1,17 @@
+---
+ texmf/doc/info/mf2pt1.info |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: texlive-extra-2012.20120611/texmf/doc/info/mf2pt1.info
+===================================================================
+--- texlive-extra-2012.20120611.orig/texmf/doc/info/mf2pt1.info	2012-04-01 08:11:11.000000000 +0900
++++ texlive-extra-2012.20120611/texmf/doc/info/mf2pt1.info	2012-07-30 11:06:28.760202853 +0900
+@@ -2,7 +2,7 @@
+ 
+ INFO-DIR-SECTION TeX
+ START-INFO-DIR-ENTRY
+-* mf2pt1::   Produce PostScript Type 1 fonts from Metafont source
++* mf2pt1: (mf2pt1).   Produce PostScript Type 1 fonts from Metafont source
+ END-INFO-DIR-ENTRY
+ 
+    *mf2pt1*: Produce PostScript Type 1 fonts from Metafont source
