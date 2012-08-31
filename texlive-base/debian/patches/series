@@ -22,3 +22,4 @@ debian_updmap-search-path
 # debian adaption
 texdoc-see-and-zip
 fix-natbib-add-spaces
+upstream_updmap-ignoring-settings

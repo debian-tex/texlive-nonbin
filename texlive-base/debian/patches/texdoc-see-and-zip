@@ -25,7 +25,7 @@ Index: texlive-base-2012.20120516/texmf-dist/texdoc/texdoc.cnf
  #
 -# zipext_list = gz
 -# unzip_gz    = gzip -d -c
-+zipext_list = gz bz2 xz
++zipext_list = gz, bz2, xz
 +unzip_gz    = gzip -d -c
 +unzip_bz2   = bzip2 -d -c
 +unzip_xz    = xz --decompress --stdout
