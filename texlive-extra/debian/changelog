@@ -1,3 +1,10 @@
+texlive-extra (2012.20120611-3) UNRELEASED; urgency=low
+
+  * UNRELEASED!!!
+  * fix ulqda using Digest::SHA1 which is not available (LP: #1045516)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 04 Sep 2012 10:28:17 +0900
+
 texlive-extra (2012.20120611-2) unstable; urgency=low
 
   * fix broken mf2pt1 info file that triggered broken info/dir file
