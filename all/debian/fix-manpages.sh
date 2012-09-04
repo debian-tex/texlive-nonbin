@@ -1,5 +1,4 @@
 #!/bin/bash
-# $Id$
 # fix-manpages.sh
 #
 # Several manpages in TeX live have smaller or bigger flaws like:

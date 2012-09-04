@@ -1,6 +1,5 @@
 README how to build TeX live for Debian packages
 ================================================
-$Id$
 
 IMPORTANT NOTE: This file is NOT installed into any Debian package, it is
 here only for documentation purpose how to generate the deb source packages
@@ -19,7 +18,7 @@ QUICK HOWTO TO BUILD A SOURCE PACKAGE
 	perl ./tpm2deb-source.pl make-deb-source $sourcepackage
   where $sourcepackage is one of texlive-{base,extra,doc,lang} or 'all'
 . texlive-bin is a separate package, that is located parallel to
-  the current location in svn. texlive-bin is a completely normal
+  the current location in texlive-bin is a completely normal
   Debian package without any meta-generation.
 
 
@@ -127,7 +126,7 @@ docs/
 
 src/	(maybe not present)
 	this contains the last build .orig.tar.gz. If they are present
-	new ones are not build. NOT UNDER svn control, so you wont see
+	new ones are not build. NOT UNDER control, so you wont see
 	it in a check out, but you could create it and put the orig.tar.gz
 	into it ;-)
 

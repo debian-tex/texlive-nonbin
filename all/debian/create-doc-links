@@ -2,7 +2,7 @@
 # create-doc-links
 #
 # (c) 2006 Norbert Preining
-# $Id$
+#
 # create links from every file under /usr/share/doc/$1/ to
 # /usr/share/doc/$2/
 #

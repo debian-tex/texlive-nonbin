@@ -1,5 +1,4 @@
 # preinst.pre
-# $Id$
 # we want to be sure that experimental versions are purged before
 # the first unstable is installed
 # furthermore check that we are at least at version 2005 for the 

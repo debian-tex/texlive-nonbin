@@ -4,8 +4,6 @@
 # machinery to create debian packages from TeX Live depot
 # (c) 2005, 2006 Norbert Preining
 #
-# $Id: tpm2deb.pl 2080 2006-12-15 12:03:49Z preining $
-#
 # configuration is done via the file tpm2deb.cfg
 #
 

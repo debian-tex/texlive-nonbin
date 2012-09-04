@@ -1,5 +1,6 @@
 #!/bin/bash
-# $Id$
+# bug script for TeX Live packages
+
 set -e
 
 cat <<EOF

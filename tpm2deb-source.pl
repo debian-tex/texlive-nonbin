@@ -2,9 +2,7 @@
 #
 # tpm2deb-source.pl
 # machinery to create debian packages from TeX Live depot
-# (c) 2005, 2006, 2007, 2008, 2009, 2010, 2011 Norbert Preining
-#
-# $Id$
+# (c) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Norbert Preining
 #
 # configuration is done via the file tpm2deb.cfg
 # 
@@ -306,9 +304,9 @@ sub make_orig_tar {
 		system("find $texlivedest/texmf-doc/ -type f -print0 | xargs -0 chmod -x") == 0
 		    or die("Cannot remove unwanted execution permissions");
 	}
-	# remove any svn directories
-	system("find $texlivedest -name '.svn' | xargs rm -rf") == 0
-		or die("Error while removing svn directories");
+	# remove any git directories
+	system("find $texlivedest -name '.git' | xargs rm -rf") == 0
+		or die("Error while removing git directories");
 	#
 	# make the original source package
 	#
@@ -457,8 +455,8 @@ sub make_deb_source {
 	    or die("Error copying common files");
 	system ("rm  $tmpdir/debian/rules.in") == 0
 	    or die("Error removing rules.in");
-	system ("find $tmpdir/ -name .svn -type d -print0 | xargs -0 rm -rf") == 0 
-	    or die("Error removing .svn directories");
+	system ("find $tmpdir/ -name .git -type d -print0 | xargs -0 rm -rf") == 0 
+	    or die("Error removing .git directories");
 
 	system ("cp -a $mydir/$package/* $tmpdir/") == 0
 	    or die("Error copying package-specific files");
@@ -479,8 +477,8 @@ sub make_deb_source {
 	    or die("Cannot change permissions of $debdest/rules");;
 
 	make_deb_control($package,"$debdest/control");
-	system ("find $tmpdir/ -name .svn -type d -print0 | xargs -0 rm -rf") == 0 
-	    or die("Error removing .svn directories");
+	system ("find $tmpdir/ -name .git -type d -print0 | xargs -0 rm -rf") == 0 
+	    or die("Error removing .git directories");
 	# 
 	# lintian override files
 	#

@@ -1,5 +1,4 @@
 #!/bin/bash
-# $Id$
 #
 # TeX Live 2008 ships many "binaries" as symlinks to ../../texmf-*/...
 # we make sure that the link targets have executable bit set

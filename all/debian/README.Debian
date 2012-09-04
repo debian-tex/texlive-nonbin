@@ -42,4 +42,3 @@ For disappearing whole collections this is not possible, but the metapackage
 `texlive-full' depends on all the necessary items.
 
 
-$Id$

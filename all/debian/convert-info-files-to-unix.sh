@@ -4,7 +4,6 @@
 #
 # info files in texlive are with DOS lineendings. Fix this here
 #
-# $Id$
 # Norbert Preining, 2005
 # GPL
 set -e

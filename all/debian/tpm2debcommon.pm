@@ -2,9 +2,7 @@
 #
 # tpm2deb-common.pl
 # machinery to create debian packages from TeX Live depot
-# (c) 2005, 2006, 2007, 2008 Norbert Preining
-#
-# $Id$
+# (c) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Norbert Preining
 #
 # configuration is done via the file tpm2deb.cfg
 #

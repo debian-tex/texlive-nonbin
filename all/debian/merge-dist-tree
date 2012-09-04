@@ -1,6 +1,5 @@
 #
 # merge-dist-tree
-# $Id$
 # (c) 2006 Norbert Preining
 #
 # merge tree $1 into destination $2

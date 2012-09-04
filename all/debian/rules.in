@@ -2,7 +2,6 @@
 #!/usr/bin/make -f
 # 
 # debian/rules file for <:=$srcpackage:>
-# $Id$
 
 PACKAGES=<:=$binpackages:>
 METAPACKAGES=<:=$metapackages:>

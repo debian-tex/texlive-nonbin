@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # update-link-files.sh
-# $Id$
 #
 # This script serves two purposes:
 # 1) it copies the content of $package.links.dist to $package.links
