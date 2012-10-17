@@ -23,3 +23,4 @@ debian_updmap-search-path
 texdoc-see-and-zip
 fix-natbib-add-spaces
 upstream_updmap-ignoring-settings
+upstream_fix_babel_french_days

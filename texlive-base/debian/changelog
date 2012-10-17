@@ -1,3 +1,12 @@
+texlive-base (2012.20120611-5) unstable; urgency=low
+
+  * properly purge some conffiles (Closes: #688382)
+  * fix typo in babel french ldf file, upstream fix (Closes: #689450)
+  * remove conffiles even if upgrading from intermediate packages
+    (Closes: #686487)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 03 Oct 2012 21:01:18 +0900
+
 texlive-base (2012.20120611-4) unstable; urgency=low
 
   * fix wrong format of zip list for texdoc, which broke searching for
