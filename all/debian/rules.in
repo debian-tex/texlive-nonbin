@@ -109,7 +109,12 @@ binary-indep: build install
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums
+<: if ($srcpackage eq "texlive-extra") { _:>//
+	dh_builddeb -Ntexlive-latex-extra-doc -- -Zxz
+	dh_builddeb -ptexlive-latex-extra-doc -- -Zxz -Sextreme -z9
+<: } else { _:>//
 	dh_builddeb -- -Zxz
+<: } :>//
 
 binary: binary-indep binary-arch
 
