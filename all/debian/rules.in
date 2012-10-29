@@ -49,6 +49,10 @@ install-stamp: build-stamp
 	  if [ -r debian/$$i.README ] ; then cat debian/$$i.README > debian/$$i.README.Debian ; fi ; \
 	  cat debian/README.Debian >> debian/$$i.README.Debian ; \
 	done
+	# link pfb/afm files (type1 fonts) into /usr/share/fonts
+	for i in $(PACKAGES) $(METAPACKAGES) ; do \
+	  bash debian/create-font-links $$i >> debian/$$i.links ; \
+	done
 	touch install-stamp
 
 binary-arch:
