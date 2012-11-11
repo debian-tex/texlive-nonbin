@@ -1,0 +1,5 @@
+- create format links not in links.dist files, but generate them
+  automatically
+- create blacklist and links for otf fonts automatically or from a 
+  list somewhere
+
