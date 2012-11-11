@@ -796,6 +796,19 @@ sub initialize_config_file_data {
 		exit 1;
 	}
 	close(CFGFILE);
+	open(CFGFILE,"<$cfgfile") or die "Cannot open $cfgfile\n";
+	print "Reading all/debian/scripts.lst ...\n";
+	for (`bash all/debian/create-linked-scripts all/debian/scripts.lst`) {
+		chomp;
+		my ($type, $a, @rest) = split ";";
+		if ($type eq "linkedscript") {
+			my ($b) = @rest;
+			$TeXLive{'all'}{'linkedscript'}{$a} = $b;
+			next;
+		} else {
+			die "Unknown output of created-linked-scripts: $!";
+		}
+	}
 	print " ... done\n";
 }
 
