@@ -1,1 +1,5 @@
 usr/share/texlive/texmf/web2c/texmf.cnf usr/share/texmf/web2c/texmf.cnf
+usr/bin/allcm usr/bin/allec
+usr/bin/kpsetool usr/bin/kpsepath
+usr/bin/kpsetool usr/bin/kpsexpand
+usr/bin/fmtutil usr/bin/mktexfmt

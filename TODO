@@ -1,5 +1,9 @@
-- create format links not in links.dist files, but generate them
-  automatically
+- split .cfg file (otf section, linked script section, ...) and generate
+  the parts
 - create blacklist and links for otf fonts automatically or from a 
   list somewhere
-
+- redo doc files linking process, move all into proper texmf dirs
+  and link *into* /usr/share/doc, otherwise we are dying in the
+  mktexlsr/mtxrun run
+- links that are bin dir internal are currently generated via links.dist,
+  but should be done somehow differently, best in upstream?

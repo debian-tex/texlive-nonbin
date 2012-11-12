@@ -796,9 +796,12 @@ sub initialize_config_file_data {
 		exit 1;
 	}
 	close(CFGFILE);
-	open(CFGFILE,"<$cfgfile") or die "Cannot open $cfgfile\n";
-	print "Reading all/debian/scripts.lst ...\n";
-	for (`bash all/debian/create-linked-scripts all/debian/scripts.lst`) {
+	my $spf = "";
+	if (-d "./all") {
+		$spf = "all/";
+	}
+	print "Reading ${spf}debian/scripts.lst ...\n";
+	for (`bash ${spf}debian/create-linked-scripts ${spf}debian/scripts.lst`) {
 		chomp;
 		my ($type, $a, @rest) = split ";";
 		if ($type eq "linkedscript") {

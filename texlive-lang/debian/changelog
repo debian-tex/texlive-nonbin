@@ -1,3 +1,9 @@
+texlive-lang (2012.20121112-1) UNRELEASED; urgency=low
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Mon, 12 Nov 2012 07:53:23 +0900
+
 texlive-lang (2012.20120611-2) unstable; urgency=low
 
   * move lgrenc.dfu from doc files to run files (Closes: #678545)

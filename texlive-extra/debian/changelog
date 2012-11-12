@@ -1,12 +1,12 @@
-texlive-extra (2012.20120611-3) UNRELEASED; urgency=low
+texlive-extra (2012.20121112-1) UNRELEASED; urgency=low
 
-  * UNRELEASED!!!
+  * new upstream checkout
   * fix ulqda using Digest::SHA1 which is not available (LP: #1045516)
   * pack texlive-latex-extra-doc with extreme compression (Closes: #675537)
   * texlive-extra-utils recommends texlive-latex-base and 
     texlive-latex-recommended (for pdfjam support) (Closes: #691690)
 
- -- Norbert Preining <preining@debian.org>  Tue, 30 Oct 2012 07:14:02 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 12 Nov 2012 07:53:03 +0900
 
 texlive-extra (2012.20120611-2) unstable; urgency=low
 
