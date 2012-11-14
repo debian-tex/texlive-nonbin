@@ -1,14 +1,11 @@
 ---
- texmf-dist/scripts/pkfix/pkfix.pl                     |    3 +--
- texmf-dist/scripts/pst2pdf/pst2pdf                    |    3 +--
- texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh |    2 +-
- texmf-dist/scripts/vpe/vpe.pl                         |    3 +--
- 4 files changed, 4 insertions(+), 7 deletions(-)
+ texmf-dist/scripts/pkfix/pkfix.pl  |    3 +--
+ texmf-dist/scripts/pst2pdf/pst2pdf |    3 +--
+ texmf-dist/scripts/vpe/vpe.pl      |    3 +--
+ 3 files changed, 3 insertions(+), 6 deletions(-)
 
-Index: texlive-extra-2012.20120529/texmf-dist/scripts/pkfix/pkfix.pl
-===================================================================
---- texlive-extra-2012.20120529.orig/texmf-dist/scripts/pkfix/pkfix.pl	2012-04-19 08:22:58.000000000 +0900
-+++ texlive-extra-2012.20120529/texmf-dist/scripts/pkfix/pkfix.pl	2012-05-29 21:28:46.090084887 +0900
+--- texlive-extra-2012.20121112.orig/texmf-dist/scripts/pkfix/pkfix.pl
++++ texlive-extra-2012.20121112/texmf-dist/scripts/pkfix/pkfix.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -    if 0;
@@ -16,10 +13,8 @@ Index: texlive-extra-2012.20120529/texmf-dist/scripts/pkfix/pkfix.pl
  use strict;
  $^W=1; # turn warning on
  #
-Index: texlive-extra-2012.20120529/texmf-dist/scripts/pst2pdf/pst2pdf
-===================================================================
---- texlive-extra-2012.20120529.orig/texmf-dist/scripts/pst2pdf/pst2pdf	2011-12-15 11:01:37.000000000 +0900
-+++ texlive-extra-2012.20120529/texmf-dist/scripts/pst2pdf/pst2pdf	2012-05-29 21:28:46.090084887 +0900
+--- texlive-extra-2012.20121112.orig/texmf-dist/scripts/pst2pdf/pst2pdf
++++ texlive-extra-2012.20121112/texmf-dist/scripts/pst2pdf/pst2pdf
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -27,10 +22,8 @@ Index: texlive-extra-2012.20120529/texmf-dist/scripts/pst2pdf/pst2pdf
  
  use strict;				# to be sure, that all is safe ... :-)
  
-Index: texlive-extra-2012.20120529/texmf-dist/scripts/vpe/vpe.pl
-===================================================================
---- texlive-extra-2012.20120529.orig/texmf-dist/scripts/vpe/vpe.pl	2012-04-20 01:17:34.000000000 +0900
-+++ texlive-extra-2012.20120529/texmf-dist/scripts/vpe/vpe.pl	2012-05-29 21:28:46.090084887 +0900
+--- texlive-extra-2012.20121112.orig/texmf-dist/scripts/vpe/vpe.pl
++++ texlive-extra-2012.20121112/texmf-dist/scripts/vpe/vpe.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -38,13 +31,3 @@ Index: texlive-extra-2012.20120529/texmf-dist/scripts/vpe/vpe.pl
  use strict;
  #
  # vpe.pl
-Index: texlive-extra-2012.20120529/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh
-===================================================================
---- texlive-extra-2012.20120529.orig/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh	2012-03-17 08:09:50.000000000 +0900
-+++ texlive-extra-2012.20120529/texmf-dist/scripts/typeoutfileinfo/typeoutfileinfo.sh	2012-05-29 21:28:46.090084887 +0900
-@@ -1,4 +1,4 @@
--%!/usr/bin/env bash
-+#!/bin/bash
- ##
- ## This is `typeoutfileinfo.sh', a minimalist shell script for Unices.
- ## 
