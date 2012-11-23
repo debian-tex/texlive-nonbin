@@ -1,11 +1,11 @@
-texlive-base (2012.20121122-1) experimental; urgency=low
+texlive-base (2012.20121123-1) experimental; urgency=low
 
   * new upstream checkout
   * new translation for Japanese (Closes: #683127, #690697)
   * provide symbolic links for some fonts (.pfb/.afm) files
     (Closes: #689837, #546251)
 
- -- Norbert Preining <preining@debian.org>  Thu, 22 Nov 2012 14:05:56 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 23 Nov 2012 12:34:53 +0900
 
 texlive-base (2012.20120611-5) unstable; urgency=low
 
