@@ -19,7 +19,11 @@ pdftex-config-paper-factorization
 xdvi-config-paper-factorization
 # debian internal, location of modules is different
 debian_updmap-search-path
-# debian adaption
+debian-updmap-man
+debian-fmtutil-adaptions
+fmtutil_keep_failedlog
+set-e-fmtutil
+debian-texconfig-adaptions
 texdoc-see-and-zip
 fix-natbib-add-spaces
 upstream_fix_babel_french_days
