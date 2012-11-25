@@ -1,3 +1,11 @@
+texlive-base (2012.20121125-1) experimental; urgency=low
+
+  * new upstream checkout
+  * incorporate many patches from texlive-bin for scripts that have been
+    formerly in texlive-bin (foremost fmtutil!)
+
+ -- Norbert Preining <preining@debian.org>  Sun, 25 Nov 2012 12:07:15 +0900
+
 texlive-base (2012.20121123-1) experimental; urgency=low
 
   * new upstream checkout
