@@ -198,11 +198,9 @@ sub make_deb_copy_to_rightplace {
 		my $finalfn = do_remap_and_copy($package,$file,$runcomponent);
 		do_special($file,$finalfn);
 	}
-# 	my %DocDirHash = ();
-# 	my @LinkedDocDir = ();
 	DODFILE: foreach my $file (@{$lists{'DocFiles'}}) {
 		next DODFILE if tl_is_blacklisted($file);
-		my $finalfn = do_remap_and_copy($package,$file,$runcomponent,'^[^/]*/doc/(.*)$','$doccomponent/$1');
+		my $finalfn = do_remap_and_copy($package,$file,$runcomponent);
 		do_special($file,$finalfn);
 	}
 	# simply ignore binfiles as we have to add the necessary deps

@@ -44,7 +44,6 @@ install-stamp: build-stamp
 	  install -D --mode=644 debian/$$i.override debian/$$i/usr/share/lintian/overrides/$$i ; \
 	  install -D --mode=755 debian/bug.script debian/$$i/usr/share/bug/$$i/script ; \
 	  install -D --mode=644 debian/bug.control debian/$$i/usr/share/bug/$$i/control ; \
-	  bash debian/create-doc-links $$i texlive-doc > debian/$$i.links ; \
 	  if [ -r debian/$$i.links.dist ] ; then cat debian/$$i.links.dist >> debian/$$i.links ; fi ; \
 	  if [ -r debian/$$i.README ] ; then cat debian/$$i.README > debian/$$i.README.Debian ; fi ; \
 	  cat debian/README.Debian >> debian/$$i.README.Debian ; \
