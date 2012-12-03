@@ -1,3 +1,10 @@
+texlive-extra (2012.201212NN-?) UNRELEASED; urgency=low
+
+  * new upstream checkout
+    - fixes cwebbase.tex wrong location and cweb.cls error (Closes: #689634)
+
+ -- Norbert Preining <preining@debian.org>  Mon, 03 Dec 2012 09:01:31 +0900
+
 texlive-extra (2012.20121125-1) experimental; urgency=low
 
   * new upstream checkout
