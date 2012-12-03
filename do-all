@@ -10,7 +10,8 @@ mkdir -p log
 mv *.log log/
 
 make packages lintian
-#make sid-tests
+make sid-overwrite
+make sid-tests
 #make testing-tests
 #make stable-tests
 

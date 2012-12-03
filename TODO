@@ -7,3 +7,19 @@
   mktexlsr/mtxrun run
 - links that are bin dir internal are currently generated via links.dist,
   but should be done somehow differently, best in upstream?
+
+- get rid of the mapping directive, it serves 4 purposes at the moment:
+  . ignoring a file: mapping;texmf[^/]*/doc/man/man5/synctex.5;;
+    should be renamed to ignore or whatever
+  . move: mapping;texmf[^/]*/doc/man/man(.*)/(.*);move;/usr/share/man/man$1/$2
+    should be anyway done in a special way, maybe with a special
+  . config-move: mapping;texmf[^/]*/xdvi/xdvi.cfg;config-move;/etc/texmf/xdvi/xdvi.cfg
+    move the 3 files: dvipdfm/config/config, xdvi/xdvi.cfg, texdoctk/texdocrc.defaults
+    to the /etc/texmf and create links from the original locations
+    could be made separately
+  . link: mapping;texmf/tex/generic/config/language.dat;link;/var/lib/texmf/tex/generic/config/language.dat
+    create links for language.{dat,def,dat.lua} from main to /var/lib/texmf
+    can be done in the .links file
+
+  then simplify the whole tpm2deb-bin code since no remapping are done anymore.
+
