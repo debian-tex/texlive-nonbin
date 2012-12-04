@@ -175,9 +175,22 @@ sub tl_is_blacklisted {
 	foreach my $pat (@{$TeXLive{'all'}{'file_blacklist'}}) { 
 		$blacklisted = 1 if ($file =~ m|^${pat}$|);
 	}
-	$opt_debug && $blacklisted && print STDERR "$file is blacklisted\n";
+	foreach my $pat (@{$TeXLive{'all'}{'kill'}}) { 
+		$blacklisted = 1 if ($file =~ m|^${pat}$|);
+	}
+	$opt_debug && $blacklisted && print STDERR "$file is blacklisted/killed\n";
 	return $blacklisted;
 }
+sub tl_is_ignored {
+	my ($file) = @_;
+	my $ignored = 0;
+	foreach my $pat (@{$TeXLive{'all'}{'ignore'}}) { 
+		$ignored = 1 if ($file =~ m|^${pat}$|);
+	}
+	$opt_debug && $ignored && print STDERR "$file is ignored\n";
+	return $ignored;
+}
+
 
 #
 # make_deb_copy_to_righplace
@@ -186,30 +199,33 @@ sub tl_is_blacklisted {
 sub make_deb_copy_to_rightplace {
 	my ($package,$listref) = @_;
 	my %lists = %$listref;
-	if (!$opt_nosource) {
-		DOSFILE: foreach my $file (@{$lists{'SourceFiles'}}) {
-			next DOSFILE if tl_is_blacklisted($file);
-			my $finalfn = do_remap_and_copy($package,$file,$runcomponent);
-			do_special($file,$finalfn);
+	my @all_files;
+	push @all_files, @{$lists{'RunFiles'}};
+	push @all_files, @{$lists{'DocFiles'}};
+	push @all_files, @{$lists{'SourceFiles'}} if (!$opt_nosource);
+	foreach my $file (@all_files) {
+		next if tl_is_blacklisted($file);
+		if (!tl_is_ignored($file)) {
+			$opt_debug && print STDERR "NORMAL COPY: $basedir/usr/share/texlive/$file\n";
+			my $finaldest = "$basedir/usr/share/texlive/$file";
+			&mkpath(dirname($finaldest));
+			mycopy("$Master/$file", $finaldest);
 		}
+		#
+		# if a file name matches a linked script, also create the
+		# actual link
+		if (defined($TeXLive{'all'}{'linkedscript'}{$file})) {
+			unless ($opt_onlyscripts == 1) {
+				&mkpath($bindest);
+				my @foo = split ",", $TeXLive{'all'}{'linkedscript'}{$file};
+				for my $i (@foo) {
+					symlink("../share/texlive/$file", "$bindest/$i") or
+						die "Cannot symlink $bindest/$i -> ../share/texlive/$file: $!\n"
+				}
+			};
+		}
+		do_special($file,"/usr/share/texlive/$file");
 	}
-	DORFILE: foreach my $file (@{$lists{'RunFiles'}}) {
-		next DORFILE if tl_is_blacklisted($file);
-		my $finalfn = do_remap_and_copy($package,$file,$runcomponent);
-		do_special($file,$finalfn);
-	}
-	DODFILE: foreach my $file (@{$lists{'DocFiles'}}) {
-		next DODFILE if tl_is_blacklisted($file);
-		my $finalfn = do_remap_and_copy($package,$file,$runcomponent);
-		do_special($file,$finalfn);
-	}
-	# simply ignore binfiles as we have to add the necessary deps
-	#DOBFILE: foreach my $file (@{$lists{'BinFiles'}}) {
-	#	$opt_debug && print STDERR "BINFILE: $file\n";
-	#	next DOBFILE if tl_is_blacklisted($file);
-	#	my $finalfn = do_remap_and_copy($package,$file,$bincomponent,'^bin/[^/]*/(.*)$','/usr/bin/$1');
-	#	do_special($file,$finalfn);
-	#}
 	if ($package eq 'texlive-common') {
 		&mkpath("$debdest/texlive-common/usr/share/texlive/tlpkg");
 		mycopy("$Master/tlpkg/TeXLive","$debdest/texlive-common/usr/share/texlive/tlpkg/");
@@ -308,6 +324,8 @@ sub make_deb {
 			if ($origfn =~ m|$pat$|) {
 				if ($act eq "install-info") {
 					push @SpecialActions, "install-info:$origfn";
+				} elsif ( $act eq "install-man") {
+					push @SpecialActions, "install-man:$origfn";
 				} else {
 					print STDERR "Unknown special action $act, terminating!\n";
 					exit 1;
@@ -348,10 +366,13 @@ sub make_deb {
 	# Work on @SpecialActions
 	#
 	my @infofiles = ();
+	my @manfiles = ();
 	foreach my $l (@SpecialActions) {
 		my ($act, $fname) = ($l =~ m/(.*):(.*)/);
 		if ($act eq "install-info") {
 			push @infofiles, "$fname";
+		} elsif ($act eq "install-man") {
+			push @manfiles, $fname;
 		} else {
 			print STDERR "Unknown action, huuu, where does this come from: $act, exit!\n";
 			exit 1;
@@ -364,6 +385,23 @@ sub make_deb {
 			print INFOLIST "$f\n";
 		}
 		close(INFOLIST);
+	}
+	if ($#manfiles >=0) {
+		# that would be nice, but dh_installman is completely 
+		# broken, so we have to install the man pages manually
+		#open(MANLIST, ">$debdest/$package.manpages")
+		#    or die("Cannot open $debdest/$package.manpages");
+		#foreach my $f (@manfiles) {
+		#	print MANLIST "$f\n";
+		#}
+		#close(MANLIST);
+		for my $f (@manfiles) {
+			if ($f =~ m!texmf[^/]*/doc/man/man(.*)/(.*)$!) {
+				mycopy($f, "$debdest/$package/usr/share/man/man$1/$2");
+			} else {
+				printf STDERR "Unhandled man page: $f\n";
+			}
+		}
 	}
 }
 
@@ -429,191 +467,6 @@ sub make_maintainer {
 	}
 }
 
-#
-# get_texmf_relpath
-#
-sub get_texmf_relpath {
-	my ($filename) = @_;
-	#$filename =~ s{texmf-dist}{texmf};
-	#$filename =~ s{texmf-doc}{texmf};
-	#$filename =~ s{texmf/}{};
-	return $filename;
-}
-
-#
-# do_remap_and_copy
-#
-# policy for mapping lines:
-# ALL file names in the last field are:
-# - either ABSOLUTE filenames in the sense of the final installation
-#   example:
-#     mapping;texmf/tex/generic/config/language.dat;link;/var/lib/texmf/tex/generic/config/language.dat
-# - relative filenames in which case 
-#         $texmfdist  =   /usr/share/texlive/texmf-dist
-#   is prepended, eg:
-#        mapping;texmf-dist/fonts/map/dvips/ibygrk/ibycus4.map;remap;fonts/source/public/ibygrk/ibycus4.map
-#   in this case ibycus4.map is remapped to 
-#     /usr/share/texlive/texmf-dist/fonts/source/public/ibygrk/ibycus4.map
-#
-# The filenames CAN contain backreferences to patterns:
-# mapping;texmf[^/]*/doc/man/man(.*)/(.*);remap;/usr/share/man/man$1/$2
-#
-sub do_remap_and_copy {
-	# my functions
-	#
-	# here the mapping from texlive pathes to debian pathes is done
-	#
-	sub make_destinationname {
-		my ($path) = @_;
-		#$path =~ s#^texmf-dist#$texmfdist#;
-		#
-		# we do map *ALL* files into $texmfdist, not only the dist files
-		#
-		#$path =~ s#^texmf/#$texmfdist/#;
-		return("$path");
-	}
-	sub absolute_path {
-		my ($inpath) = @_;
-		if ($inpath =~ m,^/,) {
-			# absolute path, just return it
-			return ($inpath);
-		} else {
-			# relative path name add /usr/share/$texmfdist
-			return ("$runcomponent/$texmfdist/$inpath");
-		}
-	}
-	# real start
-	my ($package,$file,$defaultpathcomponent,$finalremap,$finaldest) = @_;
-	my $gotremapped = 0;
-	my $returnvalue = "**NOTSET**";
-	my $defaultdestname = make_destinationname($file);
-	$opt_debug && print STDERR "DESTINATION NAME = $defaultdestname\n";
-
-	MAPPINGS: foreach my $maplines (@{$TeXLive{'all'}{'filemappings'}}) {
-		my ($pat, $dest) = ($maplines =~ m/(.*):(.*)/);
-		if ($file =~ m|$pat$|) {
-			$gotremapped = 1;
-			my $act = $TeXLive{'all'}{'file_map_actions'}{$pat};
-			my $supplieddestname;
-			# this evaluation is NECESSARY since the last entries in the 
-			# file mappings can contain back references to patterns in $pat!!!
-			my $foo="\$supplieddestname = \"$dest\"";
-			eval $foo;
-			$supplieddestname = absolute_path($supplieddestname);
-			$opt_debug && print STDERR "REMAP HIT f=$file\nsupplieddestname=$supplieddestname\npat=$pat\ndest=$dest\n";
-			# if you add possible actions here, also add them to the list in tpm2deb.cfg
-			if (($act eq "move") || ($act eq "config-move")) {
-				# remap MOVES the file to the new position
-				$opt_debug && print STDERR "remap\n";
-				&mkpath(dirname("$basedir$supplieddestname"));
-				mycopy("$Master/$file","$basedir$supplieddestname");
-				$returnvalue = $supplieddestname;
-			} elsif (($act eq "copy") || ($act eq "config-copy")) {
-				$opt_debug && print STDERR "copy\n";
-				# first install it into the normal path
-				mycopy("$Master/$file","$basedir$defaultpathcomponent/$defaultdestname");
-				# now the same as in remap/config-remap
-				&mkpath(dirname("$basedir$supplieddestname"));
-				mycopy("$Master/$file","$basedir$supplieddestname");
-				$returnvalue = $supplieddestname;
-			} elsif ($act eq "copy-move") {
-				$opt_debug && print STDERR "copy-move\n";
-				my ($configpath,$secondpath) = split(/,/ , $supplieddestname);
-				$opt_debug && print STDERR "installing into $configpath and $secondpath\n";
-				# first install it into the config path
-				&mkpath(dirname("$basedir$configpath"));
-				mycopy("$Master/$file","$basedir$configpath");
-				# now the other path (/usr/share/$package or similar)
-				mycopy("$Master/$file","$basedir$secondpath");
-				# return the config path
-				$returnvalue = $configpath;
-			} elsif ($act eq "link") {
-				# make the defaultdestname a LINK to the supplieddestname,
-				# but do NOT create the supplieddestname
-				$opt_debug && print STDERR "link\n";
-				&mkpath(dirname("$basedir$defaultpathcomponent/$defaultdestname"));
-				unless ($opt_onlyscripts == 1) {
-					symlink("$supplieddestname", "$basedir$defaultpathcomponent/$defaultdestname") or
-					die "Cannot symlink $basedir$defaultpathcomponent/$defaultdestname -> $supplieddestname: $!\n"
-				};
-				$returnvalue = $supplieddestname;
-			} elsif (($act eq "move-link") || ($act eq "config-move-link")) {
-				$opt_debug && print STDERR "move-link\n";
-				# move the file to the new location, and create a link
-				# from the defaultdestname -> supplieddestname
-				&mkpath(dirname("$basedir$supplieddestname"));
-				mycopy("$Master/$file","$basedir$supplieddestname");
-				&mkpath(dirname("$basedir$defaultpathcomponent/$defaultdestname"));
-				unless ($opt_onlyscripts == 1) {
-					symlink($supplieddestname, "$basedir$defaultpathcomponent/$defaultdestname") or
-						die "Cannot symlink $basedir$defaultpathcomponent/$defaultdestname -> $supplieddestname: $!\n"
-				};
-				$returnvalue = $supplieddestname; ## ?? or $defaultdestname????
-			} elsif ($act eq "add-link") {
-				$opt_debug && print STDERR "add-link\n";
-				# install the file in its default location, but add a
-				# symlink $supplieddestname -> $defaultdestname
-				mycopy("$Master/$file","$basedir$defaultpathcomponent/$defaultdestname");
-				&mkpath(dirname("$basedir$supplieddestname"));
-				unless ($opt_onlyscripts == 1) {
-					symlink("$defaultpathcomponent/$defaultdestname","$basedir$supplieddestname") or
-						die "Cannot symlink, $basedir$supplieddestname -> $defaultpathcomponent/$defaultdestname: $!\n"
-				};
-				$returnvalue = "$defaultpathcomponent/$defaultdestname";
-			} elsif ($act eq "replace-link") {
-				$opt_debug && print STDERR "replace-link\n";
-				# $supplieddestname must be of the form aaa%bbb 
-				# make aaa -> bbb and do nothing else
-				my ($a,$b) = split(/%/,$supplieddestname);
-				my $aa = absolute_path($a);
-				&mkpath(dirname("$basedir$aa"));
-				unless ($opt_onlyscripts == 1) {
-					symlink($b,"$basedir$aa") or die "Cannot symlink $basedir$aa -> $b: $!\n"
-				};
-				$returnvalue = $b;
-			} elsif ($act eq "") {
-				$opt_debug && print STDERR ":empty:\n";
-				$returnvalue = "";
-				# do nothing, the file is killed
-			} else {
-				print STDERR "maplines=$maplines\nact = $TeXLive{'all'}{'file_map_actions'}{$pat}\n";
-				print STDERR "Unknown action $act in config file, terminating!\n";
-				exit 1;
-			}
-			last MAPPINGS;
-		}
-	}
-	if ($gotremapped == 0) {
-		if ($finalremap ne "" && $defaultdestname =~ m|$finalremap|) {
-			my $foo="\$finaldest = \"$finaldest\"";
-			eval $foo;
-			$opt_debug && print STDERR "finalremap COPY: $finaldest\n";
-			&mkpath(dirname("$basedir$finaldest"));
-			mycopy("$Master/$file","$basedir$finaldest");
-			$returnvalue = $finaldest;
-		} else {
-			$opt_debug && print STDERR "NORMAL COPY: $basedir$defaultpathcomponent/$defaultdestname\n";
-			my $finaldest = "$basedir$defaultpathcomponent/$defaultdestname";
-			&mkpath(dirname($finaldest));
-			mycopy("$Master/$file", $finaldest);
-			#
-			# if a file name matches a linked script, also create the
-			# actual link
-			if (defined($TeXLive{'all'}{'linkedscript'}{$file})) {
-				unless ($opt_onlyscripts == 1) {
-					&mkpath($bindest);
-					my @foo = split ",", $TeXLive{'all'}{'linkedscript'}{$file};
-					for my $i (@foo) {
-						symlink("../share/texlive/$file", "$bindest/$i") or
-							die "Cannot symlink $bindest/$i -> ../share/texlive/$file: $!\n"
-					}
-				};
-			}
-			$returnvalue = "$defaultpathcomponent/$defaultdestname";
-		}
-	}
-	return($returnvalue);
-}
 
 ### Local Variables:
 ### perl-indent-level: 4

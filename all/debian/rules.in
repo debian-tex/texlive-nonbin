@@ -19,7 +19,7 @@ clean:
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  rm -f debian/$$i.{README.Debian,links,links.generated} ; \
 	  rm -f debian/$$i.{postinst,postrm,preinst,prerm} ; \
-	  rm -f debian/$$i.{maps,hyphens,formats} ; \
+	  rm -f debian/$$i.{maps,hyphens,formats,info,manpages} ; \
 	done
 <: if ($srcpackage eq "texlive-base") { _:>//
 	rm -f debian/texlive-base.cnf
@@ -48,6 +48,22 @@ install-stamp: build-stamp
 	  if [ -r debian/$$i.README ] ; then cat debian/$$i.README > debian/$$i.README.Debian ; fi ; \
 	  cat debian/README.Debian >> debian/$$i.README.Debian ; \
 	done
+<: if ($srcpackage eq "texlive-base") { _:>//
+	# do some clean up, we have to move three files into different directories
+	mkdir -p debian/texlive-base/etc/texmf/dvipdfm/config
+	mv debian/texlive-base/usr/share/texlive/texmf/dvipdfm/config/config \
+	  debian/texlive-base/etc/texmf/dvipdfm/config
+	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf/dvipdfm/config
+	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf/dvipdfm
+	mkdir -p debian/texlive-base/etc/texmf/xdvi
+	mv debian/texlive-base/usr/share/texlive/texmf/xdvi/xdvi.cfg \
+	  debian/texlive-base/etc/texmf/xdvi/xdvi.cfg
+	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf/xdvi
+	mkdir -p debian/texlive-base/etc/texmf/texdoctk
+	mv debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk/texdocrc.defaults \
+	  debian/texlive-base/etc/texmf/texdoctk
+	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk
+<: } :>//
 	# link pfb/afm files (type1 fonts) into /usr/share/fonts
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/create-font-links $$i >> debian/$$i.links ; \
@@ -87,16 +103,19 @@ binary-indep: build install
 	dh_installdebconf -n
 	cp debian/texlive-base.libpaper debian/texlive-base/etc/libpaper.d/texlive-base
 	chmod a+x debian/texlive-base/etc/libpaper.d/texlive-base
-	#cp debian/md5sums/* debian/texlive-base/usr/share/texlive-base/
 <: } else { _:>//
 	dh_installtex -A --priority=10 --flavor=lsr:full,tree:texlive
 <: } :>//
 	dh_installchangelogs
-	bash debian/convert-info-files-to-unix.sh
+	# man pages
+	dh_installman
 	bash debian/fix-manpages.sh
+	# info pages
+	bash debian/convert-info-files-to-unix.sh
 	dh_installinfo
 <: if ($srcpackage eq "texlive-base") { _:>//
 	# remove info files that are present in texlive-binaries
+	# has to be done after the dh_installinfo call
 	rm debian/texlive-base/usr/share/info/dvips.info*
 	rm debian/texlive-base/usr/share/info/web2c.info*
 	rm debian/texlive-base/usr/share/info/kpathsea.info*

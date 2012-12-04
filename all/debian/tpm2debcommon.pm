@@ -257,23 +257,10 @@ sub build_data_hash {
 			my @p = ();
 			my @pd = ();
 			foreach my $f (@{$TeXLive{'binary'}{$bin_pkg}{'docfiles'}}) {
-				# the following is a hack but necessary
-				# we do move some files from doc dirs to non doc dirs using
-				# mapping;orig;move;target
-				# but these files are listed as doc-files we DONT want to move!
-				# In fact we should check for a pair
-				# 	$f:xxxx
-				# in @{$TeXLive{'all'}{'filemappings'}} and check that xxxx is 
-				# NOT a doc file ... but who cares ...
-				if (defined($TeXLive{'all'}{'file_map_actions'}{$f}) && 
-							($TeXLive{'all'}{'file_map_actions'}{$f} eq "move")) {
+				if ($f =~ m;texmf[^/]*/doc/man/man.*/.*;) {
 					push @p, $f;
 				} else {
-					if ($f =~ m;texmf[^/]*/doc/man/man.*/.*;) {
-						push @p, $f;
-					} else {
-						push @pd, $f;
-					}
+					push @pd, $f;
 				}
 			}
 			$TeXLive{'binary'}{$doc_pkg}{'docfiles'}    = [ @pd ];
@@ -516,12 +503,45 @@ sub check_consistency {
 
 sub initialize_config_file_data {
 	my ($cfgfile) = @_;
+	my ($dn, $fn);
+	if ($cfgfile =~ /(.*)\/(.*)/) {
+		($dn, $fn) = ($1, $2);
+	} else {
+		die "What the hell, cannot get dirname/filename? $cfgfile\n";
+	}
 	use_global_vars();
-	print "Start loading config file ...\n";
-	open(CFGFILE,"<$cfgfile") or die "Cannot open $cfgfile\n";
-	while (<CFGFILE>) {
+	read_one_config_file($dn, $fn);
+	my $spf = "";
+	if (-d "./all") {
+		$spf = "all/";
+	}
+	print "Reading ${spf}debian/scripts.lst ...\n";
+	for (`bash ${spf}debian/create-linked-scripts ${spf}debian/scripts.lst`) {
+		chomp;
+		my ($type, $a, @rest) = split ";";
+		if ($type eq "linkedscript") {
+			my ($b) = @rest;
+			$TeXLive{'all'}{'linkedscript'}{$a} = $b;
+			next;
+		} else {
+			die "Unknown output of created-linked-scripts: $!";
+		}
+	}
+}
+
+sub read_one_config_file {
+	my ($dn, $fn) = @_;
+	my $cfgfile = "$dn/$fn";
+	use_global_vars();
+	print "Start loading config file $cfgfile ...\n";
+	my $foo;
+	open($foo,"<$cfgfile") or die "Cannot open $cfgfile\n";
+	while (<$foo>) {
 		if (m/^#/) { 
 			next ; 
+		}
+		if (m/^\s*$/) {
+			next ;
 		}
 		chomp;
 		my @foo;
@@ -581,20 +601,12 @@ sub initialize_config_file_data {
 			$Config{'disabled_formats'}{$a} = [ @{$Config{'disabled_formats'}{$a}}, "$b" ];
 			next;
 		}
-		if ($type eq "mapping") {
-			my ($b,$c) = @rest;
-			$opt_debug && print STDERR  "b=$b, c=$c.\n";
-			push @{$TeXLive{'all'}{'filemappings'}}, "$a:$c";
-			$TeXLive{'all'}{'file_map_actions'}{$a} = $b;
-			if (($b eq "config-link") || ($b eq "config-remap")) {
-				push @{$TeXLive{'all'}{'config-files'}}, $c;
-			}
-			if ($b eq "config-copy") {
-				$a =~ s#texmf-dist#texmf#;
-				$a =~ s#texmf-doc#texmf#;
-				$a =~ s#texmf/##;
-				push @{$TeXLive{'all'}{'config-files'}}, "$c/$a";
-			}
+		if ($type eq "ignore") {
+			push @{$TeXLive{'all'}{'ignore'}}, $a;
+			next;
+		}
+		if ($type eq "kill") {
+			push @{$TeXLive{'all'}{'kill'}}, $a;
 			next;
 		}
 		if ($type eq "blacklist") {
@@ -792,27 +804,15 @@ sub initialize_config_file_data {
 			push @{$TeXLive{'binary'}{$a}{'remove_conffile'}}, $b;
 			next;
 		}
+		if ($type eq "include-config") {
+			read_one_config_file($dn,$a);
+			next;
+		}
 		print STDERR "tpm2deb.cfg: Unknown directive: $type. Maybe an empty line?\n Exiting!\n"; 
 		exit 1;
 	}
-	close(CFGFILE);
-	my $spf = "";
-	if (-d "./all") {
-		$spf = "all/";
-	}
-	print "Reading ${spf}debian/scripts.lst ...\n";
-	for (`bash ${spf}debian/create-linked-scripts ${spf}debian/scripts.lst`) {
-		chomp;
-		my ($type, $a, @rest) = split ";";
-		if ($type eq "linkedscript") {
-			my ($b) = @rest;
-			$TeXLive{'all'}{'linkedscript'}{$a} = $b;
-			next;
-		} else {
-			die "Unknown output of created-linked-scripts: $!";
-		}
-	}
-	print " ... done\n";
+	close($foo);
+	print " ... done $cfgfile\n";
 }
 
 

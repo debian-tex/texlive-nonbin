@@ -218,25 +218,6 @@ sub make_orig_tar {
 			unpack_package($p, $dest);
 		}
 	}
-	#
-	# copy_collection_files 
-	#
-	sub copy_collection_files {
-		my ($entry, $destination, $types) = @_;
-		print "copy-collection-files $entry\n";
-		my %lists = %{&get_all_files($entry,$globalreclevel)};
-		my @allfiles = ();
-		$opt_debug && print STDERR "copy_collection_files: entry=$entry, types=$types, destination=$destination\n";
-		foreach my $type (split(/ /,$types)) {
-			@allfiles = (@allfiles, @{$lists{$type}});
-		}
-		COLLFILE: foreach my $f (@allfiles) {
-			foreach my $pat (@{$TeXLive{'all'}{'file_blacklist'}}) { 
-				if ($f =~ m|^${pat}$|) { next COLLFILE ; }
-			}
-			mycopy("$Master/$f","$destination/$f");
-		}
-	}
 	# real start
 	my ($src_package) = @_;
 	my $foo;
@@ -250,7 +231,6 @@ sub make_orig_tar {
 		return 0;
 	}
 
-	#$texlivedest = "$tmpdir/Master";
 	my $texlivedest = "$tmpdir";
 	#
 	# if $changelogrevision > 1 then bail out, we are not allowed to
@@ -270,7 +250,6 @@ sub make_orig_tar {
 	$opt_debug && print STDERR "Working on a source package!\n";
 	foreach my $coll (@{$TeXLive{'source'}{$src_package}{'binary_packages'}}) {
 		copy_unpack_included_packages($coll, $texlivedest);
-		#copy_collection_files($coll,$texlivedest,$types);
 	}
 	# remove blacklisted files, don't care if they were actually installed
 	for my $f (@{$TeXLive{'all'}{'file_blacklist'}}) {
