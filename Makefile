@@ -97,8 +97,15 @@ debdiff:
 		oldfile=`ls $(OLDPKG)/$${bn}_*.deb | tail -1` ; \
 		debdiff $$oldfile $$i > $$bn.debdiff ; \
 	done || true
+	cd pool && \
+	for i in *.debdiff ; do \
+		grep -v share/doc $$i | \
+		grep -v texlive/texmf/doc | \
+		grep -v texlive/texmf-dist/doc > $i.nodoc; \
+	done || true
 	mkdir -p log
-	mv pool/*.debdiff log
+	mv pool/*.debdiff pool/*.nodoc log
+
 
 packages:
 	bash scripts/build-infra -p . -nosign pool
