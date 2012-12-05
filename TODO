@@ -1,4 +1,10 @@
-- create blacklist and links for otf fonts automatically or from a 
-  list somewhere
+- otf font blacklists and links are generated from lintian files via
+  scripts/create-tl-directives, but we do not reevaluate old blacklists
+  and change locations
+  somehow auto-generating that would be nice, how does lintian do that?
+  Checking the contents files I guess?
 - links that are bin dir internal are currently generated via links.dist,
-  but should be done somehow differently, best in upstream?
+  maybe take them from the linked_scripts/Makefile.am, rule
+  	bin_links
+  that gives the file:link association
+  at least some automatic check would be nice.
