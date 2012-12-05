@@ -1,5 +1,7 @@
 #texlive-fonts-extra;usr/share/texlive/texmf-dist/fonts/opentype/public/libertineotf/LinLibertine_aZL.otf;fonts-linuxlibertine
 
+# feed *.lintian.log into that
+
 for i in $(grep duplicate-font-file |	\
 	sed 	-e 's/^W: //'				\
 	    	-e 's/: duplicate-font-file /;/'	\
