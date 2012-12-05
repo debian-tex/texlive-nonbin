@@ -101,7 +101,7 @@ debdiff:
 	for i in *.debdiff ; do \
 		grep -v share/doc $$i | \
 		grep -v texlive/texmf/doc | \
-		grep -v texlive/texmf-dist/doc > $i.nodoc; \
+		grep -v texlive/texmf-dist/doc > $$i.nodoc; \
 	done || true
 	mkdir -p log
 	mv pool/*.debdiff pool/*.nodoc log
