@@ -1,3 +1,9 @@
+texlive-extra (2012.20130111-1) experimental; urgency=low
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Fri, 11 Jan 2013 08:25:34 +0900
+
 texlive-extra (2012.20121205-1) experimental; urgency=low
 
   * new upstream checkout
