@@ -1,3 +1,10 @@
+texlive-base (2012.2013MMDDDD-1) UNRELEASED; urgency=low
+
+  * NEW UPSTREAM NEEDED
+  * fix typo in license to make lintian license check happy (Closes: #698666)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 22 Jan 2013 09:02:55 +0900
+
 texlive-base (2012.20130111-1) experimental; urgency=low
 
   * new upstream checkout
