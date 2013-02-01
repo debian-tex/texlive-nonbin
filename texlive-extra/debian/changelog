@@ -1,3 +1,10 @@
+texlive-extra (2012.20130111-2) UNRELEASED; urgency=low
+
+  * texlive-extra-utils now depends on texlive-latex-base to make pdfjam
+    and friends work out of the box (LP: #1085666)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 01 Feb 2013 10:41:17 +0900
+
 texlive-extra (2012.20130111-1) experimental; urgency=low
 
   * new upstream checkout
