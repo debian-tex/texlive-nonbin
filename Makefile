@@ -106,6 +106,8 @@ debdiff:
 	mkdir -p log
 	mv pool/*.debdiff pool/*.nodoc log
 
+update-scripts-file:
+	cat /src/TeX/texlive-svn/Build/source/texk/texlive/linked_scripts/scripts.lst /src/TeX/texlive-svn/Build/source/texk/texlive/tl_scripts/scripts.lst  > all/debian/scripts.lst
 
 packages:
 	bash scripts/build-infra -p . -nosign pool
