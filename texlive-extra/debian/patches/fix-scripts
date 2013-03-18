@@ -1,12 +1,12 @@
 ---
- texmf-dist/scripts/a2ping/a2ping.pl |   10 ++--------
- texmf-dist/scripts/pkfix/pkfix.pl   |    3 +--
- texmf-dist/scripts/pst2pdf/pst2pdf  |    3 +--
- texmf-dist/scripts/vpe/vpe.pl       |    3 +--
+ texmf-dist/scripts/a2ping/a2ping.pl   |   10 ++--------
+ texmf-dist/scripts/pkfix/pkfix.pl     |    3 +--
+ texmf-dist/scripts/pst2pdf/pst2pdf.pl |    3 +--
+ texmf-dist/scripts/vpe/vpe.pl         |    3 +--
  4 files changed, 5 insertions(+), 14 deletions(-)
 
---- texlive-extra-2012.20121123.orig/texmf-dist/scripts/pkfix/pkfix.pl
-+++ texlive-extra-2012.20121123/texmf-dist/scripts/pkfix/pkfix.pl
+--- texlive-extra-2012.20130315.orig/texmf-dist/scripts/pkfix/pkfix.pl
++++ texlive-extra-2012.20130315/texmf-dist/scripts/pkfix/pkfix.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -    if 0;
@@ -14,8 +14,8 @@
  use strict;
  $^W=1; # turn warning on
  #
---- texlive-extra-2012.20121123.orig/texmf-dist/scripts/pst2pdf/pst2pdf
-+++ texlive-extra-2012.20121123/texmf-dist/scripts/pst2pdf/pst2pdf
+--- texlive-extra-2012.20130315.orig/texmf-dist/scripts/pst2pdf/pst2pdf.pl
++++ texlive-extra-2012.20130315/texmf-dist/scripts/pst2pdf/pst2pdf.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -23,8 +23,8 @@
  
  use strict;				# to be sure, that all is safe ... :-)
  
---- texlive-extra-2012.20121123.orig/texmf-dist/scripts/vpe/vpe.pl
-+++ texlive-extra-2012.20121123/texmf-dist/scripts/vpe/vpe.pl
+--- texlive-extra-2012.20130315.orig/texmf-dist/scripts/vpe/vpe.pl
++++ texlive-extra-2012.20130315/texmf-dist/scripts/vpe/vpe.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -32,8 +32,8 @@
  use strict;
  #
  # vpe.pl
---- texlive-extra-2012.20121123.orig/texmf-dist/scripts/a2ping/a2ping.pl
-+++ texlive-extra-2012.20121123/texmf-dist/scripts/a2ping/a2ping.pl
+--- texlive-extra-2012.20130315.orig/texmf-dist/scripts/a2ping/a2ping.pl
++++ texlive-extra-2012.20130315/texmf-dist/scripts/a2ping/a2ping.pl
 @@ -1,11 +1,5 @@
 -#! /bin/sh
 -eval '(exit $?0)' && eval 'PERL_BADLANG=x;export PERL_BADLANG;: \
