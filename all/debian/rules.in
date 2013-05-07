@@ -49,16 +49,6 @@ install-stamp: build-stamp
 	  cat debian/README.Debian >> debian/$$i.README.Debian ; \
 	done
 <: if ($srcpackage eq "texlive-base") { _:>//
-	# do some clean up, we have to move three files into different directories
-	mkdir -p debian/texlive-base/etc/texmf/dvipdfm/config
-	mv debian/texlive-base/usr/share/texlive/texmf/dvipdfm/config/config \
-	  debian/texlive-base/etc/texmf/dvipdfm/config
-	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf/dvipdfm/config
-	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf/dvipdfm
-	mkdir -p debian/texlive-base/etc/texmf/xdvi
-	mv debian/texlive-base/usr/share/texlive/texmf/xdvi/xdvi.cfg \
-	  debian/texlive-base/etc/texmf/xdvi/xdvi.cfg
-	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf/xdvi
 	mkdir -p debian/texlive-base/etc/texmf/texdoctk
 	mv debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk/texdocrc.defaults \
 	  debian/texlive-base/etc/texmf/texdoctk
@@ -81,9 +71,20 @@ binary-indep: build install
 	dh_installdocs -A debian/README.source
 <: if ($srcpackage eq "texlive-base") { _:>//
 	dh_installdocs -p texlive-common README readme-txt.dir readme-html.dir debian/CHANGES.packaging
+	# nasty trick
+	# mptopdf needs a dump, but is a link to a script
+	# we have to trick dh_installtex to accept it
+	mv debian/texlive-latex-base/usr/bin/mptopdf	\
+		debian/texlive-latex-base/usr/bin/mptopdf.bck
+	ln -s pdftex debian/texlive-latex-base/usr/bin/mptopdf
 	dh_installtex -Ntexlive-base -A --priority=10	\
 		$(patsubst %,-N%,$(METAPACKAGES))	\
 		--flavor=lsr:full,tree:texlive
+	# nasty trick undoing
+	rm debian/texlive-latex-base/usr/bin/mptopdf
+	mv debian/texlive-latex-base/usr/bin/mptopdf.bck	\
+		debian/texlive-latex-base/usr/bin/mptopdf
+	# end of nasty trick
 	dh_installtex -ptexlive-base --priority=10	\
 		--flavor=format:build_all,lsr:full,tree:texlive
 	# /usr/bin/mf has been created by dh_installtex as symlink to mf-nowin

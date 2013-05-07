@@ -103,7 +103,7 @@ sub build_data_hash {
 		}
 		my $tlp = $::tlpdb->get_package($bin_pkg);
 		die "Cannot get $bin_pkg from tlpdb!" unless defined($tlp);
-		$tlp->cancel_reloc_prefix;
+		$tlp->replace_reloc_prefix;
 		my ($pkg) = tpm2debname($bin_pkg);
 		my $realtype = $tlp->category;
 		next if ($realtype eq "Scheme");
@@ -257,7 +257,7 @@ sub build_data_hash {
 			my @p = ();
 			my @pd = ();
 			foreach my $f (@{$TeXLive{'binary'}{$bin_pkg}{'docfiles'}}) {
-				if ($f =~ m;texmf[^/]*/doc/man/man.*/.*;) {
+				if ($f =~ m;texmf-dist/doc/man/man.*/.*;) {
 					push @p, $f;
 				} else {
 					push @pd, $f;
@@ -321,7 +321,7 @@ sub build_data_hash {
 								($TeXLive{'all'}{'file_map_actions'}{$f} eq "move")) {
 						push @p, $f;
 					} else {
-						if ($f =~ m;texmf[^/]*/doc/man/man.*/.*;) {
+						if ($f =~ m;texmf-dist/doc/man/man.*/.*;) {
 							push @p, $f;
 						} else {
 							push @pd, $f;

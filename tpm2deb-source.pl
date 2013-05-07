@@ -29,7 +29,6 @@ if ($mydir eq $0) { $mydir = `pwd` ; chomp($mydir); }
 if (!($mydir =~ m,/.*,,)) { $mmydir = `pwd`; chomp($mmydir); $mydir = "$mmydir/$mydir" ; }
 
 
-# $opt_master = "./LocalTPM";
 $opt_debug = 0;
 $opt_nosrcpkg = 0;
 $opt_noremove = 0;
@@ -259,7 +258,7 @@ sub make_orig_tar {
 	`rm -rf \"$texlivedest/bin\"`;
 	#
 	# necessary for media detection!
-	&mkpath("$texlivedest/texmf/web2c");
+	&mkpath("$texlivedest/texmf-dist/web2c");
 	# 
 	# copy the files necessary for tpm2deb.pl from the Tools directory
 	#
@@ -277,10 +276,6 @@ sub make_orig_tar {
 	# so disable it. We could run over {tex,...} if we want!
 	if (-d "$texlivedest/texmf-dist") {
 		system("find $texlivedest/texmf-dist/ -type f -print0 | xargs -0 chmod -x") == 0
-		    or die("Cannot remove unwanted execution permissions");
-	}
-	if (-d "$texlivedest/texmf-doc") {
-		system("find $texlivedest/texmf-doc/ -type f -print0 | xargs -0 chmod -x") == 0
 		    or die("Cannot remove unwanted execution permissions");
 	}
 	# remove any git directories
@@ -309,7 +304,7 @@ sub create_license_file {
 	print "mydir/texlivedest = $mydir/$texlivedest\n";
 	for my $p (sort keys %allpacks) {
 		my $tlp = $::tlpdb->get_package($p);
-		$tlp->cancel_reloc_prefix;
+		$tlp->replace_reloc_prefix;
 		my @filelist;
 		push @filelist, $tlp->runfiles;
 		push @filelist, $tlp->docfiles;
