@@ -1,13 +1,13 @@
 add info dir section and entry to texdraw and epspdf
 ---
 ---
- texmf/doc/info/epspdf.info	2012-03-06 11:43:52.019809190 +0900 |binary
- texmf/doc/info/epspdf.info  |binary
- texmf/doc/info/texdraw.info |    5 +++++
- 2 files changed, 5 insertions(+)
+ texmf-dist/doc/info/epspdf.info	2012-03-06 11:43:52.019809190 +0900 |binary
+ texmf-dist/doc/info/epspdf.info  |binary
+ texmf-dist/doc/info/texdraw.info |    5 +++++
+ 1 file changed, 5 insertions(+)
 
---- texlive-base-2012.20130315.orig/texmf/doc/info/texdraw.info
-+++ texlive-base-2012.20130315/texmf/doc/info/texdraw.info
+--- texlive-base-2013.20130509.orig/texmf-dist/doc/info/texdraw.info
++++ texlive-base-2013.20130509/texmf-dist/doc/info/texdraw.info
 @@ -14,6 +14,11 @@
  entire resulting derived work is distributed under the terms of a
  permission notice identical to this one.
@@ -20,4 +20,3 @@ add info dir section and entry to texdraw and epspdf
  
  File: texdraw,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
  
-Binary files texlive-base-2012.20130315.orig/texmf/doc/info/epspdf.info and texlive-base-2012.20130315/texmf/doc/info/epspdf.info differ
