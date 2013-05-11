@@ -9,7 +9,7 @@ mv *.deb *.orig.tar.* *.debian.tar.gz *.dsc *.changes pool/
 mkdir -p log
 mv *.log log/
 
-#make packages lintian
+make packages lintian
 #make debdiff
 #make sid-overwrite
 #make sid-tests

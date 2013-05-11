@@ -179,10 +179,6 @@ sub make_deb_copy_to_rightplace {
 			}
 		}
 	}
-	if ($package eq 'texlive-common') {
-		&mkpath("$debdest/texlive-common/usr/share/texlive/tlpkg");
-		mycopy("$Master/tlpkg/TeXLive","$debdest/texlive-common/usr/share/texlive/tlpkg/");
-	}
 	return(@SpecialActions);
 }
 

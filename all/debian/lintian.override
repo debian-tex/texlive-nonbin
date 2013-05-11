@@ -20,12 +20,9 @@ texlive-lang source: maintainer-script-lacks-debhelper-token debian/common.funct
 texlive-extra source: maintainer-script-lacks-debhelper-token debian/common.functions.preinst
 texlive-extra source: maintainer-script-lacks-debhelper-token debian/common.functions.postinst
 texlive-extra source: maintainer-script-lacks-debhelper-token debian/common.functions.postrm
-texlive-doc source: maintainer-script-lacks-debhelper-token debian/common.functions.preinst
-texlive-doc source: maintainer-script-lacks-debhelper-token debian/common.functions.postinst
-texlive-doc source: maintainer-script-lacks-debhelper-token debian/common.functions.postrm
 texlive-base: no-debconf-config
 tetex-base: maintainer-script-needs-depends-on-ucf postinst
-texlive-doc-fr: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/beamer-themes.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
-texlive-doc-fr: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/polices.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
+texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/beamer-themes.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
+texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/polices.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
 texlive-music: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/songbook/contrib/crd2sb/crd2sb (#!/usr/local/bin/perl != /usr/bin/perl)
 texlive-fonts-extra-doc: shell-script-fails-syntax-check usr/share/texlive/texmf-dist/doc/fonts/wsuipa/compilefonts

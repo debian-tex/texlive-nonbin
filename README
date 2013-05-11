@@ -359,8 +359,8 @@ priority;<package>|*;priority
 	defines the priority for <package> or all packages
 standards;<package>|*;standard
 	defines the standards release
-texlive-common-version;version
-	minimal texlive-common version all packages depend on
+texlive-base-version;version
+	minimal texlive-base version all packages depend on
 latest-version;<srcpackage>;version
 	latest version the texlive-full package depend on
 	need not be the real latest greatest release
