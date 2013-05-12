@@ -271,13 +271,14 @@ sub make_orig_tar {
 	system("chmod -R u+w $tmpdir") == 0
 	    or die("Cannot set permissions on $tmpdir");
 	#
-	# and remove x bits from all files under Master/texmf-dist/doc
-	# this makes essential scripts in web2c (makeupd etc) not executable!
-	# so disable it. We could run over {tex,...} if we want!
-	if (-d "$texlivedest/texmf-dist") {
-		system("find $texlivedest/texmf-dist/ -type f -print0 | xargs -0 chmod -x") == 0
-		    or die("Cannot remove unwanted execution permissions");
-	}
+	# and remove x bits from all files under Master/texmf-dist
+	# but since this would make essential scripts in web2c (makeupd etc) not executable,
+	# we exclude texmf-dist/web2c and texmf-dist/texconfig for now
+	# MORE SAFE: disable this completely ...
+	#if (-d "$texlivedest/texmf-dist") {
+	#	system("find $texlivedest/texmf-dist/ -path $texlivedest/texmf-dist/web2c -prune -o -path $texlivedest/texmf-dist/texconfig -prune -o -type f -print0 | xargs -0 chmod -x") == 0
+	#	    or die("Cannot remove unwanted execution permissions");
+	#}
 	# remove any git directories
 	system("find $texlivedest -name '.git' | xargs rm -rf") == 0
 		or die("Error while removing git directories");

@@ -70,7 +70,7 @@ binary-indep: build install
 	dh_installmenu
 	dh_installdocs -A debian/README.source
 <: if ($srcpackage eq "texlive-base") { _:>//
-	dh_installdocs -p texlive-common README readme-txt.dir readme-html.dir debian/CHANGES.packaging
+	dh_installdocs -p texlive-base README readme-txt.dir readme-html.dir debian/CHANGES.packaging
 	# nasty trick
 	# mptopdf needs a dump, but is a link to a script
 	# we have to trick dh_installtex to accept it

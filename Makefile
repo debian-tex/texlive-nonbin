@@ -4,7 +4,7 @@ MASTER?=/var/www/norbert/tlnet
 OLDPKG?=$(PWD)/old
 OLDSOURCES?=$(PWD)/src
 CURRENTDIR=$(PWD)
-SOURCES ?= texlive-base texlive-doc texlive-lang texlive-extra
+SOURCES ?= texlive-base texlive-lang texlive-extra
 TMPDIR?=/var/tmp
 
 # for update-liclines
@@ -23,8 +23,8 @@ first:
 	@echo "No, I don't do anything without being told exactely what!"
 
 norbert:
-	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-orig-tar texlive-base texlive-extra texlive-doc texlive-lang
-	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-deb-source texlive-base texlive-extra texlive-doc texlive-lang
+	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-orig-tar texlive-base texlive-extra texlive-lang
+	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-deb-source texlive-base texlive-extra texlive-lang
 
 all: sources pbuilder lintian packages debdiff deepdiff alltests
 

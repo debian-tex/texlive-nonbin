@@ -1,8 +1,8 @@
-texlive-lang (2013.20130509-1) unstable; urgency=low
+texlive-lang (2013.20130511-1) unstable; urgency=low
 
   * new upstream checkout
 
- -- Norbert Preining <preining@debian.org>  Thu, 09 May 2013 21:39:21 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 11 May 2013 13:46:15 +0900
 
 texlive-lang (2012.20130315-1) experimental; urgency=low
 
