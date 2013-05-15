@@ -1,9 +1,9 @@
-texlive-extra (2013.20130514-1) unstable; urgency=low
+texlive-extra (2013.20130515-1) unstable; urgency=low
 
   * new upstream checkout
   * depend on fonts-dejavu-* instead of ttf-dejavu-* (Closes: #708059)
 
- -- Norbert Preining <preining@debian.org>  Tue, 14 May 2013 10:55:17 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 15 May 2013 11:12:03 +0900
 
 texlive-extra (2012.20130315-1) experimental; urgency=low
 
