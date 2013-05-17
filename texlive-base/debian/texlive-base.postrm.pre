@@ -1,0 +1,13 @@
+
+case $action in
+  abort-install|abort-upgrade)
+    syml=/usr/share/texlive/texmf-dist/doc
+    if [ -n "$2" ] && dpkg --compare-versions "$2" lt "2013" ; then
+      if [ -L $syml.dpkg-remove ] && [ ! -e $syml ] ; then
+        echo "Reinstatiating $syml"
+        mv $syml.dpkg-remove $syml
+      fi
+    fi
+  ;;
+esac
+
