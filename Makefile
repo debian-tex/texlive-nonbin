@@ -73,7 +73,7 @@ linda:
 
 lintian:
 	cd pool && \
-	for i in texlive*.changes tex-common*.changes ; do \
+	for i in *.changes ; do \
 		TMPDIR=${TMPDIR} lintian $$i > `basename $$i .changes`.lintian.log ; \
 	done || true
 	mkdir -p log

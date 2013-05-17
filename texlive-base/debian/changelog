@@ -1,8 +1,8 @@
-texlive-base (2013.20130515-1) unstable; urgency=low
+texlive-base (2013.20130517-1) unstable; urgency=low
 
   * new upstream checkout
 
- -- Norbert Preining <preining@debian.org>  Wed, 15 May 2013 11:11:55 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 17 May 2013 11:09:07 +0900
 
 texlive-base (2012.20130315-1) experimental; urgency=low
 
