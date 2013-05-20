@@ -22,7 +22,7 @@
 +
  % Local additions to the distribution trees.
 -TEXMFLOCAL = $TEXMFROOT/../texmf-local
-+TEXMFLOCAL = /usr/local/share/texmf-local
++TEXMFLOCAL = /usr/local/share/texmf
  
  % TEXMFSYSVAR, where *-sys store cached runtime data.
 -TEXMFSYSVAR = $TEXMFROOT/texmf-var
