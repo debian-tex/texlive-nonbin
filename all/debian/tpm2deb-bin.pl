@@ -74,9 +74,9 @@ sub main {
 	die "Cannot load tlpdb!" unless defined($::tlpdb);
 	initialize_config_file_data("debian/tpm2deb.cfg");
 	build_data_hash();
-    #    use Data::Dumper;
+	#    use Data::Dumper;
 	#    $Data::Dumper::Indent = 1;
-    #    print Dumper(\%TeXLive);
+	#    print Dumper(\%TeXLive);
     #    exit(1);
 	check_consistency();
 	foreach my $package (@packages) {
@@ -145,6 +145,9 @@ sub make_deb_copy_to_rightplace {
 		next if tl_is_blacklisted($file);
 		if (!tl_is_ignored($file)) {
 			my $finaldest = "$basedir/usr/share/texlive/$lfile";
+			if ($lfile =~ m!^texmf-dist/doc/(.*)$!) {
+				$finaldest = "$basedir/usr/share/doc/texlive-doc/$1";
+			}
 			# SWITCH my $finaldest = "$basedir/usr/share/texmf/$lfile";
 			$opt_debug && print STDERR "NORMAL COPY: $finaldest\n";
 			&mkpath(dirname($finaldest));

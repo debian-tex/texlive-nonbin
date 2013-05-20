@@ -1,4 +1,0 @@
-
-ALL PACKAGES HAVE TO CONFLCIT WITH texlive-base << 2013 
-OTHERWISE texmf-dist/doc move will NOT work!!!
-

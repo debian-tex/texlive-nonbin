@@ -220,13 +220,9 @@ sub build_data_hash {
 		#
 		# other relations
 		#
-		my @conflicts;
-		push @conflicts, "texlive-base (<< 2013)";
 		if (defined($Config{'conflicts'}{$pkg})) {
-			push @conflicts, @{$Config{'conflicts'}{$pkg}};
+			$TeXLive{'binary'}{$pkg}{'conflicts'} = [ @{$Config{'conflicts'}{$pkg}} ];
 		}
-		$TeXLive{'binary'}{$pkg}{'conflicts'} = [ @conflicts ];
-		#
 		if (defined($Config{'suggests'}{$pkg})) {
 			$TeXLive{'binary'}{$pkg}{'suggests'} = [ @{$Config{'suggests'}{$pkg}} ];
 		}

@@ -130,7 +130,7 @@ binary-indep: build install
 	# remove .bat files, nobody needs them
 	find debian/texlive-*/usr/share/texlive/texmf-dist/ -name \*.bat -a -type f -exec rm '{}' \;
 	# remove x bit from files in the doc hierarchy
-	find debian/texlive-*/usr/share/texlive/texmf-dist/doc -type f -exec chmod a-x '{}' \;
+	find debian/texlive-*/usr/share/doc/texlive-doc -type f -exec chmod a-x '{}' \;
 	# we also have to fix the permissions of the link targets from /usr/bin
 	bash debian/fix-bin-symlink-targets-permissions.sh
 	dh_installdeb

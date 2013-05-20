@@ -39,14 +39,6 @@ case "$1" in
     fi
   done
  
-  # remove preinst created backup of link of texmf-dist/doc
-  if dpkg --compare-versions "$trigger" lt "2013" ; then
-    if [ -L /usr/share/texlive/texmf-dist/doc.dpkg-remove ] ; then
-      rm -f /usr/share/texlive/texmf-dist/doc.dpkg-remove
-    fi
-  fi
-
-
   mktexlsr /usr/share/texlive/texmf /usr/share/texmf /var/lib/texmf 
   for binary in dvips dvipdfmx xdvi pdftex; do
     if localpaper=$(tl-paper get $binary); then
