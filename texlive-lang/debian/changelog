@@ -1,8 +1,10 @@
-texlive-lang (2013.20130520-2) UNRELEASED; urgency=low
+texlive-lang (2013.2013052NNNNNN-1) UNRELEASED; urgency=low
 
+  * new upstream checkout
   * add another few replaces against old doc pkgs (Closes: #709227, #709233)
+  * include thailatex again, provide transitional thailatex package
 
- -- Norbert Preining <preining@debian.org>  Wed, 22 May 2013 09:28:44 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 23 May 2013 12:28:52 +0900
 
 texlive-lang (2013.20130520-1) unstable; urgency=low
 
