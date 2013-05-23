@@ -1,3 +1,9 @@
+texlive-extra (2013.20130523-1) unstable; urgency=low
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Thu, 23 May 2013 12:36:41 +0900
+
 texlive-extra (2013.20130520-1) unstable; urgency=low
 
   * new upstream checkout

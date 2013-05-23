@@ -1,3 +1,10 @@
+texlive-base (2013.20130523-1) unstable; urgency=low
+
+  * new upstream checkout
+  * turn user mode permanently on in tlmgr, and make tlmgr actually work
+
+ -- Norbert Preining <preining@debian.org>  Thu, 23 May 2013 12:56:48 +0900
+
 texlive-base (2013.20130520-2) unstable; urgency=low
 
   * fix wrong definition of TEXMFLOCAL

@@ -1,0 +1,83 @@
+---
+ texmf-dist/doc/man/man1/tlmgr.1     |    2 +
+ texmf-dist/scripts/texlive/tlmgr.pl |   43 ++++--------------------------------
+ 2 files changed, 7 insertions(+), 38 deletions(-)
+
+--- texlive-base-2013.20130523.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2013.20130523/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -19,7 +19,7 @@
+ $tlmgrrevision .= " ($datrev)";
+ 
+ our $Master;
+-our $ismain;
++our $ismain = 1;
+ our $loadmediasrcerror;
+ our $packagelogfile;
+ our $packagelogged;
+@@ -28,44 +28,8 @@
+ 
+ BEGIN {
+   $^W = 1;
+-  $ismain = (__FILE__ eq $0);
+-  # WARNING
+-  # The only use anticipated for tlmgr.pl as library for the 2009 release
+-  # is the Windows w32client prototype script.
+-  # Unix-specific problems with use as library will probably go undetected.
+-
+-  # make subprograms (including kpsewhich) have the right path:
+-  my ($bindir, $kpsewhichname);
+-  if ($^O =~ /^MSWin/i) {
+-    # on w32 $0 and __FILE__ point directly to tlmgr.pl; they can be relative
+-    $Master = __FILE__;
+-    $Master =~ s!\\!/!g;
+-    $Master =~ s![^/]*$!../../..!
+-      unless ($Master =~ s!/texmf-dist/scripts/texlive/tlmgr\.pl$!!i);
+-    $bindir = "$Master/bin/win32";
+-    $kpsewhichname = "kpsewhich.exe";
+-    # path already set by wrapper batchfile
+-  } else {
+-    $Master = __FILE__;
+-    $Master =~ s,/*[^/]*$,,;
+-    if ($ismain) {
+-      $bindir = $Master;
+-      $Master = "$Master/../..";
+-    } else {
+-      # for the time being, this code will not be used or tested
+-      $Master = "$Master/../../..";
+-      # no code yet for $bindir; would have to detect platform
+-    }
+-    # make subprograms (including kpsewhich) have the right path:
+-    $ENV{"PATH"} = "$bindir:$ENV{PATH}";
+-    $kpsewhichname = "kpsewhich";
+-  }
+-  if (-r "$bindir/$kpsewhichname") {
+-    # if not in bootstrapping mode => kpsewhich exists, so use it to get $Master
+-    chomp($Master = `kpsewhich -var-value=SELFAUTOPARENT`);
+-  }
++  $Master = "/usr/share/texlive";
+   $::installerdir = $Master;
+-
+   #
+   # make Perl find our packages first:
+   unshift (@INC, "$Master/tlpkg");
+@@ -237,6 +201,9 @@
+ 
+   GetOptions(\%opts, keys(%optarg)) or pod2usage(2);
+ 
++  $opts{"usermode"} = 1;
++  print "(running on Debian, switching to user mode!)\n";
++
+   $::debug_translation = 0;
+   $::debug_translation = 1 if $opts{"debug-translation"};
+ 
+--- texlive-base-2013.20130523.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2013.20130523/texmf-dist/doc/man/man1/tlmgr.1
+@@ -145,6 +145,8 @@
+ <http://tug.org/texlive/tlmgr.html>, along with procedures for updating
+ \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
+ .PP
++WARNING: tlmgr in Debian runs always in user mode
++.PP
+ TeX Live is organized into a few top-level \fIschemes\fR, each of which is
+ specified as a different set of \fIcollections\fR and \fIpackages\fR, where a
+ collection is a set of packages, and a package is what contains actual
