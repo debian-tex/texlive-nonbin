@@ -712,12 +712,6 @@ sub read_one_config_file {
 			$TeXLive{'all'}{'tl_common_version'} = "$a";
 			next;
 		}
-		if ($type eq "old-version") {
-			my ($b) = @rest;
-			$opt_debug && print STDERR  "b=$b.\n";
-			$TeXLive{'source'}{$a}{'old_version'} = "$b";
-			next;
-		}
 		if ($type eq "latest-version") {
 			my ($b) = @rest;
 			$opt_debug && print STDERR  "b=$b.\n";
@@ -799,12 +793,6 @@ sub read_one_config_file {
 		if ($type eq "linkedscript") {
 			my ($b) = @rest;
 			$TeXLive{'all'}{'linkedscript'}{$a} = $b;
-			next;
-		}
-		# removeconffile;texlive-lang-french;etc/texmf/language.d/10texlive-lang-french.cnf
-		if ($type eq "removeconffile") {
-			my ($b) = @rest;
-			push @{$TeXLive{'binary'}{$a}{'remove_conffile'}}, $b;
 			next;
 		}
 		if ($type eq "include-config") {

@@ -359,23 +359,6 @@ sub make_maintainer {
 	my ($package) = @_;
 	print "Making maintainer scripts for $package in $debdest...\n";
 	&mkpath($debdest);
-	# create debian/maintscript
-	if ((-r "$debdest/$package.maintscript.dist") ||
-	    ($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0)) {
-		open(MAINTHELP, ">$debdest/$package.maintscript")
-			or die("Cannot open $debdest/$package.maintscript for writing");
-		merge_into("$debdest/$package.maintscript.dist", MAINTSCRIPT);
-		#
-		# handling of conffile moves
-		if ($#{$TeXLive{'binary'}{$package}{'remove_conffile'}} >= 0) {
-			for my $conffile (@{$TeXLive{'binary'}{$package}{'remove_conffile'}}) {
-				my $srcpkg = $TeXLive{'binary'}{$package}{'source_package'};
-				my $oldversion = $TeXLive{'source'}{$srcpkg}{'old_version'};
-				print MAINTHELP "rm_conffile $conffile $oldversion\n";
-			}
-		}
-		close(MAINTHELP);
-	}
 	for my $type (qw/postinst preinst postrm prerm/) {
 		$opt_debug && print STDERR "Handling $type ";
 		if ((-r "$debdest/$type.pre") ||
