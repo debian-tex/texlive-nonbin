@@ -39,7 +39,6 @@ install-stamp: build-stamp
 	mkdir -p texmf/web2c
 	perl debian/tpm2deb-bin.pl --nosource $(PACKAGES) $(METAPACKAGES)
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
-	  if [ -d debian/$$i.root ] ; then bash debian/merge-dist-tree debian/$$i.root debian/$$i ; fi ; \
 	  bash debian/generate-license-file $$i ; \
 	  install -D --mode=644 debian/$$i.override debian/$$i/usr/share/lintian/overrides/$$i ; \
 	  install -D --mode=755 debian/bug.script debian/$$i/usr/share/bug/$$i/script ; \

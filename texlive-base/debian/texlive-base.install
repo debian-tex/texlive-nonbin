@@ -1,0 +1,2 @@
+debian/tl-paper usr/bin/
+debian/debianize-fmtutil usr/share/texlive/debian/

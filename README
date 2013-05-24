@@ -221,7 +221,6 @@ which does the following for each binary package $pkg
 	- finally the maintainer scripts are created (see below 5a)
 After this the debian/rules file continues and does the following 
 (current situation) for each $binpkg:
-	- merge the files from debian/$binpkg.root into the install dir
 	- generate the license file
 	- remove the tpm files
 	- install lintian override, bug script and control files
@@ -251,13 +250,6 @@ Time done: at source patching time, before building
 Advantage: the usual Debian way, but it circumvents quilt
 Disadvantage: no binary files possible
 
-4.1b) add the file to the finished tree
-------------------------------------
-you can add files to the *final* tree by putting them into
-  trunk/<src-package>/debian/<bin-package-name>.root/
-Example:
-  trunk/texlive-base/debian/texlive-latex-base.root/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyheadings.sty
-adds the file fancyheadings to the final package texlive-latex-base.
 
 Time done: after build time, before actually packaging the debs (more or less)
 Advantage: binary files can be included .uu encoded and are automatically
