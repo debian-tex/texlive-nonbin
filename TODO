@@ -1,14 +1,3 @@
-- tex-common has /usr/share/texlive/texmf/... hard coded, we need a concerted
-  updated with tex-common and texlive!!! >= 4.03 already prepared!
-
-- need separate upload for context, too!!!!
-
-- the scripts in /usr/share/texlive/texmf-dist/web2c/{tcfmgr,mkupdmap} etc
-  are not executable!?!?!?! Why
-    tpm2deb-source removes all x bits from all files under texmf-dist!!!
-  for now I have disabled the chmod a-x on texmf-dist completely!!!
-
-
 - otf font blacklists and links are generated from lintian files via
   scripts/create-tl-directives, but we do not reevaluate old blacklists
   and change locations

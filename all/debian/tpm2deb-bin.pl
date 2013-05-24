@@ -369,8 +369,6 @@ sub make_maintainer {
 			open(MAINTSCRIPT, ">$debdest/$package.$type")
 				or die("Cannot open $debdest/$package.$type for writing");
 			print MAINTSCRIPT "#!/bin/sh -e\n";
-			merge_into("$debdest/common.functions", MAINTSCRIPT);
-			merge_into("$debdest/common.functions.$type", MAINTSCRIPT);
 			merge_into("$debdest/$type.pre", MAINTSCRIPT);
 			merge_into("$debdest/$package.$type.pre", MAINTSCRIPT);
 			#

@@ -45,18 +45,6 @@ texlive-lang-arabic: python-script-but-no-python-dep usr/share/texlive/texmf-dis
 texlive-lang-arabic: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/amiri/tools/build.py
 texlive-lang-arabic: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/amiri/tools/runtest.py
 texlive-lang-other: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/latex/aramaic-serto/serto.py
-texlive-base source: maintainer-script-lacks-debhelper-token debian/common.functions.preinst
-texlive-base source: maintainer-script-lacks-debhelper-token debian/common.functions.postinst
-texlive-base source: maintainer-script-lacks-debhelper-token debian/common.functions.postrm
-texlive-bin source: maintainer-script-lacks-debhelper-token debian/common.functions.preinst
-texlive-bin source: maintainer-script-lacks-debhelper-token debian/common.functions.postinst
-texlive-bin source: maintainer-script-lacks-debhelper-token debian/common.functions.postrm
-texlive-lang source: maintainer-script-lacks-debhelper-token debian/common.functions.preinst
-texlive-lang source: maintainer-script-lacks-debhelper-token debian/common.functions.postinst
-texlive-lang source: maintainer-script-lacks-debhelper-token debian/common.functions.postrm
-texlive-extra source: maintainer-script-lacks-debhelper-token debian/common.functions.preinst
-texlive-extra source: maintainer-script-lacks-debhelper-token debian/common.functions.postinst
-texlive-extra source: maintainer-script-lacks-debhelper-token debian/common.functions.postrm
 texlive-base: no-debconf-config
 tetex-base: maintainer-script-needs-depends-on-ucf postinst
 texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/beamer-themes.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
