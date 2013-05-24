@@ -10,7 +10,7 @@ QUICK HOWTO TO BUILD A SOURCE PACKAGE
 
 . Do NOT create a new .orig.tar.gz, ie only make a new Debian revision,
   or read the whole text
-. Put the .orig.tar.gz into ./src/
+. Put the .orig.tar.gz into . (or ./src/)
 . edit whatever you have to change, don't forget to change 
   ./$sourcepackage/debian/changelog (it is the debian 
   changelog and defines the version number!)
@@ -35,15 +35,10 @@ Short answer: Read the Makefile, everything is there.
 Long answer:
 
 Contents:
-0) Documentation of changes
 1) Layout of the directory
 2) Building a new .orig.tar.gz
 3) Source package build time
 4) Binary package build time
-4.1) I need to add/change files, where should I do that?
-   4.1a) add a file to the orig.tar.gz
-   4.1b) add the file via the .diff.gz
-   4.1c) add the file to the finished tree
 5) Special stuff
    5a) Maintainer scripts handling
    5b) Changelogs
@@ -55,20 +50,12 @@ Contents:
 
 ========================================================
 
-0) Documentation of changes
-===========================
-
-Please document all changes in 
-	all/debian/CHANGES.packaging
-It collects all changes which are sometimes only of interest for
-us developers. It also gives the release points. 
-
 
 1) Layout of the directory:
 ===========================
 
 The 4 directories
-	texlive-base -extra -doc -lang
+	texlive-base -extra -lang
 have the same structure like an unpacked source package, ie they contain a
 	debian/
 subdirectory and optionally other subdirectories.
@@ -104,14 +91,12 @@ scripts/
 		my version of debdiff, used in Makefile target deepdiff
 	build-infra
 		a script to create package files, releases, signature etc
-	tpm2deb-tool.pl
-		various additional functions from the old tpm2deb.pl which
-		do not fit neither in tpm2deb-bin nor -source, but we might
-		need it sometime. Should be updated!!!!!!!!!!!!!!!!!!!!!
 	tex-filter-debdiff.py
 		script for filtering debdiff outputs
 	
 docs/
+	all outdated !!!!
+
 	README.ftpmaster
 		a README I wrote to Jörg for explaining a lot of things
 		after the first reject of the packages. Maybe it helps
@@ -136,10 +121,6 @@ tests/
 	tests/stable tests/testing tests/sid
 		upgrade from the respective releases
 	
-patches/
-	some patches that implement(ed) ideas, some of which were included
-	some have been rejected (for now)
-
 etc/
 	random stuff
 
@@ -160,7 +141,7 @@ Please get a copy of tlnet from CTAN the ctan network
 
 Then call in the texlive-new trunk repository:
 	perl tpm2deb-source.pl make-orig-tar --master=/path/to/tlnet $srcpackage
-where $srcpackage is one of texlive-{base,extra,doc,lang}.
+where $srcpackage is one of texlive-{base,extra,lang}.
 
 This does nothing else than unpacking the necessary archives from tlnet,
 to the source package directory, and creates the orig.tar.gz file from it.
@@ -205,7 +186,7 @@ or 'all' to build all of them.
 Besides the rest as found in rules(.in) the main action is taken by
 	perl debian/tpm2deb-bin.pl $packages
 which does the following for each binary package $pkg
-	- copy all the files to debian/$pkg/u/s/texlive/texmf(-dist)/...
+	- copy all the files to debian/$pkg/u/s/texlive/texmf-dist/...
 	  this honors the remap/blacklist/etc directives in the 
 	  config file (see below).
 	  Main function here is the do_remap_and_copy function.
@@ -224,7 +205,6 @@ After this the debian/rules file continues and does the following
 	- generate the license file
 	- remove the tpm files
 	- install lintian override, bug script and control files
-	- create the necessary doc links in /u/s/texlive-doc
 	- if present, add the shipped debian/$binpkg.links.dist to 
 	  debian/$binpkg.links (in earlier revision I think to remember
 	  that tpm2deb(-bin).pl created $binpkg.links, but this is not
@@ -232,29 +212,6 @@ After this the debian/rules file continues and does the following
 	- create the README.Debian files from the package specific 
 	  and the general one.
 ...
-
-
-4.1) I need to add/change files, where should I do that
-=======================================================
-
-There are 2 places where files can be changed/added:
-
-4.1a) add the file via the .diff.gz
---------------------------------
-just drop a file into trunk/<src-package>/...
-No binary files possible
-Example:
-  texlive-bin/texmf/doc/man/man1/dvipos.1
-
-Time done: at source patching time, before building
-Advantage: the usual Debian way, but it circumvents quilt
-Disadvantage: no binary files possible
-
-
-Time done: after build time, before actually packaging the debs (more or less)
-Advantage: binary files can be included .uu encoded and are automatically
-  decoded
-Disadvantage: ???
 
 
 5) Special stuff
@@ -334,6 +291,9 @@ lintian.override
 The config file for building the orig.tar.gz, the source package and the
 bin package is located in
 	all/debian/tpm2deb.cfg
+	all/debian/cfg.d/*
+
+(list is not up to date!!)
 
 arch;<package>;<arch>
 	defines that the source package <package> has architecture <arch>
