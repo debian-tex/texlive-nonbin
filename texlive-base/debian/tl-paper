@@ -74,6 +74,14 @@ sub main {
       usage();
       exit 1;
     }
+    # set TEXMFVAR and TEXMFSYSVAR to something completely absurd
+    # so that we always find either the system provided config file
+    # as distributed in /usr/share/texlive/texmf-dist, or, if the
+    # admin decided to override that, a copy in TEXMFSYSCONFIG
+    # but *not* the one we have created at some point in history
+    # in TEXMF(SYS)VAR
+    $ENV{"TEXMFVAR"} = "/does/hopefully/not/exists/on/any/system";
+    $ENV{"TEXMFSYSVAR"} = "/does/hopefully/not/exists/on/any/system";
     if ($prg =~ m/^all$/i) {
       if ($newpaper !~ /^(a4|letter)$/) {
         # we cannot deal with that for now, only a4|letter supported for
