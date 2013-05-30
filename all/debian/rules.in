@@ -34,9 +34,9 @@ clean:
 install: install-stamp
 
 install-stamp: build-stamp
-	# make sure we have texmf/web2c otherwise the media detection
+	# make sure we have texmf-dist/web2c otherwise the media detection
 	# might break (like in texlive-lang)
-	mkdir -p texmf/web2c
+	mkdir -p texmf-dist/web2c
 	perl debian/tpm2deb-bin.pl --nosource $(PACKAGES) $(METAPACKAGES)
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/generate-license-file $$i ; \
