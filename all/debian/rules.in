@@ -40,12 +40,7 @@ install-stamp: build-stamp
 	perl debian/tpm2deb-bin.pl --nosource $(PACKAGES) $(METAPACKAGES)
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/generate-license-file $$i ; \
-	  install -D --mode=644 debian/$$i.override debian/$$i/usr/share/lintian/overrides/$$i ; \
-	  install -D --mode=755 debian/bug.script debian/$$i/usr/share/bug/$$i/script ; \
-	  install -D --mode=644 debian/bug.control debian/$$i/usr/share/bug/$$i/control ; \
 	  if [ -r debian/$$i.links.dist ] ; then cat debian/$$i.links.dist >> debian/$$i.links ; fi ; \
-	  if [ -r debian/$$i.README ] ; then cat debian/$$i.README > debian/$$i.README.Debian ; fi ; \
-	  cat debian/README.Debian >> debian/$$i.README.Debian ; \
 	done
 <: if ($srcpackage eq "texlive-base") { _:>//
 	mkdir -p debian/texlive-base/etc/texmf/texdoctk
@@ -67,7 +62,9 @@ binary-indep: build install
 	dh_install
 	dh_installdirs
 	dh_installmenu
-	dh_installdocs -A debian/README.source
+	dh_lintian
+	dh_bugfiles -A
+	dh_installdocs -A debian/README.source debian/README.Debian
 <: if ($srcpackage eq "texlive-base") { _:>//
 	dh_installdocs -p texlive-base README readme-txt.dir readme-html.dir debian/CHANGES.packaging
 	# nasty trick
