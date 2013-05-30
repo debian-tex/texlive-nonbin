@@ -83,12 +83,13 @@ binary-indep: build install
 	# end of nasty trick
 	dh_installtex -ptexlive-base --priority=10	\
 		--flavor=format:build_all,lsr:full,tree:texlive
-	# /usr/bin/mf has been created by dh_installtex as symlink to mf-nowin
-	# but is also shipped by texlive-base-bin, remove it.
+	# /usr/bin/mf has been created by dh_installtex as symlink to 
+	# mf-nowin, but is also shipped by texlive-binaries, remove it.
 	rm debian/texlive-base/usr/bin/mf
 	# furthermore we want to have etex and pdfetex as links in 
-	# texlive-base-bin and not in texlive-base, remove them here
-	# and add them via dh_link in texlive-base-binaries
+	# texlive-binaries and not in texlive-base, remove them here
+	# and add them via dh_link in texlive-binaries
+	# this is just out of history, would be nicer to have changed
 	rm debian/texlive-base/usr/bin/etex 
 	rm debian/texlive-base/usr/bin/pdfetex
 	# for the libpaper hook, install templates and
