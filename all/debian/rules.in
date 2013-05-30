@@ -20,6 +20,7 @@ clean:
 	  rm -f debian/$$i.{README.Debian,links,links.generated} ; \
 	  rm -f debian/$$i.{postinst,postrm,preinst,prerm} ; \
 	  rm -f debian/$$i.{maps,hyphens,formats,info,manpages} ; \
+	  rm -f debian/$$i.{lintian-overrides} ; \
 	done
 <: if ($srcpackage eq "texlive-base") { _:>//
 	rm -f debian/texlive-base.cnf

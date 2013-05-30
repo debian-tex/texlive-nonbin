@@ -347,16 +347,17 @@ sub create_override_file {
 		}
 	}
 	if ($#binlines >= 0) {
- 		open(BINOVER,">$debdest/$package.override") 
-		    or die("Cannot open $debdest/$package.override");
+ 		open(BINOVER,">$debdest/$package.lintian-overrides") 
+		    or die("Cannot open $debdest/$package.lintian-overrides");
 		foreach (@binlines) {
 			print BINOVER $_;
 		}
 		close(BINOVER);
 	}
 	if ($#sourcelines >= 0) {
- 		open(SOURCEOVER,">$debdest/source.lintian-overrides") 
-		    or die("Cannot open $debdest/source.lintian-overrides");
+		mkpath("$debdest/source");
+ 		open(SOURCEOVER,">$debdest/source/lintian-overrides") 
+		    or die("Cannot open $debdest/source/lintian-overrides");
 		foreach (@sourcelines) {
 			print SOURCEOVER $_;
 		}
