@@ -16,7 +16,7 @@ perl tpm2deb-source.pl --noremove --nosrcpkg make-deb-source $pkg
 cd ${pkg}-$upversion
 dpkg-buildpackage -us -uc -rfakeroot
 cd ..
-rm -rf ${pkg}-$upversion
+#rm -rf ${pkg}-$upversion
 
 
 # for cowbuilder builds

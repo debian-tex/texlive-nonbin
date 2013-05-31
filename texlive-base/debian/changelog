@@ -1,12 +1,12 @@
-texlive-base (2013.2013NNNN-1) UNRELEASED; urgency=low
+texlive-base (2013.20130530-1) unstable; urgency=low
 
-  * UNRELEASED
+  * new upstream checkout, corresponding to TL2013 DVD release
   * adjust tl-paper to always read the (known good) system provided
     paper config files, or the ones provided by the sysadmin, instead
     of the generated one in TEXMFSYSVAR while setting paper sizes
     (Closes: #709986)
 
- -- Norbert Preining <preining@debian.org>  Wed, 29 May 2013 13:57:39 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 30 May 2013 11:45:33 +0900
 
 texlive-base (2013.20130523-1) unstable; urgency=low
 
