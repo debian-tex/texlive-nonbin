@@ -21,7 +21,11 @@ combination of packages in a LaTeX document, please consult your
 local TeX User Group, the comp.text.tex user group, the author of
 the original .sty file, or any other help resource. 
 
-   *** The Debian TeX Team is *no* LaTeX Help Desk ***
+In particular, bugs that are related to up-upstream, i.e., neither
+Debian nor TeX Live (upstream), but the original package authors,
+will be closed immediately.
+
+   *** The Debian TeX Team is *not* a LaTeX Help Desk ***
 
 If you report an error when running one of the TeX-related binaries 
 (latex, pdftex, metafont,...), or if the bug is related to bad or wrong
