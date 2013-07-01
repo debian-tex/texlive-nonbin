@@ -3,8 +3,9 @@ texlive-extra (2013.20130530-2) UNRELEASED; urgency=low
   * UNRELEASED
   * texlive-publishers depends on texlive-latex-recommended (Closes: #710420)
   * texlive-science depends on texlive-latex-recommended (Closes: #711168)
+  * fix texcount for \verb+...+ (Closes: #711491)
 
- -- Norbert Preining <preining@debian.org>  Thu, 06 Jun 2013 09:23:48 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 01 Jul 2013 20:46:53 +0900
 
 texlive-extra (2013.20130530-1) unstable; urgency=low
 
