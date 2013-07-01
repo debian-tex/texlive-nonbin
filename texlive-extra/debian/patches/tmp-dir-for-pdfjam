@@ -1,0 +1,13 @@
+Respect TMPDIR env var in pdfjam (Closes: #714188) (thanks Ivan Shmakov)
+--- texlive-extra-2013.20130509.orig/texmf-dist/scripts/pdfjam/pdfjam	2013-07-01 20:49:40.000000000 +0900
++++ texlive-extra-2013.20130509/texmf-dist/scripts/pdfjam/pdfjam	2013-07-01 20:50:18.000000000 +0900
+@@ -169,7 +169,8 @@
+ ##
+ ##  Next a permitted location for temporary files on your system:
+ ##
+-tempfileDir='/var/tmp'   ##  /var/tmp is standard on most unix systems
++#tempfileDir='/var/tmp'   ##  /var/tmp is standard on most unix systems
++tempfileDir=${TMPDIR:-'/tmp'}  ##  /tmp is the default on Debian
+ ##
+ ##
+ ##  Default for the output file location:
