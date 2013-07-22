@@ -99,6 +99,12 @@ binary-indep: build install
 	dh_installdebconf -n
 	cp debian/texlive-base.libpaper debian/texlive-base/etc/libpaper.d/texlive-base
 	chmod a+x debian/texlive-base/etc/libpaper.d/texlive-base
+<: } elsif ($srcpackage eq "texlive-lang") { _:>//
+	# we create the format links via the texlive-lang-czechslovak.links
+	# file, since otherwise dh_installtex boils out as several formats
+	# with different engines have the same name
+	dh_installtex -p texlive-lang-czechslovak --priority=10 --flavor=lsr:full,tree:texlive,format:no_links
+	dh_installtex -N texlive-lang-czechslovak --priority=10 --flavor=lsr:full,tree:texlive
 <: } else { _:>//
 	dh_installtex -A --priority=10 --flavor=lsr:full,tree:texlive
 <: } :>//
