@@ -1,13 +1,13 @@
-texlive-extra (2013.20130530-2) UNRELEASED; urgency=low
+texlive-extra (2013.20130722-1) unstable; urgency=low
 
-  * UNRELEASED
+  * new upstream checkout
   * texlive-publishers depends on texlive-latex-recommended (Closes: #710420)
   * texlive-science depends on texlive-latex-recommended (Closes: #711168)
   * fix texcount for \verb+...+ (Closes: #711491)
   * respect TMPDIR env var in pdfjam (Closes: #714188) (thanks Ivan Shmakov)
   * texlive-pstricks needs pgf, depend on it (Closes: #713791)
 
- -- Norbert Preining <preining@debian.org>  Mon, 01 Jul 2013 20:56:20 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 22 Jul 2013 12:04:16 +0900
 
 texlive-extra (2013.20130530-1) unstable; urgency=low
 

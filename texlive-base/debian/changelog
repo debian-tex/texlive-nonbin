@@ -1,11 +1,11 @@
-texlive-base (2013.20130530-2) UNRELEASED; urgency=low
+texlive-base (2013.20130722-1) unstable; urgency=low
 
-  * UNRELEASED
+  * new upstream checkout
   * conflict with texlive common so that it gets removed (Closes: #710789)
   * add Polish debconf translation, thanks to Michał Kułach
     (Closes: #711235)
 
- -- Norbert Preining <preining@debian.org>  Thu, 06 Jun 2013 09:20:39 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 22 Jul 2013 12:03:35 +0900
 
 texlive-base (2013.20130530-1) unstable; urgency=low
 
