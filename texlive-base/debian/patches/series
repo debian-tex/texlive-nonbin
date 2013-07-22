@@ -3,6 +3,7 @@
 # dvipdfmx.cfg_whitespace
 #
 # for epspdf this seems to be upstream, need to fix texpwer, too
+upstream-selfmode-fix
 fix-info-dir-sections
 # could be merged into the later fix-scripts patch
 fix-pgf2pdf-script

@@ -4,8 +4,10 @@ texlive-base (2013.20130722-1) unstable; urgency=low
   * conflict with texlive common so that it gets removed (Closes: #710789)
   * add Polish debconf translation, thanks to Michał Kułach
     (Closes: #711235)
+  * update tlmgr (and with new upstream also TLUtils.pm) to support
+    map files in user mode
 
- -- Norbert Preining <preining@debian.org>  Mon, 22 Jul 2013 12:03:35 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 22 Jul 2013 17:35:16 +0900
 
 texlive-base (2013.20130530-1) unstable; urgency=low
 
