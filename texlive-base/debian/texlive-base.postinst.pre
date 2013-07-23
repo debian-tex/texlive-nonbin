@@ -39,7 +39,7 @@ case "$1" in
     fi
   done
  
-  mktexlsr /usr/share/texlive/texmf /usr/share/texmf /var/lib/texmf 
+  mktexlsr /usr/share/texlive/texmf-dist /usr/share/texmf /var/lib/texmf 
   for binary in dvips dvipdfmx xdvi pdftex; do
     if localpaper=$(tl-paper get $binary); then
       tl-paper set $binary $localpaper
