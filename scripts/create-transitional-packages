@@ -1,0 +1,23 @@
+
+while (<STDIN>) {
+  chomp;
+  my ($p,$d) = split /:/;
+  my @deps = split (/,\s?/,$d);
+  print "addpackages;;$p
+name;collection-foobar;$p;texlive-lang
+title;$p;transitional dummy package
+bin-section;$p;oldlibs
+bin-priority;$p;extra
+description;$p;This is a transitional package for $p to ensure proper
+description;$p;upgrade to $d.
+description;$p;It can be safely removed after the installation is complete.
+depends;$p;$d
+dependsnot;texlive-lang-all;$p
+dependsnot;texlive-full;$p
+conflicts;texlive-base;$p (<< 2013)
+";
+  for my $i (@deps) {
+    print "replaces;$i;$p (<< 2013)\n";
+  }
+}
+

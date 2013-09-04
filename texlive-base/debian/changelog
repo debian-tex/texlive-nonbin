@@ -1,3 +1,13 @@
+texlive-base (2013.20130904-1) UNRELEASED; urgency=low
+
+  * new upstream checkout
+    - don't ship strange duplicates of Nimbus Sans (Closes: #690125)
+  * remove /etc/texmf/dvipdfm/config/config (Closes: #713797)
+  * link instead of ship bitstream charter fonts (Closes: #721633)
+  * do not ship marvosym.ttf via dependency (Closes: #721716)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 04 Sep 2013 15:02:21 +0900
+
 texlive-base (2013.20130722-1) unstable; urgency=low
 
   * new upstream checkout

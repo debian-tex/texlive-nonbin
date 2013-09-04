@@ -398,7 +398,12 @@ sub build_data_hash {
 		} elsif ($meta_package eq "texlive-lang-all") {
 			my @foo = ();
 			foreach my $a (@allpkgs) {
-				if ($a =~ /^texlive-lang-/) { push @foo, $a; }
+				my $addthis = 0;
+				if ($a =~ /^texlive-lang-/) { $addthis = 1; }
+				foreach my $depends_not (@{$Config{'depends_not'}{'texlive-lang-all'}}) {
+					$addthis = 0 if ($a eq $depends_not);
+				};
+				$addthis && push @foo, $a;
 			}
 			$TeXLive{'mbinary'}{$meta_package}{'depends'}   = [ @{$Config{'depends'}{$meta_package}}, @foo ];
 		} else {
@@ -781,12 +786,12 @@ sub read_one_config_file {
 			next;
 		}
 		if ($type eq "addpackages") {
-			@{$Config{'add_packages'}} = @rest;
+			push @{$Config{'add_packages'}}, @rest;
 			$opt_debug && print STDERR "\nAdditional packages: @{$Config{'add_packages'}}\n";
 			next;
 		}
 		if ($type eq "dependsnot") {
-			@{$Config{'depends_not'}{$a}} = @rest;
+			push @{$Config{'depends_not'}{$a}}, @rest;
 			$opt_debug && print STDERR "Dropped depends of $a on @{$Config{'depends_not'}{$a}}\n";
 			next;
 		}

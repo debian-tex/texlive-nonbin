@@ -1,1 +1,2 @@
 usr/bin/pdfcrop usr/bin/rpdfcrop
+usr/bin/texdef usr/bin/latexdef

@@ -1,0 +1,39 @@
+texlive-doc-ar:texlive-lang-arabic
+texlive-doc-base:texlive-base
+texlive-doc-bg:texlive-lang-european, texlive-lang-cyrillic
+texlive-doc-cs+sk:texlive-lang-czechslovak
+texlive-doc-de:texlive-lang-german
+texlive-doc-en:texlive-lang-english, texlive-base
+texlive-doc-es:texlive-lang-spanish
+texlive-doc-fi:texlive-lang-european
+texlive-doc-fr:texlive-lang-french
+texlive-doc-it:texlive-lang-italian
+texlive-doc-ja:texlive-lang-cjk
+texlive-doc-ko:texlive-lang-cjk
+texlive-doc-mn:texlive-lang-other, texlive-lang-cyrillic
+texlive-doc-nl:texlive-lang-european
+texlive-doc-pl:texlive-lang-polish
+texlive-doc-pt:texlive-lang-portuguese
+texlive-doc-rs:texlive-lang-cyrillic
+texlive-doc-ru:texlive-lang-cyrillic
+texlive-doc-si:texlive-lang-european
+texlive-doc-th:texlive-lang-other
+texlive-doc-tr:texlive-lang-european
+texlive-doc-uk:texlive-lang-cyrillic
+texlive-doc-vi:texlive-lang-other
+texlive-doc-zh:texlive-lang-cjk
+texlive-lang-armenian:texlive-lang-european
+texlive-lang-croatian:texlive-lang-european
+texlive-lang-danish:texlive-lang-european
+texlive-lang-dutch:texlive-lang-european
+texlive-lang-finnish:texlive-lang-european
+texlive-lang-hebrew:texlive-lang-other
+texlive-lang-hungarian:texlive-lang-european
+texlive-lang-latin:texlive-lang-european
+texlive-lang-latvian:texlive-lang-european
+texlive-lang-lithuanian:texlive-lang-european
+texlive-lang-mongolian:texlive-lang-cyrillic
+texlive-lang-norwegian:texlive-lang-european
+texlive-lang-swedish:texlive-lang-european
+texlive-lang-tibetan:texlive-lang-other
+texlive-lang-vietnamese:texlive-lang-other

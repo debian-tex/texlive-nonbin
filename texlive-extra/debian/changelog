@@ -1,3 +1,12 @@
+texlive-extra (2013.20130904-1) UNRELEASED; urgency=low
+
+  * new upstream checkout
+  * add a latexdef -> texdef link (Closes: #719427)
+  * texlive-pictures suggests texlive-latex-extra (Closes: #705951, #683567)
+  * texlive-pcitures suggest libtcltk-ruby (Closes: #600375)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 04 Sep 2013 15:05:11 +0900
+
 texlive-extra (2013.20130722-1) unstable; urgency=low
 
   * new upstream checkout

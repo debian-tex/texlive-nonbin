@@ -1,3 +1,10 @@
+texlive-lang (2013.20130904-1) UNRELEASED; urgency=low
+
+  * new upstream checkout
+  * provide a bunch of transitional packages to make the world happy
+
+ -- Norbert Preining <preining@debian.org>  Wed, 04 Sep 2013 14:29:37 +0900
+
 texlive-lang (2013.20130722-1) unstable; urgency=low
 
   * new upstream checkout
