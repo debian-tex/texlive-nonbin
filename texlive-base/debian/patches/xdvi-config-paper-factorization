@@ -4,8 +4,8 @@
  tlpkg/texlive.tlpdb        |    1 +
  3 files changed, 3 insertions(+), 1 deletion(-)
 
---- texlive-base-2013.20130722.orig/texmf-dist/xdvi/XDvi
-+++ texlive-base-2013.20130722/texmf-dist/xdvi/XDvi
+--- texlive-base-2013.20130904.orig/texmf-dist/xdvi/XDvi
++++ texlive-base-2013.20130904/texmf-dist/xdvi/XDvi
 @@ -21,7 +21,7 @@
  !!! and greater flexibility for shrink values. Generating MF fonts shouldn't be an
  !!! issue when using T1lib.
@@ -16,12 +16,12 @@
  !!! This should be the best choice for modern displays with large color depth.
  *thorough: true
 --- /dev/null
-+++ texlive-base-2013.20130722/texmf-dist/xdvi/XDvi-paper
++++ texlive-base-2013.20130904/texmf-dist/xdvi/XDvi-paper
 @@ -0,0 +1 @@
 +*paper: a4
---- texlive-base-2013.20130722.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2013.20130722/tlpkg/texlive.tlpdb
-@@ -200251,6 +200251,7 @@
+--- texlive-base-2013.20130904.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2013.20130904/tlpkg/texlive.tlpdb
+@@ -201766,6 +201766,7 @@
  runfiles size=9
   texmf-dist/dvips/xdvi/config.xdvi
   texmf-dist/xdvi/XDvi

@@ -2,8 +2,8 @@
  texmf-dist/scripts/texlive/updmap.pl |   17 ++++++++++++++++-
  1 file changed, 16 insertions(+), 1 deletion(-)
 
---- texlive-base-2013.20130509.orig/texmf-dist/scripts/texlive/updmap.pl
-+++ texlive-base-2013.20130509/texmf-dist/scripts/texlive/updmap.pl
+--- texlive-base-2013.20130904.orig/texmf-dist/scripts/texlive/updmap.pl
++++ texlive-base-2013.20130904/texmf-dist/scripts/texlive/updmap.pl
 @@ -30,7 +30,7 @@
      exit 1;
    }
@@ -13,7 +13,7 @@
  }
  
  
-@@ -356,6 +356,21 @@
+@@ -370,6 +370,21 @@
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";
