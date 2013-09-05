@@ -4,8 +4,9 @@ texlive-base (2013.20130904-1) UNRELEASED; urgency=low
     - don't ship strange duplicates of Nimbus Sans (Closes: #690125)
   * remove /etc/texmf/dvipdfm/config/config (Closes: #713797)
   * do not ship marvosym.ttf via dependency (Closes: #721716)
+  * bump standards version to 3.9.4, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 10:18:31 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 10:25:22 +0900
 
 texlive-base (2013.20130722-1) unstable; urgency=low
 

@@ -5,8 +5,9 @@ texlive-extra (2013.20130904-1) UNRELEASED; urgency=low
   * add a latexdef -> texdef link (Closes: #719427)
   * texlive-pictures suggests texlive-latex-extra (Closes: #705951, #683567)
   * texlive-pcitures suggest libtcltk-ruby (Closes: #600375)
+  * bump standards version to 3.9.4, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 09:01:15 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 10:25:45 +0900
 
 texlive-extra (2013.20130722-1) unstable; urgency=low
 
