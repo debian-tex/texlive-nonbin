@@ -1,6 +1,7 @@
 ---
- texmf-dist/doc/man/man1/updmap.1 |   25 +++++++++++++------------
- 1 file changed, 13 insertions(+), 12 deletions(-)
+ texmf-dist/doc/man/man1/updmap.1     |   25 +++++++++++++------------
+ texmf-dist/doc/man/man5/updmap.cfg.5 |    2 +-
+ 2 files changed, 14 insertions(+), 13 deletions(-)
 
 --- texlive-base-2013.20130904.orig/texmf-dist/doc/man/man1/updmap.1
 +++ texlive-base-2013.20130904/texmf-dist/doc/man/man1/updmap.1
@@ -44,3 +45,14 @@
  .fi
  .IP
  There is one exception to keep upgradability from earlier versions
+--- texlive-base-2013.20130904.orig/texmf-dist/doc/man/man5/updmap.cfg.5
++++ texlive-base-2013.20130904/texmf-dist/doc/man/man5/updmap.cfg.5
+@@ -16,7 +16,7 @@
+ .\" You should have received a copy of the GNU General Public License 
+ .\" along with this program.  if not, see <http://www.gnu.org/licenses/>.
+ .\" 
+-.TH "UPDMAP.CFG" "20" "November 2012" "TeX Live" "TeX Live"
++.TH "UPDMAP.CFG" "5" "November 2012" "TeX Live" "TeX Live"
+ .SH "NAME"
+ \fBupdmap.cfg\fR \- configuration of font mapping/inclusion for dvips and
+ friends.
