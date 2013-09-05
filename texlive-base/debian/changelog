@@ -7,8 +7,9 @@ texlive-base (2013.20130904-1) UNRELEASED; urgency=low
   * bump standards version to 3.9.4, no changes necessary
   * fix man section of updmap.cfg man page
   * fix man page of mptopdf
+  * stop shipping TeX Gyre Math fonts, they are in tex-gyre package
 
- -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 10:53:36 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 11:01:14 +0900
 
 texlive-base (2013.20130722-1) unstable; urgency=low
 
