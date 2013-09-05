@@ -1,4 +1,4 @@
-texlive-extra (2013.20130904-1) UNRELEASED; urgency=low
+texlive-extra (2013.20130905-1) unstable; urgency=low
 
   * new upstream checkout
     - fix siunitx typo (Closes: #719871)
@@ -8,7 +8,7 @@ texlive-extra (2013.20130904-1) UNRELEASED; urgency=low
   * bump standards version to 3.9.4, no changes necessary
   * fonts-font-awesome instead of shipping the font
 
- -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 10:31:06 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 11:46:54 +0900
 
 texlive-extra (2013.20130722-1) unstable; urgency=low
 

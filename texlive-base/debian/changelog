@@ -1,4 +1,4 @@
-texlive-base (2013.20130904-1) UNRELEASED; urgency=low
+texlive-base (2013.20130905-1) unstable; urgency=low
 
   * new upstream checkout
     - don't ship strange duplicates of Nimbus Sans (Closes: #690125)
@@ -9,7 +9,7 @@ texlive-base (2013.20130904-1) UNRELEASED; urgency=low
   * fix man page of mptopdf
   * stop shipping TeX Gyre Math fonts, they are in tex-gyre package
 
- -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 11:01:14 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 05 Sep 2013 11:46:27 +0900
 
 texlive-base (2013.20130722-1) unstable; urgency=low
 
