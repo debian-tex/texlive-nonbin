@@ -2,8 +2,10 @@ texlive-base (2013.20130905-2) unstable; urgency=low
 
   * remove !! from TEXMFSYSCONFIG, we don't want ls-R files in /etc/texmf
     (Closes: #722689)
+  * do not build texlive-doc-base, no transitional package needed for it
+    (Closes: #722595)
 
- -- Norbert Preining <preining@debian.org>  Sun, 15 Sep 2013 10:18:53 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 18 Sep 2013 12:32:50 +0900
 
 texlive-base (2013.20130905-1) unstable; urgency=low
 

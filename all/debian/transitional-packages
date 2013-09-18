@@ -1,5 +1,4 @@
 texlive-doc-ar:texlive-lang-arabic
-texlive-doc-base:texlive-base
 texlive-doc-bg:texlive-lang-european, texlive-lang-cyrillic
 texlive-doc-cs+sk:texlive-lang-czechslovak
 texlive-doc-de:texlive-lang-german
