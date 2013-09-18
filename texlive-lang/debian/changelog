@@ -1,3 +1,11 @@
+texlive-lang (2013.20130918-1) unstable; urgency=low
+
+  * new upstream checkout
+  * do not build texlive-doc-base, no transitional package needed for it
+    (Closes: #722595)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 18 Sep 2013 12:40:39 +0900
+
 texlive-lang (2013.20130905-1) unstable; urgency=low
 
   * new upstream checkout
