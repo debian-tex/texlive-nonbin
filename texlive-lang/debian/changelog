@@ -1,3 +1,10 @@
+texlive-lang (2013.20130918-2) UNRELEASED; urgency=low
+
+  * UNRELEASED
+  * reinclude cjkpunct, it is not contained in the cjk packages
+
+ -- Norbert Preining <preining@debian.org>  Sat, 21 Sep 2013 13:48:24 +0900
+
 texlive-lang (2013.20130918-1) unstable; urgency=low
 
   * new upstream checkout
