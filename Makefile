@@ -7,6 +7,9 @@ CURRENTDIR=$(PWD)
 SOURCES ?= texlive-base texlive-lang texlive-extra
 TMPDIR?=/var/tmp
 
+STABLECOW = /var/cache/pbuilder/debian-7.0-wheezy-STABLE.cow
+TESTINGCOW = /var/cache/pbuilder/debian-8.0-jessie-TESTING.cow
+
 # for update-liclines
 catalogue_loc ?= ../../../../texcatalogue/trunk/
 tpmdir_loc ?= ../../../../TeXlive2005-Master/texmf*/tpm/
@@ -152,7 +155,7 @@ testing-overwrite:
 	mkdir -p ./tests/log
 	rm -f ./tests/log/testing-test-forceoverwrite.log
 	sudo  /usr/sbin/cowbuilder --execute \
-	  --basepath /var/cache/pbuilder/testing.cow \
+	  --basepath $(TESTINGCOW) \
 	  --bindmounts "./pool" ./tests/testing/test-forceoverwrite.sh 2>&1 | \
 	  tee ./tests/log/testing-test-forceoverwrite.log
 
@@ -160,7 +163,7 @@ stable-overwrite:
 	mkdir -p ./tests/log
 	rm -f ./tests/log/stable-test-forceoverwrite.log
 	sudo  /usr/sbin/cowbuilder --execute \
-	  --basepath /var/cache/pbuilder/stable.cow \
+	  --basepath $(STABLECOW) \
 	  --bindmounts "./pool" ./tests/stable/test-forceoverwrite.sh 2>&1 | \
 	  tee ./tests/log/stable-test-forceoverwrite.log
 
@@ -179,7 +182,7 @@ testing1-tests:
 		rm -f ./tests/log/testing-`basename $$i .sh`.log ; \
 		rm -f ./tests/log/testing-`basename $$i .sh`-files-* ; \
 		sudo /usr/sbin/cowbuilder --execute \
-			--basepath /var/cache/pbuilder/testing.cow \
+			--basepath $(TESTINGCOW) \
 			--bindmounts "./pool" $$i 2>&1 | \
 			tee ./tests/log/testing-`basename $$i .sh`.log ; \
 		mv pool/testing-test-*-files-* ./tests/log/ ; \
@@ -190,7 +193,7 @@ testing-tests:
 		rm -f ./tests/log/testing-`basename $$i .sh`.log ; \
 		rm -f ./tests/log/testing-`basename $$i .sh`-files-* ; \
 		sudo /usr/sbin/cowbuilder --execute \
-			--basepath /var/cache/pbuilder/testing.cow \
+			--basepath $(TESTINGCOW) \
 			--bindmounts "./pool" $$i 2>&1 | \
 			tee ./tests/log/testing-`basename $$i .sh`.log ; \
 		mv pool/testing-test-*-files-* ./tests/log/ ; \
@@ -202,7 +205,7 @@ stable-tests:
 		rm -f ./tests/log/stable-`basename $$i .sh`.log ; \
 		rm -f ./tests/log/stable-`basename $$i .sh`-files-* ; \
 		sudo /usr/sbin/cowbuilder --execute \
-			--basepath /var/cache/pbuilder/stable.cow \
+			--basepath $(STABLECOW) \
 			--bindmounts "./pool" $$i 2>&1 | \
 			tee ./tests/log/stable-`basename $$i .sh`.log ; \
 		mv pool/stable-test-*-files-* ./tests/log/ ; \
