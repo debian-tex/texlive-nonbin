@@ -1,1 +1,2 @@
 rm_conffile /etc/texmf/dvipdfm/config/config    2013.20130904-1~
+rm_conffile /etc/texmf/xdvi/xdvi.cfg		2013.20131010-2~
