@@ -1,9 +1,9 @@
-texlive-base (2013.20131010-2) UNRELEASED; urgency=low
+texlive-base (2013.20131010-2) unstable; urgency=low
 
   * fix libpaper integration (outdated path in conffile) (Closes: #726107)
   * remove xdvi.cfg conffile from old versions (Closes: #726076)
 
- -- Norbert Preining <preining@debian.org>  Mon, 14 Oct 2013 18:05:50 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 16 Oct 2013 09:26:53 +0900
 
 texlive-base (2013.20131010-1) unstable; urgency=low
 
