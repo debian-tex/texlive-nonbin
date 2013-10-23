@@ -1,3 +1,9 @@
+texlive-base (2013.20131010-3) UNRELEASED; urgency=low
+
+  * fix wrong lua2dox_filter symlink (Closes: #726793)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 23 Oct 2013 23:14:10 +0900
+
 texlive-base (2013.20131010-2) unstable; urgency=low
 
   * fix libpaper integration (outdated path in conffile) (Closes: #726107)
