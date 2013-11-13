@@ -1,8 +1,11 @@
-texlive-base (2013.20131010-3) UNRELEASED; urgency=low
+texlive-base (2013.20131112-1) unstable; urgency=low
 
+  * new upstream checkout
   * fix wrong lua2dox_filter symlink (Closes: #726793)
+  * update patches
+  * update tlmgr to devel version to make it actually work
 
- -- Norbert Preining <preining@debian.org>  Wed, 23 Oct 2013 23:14:10 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 13 Nov 2013 12:01:14 +0900
 
 texlive-base (2013.20131010-2) unstable; urgency=low
 

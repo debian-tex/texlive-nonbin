@@ -1,0 +1,155 @@
+---
+ texmf-dist/scripts/texlive/tlmgr.pl |   54 ++++++++++++++++++++++++++----------
+ 1 file changed, 40 insertions(+), 14 deletions(-)
+
+--- texlive-base-2013.20131112.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2013.20131112/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -1,12 +1,12 @@
+ #!/usr/bin/env perl
+-# $Id: tlmgr.pl 31673 2013-09-16 16:03:22Z karl $
++# $Id: tlmgr.pl 31977 2013-10-23 14:04:44Z preining $
+ #
+ # Copyright 2008-2013 Norbert Preining
+ # This file is licensed under the GNU General Public License version 2
+ # or any later version.
+ 
+-my $svnrev = '$Revision: 31673 $';
+-my $datrev = '$Date: 2013-09-16 18:03:22 +0200 (Mon, 16 Sep 2013) $';
++my $svnrev = '$Revision: 31977 $';
++my $datrev = '$Date: 2013-10-23 23:04:44 +0900 (Wed, 23 Oct 2013) $';
+ my $tlmgrrevision;
+ my $prg;
+ if ($svnrev =~ m/: ([0-9]+) /) {
+@@ -2014,6 +2014,9 @@
+       (undef, undef, $mediatlp, $maxtlpdb) = 
+         $remotetlpdb->virtual_candidate($pkg);
+       $repo = $maxtlpdb->root . "/$Archive";
++      # update the media type of the used tlpdb
++      # otherwise later on we stumble when preparing the updater
++      $media = $maxtlpdb->media;
+     } else {
+       $mediatlp = $remotetlpdb->get_package($pkg);
+       $repo = $remotetlpdb->root . "/$Archive";
+@@ -4346,7 +4349,7 @@
+       if ($opts{"rebuild-sys"}) {
+         do_cmd_and_check("fmtutil-sys --byhyphen \"$dest\"");
+       } else {
+-        info("To make the newly-generated language.dat take effect,"
++        info("To make the newly-generated language.dat.lua take effect,"
+              . " run fmtutil-sys --byhyphen $dest.\n"); 
+       }
+     }
+@@ -4761,8 +4764,8 @@
+ # 
+ sub check_runfiles {
+   my $Master = $localtlpdb->root;
++
+   # build a list of all runtime files associated to 'normal' packages
+-  #
+   (my $non_normal = `ls "$Master/bin"`) =~ s/\n/\$|/g; # binaries
+   $non_normal .= '^0+texlive|^bin-|^collection-|^scheme-|^texlive-|^texworks';
+   my @runtime_files = ();
+@@ -4785,8 +4788,7 @@
+     push @runtime_files, @files;
+   }
+ 
+-  # build the duplicates list
+-  #
++  # build the duplicates list.
+   my @duplicates = (""); # just to use $duplicates[-1] freely
+   my $prev = "";
+   foreach my $f (sort map { TeXLive::TLUtils::basename($_) } @runtime_files) {
+@@ -4797,8 +4799,7 @@
+ 
+   # @duplicates = ('8r-base.map', 'aer.sty', 'lm-ec.map'); # for debugging
+ 
+-  # check if duplicates are different files
+-  #
++  # check if duplicates are different files.
+   foreach my $f (@duplicates) {
+     # assume tex4ht, xdy, afm stuff is ok, and don't worry about
+     # Changes, README et al.  Other per-format versions.
+@@ -4806,13 +4807,13 @@
+     next if $f
+       =~ /^((czech|slovak)\.sty
+             |Changes
++            |Makefile
+             |README
+             |cid2code\.txt
+             |etex\.src
+             |kinsoku\.tex
+             |language\.dat
+             |language\.def
+-            |libertine\.sty
+             |m-tex4ht\.tex
+             |metatex\.tex
+             |.*-noEmbed\.map
+@@ -5189,7 +5190,8 @@
+ #  INIT USER TREE
+ # sets up the user tree for tlmgr in user mode
+ sub action_init_usertree {
+-  init_local_db();
++  # init_local_db but do not die if localtlpdb is not found!
++  init_local_db(2);
+   my $tlpdb = TeXLive::TLPDB->new;
+   my $usertree;
+   if ($opts{"usertree"}) {
+@@ -5202,11 +5204,20 @@
+   }
+   $tlpdb->root($usertree);
+   # copy values from main installation over
+-  my $maininsttlp = $localtlpdb->get_package("00texlive.installation");
+-  my $inst = $maininsttlp->copy;
++  my $maininsttlp;
++  my $inst;
++  if (defined($localtlpdb)) {
++    $maininsttlp = $localtlpdb->get_package("00texlive.installation");
++    $inst = $maininsttlp->copy;
++  } else {
++    $inst = TeXLive::TLPOBJ->new;
++    $inst->name("00texlive.installation");
++    $inst->category("TLCore");
++  }
+   $tlpdb->add_tlpobj($inst);
+   # remove all available architectures
+   $tlpdb->setting( "available_architectures", "");
++  $tlpdb->option( "location", $TeXLive::TLConfig::TeXLiveURL);
+   # specify that we are in user mode
+   $tlpdb->setting( "usertree", 1 );
+   $tlpdb->save;
+@@ -5329,6 +5340,14 @@
+ # Subroutines galore.
+ #
+ # set global $location variable.
++#
++# argument $should_i_die specifies what is requried
++# to suceed during initialization.
++#
++# undef or false: TLPDB needs to be found and initialized, but
++#                 support programs need not be found
++# 1             : TLPDB initialized and support programs must work
++# 2             : not even TLPDB needs to be found
+ # if we cannot read tlpdb, die if arg SHOULD_I_DIE is true.
+ #
+ # if an argument is given and is true init_local_db will die if
+@@ -5336,12 +5355,19 @@
+ #
+ sub init_local_db {
+   my ($should_i_die) = @_;
++  defined($should_i_die) or ($should_i_die = 0);
+   # if the localtlpdb is already defined do simply return here already
+   # to make sure that the settings in the local tlpdb do not overwrite
+   # stuff changed via the GUI
+   return if defined $localtlpdb;
+   $localtlpdb = TeXLive::TLPDB->new ( root => $::maintree );
+-  die("cannot setup TLPDB in $::maintree") unless (defined($localtlpdb));
++  if (!defined($localtlpdb)) {
++    if ($should_i_die == 2) {
++      return undef;
++    } else {
++      die("cannot setup TLPDB in $::maintree");
++    }
++  }
+   # setup the programs, for w32 we need the shipped wget/xz etc, so we
+   # pass the location of these files to setup_programs.
+   if (!setup_programs("$Master/tlpkg/installer", $localtlpdb->platform)) {
