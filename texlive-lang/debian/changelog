@@ -1,3 +1,9 @@
+texlive-lang (2013.20131112-2) unstable; urgency=low
+
+  * make texlive-lang-cjk conflict with ko.tex-bin (Closes: #729539)
+
+ -- Norbert Preining <preining@debian.org>  Sat, 16 Nov 2013 09:26:54 +0900
+
 texlive-lang (2013.20131112-1) unstable; urgency=low
 
   * new upstream checkout - includes kotex (ko.tex) 
