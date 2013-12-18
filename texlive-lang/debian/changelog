@@ -1,3 +1,9 @@
+texlive-lang (2013.20131218-1) unstable; urgency=medium
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Wed, 18 Dec 2013 13:42:15 +0900
+
 texlive-lang (2013.20131112-2) unstable; urgency=low
 
   * make texlive-lang-cjk conflict with ko.tex-bin (Closes: #729539)

@@ -56,8 +56,10 @@ case "$1" in
   #
   # dvipdfm has disappeared, so we do not need this useless file anymore
   # as it is generated and not used 
-  rm -f /var/lib/texmf/dvipdfm/config-paper
-  rmdir --ignore-fail-on-non-empty /var/lib/texmf/dvipdfm
+  if [ -r /var/lib/texmf/dvipdfm/config-paper ] ; then
+    rm -f /var/lib/texmf/dvipdfm/config-paper
+    rmdir --ignore-fail-on-non-empty /var/lib/texmf/dvipdfm
+  fi
 
   ;;
 
