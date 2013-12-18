@@ -52,6 +52,13 @@ case "$1" in
     # we are installing from scratch or upgrading from an older version
     /etc/libpaper.d/texlive-base
   fi
+
+  #
+  # dvipdfm has disappeared, so we do not need this useless file anymore
+  # as it is generated and not used 
+  rm -f /var/lib/texmf/dvipdfm/config-paper
+  rmdir --ignore-fail-on-non-empty /var/lib/texmf/dvipdfm
+
   ;;
 
   *)
