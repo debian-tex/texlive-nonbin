@@ -1,10 +1,11 @@
-texlive-base (2013.20131218-1) unstable; urgency=medium
+texlive-base (2013.20131219-1) unstable; urgency=medium
 
   * new upstream checkout
   * add lost link for /usr/bin/texdoctk, thanks R S Chakravarti.
   * remove left-over config-paper file for dvipdfm (Closes: #731446)
+  * bump standards version, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Wed, 18 Dec 2013 13:36:50 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 19 Dec 2013 13:43:58 +0900
 
 texlive-base (2013.20131112-1) unstable; urgency=low
 

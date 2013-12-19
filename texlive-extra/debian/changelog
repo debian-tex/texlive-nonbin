@@ -1,8 +1,9 @@
-texlive-extra (2013.20131218-1) unstable; urgency=medium
+texlive-extra (2013.20131219-1) unstable; urgency=medium
 
   * new upstream checkout
+  * bump standards version, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Wed, 18 Dec 2013 13:42:44 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 19 Dec 2013 13:45:18 +0900
 
 texlive-extra (2013.20131112-1) unstable; urgency=low
 

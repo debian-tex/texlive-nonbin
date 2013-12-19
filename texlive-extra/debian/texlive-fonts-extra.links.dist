@@ -145,3 +145,15 @@ usr/share/fonts/truetype/lato/Lato-LigIta.ttf usr/share/texlive/texmf-dist/fonts
 usr/share/fonts/truetype/lato/Lato-Reg.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/lato/Lato-Reg.ttf
 usr/share/fonts/truetype/lato/Lato-RegIta.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/lato/Lato-RegIta.ttf
 usr/share/fonts/opentype/font-awesome/FontAwesome.otf usr/share/texlive/texmf-dist/fonts/opentype/public/fontawesome/FontAwesome.otf
+usr/share/fonts/truetype/adf/AccanthisADFStdNo3-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/accanthis/AccanthisADFStdNo3-Bold.otf
+usr/share/fonts/truetype/adf/AccanthisADFStdNo3-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/accanthis/AccanthisADFStdNo3-BoldItalic.otf
+usr/share/fonts/truetype/adf/AccanthisADFStdNo3-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/accanthis/AccanthisADFStdNo3-Italic.otf
+usr/share/fonts/truetype/adf/AccanthisADFStdNo3-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/accanthis/AccanthisADFStdNo3-Regular.otf
+usr/share/fonts/truetype/adf/GilliusADF-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADF-Bold.otf
+usr/share/fonts/truetype/adf/GilliusADF-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADF-BoldItalic.otf
+usr/share/fonts/truetype/adf/GilliusADF-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADF-Italic.otf
+usr/share/fonts/truetype/adf/GilliusADF-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADF-Regular.otf
+usr/share/fonts/truetype/adf/GilliusADFNo2-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADFNo2-Bold.otf
+usr/share/fonts/truetype/adf/GilliusADFNo2-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADFNo2-BoldItalic.otf
+usr/share/fonts/truetype/adf/GilliusADFNo2-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADFNo2-Italic.otf
+usr/share/fonts/truetype/adf/GilliusADFNo2-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/gillius/GilliusADFNo2-Regular.otf
