@@ -2,8 +2,9 @@ texlive-base (2013.20131219-2) UNRELEASED; urgency=medium
 
   * UNRELEASED
   * t-pictures: changes wish -> tk (Closes: #732784)
+  * tighten build-dep on tex-common to >= 4 (Closes: #733414)
 
- -- Norbert Preining <preining@debian.org>  Wed, 25 Dec 2013 12:50:55 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 06 Jan 2014 20:32:45 +0900
 
 texlive-base (2013.20131219-1) unstable; urgency=medium
 
