@@ -1,0 +1,23 @@
+# texlive-base postinst.post begin
+# probably not copyrightable as it looks now, but anyway the code maybe 
+# freely copied, distributed and/or modified
+
+case "$1" in
+  configure|reconfigure)
+
+  # dh_maintscript tries to remove old conffiles
+  # here (after the generated code) we try to remove the
+  # respective directories, too
+  if [ -d /etc/texmf/xdvi] ; then
+    rmdir --ignore-fail-on-non-empty /etc/texmf/xdvi
+  fi
+  if [ -d /etc/texmf/dvipdfm/config ] ; then
+    rmdir --ignore-fail-on-non-empty /etc/texmf/dvipdfm/config
+    rmdir --ignore-fail-on-non-empty /etc/texmf/dvipdfm
+  fi
+  ;;
+
+  *)
+  ;;
+esac
+
