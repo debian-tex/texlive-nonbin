@@ -1,0 +1,60 @@
+#
+# fix-privacy-breach
+# (c) 2014 Norbert Preining
+#
+# try to fix the *very* helpful lintian error about privacy breach.
+# Especially the privacy-breach-w3c-valid-html tag just tells us
+# that it is bad, but we cannot copy the icon into the package since
+# it is not free ... aaahhh what a wonderful world
+#
+
+pkg="$1"
+
+pdfjamfiles="
+	usr/share/doc/texlive-doc/support/pdfjam/PDFjam-README.html
+"
+komafiles="
+	usr/share/doc/texlive-doc/latex/koma-script/koma-script.html 
+	usr/share/doc/texlive-doc/latex/koma-script/komascr.html
+	usr/share/doc/texlive-doc/latex/koma-script/komascript.html
+	usr/share/doc/texlive-doc/latex/koma-script/scraddr.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrartcl.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrbase.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrbook.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrdate.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrextend.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrguide.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrguien.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrhack.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrlayer-notecolumn.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrlayer-scrpage.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrlayer.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrlfile.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrlttr2.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrpage2.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrreprt.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrtime.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrwfile.html
+	usr/share/doc/texlive-doc/latex/koma-script/tocbasic.html
+	usr/share/doc/texlive-doc/latex/koma-script/typearea.html
+"
+
+if ! [ -r debian/$pkg ] ; then
+  echo "please first call debian/rules install!"
+  exit 1
+fi
+
+for f in $pdfjamfiles ; do
+  if [ -r debian/$pkg/$f ] ; then
+    sed -e 's/<img src="http:[^"]*" alt="PDF file"[^>]*>/(PDF)/g' $f > $f.new
+    mv $f.new $f
+  fi
+done
+
+for f in $komafiles ; do
+  if [ -r debian/$pkg/$f ] ; then
+    sed -e 's!src="http://www.w3.org/Icons/valid-xhtml10"!!g' $f > $f.new
+    mv $f.new $f
+  fi
+done
+
