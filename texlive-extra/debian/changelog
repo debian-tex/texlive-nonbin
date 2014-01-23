@@ -1,9 +1,9 @@
-texlive-extra (2013.20140117-1) unstable; urgency=medium
+texlive-extra (2013.20140123-1) unstable; urgency=medium
 
   * new upstream checkout
   * break against incompatible version of biber (Closes: #734416)
 
- -- Norbert Preining <preining@debian.org>  Fri, 17 Jan 2014 14:15:16 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 23 Jan 2014 13:12:46 +0900
 
 texlive-extra (2013.20131219-1) unstable; urgency=medium
 

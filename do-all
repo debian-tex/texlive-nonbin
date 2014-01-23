@@ -4,7 +4,7 @@ bash do-one texlive-extra 2>&1 | tee texlive-extra.build.log
 bash do-one texlive-lang 2>&1 | tee texlive-lang.build.log 
 
 mkdir -p pool
-mv *.deb *.orig.tar.* *.debian.tar.gz *.dsc *.changes pool/
+mv *.deb *.orig.tar.* *.debian.tar.* *.dsc *.changes pool/
 mkdir -p log
 mv *.log log/
 

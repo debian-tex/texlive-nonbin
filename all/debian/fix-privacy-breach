@@ -45,16 +45,18 @@ if ! [ -r debian/$pkg ] ; then
 fi
 
 for f in $pdfjamfiles ; do
-  if [ -r debian/$pkg/$f ] ; then
-    sed -e 's/<img src="http:[^"]*" alt="PDF file"[^>]*>/(PDF)/g' $f > $f.new
-    mv $f.new $f
+  ff="debian/$pkg/$f"
+  if [ -r $ff ] ; then
+    sed -e 's/<img src="http:[^"]*" alt="PDF file"[^>]*>/(PDF)/g' $ff > $ff.new
+    mv $ff.new $ff
   fi
 done
 
 for f in $komafiles ; do
-  if [ -r debian/$pkg/$f ] ; then
-    sed -e 's!src="http://www.w3.org/Icons/valid-xhtml10"!!g' $f > $f.new
-    mv $f.new $f
+  ff="debian/$pkg/$f"
+  if [ -r $ff ] ; then
+    sed -e 's!src="http://www.w3.org/Icons/valid-xhtml10"!!g' $ff > $ff.new
+    mv $ff.new $ff
   fi
 done
 
