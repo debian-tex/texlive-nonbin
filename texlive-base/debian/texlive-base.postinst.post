@@ -8,7 +8,7 @@ case "$1" in
   # dh_maintscript tries to remove old conffiles
   # here (after the generated code) we try to remove the
   # respective directories, too
-  if [ -d /etc/texmf/xdvi] ; then
+  if [ -d /etc/texmf/xdvi ] ; then
     rmdir --ignore-fail-on-non-empty /etc/texmf/xdvi
   fi
   if [ -d /etc/texmf/dvipdfm/config ] ; then
