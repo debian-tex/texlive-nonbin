@@ -1,0 +1,15 @@
+texlive-extra (2013.20140123-2) UNRELEASED; urgency=medium
+
+  * We are sad to announce that flash (swf) files for embedding movies
+    into pdf files have been removed due to whatever reasons (see #736802).
+    The following files have been removed:
+      /usr/share/texlive/texmf-dist/tex/latex/flashmovie/player_flv_maxi.swf
+      /usr/share/texlive/texmf-dist/tex/latex/media9/players/StrobeMediaPlayback.swf
+    As a consequence some functionality of the respective packages
+    "flashmovie" and "media9" might get lost. If you experience problems,
+    install the files manually from the CTAN directories of the
+    respective packages.
+
+    We are sorry for the inconveniences, it was not our decision.
+
+ -- Norbert Preining <preining@debian.org>  Tue, 04 Feb 2014 19:55:29 +0900
