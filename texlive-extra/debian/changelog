@@ -3,8 +3,9 @@ texlive-extra (2013.20140123-2) UNRELEASED; urgency=medium
   * butcher flashmovie and media9 packages by removing some swf flash
     files without included source (although available) (Closes: #736802)
   * change {ttf,otf}-freefont to fonts-freefont-{ttf,otf} (Closes: #738251)
+  * install (de)pythontex3 scripts (Closes: #737376)
 
- -- Norbert Preining <preining@debian.org>  Mon, 10 Feb 2014 07:54:49 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 10 Feb 2014 08:30:06 +0900
 
 texlive-extra (2013.20140123-1) unstable; urgency=medium
 

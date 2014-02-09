@@ -50,6 +50,9 @@ install-stamp: build-stamp
 	  debian/texlive-base/etc/texmf/texdoctk
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk
 <: } :>//
+<: if ($srcpackage eq "texlive-extra") { _:>//
+	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
+<: } :>//
 	# link pfb/afm files (type1 fonts) into /usr/share/fonts
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/create-font-links $$i >> debian/$$i.links ; \
