@@ -1,10 +1,10 @@
-texlive-base (2013.20140211-1) unstable; urgency=medium
+texlive-base (2013.20140212-1) unstable; urgency=medium
 
   * new upstream checkout
   * fix dash/bash inconsistency in texlive-base.postinst.post (Closes: #736520)
   * remove some patches included upstream
 
- -- Norbert Preining <preining@debian.org>  Tue, 11 Feb 2014 18:49:47 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 12 Feb 2014 08:22:27 +0900
 
 texlive-base (2013.20140123-1) unstable; urgency=medium
 
