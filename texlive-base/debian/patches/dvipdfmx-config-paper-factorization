@@ -5,7 +5,7 @@
  3 files changed, 14 insertions(+), 8 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2013.20131112/texmf-dist/dvipdfmx/dvipdfmx-paper.cfg
++++ texlive-base-2013.20140211/texmf-dist/dvipdfmx/dvipdfmx-paper.cfg
 @@ -0,0 +1,11 @@
 +%% PDF Document Settings
 +%%
@@ -18,8 +18,8 @@
 +
 +p a4
 +
---- texlive-base-2013.20131112.orig/texmf-dist/dvipdfmx/dvipdfmx.cfg
-+++ texlive-base-2013.20131112/texmf-dist/dvipdfmx/dvipdfmx.cfg
+--- texlive-base-2013.20140211.orig/texmf-dist/dvipdfmx/dvipdfmx.cfg
++++ texlive-base-2013.20140211/texmf-dist/dvipdfmx/dvipdfmx.cfg
 @@ -27,14 +27,8 @@
  
  %% PDF Document Settings
@@ -37,9 +37,9 @@
  
  %% Annotation Box Margin:
  %%
---- texlive-base-2013.20131112.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2013.20131112/tlpkg/texlive.tlpdb
-@@ -57448,6 +57448,7 @@
+--- texlive-base-2013.20140211.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2013.20140211/tlpkg/texlive.tlpdb
+@@ -60123,6 +60123,7 @@
   texmf-dist/doc/man/man1/extractbb.man1.pdf
  runfiles size=42
   texmf-dist/dvipdfmx/dvipdfmx.cfg
