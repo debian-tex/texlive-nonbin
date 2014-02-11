@@ -55,7 +55,9 @@ done
 for f in $komafiles ; do
   ff="debian/$pkg/$f"
   if [ -r $ff ] ; then
-    sed -e 's!src="http://www.w3.org/Icons/valid-xhtml10"!!g' $ff > $ff.new
+    sed -e 's!src="http://www.w3.org/Icons/valid-xhtml10"!!g' \
+           's!src="http://www.w3.org/Icons/valid-html40"!!g'  \
+	   $ff > $ff.new
     mv $ff.new $ff
   fi
 done
