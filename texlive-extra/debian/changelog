@@ -1,4 +1,4 @@
-texlive-extra (2013.20140212-1) unstable; urgency=medium
+texlive-extra (2013.20140213-1) unstable; urgency=medium
 
   * new upstream checkout
   * butcher flashmovie and media9 packages by removing some swf flash
@@ -6,7 +6,7 @@ texlive-extra (2013.20140212-1) unstable; urgency=medium
   * change {ttf,otf}-freefont to fonts-freefont-{ttf,otf} (Closes: #738251)
   * install (de)pythontex3 scripts (Closes: #737376)
 
- -- Norbert Preining <preining@debian.org>  Wed, 12 Feb 2014 08:22:36 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 13 Feb 2014 14:16:43 +0900
 
 texlive-extra (2013.20140123-1) unstable; urgency=medium
 
