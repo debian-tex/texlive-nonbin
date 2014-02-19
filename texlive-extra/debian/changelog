@@ -1,3 +1,9 @@
+texlive-extra (2013.20140215-2) unstable; urgency=medium
+
+  * fix missing replace for texlive-publisher (Closes: #739473)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 19 Feb 2014 11:52:49 +0900
+
 texlive-extra (2013.20140215-1) unstable; urgency=medium
 
   * new upstream checkout
