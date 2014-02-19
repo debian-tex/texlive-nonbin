@@ -92,7 +92,7 @@ for sd in $list ; do
 	apt-ftparchive -oAPT::FTPArchive::Release::Suite=$sd  -c $conffile release $component/$sd > $component/$sd/Release
 	rm -f $component/$sd/Release.gpg
 	if [ $sign = 1 ] ; then
-	  gpg -abs -o $component/$sd/Release.gpg $component/$sd/Release
+	  gpg -abs -u $signkey -o $component/$sd/Release.gpg $component/$sd/Release
 	fi
 done
 
