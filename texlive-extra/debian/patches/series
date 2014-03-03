@@ -3,3 +3,4 @@ fix-mf2pt1-info
 ulqda-use-digest-sha
 latex2man-mktemp
 tmp-dir-for-pdfjam
+fix-invoice.sty
