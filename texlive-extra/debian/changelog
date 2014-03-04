@@ -1,3 +1,9 @@
+texlive-extra (2013.20140215-3) UNRELEASED; urgency=medium
+
+  * fix invoice.sty loading fp wrongly (Closes: #740291)
+
+ -- Norbert Preining <preining@debian.org>  Mon, 03 Mar 2014 13:44:19 +0900
+
 texlive-extra (2013.20140215-2) unstable; urgency=medium
 
   * fix missing replace for texlive-publisher (Closes: #739473)
