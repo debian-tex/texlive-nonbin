@@ -10,7 +10,10 @@ component=TeX
 sign=1
 
 # per default sign with my key ;-)
-signkey=0x09C5B094
+# old 1024D key
+#signkey=0x09C5B094
+# new 4096R key
+signkey=0x860CDC13
 
 while true ; do
     case "$1" in 
