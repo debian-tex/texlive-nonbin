@@ -2,11 +2,11 @@ texlive-base (2013.20140312-1) unstable; urgency=medium
 
   * record "url" move induced replaces/breaks
   * re-include pgf and provide transitional package, thanks for OHURA Makoto
-    for his long time maintainance of the package and agreement to include
+    for his long time maintenance of the package and agreement to include
     it back into TeX Live packages.
     (Closes: #683817, #337722, #491546, #734792)
 
- -- Norbert Preining <preining@debian.org>  Wed, 12 Mar 2014 16:58:56 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 13 Mar 2014 14:30:52 +0900
 
 texlive-base (2013.20140215-1) unstable; urgency=medium
 
