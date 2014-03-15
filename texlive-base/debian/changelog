@@ -1,3 +1,11 @@
+texlive-base (2013.20140315-1) UNRELEASED; urgency=medium
+
+  * UNRELEASED - new upstream needed
+  * re-include also latex-beamer and latex-xcolor and provide transitional
+    packages, thanks again to OHURA Makoto!
+
+ -- Norbert Preining <preining@debian.org>  Sat, 15 Mar 2014 23:22:43 +0900
+
 texlive-base (2013.20140314-1) unstable; urgency=medium
 
   * record "url" move induced replaces/breaks
