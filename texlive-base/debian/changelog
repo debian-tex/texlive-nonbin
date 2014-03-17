@@ -4,8 +4,9 @@ texlive-base (2013.20140315-1) UNRELEASED; urgency=medium
   * re-include also latex-beamer and latex-xcolor and provide transitional
     packages, thanks again to OHURA Makoto! (Closes: #377046, #387642, 
     #405308, #408569, #305035, #402234, #399804, #245996, #617431, #499178)
+  * texlive-pictures depends on t-l-r for xcolor (Closes: #741778)
 
- -- Norbert Preining <preining@debian.org>  Sat, 15 Mar 2014 23:45:50 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 17 Mar 2014 17:58:57 +0900
 
 texlive-base (2013.20140314-1) unstable; urgency=medium
 
