@@ -235,9 +235,12 @@ sub build_data_hash {
 		if (defined($Config{'replaces'}{$pkg})) {
 			$TeXLive{'binary'}{$pkg}{'replaces'} = [ @{$Config{'replaces'}{$pkg}} ];
 		}
+		my @breaks;
+		push @breaks, "texlive-base (<< $TeXLive{'all'}{'tl_common_version'})";
 		if (defined($Config{'breaks'}{$pkg})) {
-			$TeXLive{'binary'}{$pkg}{'breaks'} = [ @{$Config{'breaks'}{$pkg}} ];
+			push @breaks, @{$Config{'breaks'}{$pkg}};
 		}
+		$TeXLive{'binary'}{$pkg}{'breaks'} = [ @breaks ];
 		if (defined($Config{'bin-section'}{$pkg})) {
 			$TeXLive{'binary'}{$pkg}{'section'} = $Config{'bin-section'}{$pkg};
 		}

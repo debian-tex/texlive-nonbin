@@ -1,3 +1,9 @@
+texlive-extra (2013.20140MDD-1) unreleased; urgency=medium
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Wed, 26 Mar 2014 16:02:32 +0900
+
 texlive-extra (2013.20140314-1) unstable; urgency=medium
 
   * fix invoice.sty loading fp wrongly (Closes: #740291)

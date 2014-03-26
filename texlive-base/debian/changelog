@@ -1,13 +1,14 @@
-texlive-base (2013.20140315-1) UNRELEASED; urgency=medium
+texlive-base (2013.20140MDD-1) UNRELEASED; urgency=medium
 
-  * UNRELEASED - new upstream needed
   * re-include also latex-beamer and latex-xcolor and provide transitional
     packages, thanks again to OHURA Makoto! (Closes: #377046, #387642, 
     #405308, #408569, #305035, #402234, #399804, #245996, #617431, #499178)
   * texlive-pictures depends on t-l-r for xcolor (Closes: #741778)
-  * add more replaces for upgrade from wheezy (Closes: #742189)
+  * upgrade logic in apt is broken, we need to break against old versions
+    of texlive-base to guarantee proper upgrade from wheezy (Closes: #742189)
+  * make sure that ocp files are present for omega (Closes: #742660)
 
- -- Norbert Preining <preining@debian.org>  Tue, 25 Mar 2014 11:01:41 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 26 Mar 2014 16:01:32 +0900
 
 texlive-base (2013.20140314-1) unstable; urgency=medium
 
