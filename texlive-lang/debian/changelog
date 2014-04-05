@@ -1,8 +1,9 @@
-texlive-lang (2013.20140MDD-1) unreleased; urgency=medium
+texlive-lang (2013.20140405-1) unstable; urgency=medium
 
-  * new upstream checkout
+  * new upstream checkout:
+    - fixes babel-french/luatex breakage (Closes: #743736)
 
- -- Norbert Preining <preining@debian.org>  Wed, 26 Mar 2014 16:02:44 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 06 Apr 2014 08:48:55 +0900
 
 texlive-lang (2013.20140314-1) unstable; urgency=medium
 
