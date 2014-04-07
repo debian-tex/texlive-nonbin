@@ -257,6 +257,9 @@ sub make_orig_tar {
 	# remove binary files
 	`rm -rf \"$texlivedest/bin\"`;
 	#
+	# these files should not be here, they are installed by texlive.infra
+	`rm -rf \"$texlivedest/tlpkg/installer/xz\"`;
+	#
 	# necessary for media detection!
 	&mkpath("$texlivedest/texmf-dist/web2c");
 	# 

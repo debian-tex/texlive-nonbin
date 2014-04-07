@@ -236,7 +236,9 @@ sub build_data_hash {
 			$TeXLive{'binary'}{$pkg}{'replaces'} = [ @{$Config{'replaces'}{$pkg}} ];
 		}
 		my @breaks;
-		push @breaks, "texlive-base (<< $TeXLive{'all'}{'tl_common_version'})";
+		if ($pkg ne "texlive-base") {
+			push @breaks, "texlive-base (<< $TeXLive{'all'}{'tl_common_version'})";
+		}
 		if (defined($Config{'breaks'}{$pkg})) {
 			push @breaks, @{$Config{'breaks'}{$pkg}};
 		}

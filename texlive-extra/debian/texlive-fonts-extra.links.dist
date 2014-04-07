@@ -127,6 +127,7 @@ usr/share/fonts/opentype/linux-libertine/LinBiolinum_RB.otf usr/share/texlive/te
 usr/share/fonts/opentype/linux-libertine/LinBiolinum_RI.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinBiolinum_RI.otf
 usr/share/fonts/opentype/linux-libertine/LinLibertine_DR.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_DR.otf
 usr/share/fonts/opentype/linux-libertine/LinLibertine_I.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_I.otf
+usr/share/fonts/opentype/linux-libertine/LinLibertine_M.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_M.otf
 usr/share/fonts/opentype/linux-libertine/LinLibertine_R.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf
 usr/share/fonts/opentype/linux-libertine/LinLibertine_RB.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
 usr/share/fonts/opentype/linux-libertine/LinLibertine_RBI.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RBI.otf
@@ -161,3 +162,9 @@ usr/share/fonts/opentype/lobstertwo/LobsterTwo-Bold.otf usr/share/texlive/texmf-
 usr/share/fonts/opentype/lobstertwo/LobsterTwo-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/impallari/lobster2/LobsterTwo-BoldItalic.otf
 usr/share/fonts/opentype/lobstertwo/LobsterTwo-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/impallari/lobster2/LobsterTwo-Italic.otf
 usr/share/fonts/opentype/lobstertwo/LobsterTwo-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/impallari/lobster2/LobsterTwo-Regular.otf
+usr/share/fonts/opentype/ebgaramond/EBGaramond12-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/public/ebgaramond/EBGaramond12-Italic.otf
+usr/share/fonts/opentype/ebgaramond/EBGaramond12-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/public/ebgaramond/EBGaramond12-Regular.otf
+usr/share/fonts/opentype/ebgaramond/EBGaramond-Initials.otf usr/share/texlive/texmf-dist/fonts/opentype/public/ebgaramond/EBGaramond-Initials.otf
+usr/share/fonts/truetype/ebgaramond/EBGaramond12-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/ebgaramond/EBGaramond12-Regular.ttf
+usr/share/fonts/truetype/ebgaramond/EBGaramond12-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/ebgaramond/EBGaramond12-Italic.ttf
+usr/share/fonts/truetype/ebgaramond/EBGaramond-Initials.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/ebgaramond/EBGaramond-Initials.ttf
