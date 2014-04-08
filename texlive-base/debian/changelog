@@ -1,4 +1,4 @@
-texlive-base (2013.20140405-1) unstable; urgency=medium
+texlive-base (2013.20140408-1) unstable; urgency=medium
 
   * re-include also latex-beamer and latex-xcolor and provide transitional
     packages, thanks again to OHURA Makoto! (Closes: #377046, #387642, 
@@ -8,7 +8,7 @@ texlive-base (2013.20140405-1) unstable; urgency=medium
     of texlive-base to guarantee proper upgrade from wheezy (Closes: #742189)
   * make sure that ocp files are present for omega (Closes: #742660)
 
- -- Norbert Preining <preining@debian.org>  Sun, 06 Apr 2014 08:52:38 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 08 Apr 2014 10:51:31 +0900
 
 texlive-base (2013.20140314-1) unstable; urgency=medium
 
