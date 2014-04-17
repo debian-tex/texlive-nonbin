@@ -1,3 +1,9 @@
+texlive-base (2014.20140417-1) UNRELEASED; urgency=medium
+
+  * preparation for TeX Live 2014
+
+ -- Norbert Preining <preining@debian.org>  Thu, 17 Apr 2014 13:35:37 +0900
+
 texlive-base (2013.20140408-1) unstable; urgency=medium
 
   * re-include also latex-beamer and latex-xcolor and provide transitional
