@@ -1,9 +1,9 @@
 ---
- texmf-dist/web2c/texmf.cnf |   54 +++++++++++++--------------------------------
- 1 file changed, 16 insertions(+), 38 deletions(-)
+ texmf-dist/web2c/texmf.cnf |   53 ++++++++++++---------------------------------
+ 1 file changed, 15 insertions(+), 38 deletions(-)
 
---- texlive-base-2013.20130509.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2013.20130509/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2014.20140418.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2014.20140418/texmf-dist/web2c/texmf.cnf
 @@ -51,7 +51,7 @@
  % Redistributors will probably want $SELFAUTODIR/share, i.e., /usr/share.
  % Kpathsea sets SELFAUTOLOC (the directory with the binary),
@@ -21,7 +21,7 @@
 +TEXMFDEBIAN = /usr/share/texmf
 +
  % Local additions to the distribution trees.
--TEXMFLOCAL = $TEXMFROOT/../texmf-local
+-TEXMFLOCAL = $SELFAUTOGRANDPARENT/texmf-local
 +TEXMFLOCAL = /usr/local/share/texmf
  
  % TEXMFSYSVAR, where *-sys store cached runtime data.
@@ -38,11 +38,11 @@
  TEXMFHOME = ~/texmf
  
  % TEXMFVAR, where texconfig/updmap/fmtutil store cached runtime data.
--TEXMFVAR = ~/.texlive2013/texmf-var
+-TEXMFVAR = ~/.texlive2014/texmf-var
 +TEXMFVAR = ~/.texmf-var
  
  % TEXMFCONFIG, where texconfig/updmap/fmtutil store configuration data.
--TEXMFCONFIG = ~/.texlive2013/texmf-config
+-TEXMFCONFIG = ~/.texlive2014/texmf-config
 +TEXMFCONFIG = ~/.texmf-config
  
  % List all the texmf trees. For an explanation of what they are, see the
@@ -81,7 +81,7 @@
  
  % On some systems, there will be a system tree which contains all the font
  % files that may be created as well as the formats.  For example
-@@ -329,7 +332,7 @@
+@@ -325,7 +328,7 @@
  % OSFONTDIR is to provide a convenient hook for allowing TeX to find
  % fonts installed on the system (outside of TeX).  An empty default
  % value would add "//" to the search paths, so we give it a dummy value.
@@ -90,7 +90,7 @@
  
  % PostScript Type 1 outline fonts.
  T1FONTS = .;$TEXMF/fonts/type1//;$OSFONTDIR//
-@@ -485,33 +488,8 @@
+@@ -481,33 +484,7 @@
  % since we don't want to scatter ../'s throughout the value.  Hence we
  % explicitly list every directory.  Arguably more understandable anyway.
  %
@@ -111,7 +111,7 @@
 -$SELFAUTODIR/texmf-dist/web2c,\
 -$SELFAUTODIR/texmf/web2c,\
 -\
--$SELFAUTOPARENT/../texmf-local/web2c,\
+-$SELFAUTOGRANDPARENT/texmf-local/web2c,\
 -$SELFAUTOPARENT,\
 -\
 -$SELFAUTOPARENT/share/texmf-local/web2c,\
@@ -122,7 +122,6 @@
 -$SELFAUTOPARENT/texmf/web2c\
 -}
 +TEXMFCNF = /etc/texmf/web2c;/usr/local/share/texmf/web2c;/usr/share/texlive/texmf-dist/web2c
-+
  %
  % For reference, here is the old brace-using definition:
  %TEXMFCNF = {$SELFAUTOLOC,$SELFAUTODIR,$SELFAUTOPARENT}{,{/share,}/texmf{-local,}/web2c}

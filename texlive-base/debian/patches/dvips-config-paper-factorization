@@ -5,7 +5,7 @@
  3 files changed, 532 insertions(+), 518 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2013.20140312/texmf-dist/dvips/config/config-paper.ps
++++ texlive-base-2014.20140418/texmf-dist/dvips/config/config-paper.ps
 @@ -0,0 +1,524 @@
 +%
 +% config-paper.ps
@@ -531,8 +531,8 @@
 +@+ if
 +@+ %%EndPaperSize
 +
---- texlive-base-2013.20140312.orig/texmf-dist/dvips/config/config.ps
-+++ texlive-base-2013.20140312/texmf-dist/dvips/config/config.ps
+--- texlive-base-2014.20140418.orig/texmf-dist/dvips/config/config.ps
++++ texlive-base-2014.20140418/texmf-dist/dvips/config/config.ps
 @@ -67,524 +67,13 @@
  %
  % emacs-page
@@ -1065,9 +1065,9 @@
  
  % use -t unknown with a \special{papersize=...} for a nonstandard page size.
  @ unknown 0in 0in
---- texlive-base-2013.20140312.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2013.20140312/tlpkg/texlive.tlpdb
-@@ -61019,6 +61019,7 @@
+--- texlive-base-2014.20140418.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2014.20140418/tlpkg/texlive.tlpdb
+@@ -64139,6 +64139,7 @@
   texmf-dist/dvips/config/config.mirrorprint
   texmf-dist/dvips/config/config.ot2
   texmf-dist/dvips/config/config.ps
