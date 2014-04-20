@@ -211,6 +211,9 @@ stable-tests:
 		mv pool/stable-test-*-files-* ./tests/log/ ; \
 	done
 
+duplicate-check:
+	zgrep , pool/Contents-i386.gz
+
 
 clean:
 	rm -rf pool log binary debian-pkg* control-stamp
