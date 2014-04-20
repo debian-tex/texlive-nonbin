@@ -3,6 +3,7 @@ usr/share/texlive/texmf-dist/web2c/texmfcnf.lua usr/share/texmf/web2c/texmfcnf.l
 var/lib/texmf/tex/generic/config/language.dat usr/share/texlive/texmf-dist/tex/generic/config/language.dat
 var/lib/texmf/tex/generic/config/language.dat.lua usr/share/texlive/texmf-dist/tex/generic/config/language.dat.lua
 var/lib/texmf/tex/generic/config/language.def usr/share/texlive/texmf-dist/tex/generic/config/language.def
+# these come from texk/texlive/tl_scripts/Makefile.am, bin_links!
 usr/bin/allcm usr/bin/allec
 usr/bin/kpsetool usr/bin/kpsepath
 usr/bin/kpsetool usr/bin/kpsexpand
