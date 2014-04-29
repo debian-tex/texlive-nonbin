@@ -1,7 +1,3 @@
-# the following patch only adjusts a space, I think it was used
-# for the old paper adjustment code, but is not needed anymore
-# dvipdfmx.cfg_whitespace
-#
 # for epspdf this seems to be upstream, need to fix texpwer, too
 fix-info-dir-sections
 # could be merged into the later fix-scripts patch
