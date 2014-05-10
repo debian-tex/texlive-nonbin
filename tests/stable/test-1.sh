@@ -17,9 +17,20 @@ echo "=== START INSTALL TEST VERSION"
 apt-get dist-upgrade $aptargs
 find /etc/texmf | sort > /pool/stable-test-1-files-post
 for i in $(find /tmp -name fmtutil\.\* -o -name updmap\.\*) ; do
-  echo $i
-  cat $i
-  echo "=================="
+  if [ -f $i ] ; then
+    echo $i
+    cat $i
+    echo "=================="
+  elif [ -d $i ] ; then
+    for j in $i/* ; do
+      echo $j
+      cat $j
+      echo "================="
+    done
+  else
+    echo "dont know how to treat $i"
+    echo "================"
+  fi
 done
 
 echo "=== END"
