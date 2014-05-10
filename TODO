@@ -1,3 +1,5 @@
+- how to disable luajittex formats on some archs?
+
 - otf font blacklists and links are generated from lintian files via
   scripts/create-tl-directives, but we do not reevaluate old blacklists
   and change locations
