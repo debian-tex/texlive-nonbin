@@ -5,14 +5,14 @@
  3 files changed, 7 insertions(+), 2 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2014.20140418/texmf-dist/tex/generic/config/pdftexconfig-paper.tex
++++ texlive-base-2014.20140513/texmf-dist/tex/generic/config/pdftexconfig-paper.tex
 @@ -0,0 +1,4 @@
 +% paper size settings, included from pdftexconfig.tex for pdftex
 +\pdfpagewidth=210 true mm
 +\pdfpageheight=297 true mm
 +\endinput
---- texlive-base-2014.20140418.orig/texmf-dist/tex/generic/config/pdftexconfig.tex
-+++ texlive-base-2014.20140418/texmf-dist/tex/generic/config/pdftexconfig.tex
+--- texlive-base-2014.20140513.orig/texmf-dist/tex/generic/config/pdftexconfig.tex
++++ texlive-base-2014.20140513/texmf-dist/tex/generic/config/pdftexconfig.tex
 @@ -3,8 +3,8 @@
  \pdfoutput=1
  \pdfcompresslevel=9
@@ -24,9 +24,9 @@
  \pdfhorigin=1 true in
  \pdfvorigin=1 true in
  \pdfpkresolution=600
---- texlive-base-2014.20140418.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2014.20140418/tlpkg/texlive.tlpdb
-@@ -148179,6 +148179,7 @@
+--- texlive-base-2014.20140513.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2014.20140513/tlpkg/texlive.tlpdb
+@@ -149156,6 +149156,7 @@
   texmf-dist/scripts/simpdftex/simpdftex
   texmf-dist/tex/generic/config/pdftex-dvi.tex
   texmf-dist/tex/generic/config/pdftexconfig.tex
