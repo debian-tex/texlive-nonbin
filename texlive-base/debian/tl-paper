@@ -5,7 +5,7 @@
 # query and change paper settings using TLPaper
 # this is independent from tlmgr
 #
-# Copyright 2011, 2012 Norbert Preining
+# Copyright 2011-2014 Norbert Preining
 # This file is licensed under the GNU General Public License version 3
 # or any later version.
 #
@@ -29,7 +29,6 @@ our %paper_config_name = (
   "pdftex"   => "pdftexconfig-paper.tex",
   "dvips"    => "config-paper.ps",
   "dvipdfmx" => "dvipdfmx-paper.cfg",
-  "dvipdfm"  => "config-paper",
   "context"  => "cont-sys-paper.tex",
 );
 
@@ -70,7 +69,7 @@ sub main {
     my $prg = shift @ARGV;
     my $newpaper = shift @ARGV;
 
-    if ($prg !~ m/^(xdvi|pdftex|dvips|dvipdfmx|dvipdfm|context|all)$/i) {
+    if ($prg !~ m/^(xdvi|pdftex|dvips|dvipdfmx|context|all)$/i) {
       usage();
       exit 1;
     }
@@ -104,7 +103,7 @@ sub main {
 
   } elsif ($action =~ m/^get$/i) { # "tl-paper get prg" gets paper setting for prg
     my $prg = shift @ARGV;
-    if ($prg !~ m/^(xdvi|pdftex|dvips|dvipdfmx|dvipdfm|context)$/i) {
+    if ($prg !~ m/^(xdvi|pdftex|dvips|dvipdfmx|context)$/i) {
       usage();
       exit 1;
     }
