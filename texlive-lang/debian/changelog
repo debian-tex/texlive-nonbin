@@ -1,3 +1,9 @@
+texlive-lang (2014.20140522-1) experimental; urgency=medium
+
+  * bump (build-)depends on tex-common >= 5
+
+ -- Norbert Preining <preining@debian.org>  Thu, 22 May 2014 11:22:15 +0900
+
 texlive-lang (2014.20140513-1) experimental; urgency=medium
 
   * TeX Live 2014
