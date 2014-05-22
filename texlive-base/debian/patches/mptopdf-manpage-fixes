@@ -1,23 +1,14 @@
 ---
- texmf-dist/doc/man/man1/mptopdf.1 |    4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ texmf-dist/doc/man/man1/mptopdf.1 |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---- texlive-base-2014.20140513.orig/texmf-dist/doc/man/man1/mptopdf.1
-+++ texlive-base-2014.20140513/texmf-dist/doc/man/man1/mptopdf.1
+--- texlive-base-2014.20140522.orig/texmf-dist/doc/man/man1/mptopdf.1
++++ texlive-base-2014.20140522/texmf-dist/doc/man/man1/mptopdf.1
 @@ -1,6 +1,6 @@
- .TH "mptopdf" "1" "01-01-2014" "version 1.4.1" "convert MetaPost figures to PDF"
+ .TH "mptopdf" "1" "01-01-2014" "version 1.4.1" "convert MetaPost to PDF"
  .SH NAME
 -.B mptopdf
 +mptopdf - convert MetaPost figures to PDF
  .SH SYNOPSIS
  .B mptopdf [
  .I OPTIONS ...
-@@ -8,7 +8,7 @@
- .I FILENAMES
- .B ]
- .SH DESCRIPTION
--.B convert MetaPost figures to PDF
-+convert MetaPost figures to PDF
- .SH OPTIONS
- .TP
- .B --metafun
