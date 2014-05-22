@@ -1,5 +1,3 @@
-- xdvi paper setting is completely hosed, XDvi-paper is *NOT* found!
-
 - how to disable luajittex formats on some archs?
 
 - otf font blacklists and links are generated from lintian files via
