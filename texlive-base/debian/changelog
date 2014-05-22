@@ -1,3 +1,11 @@
+texlive-base (2014.20140513-2) UNRELEASED; urgency=medium
+
+  * fix xdvi paper configuration not working as expected
+    now tl-paper reads top level, but writes to TEXMFSYSVAR
+    and sysadm can override the tl-paper/libpaper setting in /etc/texmf
+
+ -- Norbert Preining <preining@debian.org>  Sat, 17 May 2014 08:58:38 +0900
+
 texlive-base (2014.20140513-1) experimental; urgency=medium
 
   * TeX Live 2014

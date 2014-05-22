@@ -1,17 +1,27 @@
 ---
- texmf-dist/xdvi/XDvi       |    2 +-
+ texmf-dist/xdvi/XDvi       |   12 +++++++++++-
  texmf-dist/xdvi/XDvi-paper |    1 +
  tlpkg/texlive.tlpdb        |    1 +
- 3 files changed, 3 insertions(+), 1 deletion(-)
+ 3 files changed, 13 insertions(+), 1 deletion(-)
 
 --- texlive-base-2014.20140513.orig/texmf-dist/xdvi/XDvi
 +++ texlive-base-2014.20140513/texmf-dist/xdvi/XDvi
-@@ -21,7 +21,7 @@
+@@ -21,7 +21,17 @@
  !!! and greater flexibility for shrink values. Generating MF fonts shouldn't be an
  !!! issue when using T1lib.
  !*mfMode: ljfour
 -*paper: a4
-+#include XDvi-paper
++
++!!! include the various places where system-admins can configure the papersize
++!!! for xdvi:
++!!! the default as shipped in TeX Live is in the same directory as XDvi
++#include "XDvi-paper"
++!!! the file used by tl-paper for setting up the paper size
++#include "/var/lib/texmf/xdvi/XDvi-paper"
++!!! the file a sysadm can use to override everything in /etc
++#include "/etc/texmf/xdvi/XDvi-paper"
++!!! the last one takes precedence, and there is no problem with missing
++!!! files, which amounts to what we want.
  
  !!! This should be the best choice for modern displays with large color depth.
  *thorough: true
