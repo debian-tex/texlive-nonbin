@@ -1,0 +1,12 @@
+texlive-lang-cjk (2014.201405NN-1) UNRELEASED; urgency=medium
+
+  * During the passage from TL2013 to TL2014 the rather large
+    texlive-lang-cjk was split into four different packages:
+    . texlive-lang-cjk: contains packages for all three languages
+    . texlive-lang-japanese: Japanese support
+    . texlive-lang-korean: Korean support
+    . texlive-lang-chinese: Chinese support
+    texlive-lang-cjk recommends the new packages, thus by default
+    the new packages are installed. If necessary, install manually.
+
+ -- Norbert Preining <preining@debian.org>  Tue, 27 May 2014 17:38:09 +0900
