@@ -1,10 +1,10 @@
-texlive-lang (2014.201405NN-1) UNRELEASED; urgency=medium
+texlive-lang (2014.20140528-1) unstable; urgency=medium
 
-  * CHANGE VERSION NUMBER!!!
+  * upload to unstable
   * add lang-cjk recommends -lang-{japanese,chinese,korean} to make sure
     that upgraded system have the same capabilities
 
- -- Norbert Preining <preining@debian.org>  Tue, 27 May 2014 09:59:20 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 28 May 2014 17:52:37 +0900
 
 texlive-lang (2014.20140522-1) experimental; urgency=medium
 

@@ -1,3 +1,9 @@
+texlive-base (2014.20140528-1) unstable; urgency=medium
+
+  * upload to unstable
+
+ -- Norbert Preining <preining@debian.org>  Wed, 28 May 2014 17:52:12 +0900
+
 texlive-base (2014.20140522-1) experimental; urgency=medium
 
   * fix xdvi paper configuration not working as expected
