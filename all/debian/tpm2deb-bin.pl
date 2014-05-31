@@ -219,10 +219,12 @@ sub make_deb_execute_actions {
 			if (defined($r{"error"})) {
 				die "$r{'error'}, package $package, execute $e";
 			}
-			my $mode = ($r{"mode"} ? "" : "#! ");
 			if (defined($Config{'disabled_formats'}{$package})) {
-				next if (ismember($r{'name'}, @{$Config{'disabled_formats'}{$package}}));
+				if (ismember($r{'name'}, @{$Config{'disabled_formats'}{$package}})) {
+					$r{"mode"} = 0;
+				}
 			}
+			my $mode = ($r{"mode"} ? "" : "#! ");
 			push @formatlines, "$mode$r{'name'} $r{'engine'} $r{'patterns'} $r{'options'}\n";
 		} elsif ($what eq 'AddHyphen') {
 			my %r = TeXLive::TLUtils::parse_AddHyphen_line(join(" ", $first, @rest));

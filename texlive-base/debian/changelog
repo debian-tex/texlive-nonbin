@@ -1,3 +1,9 @@
+texlive-base (2014.20140528-3) unstable; urgency=medium
+
+  * disable luajittex (makes no sense at the moment)
+
+ -- Norbert Preining <preining@debian.org>  Sat, 31 May 2014 23:25:34 +0900
+
 texlive-base (2014.20140528-2) unstable; urgency=medium
 
   * do not include prerex, it is packaged separately (Closes: #749842)
