@@ -1,8 +1,8 @@
-texlive-base (2014.20140528-2) UNRELEASED; urgency=medium
+texlive-base (2014.20140528-2) unstable; urgency=medium
 
   * do not include prerex, it is packaged separately (Closes: #749842)
 
- -- Norbert Preining <preining@debian.org>  Fri, 30 May 2014 17:10:55 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 31 May 2014 08:46:59 +0900
 
 texlive-base (2014.20140528-1) unstable; urgency=medium
 
