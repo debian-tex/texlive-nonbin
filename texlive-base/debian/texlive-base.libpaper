@@ -31,13 +31,32 @@ db_version 2.0
 
 #####################################
 #
-# code from dh_installtex postinst-tex snippet
+# code from tex-common postinst
 #
 ####################################
-dhit_libkpathsea_configured ()
+#
+dhit_package_configured()
 {
-    kpsewhich --version >/dev/null 2>&1
+    stat=$(dpkg-query -W -f='${Status}' $1 2>/dev/null || true)
+    case "$stat" in
+        "install ok installed")
+            return 0
+            ;;
+        *)
+            return 1
+            ;;
+    esac
 }
+
+dhit_base_bin_configured ()
+{
+    we_are_ready=0
+    if ! dhit_package_configured texlive-binaries ; then
+        return 1
+    fi
+    dhit_package_configured texlive-base
+}
+
 dhit_update_lsr_files ()
 {
     tempfile=$(mktemp -p /tmp mktexlsr.XXXXXXXX)
@@ -57,7 +76,6 @@ dhit_update_lsr_files ()
 }
 dhit_build_format ()
 {
-
     tempfile=$(mktemp -p /tmp fmtutil.XXXXXXXX)
     printf "Building format(s) $*.\n\tThis may take some time... "
     if fmtutil-sys "$@" > $tempfile 2>&1 ; then
@@ -75,7 +93,7 @@ dhit_build_format ()
 }
 #####################################
 #
-# end code from dh_installtex postinst-tex snippet
+# end code from tex-common postinst
 #
 ####################################
 
@@ -100,10 +118,8 @@ if [ $FourPapersAllSame = true ]; then
     exit 0
   else
     if tl-paper set all $LibpaperPaper; then
-      if dhit_libkpathsea_configured; then
-        if which mktexlsr >/dev/null; then
-          dhit_update_lsr_files /var/lib/texmf
-        fi
+      if dhit_base_bin_configured ; then
+        dhit_update_lsr_files /var/lib/texmf
         dhit_build_format --refresh
       fi
       # finished now
@@ -149,10 +165,8 @@ else
 
       # all is well
       tl-paper set $binary $LibpaperPaper
-      if dhit_libkpathsea_configured; then
-        if which mktexlsr >/dev/null; then
-          dhit_update_lsr_files /var/lib/texmf
-        fi
+      if dhit_base_bin_configured; then
+        dhit_update_lsr_files /var/lib/texmf
         # only rebuild when pdftex has changed, all others are
         # run time files
         if [ "$binary" = "pdftex" ] ; then

@@ -1,8 +1,9 @@
 texlive-base (2014.20140528-3) unstable; urgency=medium
 
+  * update dhit code in libpaper snippet
   * disable luajittex (makes no sense at the moment)
 
- -- Norbert Preining <preining@debian.org>  Sat, 31 May 2014 23:25:34 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 31 May 2014 23:26:14 +0900
 
 texlive-base (2014.20140528-2) unstable; urgency=medium
 
