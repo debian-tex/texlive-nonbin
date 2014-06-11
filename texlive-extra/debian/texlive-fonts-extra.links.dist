@@ -114,6 +114,11 @@ usr/share/fonts/opentype/stix/STIXSizeTwoSym-Bold.otf usr/share/texlive/texmf-di
 usr/share/fonts/opentype/stix/STIXSizeTwoSym-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIXSizTwoSymReg.otf
 usr/share/fonts/opentype/stix/STIXVariants-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIXVarBol.otf
 usr/share/fonts/opentype/stix/STIXVariants-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIXVar.otf
+usr/share/fonts/opentype/stix-word/STIX-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIX-Bold.otf
+usr/share/fonts/opentype/stix-word/STIX-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIX-Italic.otf
+usr/share/fonts/opentype/stix-word/STIX-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIX-Regular.otf
+usr/share/fonts/opentype/stix-word/STIX-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIX-BoldItalic.otf
+usr/share/fonts/opentype/stix-word/STIXMath-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIXMath-Regular.otf
 usr/share/fonts/opentype/cabin/Cabin-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/impallari/cabin/Cabin-Bold.otf
 usr/share/fonts/opentype/cabin/Cabin-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/impallari/cabin/Cabin-BoldItalic.otf
 usr/share/fonts/opentype/cabin/Cabin-Medium.otf usr/share/texlive/texmf-dist/fonts/opentype/impallari/cabin/Cabin-Medium.otf
