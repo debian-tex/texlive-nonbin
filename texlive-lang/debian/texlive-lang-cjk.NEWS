@@ -1,4 +1,4 @@
-texlive-lang-cjk (2014.201405NN-1) UNRELEASED; urgency=medium
+texlive-lang-cjk (2014.20140626-1) unstable; urgency=medium
 
   * During the passage from TL2013 to TL2014 the rather large
     texlive-lang-cjk was split into four different packages:
