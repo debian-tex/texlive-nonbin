@@ -1,9 +1,9 @@
-texlive-lang (2014.20140625-1) unstable; urgency=medium
+texlive-lang (2014.20140626-1) unstable; urgency=medium
 
   * new upstream checkout
     - fix babel-russian inconsistencies (Closes: #751384, #750057)
 
- -- Norbert Preining <preining@debian.org>  Wed, 25 Jun 2014 11:55:14 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 25 Jun 2014 16:02:48 +0900
 
 texlive-lang (2014.20140528-1) unstable; urgency=medium
 
