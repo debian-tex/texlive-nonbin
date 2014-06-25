@@ -670,15 +670,22 @@ sub make_deb_control {
 			next;
 		}
 		print CONTROL " This package includes the following CTAN packages:\n";
+		# make each package its own paragraph, to help translators
+		print CONTROL " .\n";
 		foreach my $p (@lop) {
 			next if is_blacklisted($p,$pkg);
 			# ignore split out arch packages
 			next if ($p =~ m/\.i386-linux$/);
 			my $tit = $TeXLive{'binary'}{$p}{'title'};
 			chomp($tit);
-			# add an extra space at the beginning to have a real list
-			$shortl = " $p -- $tit";
+			# make each package its own paragraph, to help translators
+			# thus, no need for a list, don't add initial space!
+			# # add an extra space at the beginning to have a real list
+			# $shortl = " $p -- $tit";
+			$shortl = "$p -- $tit";
 			write CONTROL;
+			print CONTROL " .\n";
+			#
 		}
 	}
 	close CONTROL;
