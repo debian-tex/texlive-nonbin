@@ -114,6 +114,7 @@ update-scripts-file:
 
 packages:
 	bash scripts/build-infra -p . -nosign pool
+	make duplicate-check
 
 alltests: installtests stable-tests testing-tests sid-tests
 
@@ -212,7 +213,7 @@ stable-tests:
 	done
 
 duplicate-check:
-	zgrep , pool/Contents-i386.gz
+	@if zgrep , pool/Contents-i386.gz >/dev/null ; then echo "Duplicate file inclusion detected!" ; zgrep , pool/Contents-i386.gz ; return 1 ; else return 0 ; fi
 
 
 clean:
