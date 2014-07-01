@@ -1,1 +1,6 @@
 application/x-dvi; /usr/bin/xdvi %s; description=TeX DVI; test=test -n "$DISPLAY"; nametemplate=%s.dvi; priority=5
+# entry for dvi2tty
+# "-q" to not pipe through a pager.  run-mailcap or similar will do             
+# that, or not, as appropriate.                        
+# priority=3 is the same as "catdvi".                  
+application/x-dvi; /usr/bin/dvi2tty -q %s; copiousoutput; description=TeX DVI; priority=3

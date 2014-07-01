@@ -1,8 +1,9 @@
 texlive-base (2014.20140626-2) UNRELEASED; urgency=medium
 
   * include a fix for listings.sty (Closes: #752773)
+  * include mime-type def for dvi2tty, thanks Kevin Ryde (Closes: #753368)
 
- -- Norbert Preining <preining@debian.org>  Sun, 29 Jun 2014 10:05:06 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 01 Jul 2014 21:56:51 +0900
 
 texlive-base (2014.20140626-1) unstable; urgency=medium
 
