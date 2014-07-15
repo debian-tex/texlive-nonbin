@@ -26,5 +26,7 @@ fix-natbib-add-spaces
 upstream_fix_babel_french_days
 debian-tlmgr-usermode
 mptopdf-manpage-fixes
-fix-listings-bug
+# not really good a fix, upupstream is working on it
+# this patch creates different problems
+# fix-listings-bug
 upstream-thumbpdf-fix
