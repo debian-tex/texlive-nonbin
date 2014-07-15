@@ -27,3 +27,4 @@ upstream_fix_babel_french_days
 debian-tlmgr-usermode
 mptopdf-manpage-fixes
 fix-listings-bug
+upstream-thumbpdf-fix
