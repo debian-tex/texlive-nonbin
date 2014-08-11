@@ -1,8 +1,11 @@
 texlive-extra (2014.20140717-2) UNRELEASED; urgency=medium
 
+  * NEW UPSTREAM CHECKOUT NECESSARY FOR leipzig fix
+  * new upstream checkout:
+    - fix misplacement of leipzig.tex (Closes: #757752)
   * fix package descriptions' format (Closes: #756626)
 
- -- Norbert Preining <preining@debian.org>  Fri, 01 Aug 2014 07:58:59 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 11 Aug 2014 15:05:25 +0900
 
 texlive-extra (2014.20140717-1) unstable; urgency=medium
 
