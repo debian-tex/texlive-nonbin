@@ -1,13 +1,12 @@
-texlive-base (2014.20140717-2) UNRELEASED; urgency=medium
+texlive-base (2014.20140821-1) unstable; urgency=medium
 
-  * cherry pick luaotfload-tool fix from upstream (Closes: #755751)
-  	WARNING: IF NEW UPSTREAM REMOVE THIS PATCH, NEW VERSION UPLOADED
+  * new upstream checkout: fix luaotfload-tool (Closes: #755751)
   * add replaces/breaks for doc.html move from tl-doc-base -> tl-base
     (Closes: #756618)
   * include Turkish translation of texlive-base debconf (Closes: #757502)
   * tl-latex-recommended suggests tl-pstricks (seminar) (Closes: #757480)
 
- -- Norbert Preining <preining@debian.org>  Mon, 11 Aug 2014 15:13:06 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 21 Aug 2014 15:04:03 +0900
 
 texlive-base (2014.20140717-01) unstable; urgency=medium
 
