@@ -1,8 +1,10 @@
 texlive-extra (2014.20140821-2) UNRELEASED; urgency=medium
 
+  * NEW UPSTREAM NEEDED
   * finally fix description format, sorry (Closes: #758908)
+  * fix various font file links (Closes: #758989)
 
- -- Norbert Preining <preining@debian.org>  Sat, 23 Aug 2014 10:54:36 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 24 Aug 2014 09:15:51 +0900
 
 texlive-extra (2014.20140821-1) unstable; urgency=medium
 
