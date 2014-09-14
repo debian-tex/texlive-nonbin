@@ -1,3 +1,10 @@
+texlive-base (2014.20140821-2) UNRELEASED; urgency=medium
+
+  * NEW UPSTREAM NECESSARY
+  * new upstream checkout: fix breqn missing file (Closes: #761513)
+
+ -- Norbert Preining <preining@debian.org>  Mon, 15 Sep 2014 00:44:57 +0900
+
 texlive-base (2014.20140821-1) unstable; urgency=medium
 
   * new upstream checkout: fix luaotfload-tool (Closes: #755751)
