@@ -5,8 +5,8 @@
  texmf-dist/scripts/vpe/vpe.pl         |    3 +--
  4 files changed, 5 insertions(+), 14 deletions(-)
 
---- texlive-extra-2013.20130509.orig/texmf-dist/scripts/pkfix/pkfix.pl
-+++ texlive-extra-2013.20130509/texmf-dist/scripts/pkfix/pkfix.pl
+--- texlive-extra-2014.20140925.orig/texmf-dist/scripts/pkfix/pkfix.pl
++++ texlive-extra-2014.20140925/texmf-dist/scripts/pkfix/pkfix.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -    if 0;
@@ -14,17 +14,17 @@
  use strict;
  $^W=1; # turn warning on
  #
---- texlive-extra-2013.20130509.orig/texmf-dist/scripts/pst2pdf/pst2pdf.pl
-+++ texlive-extra-2013.20130509/texmf-dist/scripts/pst2pdf/pst2pdf.pl
+--- texlive-extra-2014.20140925.orig/texmf-dist/scripts/pst2pdf/pst2pdf.pl
++++ texlive-extra-2014.20140925/texmf-dist/scripts/pst2pdf/pst2pdf.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
 +#! /usr/bin/perl -w
  
- use strict;				# to be sure, that all is safe ... :-)
- 
---- texlive-extra-2013.20130509.orig/texmf-dist/scripts/vpe/vpe.pl
-+++ texlive-extra-2013.20130509/texmf-dist/scripts/vpe/vpe.pl
+ use strict;			# to be sure, that all is safe ... :-)
+ use v5.18;
+--- texlive-extra-2014.20140925.orig/texmf-dist/scripts/vpe/vpe.pl
++++ texlive-extra-2014.20140925/texmf-dist/scripts/vpe/vpe.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -32,8 +32,8 @@
  use strict;
  #
  # vpe.pl
---- texlive-extra-2013.20130509.orig/texmf-dist/scripts/a2ping/a2ping.pl
-+++ texlive-extra-2013.20130509/texmf-dist/scripts/a2ping/a2ping.pl
+--- texlive-extra-2014.20140925.orig/texmf-dist/scripts/a2ping/a2ping.pl
++++ texlive-extra-2014.20140925/texmf-dist/scripts/a2ping/a2ping.pl
 @@ -1,11 +1,5 @@
 -#! /bin/sh
 -eval '(exit $?0)' && eval 'PERL_BADLANG=x;export PERL_BADLANG;: \

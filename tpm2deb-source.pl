@@ -558,7 +558,7 @@ sub make_deb_control {
 				push @lop, $p;
 			}
 		}
-		my $description = $TeXLive{$type_of_package}{$pkg}{'description'};
+		my $description = '';
 		if (defined($TeXLive{$type_of_package}{$pkg}{'description'})) {
 			$description = $TeXLive{$type_of_package}{$pkg}{'description'};
 		}
@@ -650,19 +650,48 @@ sub make_deb_control {
 		#
 		print CONTROL "Description: TeX Live: $title\n";
 		#
-		my @deslines = split(/\n/, $description);
+		my $rest = $description;
+		my @deslines = ();
+		while ($rest ne '') {
+			$rest =~ /(.{1,70}\W)/ms;
+			my $tentative_line = $1;
+			my $tentative_rest = $';
+			if ($tentative_line =~ /^\./) {
+				# dot at the beginning, that is bad!
+				# redo with shorted, then it should be ok ;-)
+				$rest =~ /(.{1,60}\W)/ms;
+				$tentative_line = $1;
+				$tentative_rest = $';
+			}
+			# treat embedded newlines!
+			push @deslines, split(/\n/, $tentative_line);
+			$rest = $tentative_rest;
+		}
 		my $firstline = 1;
-		foreach my $l (@deslines) {
+		for my $l (@deslines) {
 			if ($l =~ m/^\s*$/) {
 				if ($firstline) { $firstline = 0; next; }
 				print CONTROL " .\n";
-			} else { 
-				#$shortl = shortenline($l);
-				#print CONTROL " $shortl\n";
-				$shortl = $l;
-				write CONTROL;
+			} else {
+				# remove some leading whitespace
+				$l =~ s/^\s*//;
+				print CONTROL " $l\n";
 			}
 		}
+		# old code!
+		#my @deslines = split(/\n/, $description);
+		#my $firstline = 1;
+		#foreach my $l (@deslines) {
+		#	if ($l =~ m/^\s*$/) {
+		#		if ($firstline) { $firstline = 0; next; }
+		#		print CONTROL " .\n";
+		#	} else { 
+		#		#$shortl = shortenline($l);
+		#		#print CONTROL " $shortl\n";
+		#		$shortl = $l;
+		#		write CONTROL;
+		#	}
+		#}
 		if (@deslines) {
 			print CONTROL " .\n";
 		}
@@ -671,7 +700,6 @@ sub make_deb_control {
 		}
 		print CONTROL " This package includes the following CTAN packages:\n";
 		# make each package its own paragraph, to help translators
-		print CONTROL " .\n";
 		foreach my $p (@lop) {
 			next if is_blacklisted($p,$pkg);
 			# ignore split out arch packages
@@ -682,9 +710,9 @@ sub make_deb_control {
 			# thus, no need for a list, don't add initial space!
 			# # add an extra space at the beginning to have a real list
 			# $shortl = " $p -- $tit";
+		    print CONTROL " .\n";
 			$shortl = "$p -- $tit";
 			write CONTROL;
-			print CONTROL " .\n";
 			#
 		}
 	}

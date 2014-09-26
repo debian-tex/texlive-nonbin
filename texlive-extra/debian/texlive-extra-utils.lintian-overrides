@@ -1,0 +1,4 @@
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex2.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex3.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex2.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex3.py
