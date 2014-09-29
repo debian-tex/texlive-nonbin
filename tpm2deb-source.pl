@@ -651,21 +651,16 @@ sub make_deb_control {
 		print CONTROL "Description: TeX Live: $title\n";
 		#
 		my $rest = $description;
+		$rest =~ s/\n/ /g;
 		my @deslines = ();
 		while ($rest ne '') {
-			$rest =~ /(.{1,70}\W)/ms;
-			my $tentative_line = $1;
-			my $tentative_rest = $';
-			if ($tentative_line =~ /^\./) {
-				# dot at the beginning, that is bad!
-				# redo with shorted, then it should be ok ;-)
-				$rest =~ /(.{1,60}\W)/ms;
-				$tentative_line = $1;
-				$tentative_rest = $';
+			if (length($rest) <= 76) {
+				push @deslines, $rest;
+				last;
 			}
-			# treat embedded newlines!
-			push @deslines, split(/\n/, $tentative_line);
-			$rest = $tentative_rest;
+			$rest =~ /^(.{1,76}\s+)([a-zA-Z0-9])/ms;
+			push @deslines, $1;
+			$rest = "$2$'";
 		}
 		my $firstline = 1;
 		for my $l (@deslines) {
@@ -692,13 +687,10 @@ sub make_deb_control {
 		#		write CONTROL;
 		#	}
 		#}
-		if (@deslines) {
-			print CONTROL " .\n";
-		}
 		if ($#lop < 0) {
 			next;
 		}
-		print CONTROL " This package includes the following CTAN packages:\n";
+		print CONTROL " .\n This package includes the following CTAN packages:\n";
 		# make each package its own paragraph, to help translators
 		foreach my $p (@lop) {
 			next if is_blacklisted($p,$pkg);
