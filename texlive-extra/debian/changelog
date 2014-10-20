@@ -3,8 +3,10 @@ texlive-extra (2014.20140927-2) UNRELEASED; urgency=medium
   * UNRELEASED
   * tl-fonts-extra recommends tl-latex-extra (lato.sty > slantsc.sty)
     (Closes: #765399)
+  * tl-extra-utils recommends libyaml-tiny-perl and libfile-homedir-perl
+    (for latexindent) (LP: #1378255) (Closes: #765660)
 
- -- Norbert Preining <preining@debian.org>  Tue, 21 Oct 2014 08:42:28 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 21 Oct 2014 08:44:59 +0900
 
 texlive-extra (2014.20140927-1) unstable; urgency=medium
 
