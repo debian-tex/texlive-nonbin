@@ -1,8 +1,9 @@
 texlive-base (2014.20140927-2) UNRELEASED; urgency=medium
 
   * UNRELEASED
+  * add pt_BR translation (Closes: #766110)
 
- -- Norbert Preining <preining@debian.org>  Mon, 29 Sep 2014 15:00:45 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 21 Oct 2014 08:49:45 +0900
 
 texlive-base (2014.20140927-1) unstable; urgency=medium
 

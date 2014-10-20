@@ -1,0 +1,68 @@
+# Debconf translations for texlive-base.
+# Copyright (C) 2014 THE texlive-base'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the texlive-base package.
+# José de Figueiredo <deb.gnulinux@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: texlive-base\n"
+"Report-Msgid-Bugs-To: texlive-base@packages.debian.org\n"
+"POT-Creation-Date: 2012-04-24 14:30+0900\n"
+"PO-Revision-Date: 2014-10-15 15:12-0300\n"
+"Last-Translator: José de Figueiredo <deb.gnulinux@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
+"org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid "Unmanageable system paper size (${libpaperPaper})"
+msgstr "Tamanho de papel do sistema não gerenciável (${libpaperPaper})"
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid ""
+"The currently defined system-wide paper size is ${libpaperPaper}. However, "
+"the TeX configuration system cannot handle this paper size for ${binary}."
+msgstr ""
+"O tamanho de papel definido atualmente para todo o sistema é "
+"${libpaperPaper}. No entanto, o sistema de configuração do TeX não consegue "
+"lidar com este tamanho de papel para ${binary}."
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid "The setting will remain unchanged."
+msgstr "As configurações serão mantidas sem modificação."
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid ""
+"The following command can show the list of known paper sizes for ${binary}:"
+msgstr ""
+"O seguinte comando pode mostrar a lista de tamanhos de papel conhecidos por "
+"${binary}:"
+
+#. Type: multiselect
+#. Description
+#: ../texlive-base.templates:3001
+msgid "TeX binaries that should use the system paper size:"
+msgstr "Os binários TeX que devem usar o tamanho de papel do sistema:"
+
+#. Type: multiselect
+#. Description
+#: ../texlive-base.templates:3001
+msgid ""
+"This system's TeX binaries currently use different default paper sizes. "
+"Please choose which of them should get the system paper size "
+"(${libpaperPaper}) as their default."
+msgstr ""
+"Os binários TeX deste sistema utilizam atualmente diferentes tamanhos de "
+"papel como padrão. Por favor, escolha quais devem usar o tamanho de papel do "
+"sistema (${libpaperPaper}) como padrão."
