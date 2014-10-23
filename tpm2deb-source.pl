@@ -690,7 +690,8 @@ sub make_deb_control {
 		if ($#lop < 0) {
 			next;
 		}
-		print CONTROL " .\n This package includes the following CTAN packages:\n";
+		print CONTROL " .\n" if ($description);
+		print CONTROL " This package includes the following CTAN packages:\n";
 		# make each package its own paragraph, to help translators
 		foreach my $p (@lop) {
 			next if is_blacklisted($p,$pkg);
