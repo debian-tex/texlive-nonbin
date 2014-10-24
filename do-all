@@ -11,7 +11,7 @@ mv *.log log/
 make packages lintian
 #make sid-overwrite
 make sid-tests
-#make stable-tests
+make stable-tests
 #make testing-tests
 
 #bash do-checks
