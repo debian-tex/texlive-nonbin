@@ -1,3 +1,9 @@
+texlive-base (2014.20141024-2) UNRELEASED; urgency=medium
+
+  * texlive-xetex (polyglossia) needs texlive-latex-extra (Closes: #767887)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 05 Nov 2014 09:15:55 +0900
+
 texlive-base (2014.20141024-1) unstable; urgency=medium
 
   * new upstream checkout
