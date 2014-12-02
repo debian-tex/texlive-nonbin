@@ -5,7 +5,7 @@ texlive-base (2014.20141024-2) unstable; urgency=medium
   * update of tools package: fixes a serious bug
   * unfuzzify patches
 
- -- Norbert Preining <preining@debian.org>  Tue, 02 Dec 2014 22:05:32 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 02 Dec 2014 22:34:13 +0900
 
 texlive-base (2014.20141024-1) unstable; urgency=medium
 
