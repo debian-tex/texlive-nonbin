@@ -1,23 +1,45 @@
 update basic latex tools from current tlnet
 
-This includes important fixes:
-* multicol.dtx: In \end{multicols*} only add vertical space if not
-  doing already doing \raggedcolumns and add \null to hide the final
-  fill if added so that it doesn't get removed again.
+From the CTAN announcement by Frank Mittelbach:
+******************
+This update contains code fixes to multicol (from v1.8g to v1.8i) see
+change-log below. This should be installed as multicols* is not working
+correctly in the current version!
 
-* multicol.dtx: change ragged columns to not just fill the
-  column but also back up by \maxdepth if they otherwise become
-  overfull as adding glue at the bottom means the column will
-  never have any depth and before they had. (pr/4395)
+In addition it contains documentation updates for various files,
+correcting typos found by Karl Berry. No version changes (only date
+changes) to those packages as the code is unchanged.
+******************
 
-  \maxdepth is applied to all column boxes. That was initially not
-  necessary as \splitmaxdepth was doing the trick. However, the
-  moment those boxes get reboxed this information is lost and
-  resulted in some subtle errors. (pr/4395)
+2014-10-28    <frank.mittelbach@latex-project.org>
 
-  Suppress even really bad overfull warnings while looping
+        * multicol.dtx: In \end{multicols*} only add vertical space if
+          not doing already doing \raggedcolumns and add \null to hide
+          the final fill if added so that it doesn't get removed again.
 
-Plus fixes for typos in the documentation
+2014-10-28    <frank.mittelb...@latex-project.org>
+        * afterpage.dtx, array.dtx, bm.dtx, calc.dtx, dcolumn.dtx,
+        delarray.dtx, enumerate.dtx, ftnright.dtx, hhline.dtx,
+	layout.dtx, longtable.dtx, multicol.dtx, showkeys.dtx, tabularx.dtx,
+        theorem.dtx, trace.dtx, varioref.dtx, verbatim.dtx, xspace.dtx
+
+        Fixed typos found by Karl Berry in documentation (no version
+        number change)
+
+2014-09-12    <frank.mittelbach@latex-project.org>
+
+        * multicol.dtx: change ragged columns to not just fill the
+        column but also back up by \maxdepth if they otherwise become
+        overfull as adding glue at the bottom means the column will
+        never have any depth and before they had. (pr/4395)
+
+        \maxdepth is applied to all column boxes. That was initially not
+        necessary as \splitmaxdepth was doing the trick. However, the
+        moment those boxes get reboxed this information is lost and
+        resulted in some subtle errors. (pr/4395)
+
+        Suppress even really bad overfull warnings while looping
+ 
 
 --- texlive-base-jessie.git.orig/texmf-dist/doc/latex/tools/00readme.txt
 +++ /dev/null

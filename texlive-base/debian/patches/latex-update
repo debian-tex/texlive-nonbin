@@ -1,10 +1,33 @@
 Update latex from current tlnet
 
-the included changes are 
-* nfssfont.dtx Typo in definition of \encoding (no change to processing)
-* and typo fixes in the documentation
+From the CTAN announcement:
+**********************
+Version date: 2014-10-12 (of the documentation, not of the LaTeX
+              format, which has remained unchanged!)
 
-No code changes
+License type: lppl1.3
+
+Summary description: documentation updates
+
+Announcement text:
+----------------------------------------------------------------------
+
+ Karl Berry ran a spell-check over the sources and found a lot
+ of missed errors - thanks for that.
+
+ We also noticed that for some reason the packages in "base"
+ (e.g., doc docstrip inputenc ... source2e) have been
+ distributed for some time without corresponding pdfs (those
+ pdfs have been in texlive due to Heiko I guess). 
+
+ So this is now corrected and every .dtx file or other
+ documentation source has a corresponding .pdf in base so that
+ those files are now also on CTAN directly available. Note, that
+ many of the kernel files are combined in source2e.pdf so those
+ are not generated separately.
+
+ This release has no code changes.
+********************
 
 --- /dev/null
 +++ texlive-base-jessie.git/texmf-dist/doc/latex/base/README
