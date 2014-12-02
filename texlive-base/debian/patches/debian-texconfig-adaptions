@@ -3,8 +3,8 @@
  texmf-dist/scripts/texlive/texconfig.sh |  110 +++++++++-----------------------
  2 files changed, 60 insertions(+), 78 deletions(-)
 
---- texlive-base-2013.20130509.orig/texmf-dist/doc/man/man1/texconfig.1
-+++ texlive-base-2013.20130509/texmf-dist/doc/man/man1/texconfig.1
+--- texlive-base-jessie.git.orig/texmf-dist/doc/man/man1/texconfig.1
++++ texlive-base-jessie.git/texmf-dist/doc/man/man1/texconfig.1
 @@ -46,6 +46,20 @@
  .IR TEXMFSYSCONFIG .
  (You may need to be root to do this.)
@@ -51,9 +51,9 @@
  .TP
  .B hyphen FORMAT
  This command allows to edit the hyphenation configuration file for
---- texlive-base-2013.20130509.orig/texmf-dist/scripts/texlive/texconfig.sh
-+++ texlive-base-2013.20130509/texmf-dist/scripts/texlive/texconfig.sh
-@@ -52,6 +52,7 @@
+--- texlive-base-jessie.git.orig/texmf-dist/scripts/texlive/texconfig.sh
++++ texlive-base-jessie.git/texmf-dist/scripts/texlive/texconfig.sh
+@@ -55,6 +55,7 @@
        FMT=fmt
        test ! -x /bin/fmt && test ! -f /usr/bin/fmt &&
          { test -x /bin/adjust || test -x /usr/bin/adjust; } && FMT=adjust
@@ -61,7 +61,7 @@
        ;;
      *)
        return
-@@ -444,7 +445,7 @@
+@@ -447,7 +448,7 @@
  {
    case $configPsFile in
      "")
@@ -70,7 +70,7 @@
        ;;
      *)
        return
-@@ -567,7 +568,7 @@
+@@ -570,7 +571,7 @@
         $progname help                  (or --help; show this help)
         $progname hyphen FORMAT         (edit hyphenation config for FORMAT)
         $progname init [FORMAT]...      (rebuild FORMATs, or all formats
@@ -79,7 +79,7 @@
         $progname mode MODE             (set Metafont MODE)
         $progname paper PAPER           (set default paper size to PAPER)
         $progname pdftex [OPTION]...    (pdftex options)
-@@ -620,7 +621,7 @@
+@@ -623,7 +624,7 @@
  
      # texconfig dvipdfm
      dvipdfm)
@@ -88,7 +88,7 @@
  
  Valid PAPER settings:
    letter legal ledger tabloid a4 a3"
-@@ -632,6 +633,8 @@
+@@ -635,6 +636,8 @@
          paper)
            case $3 in
              letter|legal|ledger|tabloid|a4|a3)
@@ -97,7 +97,7 @@
                fmgrConfigReplace config '^p' "p $3";;
              "") echo "$help" >&2; rc=1;;
              *)
-@@ -653,7 +656,7 @@
+@@ -656,7 +659,7 @@
  
      # texconfig dvipdfmx
      dvipdfmx)
@@ -106,7 +106,7 @@
  
  Valid PAPER settings:
    letter legal ledger tabloid a4 a3"
-@@ -665,6 +668,8 @@
+@@ -668,6 +671,8 @@
          paper)
            case $3 in
              letter|legal|ledger|tabloid|a4|a3)
@@ -115,7 +115,7 @@
                fmgrConfigReplace dvipdfmx.cfg '^p' "p $3";;
              "") echo "$help" >&2; rc=1;;
              *)
-@@ -779,6 +784,12 @@
+@@ -782,6 +787,12 @@
                    echo "$progname: configuration file for printer \`$printerName' (config.$printerName) not found" >&2
                    rc=1
                    ;;
@@ -128,7 +128,7 @@
                  *)
                    if rm "$pFile"; then
                      echo "$progname: file \`$pFile' removed" >&2
-@@ -809,7 +820,7 @@
+@@ -812,7 +823,7 @@
                locateConfigPsFile
                case "$configPsFile" in
                  "")
@@ -137,7 +137,7 @@
                    ;;
                  *)
                    if grep "@ $tcBatchDvipsPaper " $configPsFile >/dev/null 2>&1; then
-@@ -889,11 +900,11 @@
+@@ -892,11 +903,11 @@
        ;;
  
      faq)
@@ -153,7 +153,7 @@
          rc=1
        fi
        ;;
-@@ -1007,21 +1018,6 @@
+@@ -1010,21 +1021,6 @@
        ;;
  
      formats)
@@ -175,7 +175,7 @@
        setupTmpDir
        echo "$progname: analyzing old configuration..." >&2
        fmtutil --catcfg > $tmpdir/pre
-@@ -1037,7 +1033,6 @@
+@@ -1040,7 +1036,6 @@
          for i in `awk '{print $1}' $tmpdir/addOrChange`; do
            fmtutil --byfmt "$i" || rc=1
          done
@@ -183,7 +183,7 @@
        fi
        ;;
  
-@@ -1047,22 +1042,6 @@
+@@ -1050,22 +1045,6 @@
  
      # "hyphen FORMAT"
      hyphen)
@@ -206,7 +206,7 @@
        tcBatchHyphenFormat=$2
        formatsForHyphen=`getFormatsForHyphen`
        formatsForHyphenFmt=`echo "$formatsForHyphen" | myFmt | sed 's@^@  @'`
-@@ -1084,6 +1063,11 @@
+@@ -1087,6 +1066,11 @@
                  rc=1
                  return
                  ;;
@@ -218,7 +218,7 @@
              esac
  
              getRelDir "$tcBatchHyphenFile"
-@@ -1111,7 +1095,7 @@
+@@ -1114,7 +1098,7 @@
                  fi
                  ;;
              esac
@@ -227,7 +227,7 @@
              if cmp "$tcBatchHFEdit" "$tcBatchHFOrig" >/dev/null 2>&1; then
                echo "$progname: configuration unchanged." >&2
              else
-@@ -1153,7 +1137,6 @@
+@@ -1156,7 +1140,6 @@
        case $2 in
          "")
            if fmtutil --all \
@@ -235,7 +235,7 @@
               && updmap; then
              :
            else
-@@ -1210,41 +1193,10 @@
+@@ -1213,41 +1196,10 @@
        ;;
  
      paper)
@@ -280,7 +280,7 @@
      pdftex)
        help="Usage: $progname pdftex paper PAPER
  
-@@ -1277,6 +1229,8 @@
+@@ -1280,6 +1232,8 @@
            ;;
  
          paper)
@@ -289,7 +289,7 @@
            case $3 in
              letter)
                w="8.5 true in"; h="11 true in"
-@@ -1385,6 +1339,8 @@
+@@ -1388,6 +1342,8 @@
            echo "$tcBatchXdviPapers"
            ;;
          paper)

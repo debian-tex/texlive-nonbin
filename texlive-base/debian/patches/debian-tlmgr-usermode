@@ -3,8 +3,8 @@
  texmf-dist/scripts/texlive/tlmgr.pl |   43 ++++--------------------------------
  2 files changed, 7 insertions(+), 38 deletions(-)
 
---- texlive-base-2013.20131112.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2013.20131112/texmf-dist/scripts/texlive/tlmgr.pl
+--- texlive-base-jessie.git.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-jessie.git/texmf-dist/scripts/texlive/tlmgr.pl
 @@ -19,7 +19,7 @@
  $tlmgrrevision .= " ($datrev)";
  
@@ -60,7 +60,7 @@
    #
    # make Perl find our packages first:
    unshift (@INC, "$Master/tlpkg");
-@@ -237,6 +201,9 @@
+@@ -242,6 +206,9 @@
  
    GetOptions(\%opts, keys(%optarg)) or pod2usage(2);
  
@@ -70,8 +70,8 @@
    $::debug_translation = 0;
    $::debug_translation = 1 if $opts{"debug-translation"};
  
---- texlive-base-2013.20131112.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2013.20131112/texmf-dist/doc/man/man1/tlmgr.1
+--- texlive-base-jessie.git.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-jessie.git/texmf-dist/doc/man/man1/tlmgr.1
 @@ -154,6 +154,8 @@
  <http://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.

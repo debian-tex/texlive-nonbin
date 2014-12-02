@@ -2,8 +2,8 @@
  texmf-dist/doc/man/man1/mptopdf.1 |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
---- texlive-base-2014.20140522.orig/texmf-dist/doc/man/man1/mptopdf.1
-+++ texlive-base-2014.20140522/texmf-dist/doc/man/man1/mptopdf.1
+--- texlive-base-jessie.git.orig/texmf-dist/doc/man/man1/mptopdf.1
++++ texlive-base-jessie.git/texmf-dist/doc/man/man1/mptopdf.1
 @@ -1,6 +1,6 @@
  .TH "mptopdf" "1" "01-01-2014" "version 1.4.1" "convert MetaPost to PDF"
  .SH NAME
