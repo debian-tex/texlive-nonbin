@@ -1,3 +1,9 @@
+texlive-base (2014.20141024-3) UNRELEASED; urgency=medium
+
+  * euenc moved from -extra to -latexrecommended (Closes: #771078)
+
+ -- Norbert Preining <preining@debian.org>  Mon, 08 Dec 2014 17:50:25 +0900
+
 texlive-base (2014.20141024-2) unstable; urgency=medium
 
   * texlive-xetex (polyglossia) needs texlive-latex-extra (Closes: #767887)
