@@ -29,3 +29,5 @@ mptopdf-manpage-fixes
 # not really good a fix, upupstream is working on it
 # this patch creates different problems
 # fix-listings-bug
+latex-update
+tools-update
