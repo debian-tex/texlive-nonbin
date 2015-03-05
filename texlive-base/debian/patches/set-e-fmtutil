@@ -2,8 +2,8 @@
  texmf-dist/scripts/texlive/fmtutil.sh |    7 +++++--
  1 file changed, 5 insertions(+), 2 deletions(-)
 
---- texlive-base-jessie.git.orig/texmf-dist/scripts/texlive/fmtutil.sh
-+++ texlive-base-jessie.git/texmf-dist/scripts/texlive/fmtutil.sh
+--- texlive-base-2014.20150305.orig/texmf-dist/scripts/texlive/fmtutil.sh
++++ texlive-base-2014.20150305/texmf-dist/scripts/texlive/fmtutil.sh
 @@ -4,6 +4,9 @@
  # Public domain.  Originally written by Thomas Esser.
  # Run with --help for usage.
@@ -14,10 +14,10 @@
  # program history:
  #   further changes in texk/texlive/tl_scripts/ChangeLog.
  #   2007-01-04  patch by JK to support $engine subdir (enabled by default)
-@@ -533,8 +536,8 @@
+@@ -528,8 +531,8 @@
+ 
    if test -n "$cfgmaint"; then
      if test -z "$cfgparam"; then
-       setupTmpDir
 -      co=`tcfmgr --tmp $tmpdir --cmd co --file $cnf`
 -      test $? = 0 || cleanup 1
 +      co=`tcfmgr --tmp $tmpdir --cmd co --file $cnf || retval=$?`

@@ -2,18 +2,18 @@
  texmf-dist/scripts/texlive/updmap.pl |   17 ++++++++++++++++-
  1 file changed, 16 insertions(+), 1 deletion(-)
 
---- texlive-base-2014.20140513.orig/texmf-dist/scripts/texlive/updmap.pl
-+++ texlive-base-2014.20140513/texmf-dist/scripts/texlive/updmap.pl
-@@ -28,7 +28,7 @@
+--- texlive-base-2014.20150305.orig/texmf-dist/scripts/texlive/updmap.pl
++++ texlive-base-2014.20150305/texmf-dist/scripts/texlive/updmap.pl
+@@ -25,7 +25,7 @@
      exit 1;
    }
    chomp($TEXMFROOT);
--  unshift (@INC, "$TEXMFROOT/tlpkg");
+-  unshift(@INC, "$TEXMFROOT/tlpkg");
 +  unshift (@INC, "/usr/share/texlive/tlpkg");
  }
  
- 
-@@ -390,6 +390,21 @@
+ my $lastchdate = '$Date: 2015-01-16 01:02:11 +0100 (Fri, 16 Jan 2015) $';
+@@ -383,6 +383,21 @@
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";

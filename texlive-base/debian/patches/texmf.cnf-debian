@@ -2,8 +2,8 @@
  texmf-dist/web2c/texmf.cnf |   53 ++++++++++++---------------------------------
  1 file changed, 15 insertions(+), 38 deletions(-)
 
---- texlive-base-2014.20140418.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2014.20140418/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2014.20150305.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2014.20150305/texmf-dist/web2c/texmf.cnf
 @@ -51,7 +51,7 @@
  % Redistributors will probably want $SELFAUTODIR/share, i.e., /usr/share.
  % Kpathsea sets SELFAUTOLOC (the directory with the binary),
@@ -81,7 +81,7 @@
  
  % On some systems, there will be a system tree which contains all the font
  % files that may be created as well as the formats.  For example
-@@ -325,7 +328,7 @@
+@@ -330,7 +333,7 @@
  % OSFONTDIR is to provide a convenient hook for allowing TeX to find
  % fonts installed on the system (outside of TeX).  An empty default
  % value would add "//" to the search paths, so we give it a dummy value.
@@ -90,7 +90,7 @@
  
  % PostScript Type 1 outline fonts.
  T1FONTS = .;$TEXMF/fonts/type1//;$OSFONTDIR//
-@@ -481,33 +484,7 @@
+@@ -486,33 +489,7 @@
  % since we don't want to scatter ../'s throughout the value.  Hence we
  % explicitly list every directory.  Arguably more understandable anyway.
  %
