@@ -183,3 +183,15 @@ usr/share/fonts/truetype/crosextra/Carlito-Bold.ttf usr/share/texlive/texmf-dist
 usr/share/fonts/truetype/crosextra/Carlito-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/typoland/carlito/Carlito-BoldItalic.ttf
 usr/share/fonts/truetype/crosextra/Carlito-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/typoland/carlito/Carlito-Italic.ttf
 usr/share/fonts/truetype/crosextra/Carlito-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/typoland/carlito/Carlito-Regular.ttf
+usr/share/fonts/truetype/roboto/Roboto-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-Bold.ttf
+usr/share/fonts/truetype/roboto/Roboto-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-BoldItalic.ttf
+usr/share/fonts/truetype/roboto/Roboto-Light.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-Light.ttf
+usr/share/fonts/truetype/roboto/Roboto-LightItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-LightItalic.ttf
+usr/share/fonts/truetype/roboto/Roboto-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-Regular.ttf
+usr/share/fonts/truetype/roboto/Roboto-Thin.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-Thin.ttf
+usr/share/fonts/truetype/roboto/Roboto-ThinItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-ThinItalic.ttf
+usr/share/fonts/truetype/roboto/RobotoCondensed-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/RobotoCondensed-Bold.ttf
+usr/share/fonts/truetype/roboto/RobotoCondensed-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/RobotoCondensed-BoldItalic.ttf
+usr/share/fonts/truetype/roboto/RobotoCondensed-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/RobotoCondensed-Regular.ttf
+usr/share/fonts/opentype/gentiumplus/GentiumPlus-I.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlus-I.ttf
+usr/share/fonts/opentype/gentiumplus/GentiumPlus-R.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlus-R.ttf
