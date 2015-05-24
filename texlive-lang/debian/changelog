@@ -1,8 +1,8 @@
-texlive-lang (2014.20150305-1) experimental; urgency=medium
+texlive-lang (2015.20150524-1) experimental; urgency=medium
 
   * new upstream checkout
 
- -- Norbert Preining <preining@debian.org>  Thu, 05 Mar 2015 10:15:35 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 24 May 2015 17:07:14 +0900
 
 texlive-lang (2014.20141024-1) unstable; urgency=medium
 
