@@ -17,9 +17,10 @@ xdvi-config-paper-factorization
 # debian internal, location of modules is different
 debian_updmap-search-path
 debian-updmap-man
-debian-fmtutil-adaptions
-fmtutil_keep_failedlog
-set-e-fmtutil
+# TODO adaption to new fmtutil.pl ???
+#debian-fmtutil-adaptions
+#fmtutil_keep_failedlog
+#set-e-fmtutil
 debian-texconfig-adaptions
 texdoc-see-and-zip
 fix-natbib-add-spaces

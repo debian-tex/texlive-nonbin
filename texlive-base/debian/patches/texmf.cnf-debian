@@ -2,8 +2,8 @@
  texmf-dist/web2c/texmf.cnf |   53 ++++++++++++---------------------------------
  1 file changed, 15 insertions(+), 38 deletions(-)
 
---- texlive-base-2014.20150305.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2014.20150305/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2015.20150524.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2015.20150524/texmf-dist/web2c/texmf.cnf
 @@ -51,7 +51,7 @@
  % Redistributors will probably want $SELFAUTODIR/share, i.e., /usr/share.
  % Kpathsea sets SELFAUTOLOC (the directory with the binary),
@@ -38,11 +38,11 @@
  TEXMFHOME = ~/texmf
  
  % TEXMFVAR, where texconfig/updmap/fmtutil store cached runtime data.
--TEXMFVAR = ~/.texlive2014/texmf-var
+-TEXMFVAR = ~/.texlive2015/texmf-var
 +TEXMFVAR = ~/.texmf-var
  
  % TEXMFCONFIG, where texconfig/updmap/fmtutil store configuration data.
--TEXMFCONFIG = ~/.texlive2014/texmf-config
+-TEXMFCONFIG = ~/.texlive2015/texmf-config
 +TEXMFCONFIG = ~/.texmf-config
  
  % List all the texmf trees. For an explanation of what they are, see the

@@ -3,8 +3,8 @@ Adjust the texmfcnf.lua file to realities in Debian
  texmf-dist/web2c/texmfcnf.lua |   30 ++++++++++++++----------------
  1 file changed, 14 insertions(+), 16 deletions(-)
 
---- texlive-base-2014.20140418.orig/texmf-dist/web2c/texmfcnf.lua
-+++ texlive-base-2014.20140418/texmf-dist/web2c/texmfcnf.lua
+--- texlive-base-2015.20150524.orig/texmf-dist/web2c/texmfcnf.lua
++++ texlive-base-2015.20150524/texmf-dist/web2c/texmfcnf.lua
 @@ -3,17 +3,15 @@
  -- ConTeXt needs a properly expanded TEXMFLOCAL, so here is a
  -- bit of lua code to make that happen
@@ -30,7 +30,7 @@ Adjust the texmfcnf.lua file to realities in Debian
              -- only used for FONTCONFIG_PATH & TEXMFCACHE in TeX Live
  
 -            TEXMFSYSVAR     = "selfautoparent:texmf-var",
--            TEXMFVAR        = "home:.texlive2014/texmf-var",
+-            TEXMFVAR        = "home:.texlive2015/texmf-var",
 +            TEXMFSYSVAR     = "/var/lib/texmf",
 +            TEXMFVAR        = "home:.texmf-var",
  
@@ -38,7 +38,7 @@ Adjust the texmfcnf.lua file to realities in Debian
              -- will be chosen but there can be more readable paths.
  
              TEXMFCACHE      = "$TEXMFSYSVAR;$TEXMFVAR",
--            TEXMFCONFIG     = "home:.texlive2014/texmf-config",
+-            TEXMFCONFIG     = "home:.texlive2015/texmf-config",
 +            TEXMFCONFIG     = "home:.texmf-config",
  
              -- I don't like this texmf under home and texmf-home would make more

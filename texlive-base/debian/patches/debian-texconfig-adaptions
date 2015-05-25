@@ -3,9 +3,9 @@
  texmf-dist/scripts/texlive/texconfig.sh |  110 +++++++++-----------------------
  2 files changed, 60 insertions(+), 78 deletions(-)
 
---- texlive-base-jessie.git.orig/texmf-dist/doc/man/man1/texconfig.1
-+++ texlive-base-jessie.git/texmf-dist/doc/man/man1/texconfig.1
-@@ -46,6 +46,20 @@
+--- texlive-base-2015.20150524.orig/texmf-dist/doc/man/man1/texconfig.1
++++ texlive-base-2015.20150524/texmf-dist/doc/man/man1/texconfig.1
+@@ -47,6 +47,20 @@
  .IR TEXMFSYSCONFIG .
  (You may need to be root to do this.)
  .PP
@@ -26,7 +26,7 @@
  .I texconfig
  also offers a non-interactive batch mode which can be accessed with
  the following commands
-@@ -128,11 +142,23 @@
+@@ -129,11 +143,23 @@
  (and their answers).
  .TP
  .B font vardir DIR, font ro, font rw
@@ -51,8 +51,8 @@
  .TP
  .B hyphen FORMAT
  This command allows to edit the hyphenation configuration file for
---- texlive-base-jessie.git.orig/texmf-dist/scripts/texlive/texconfig.sh
-+++ texlive-base-jessie.git/texmf-dist/scripts/texlive/texconfig.sh
+--- texlive-base-2015.20150524.orig/texmf-dist/scripts/texlive/texconfig.sh
++++ texlive-base-2015.20150524/texmf-dist/scripts/texlive/texconfig.sh
 @@ -55,6 +55,7 @@
        FMT=fmt
        test ! -x /bin/fmt && test ! -f /usr/bin/fmt &&
