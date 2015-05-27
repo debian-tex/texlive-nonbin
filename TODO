@@ -1,3 +1,58 @@
+
+- new 2015 packages:
+===================
+
+We need to remove the fmt.d conffiles in maintscript:
+
+Warning: Old configuration style found in /etc/texmf/fmt.d
+Warning: For now these files have been included, 
+Warning: but expect inconsistencies.
+Warning: These packages should be rebuild with tex-common.
+Warning: Please see /usr/share/doc/tex-common/NEWS.Debian.gz
+Warning: found file: /etc/texmf/fmt.d/00tex.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-base.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-formats-extra.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-lang-cyrillic.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-lang-czechslovak.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-lang-japanese.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-lang-polish.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-latex-base.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-math-extra.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-omega.cnf
+Warning: found file: /etc/texmf/fmt.d/10texlive-xetex.cnf
+
+We need to update these packages by rebuilding with tex-common >= 6
+Warning: found file: /etc/texmf/fmt.d/20context.cnf
+Warning: found file: /etc/texmf/fmt.d/40musixtex.cnf
+Warning: found file: /etc/texmf/fmt.d/50cyrtexinfo.cnf
+
+
+lintian problems:
+* properly rebuild texlive-bin ... it has broken debian/changes files
+* icc license problem	-> lintian override, new ICC licenses
+* privacy break koma-script, needs recheck of the code
+* python script but no dep
+	tl-science, tl-pictures, tl-extra-utils
+  some of them might be dummy, due to the misconception of linian
+  on how to find the python interpreter
+
+source missing:
+* slideshow.swf ... didn't we remove/ignore that???
+* various jquery.js ...
+
+==== 
+warnings
+
+duplicate-font-file:
+fonts-ipafont-{gothic,mincho} ipaex/ipagp.ttf and ipaex/ipamp.ttf
+
+
+
+
+
+
+
+
 - how to disable luajittex formats on some archs?
 
 - otf font blacklists and links are generated from lintian files via
