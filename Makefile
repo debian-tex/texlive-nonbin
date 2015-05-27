@@ -1,18 +1,17 @@
 LANG=C
 
-MASTER?=/var/www/norbert/tlnet
+MASTER?=/var/www/norbert/tlpretest
 OLDPKG?=$(PWD)/old
 OLDSOURCES?=$(PWD)/src
 CURRENTDIR=$(PWD)
 SOURCES ?= texlive-base texlive-lang texlive-extra
 TMPDIR?=/var/tmp
 
-STABLECOW = /var/cache/pbuilder/debian-7.0-wheezy-STABLE.cow
+STABLECOW = /var/cache/pbuilder/jessie-8.0-amd64.cow
 TESTINGCOW = /var/cache/pbuilder/debian-8.0-jessie-TESTING.cow
 
 # for update-liclines
 catalogue_loc ?= ../../../../texcatalogue/trunk/
-tpmdir_loc ?= ../../../../TeXlive2005-Master/texmf*/tpm/
 
 ADDBINDMOUNTS=$(shell if [ -d additionalpackages ] ; then echo ./additionalpackages ; fi)
 
