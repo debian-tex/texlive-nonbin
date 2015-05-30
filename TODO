@@ -2,6 +2,9 @@
 - new 2015 packages:
 ===================
 
+
+DONE via maintscript
+
 We need to remove the fmt.d conffiles in maintscript:
 
 Warning: Old configuration style found in /etc/texmf/fmt.d
@@ -21,10 +24,16 @@ Warning: found file: /etc/texmf/fmt.d/10texlive-math-extra.cnf
 Warning: found file: /etc/texmf/fmt.d/10texlive-omega.cnf
 Warning: found file: /etc/texmf/fmt.d/10texlive-xetex.cnf
 
+
+
 We need to update these packages by rebuilding with tex-common >= 6
+plus remove old one
 Warning: found file: /etc/texmf/fmt.d/20context.cnf
 Warning: found file: /etc/texmf/fmt.d/40musixtex.cnf
 Warning: found file: /etc/texmf/fmt.d/50cyrtexinfo.cnf
+
+
+
 
 
 lintian problems:
