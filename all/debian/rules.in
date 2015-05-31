@@ -42,7 +42,6 @@ install-stamp: build-stamp
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/generate-license-file $$i ; \
 	  bash debian/fix-privacy-breach $$i ; \
-	  bash debian/fix-jquery-inclusion  $$i ; \
 	  if [ -r debian/$$i.links.dist ] ; then cat debian/$$i.links.dist >> debian/$$i.links ; fi ; \
 	done
 <: if ($srcpackage eq "texlive-base") { _:>//

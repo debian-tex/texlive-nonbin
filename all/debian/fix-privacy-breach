@@ -1,6 +1,6 @@
 #
 # fix-privacy-breach
-# (c) 2014 Norbert Preining
+# (c) 2014-2015 Norbert Preining
 #
 # try to fix the *very* helpful lintian error about privacy breach.
 # Especially the privacy-breach-w3c-valid-html tag just tells us
@@ -29,20 +29,38 @@ komafiles="
 	usr/share/doc/texlive-doc/latex/koma-script/scrlayer-notecolumn.html
 	usr/share/doc/texlive-doc/latex/koma-script/scrlayer-scrpage.html
 	usr/share/doc/texlive-doc/latex/koma-script/scrlayer.html
+	usr/share/doc/texlive-doc/latex/koma-script/scrletter.html
 	usr/share/doc/texlive-doc/latex/koma-script/scrlfile.html
 	usr/share/doc/texlive-doc/latex/koma-script/scrlttr2.html
-	usr/share/doc/texlive-doc/latex/koma-script/scrpage2.html
 	usr/share/doc/texlive-doc/latex/koma-script/scrreprt.html
 	usr/share/doc/texlive-doc/latex/koma-script/scrtime.html
 	usr/share/doc/texlive-doc/latex/koma-script/scrwfile.html
 	usr/share/doc/texlive-doc/latex/koma-script/tocbasic.html
 	usr/share/doc/texlive-doc/latex/koma-script/typearea.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/koma-script.html 
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/komascr.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/komascript.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scraddr.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrartcl.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrbase.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrbook.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrdate.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrextend.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrguide.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrguien.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrhack.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrlayer-notecolumn.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrlayer-scrpage.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrlayer.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrletter.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrlfile.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrlttr2.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrreprt.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrtime.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/scrwfile.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/tocbasic.html
+	usr/share/texlive/texmf-dist/source/latex/koma-script/doc/typearea.html
 "
-
-if ! [ -r debian/$pkg ] ; then
-  echo "please first call debian/rules install!"
-  exit 1
-fi
 
 for f in $pdfjamfiles ; do
   ff="debian/$pkg/$f"

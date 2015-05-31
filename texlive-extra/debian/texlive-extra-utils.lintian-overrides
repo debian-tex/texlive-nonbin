@@ -1,4 +1,15 @@
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/de-macro/de-macro
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/dviasm/dviasm.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex.py
 texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex2.py
 texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex3.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex.py
 texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex2.py
 texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex3.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_2to3.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_install.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/texliveonfly/texliveonfly.py
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/latexindent/defaultSettings.yaml
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_engines.py
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/ltximg/ltximg.pl
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_utils.py

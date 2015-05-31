@@ -39,21 +39,36 @@ Warning: found file: /etc/texmf/fmt.d/50cyrtexinfo.cnf
 lintian problems:
 * properly rebuild texlive-bin ... it has broken debian/changes files
 * icc license problem	-> lintian override, new ICC licenses
+
+DONE
+
 * privacy break koma-script, needs recheck of the code
+
+DONE
+
 * python script but no dep
 	tl-science, tl-pictures, tl-extra-utils
   some of them might be dummy, due to the misconception of linian
   on how to find the python interpreter
 
+DONE (hopefully)
+
 source missing:
 * slideshow.swf ... didn't we remove/ignore that???
+
+DONE
+
 * various jquery.js ...
+
+DONE
 
 ==== 
 warnings
 
 duplicate-font-file:
 fonts-ipafont-{gothic,mincho} ipaex/ipagp.ttf and ipaex/ipamp.ttf
+
+DONE
 
 
 
