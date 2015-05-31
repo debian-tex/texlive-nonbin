@@ -9,4 +9,4 @@ texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/Slid
 #
 # the license of the ICC files have changed, and an updated license statement
 # is included in the file ICC_Licenses
-texlive-extra source: license-problem-md5sum-non-free-file texmf-dist/tex/latex/pdfx/sRGB_IEC61966-2-1_black_scaled.icc usual name is sRGB_IEC61966-2-1_black_scaled.icc. Does not allow modification See also https://packages.debian.org/sid/icc-profiles.
+texlive-extra source: license-problem-md5sum-non-free-file texmf-dist/tex/latex/pdfx/sRGB_IEC61966-2-1_black_scaled.icc*

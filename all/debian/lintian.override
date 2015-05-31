@@ -53,3 +53,19 @@ texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc
 texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/polices.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
 texlive-music: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/songbook/contrib/crd2sb/crd2sb (#!/usr/local/bin/perl != /usr/bin/perl)
 texlive-fonts-extra-doc: shell-script-fails-syntax-check usr/share/texlive/texmf-dist/doc/fonts/wsuipa/compilefonts
+texlive-science: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pygmentex/pygmentex.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/de-macro/de-macro
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/dviasm/dviasm.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex2.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex3.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex2.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex3.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_2to3.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_install.py
+texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/texliveonfly/texliveonfly.py
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/latexindent/defaultSettings.yaml
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_engines.py
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/ltximg/ltximg.pl
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_utils.py
