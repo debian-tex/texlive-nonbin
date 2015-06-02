@@ -78,16 +78,15 @@ binary-indep: build install
 	mv debian/texlive-latex-base/usr/bin/mptopdf	\
 		debian/texlive-latex-base/usr/bin/mptopdf.bck
 	ln -s pdftex debian/texlive-latex-base/usr/bin/mptopdf
-	dh_installtex -Ntexlive-base -A --priority=10	\
+	dh_installtex -Ntexlive-base -A 		\
 		$(patsubst %,-N%,$(METAPACKAGES))	\
-		--flavor=lsr:full,tree:texlive
+		--flavor=tree:texlive
 	# nasty trick undoing
 	rm debian/texlive-latex-base/usr/bin/mptopdf
 	mv debian/texlive-latex-base/usr/bin/mptopdf.bck	\
 		debian/texlive-latex-base/usr/bin/mptopdf
 	# end of nasty trick
-	dh_installtex -ptexlive-base --priority=10	\
-		--flavor=format:build_all,lsr:full,tree:texlive
+	dh_installtex -ptexlive-base --flavor=tree:texlive
 	# /usr/bin/mf has been created by dh_installtex as symlink to 
 	# mf-nowin, but is also shipped by texlive-binaries, remove it.
 	rm debian/texlive-base/usr/bin/mf
@@ -107,10 +106,10 @@ binary-indep: build install
 	# we create the format links via the texlive-lang-czechslovak.links
 	# file, since otherwise dh_installtex boils out as several formats
 	# with different engines have the same name
-	dh_installtex -p texlive-lang-czechslovak --priority=10 --flavor=lsr:full,tree:texlive,format:no_links
-	dh_installtex -N texlive-lang-czechslovak --priority=10 --flavor=lsr:full,tree:texlive
+	dh_installtex -p texlive-lang-czechslovak --flavor=tree:texlive,format:no_links
+	dh_installtex -N texlive-lang-czechslovak --flavor=tree:texlive
 <: } else { _:>//
-	dh_installtex -A --priority=10 --flavor=lsr:full,tree:texlive
+	dh_installtex -A --flavor=tree:texlive
 <: } :>//
 	dh_installchangelogs
 	dh_installman
