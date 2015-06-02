@@ -227,17 +227,7 @@ sub make_deb_execute_actions {
 			my $mode = ($r{"mode"} ? "" : "#! ");
 			push @formatlines, "$mode$r{'name'} $r{'engine'} $r{'patterns'} $r{'options'}\n";
 		} elsif ($what eq 'AddHyphen') {
-			my %r = TeXLive::TLUtils::parse_AddHyphen_line(join(" ", $first, @rest));
-			my $lline = "name=$r{'name'} file=$r{'file'} patterns=$r{'file_patterns'} lefthyphenmin=$r{'lefthyphenmin'} righthyphenmin=$r{'righthyphenmin'}";
-			if (defined($r{'file_exceptions'})) {
-				$lline .= " exceptions=$r{'file_exceptions'}";
-			}
-			my @syns;
-			@syns = @{$r{"synonyms"}} if (defined($r{"synonyms"}));
-			if ($#syns >= 0) {
-				$lline .= " synonyms=" . join(",",@syns);
-			}
-			push @languagelines, "$lline\n";
+			push @languagelines, join(" ", $first, @rest) . "\n";
 		}
 	}
 	if ($#maplines >= 0) {
