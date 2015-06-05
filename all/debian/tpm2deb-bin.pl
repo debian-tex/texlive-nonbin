@@ -225,7 +225,9 @@ sub make_deb_execute_actions {
 				}
 			}
 			my $mode = ($r{"mode"} ? "" : "#! ");
-			push @formatlines, "$mode$r{'name'} $r{'engine'} $r{'patterns'} $r{'options'}\n";
+			# reproducbile builds: push a pair with name as first element
+			# to ease sorting!
+			push @formatlines, [ $r{'name'} , "$mode$r{'name'} $r{'engine'} $r{'patterns'} $r{'options'}\n" ];
 		} elsif ($what eq 'AddHyphen') {
 			push @languagelines, join(" ", $first, @rest) . "\n";
 		}
@@ -233,19 +235,33 @@ sub make_deb_execute_actions {
 	if ($#maplines >= 0) {
 		open(OUTFILE, ">$debdest/$package.maps")
 			or die("Cannot open $debdest/$package.maps");
+		# reproducible builds - sort output of maplines according to the
+		# map name, which is the second word in each line
+		# see http://stackoverflow.com/questions/5201069/sorting-by-second-word-in-perl
+		@maplines = map { 	# get original line back
+			$_->[0]
+		} sort { 			# compare second fields
+			$a->[1] cmp $b->[1]
+		} map {				# turn each line into [ line, second fields ]
+			[ $_, (split ' ', $_)[1] ]
+		} @maplines;
 		foreach (@maplines) { print OUTFILE; }
 		close(OUTFILE);
 	}
 	if ($#formatlines >= 0) {
 		open(OUTFILE, ">$debdest/$package.formats")
 			or die("Cannot open $debdest/$package.formats");
+		@formatlines =
+			map { $_->[1] } sort { $a->[0] cmp $b->[0] } @formatlines;
 		foreach (@formatlines) { print OUTFILE; }
 		close(OUTFILE);
 	}
 	if ($#languagelines >= 0) {
 		open(OUTFILE, ">$debdest/$package.hyphens")
 			or die("Cannot open $debdest/$package.hyphens");
-		foreach (@languagelines) { print OUTFILE; }
+		# let's assume for now that the first entry is the name=<...
+		# so we can directly sort after it
+		foreach (sort @languagelines) { print OUTFILE; }
 		close(OUTFILE);
 	}
 }
