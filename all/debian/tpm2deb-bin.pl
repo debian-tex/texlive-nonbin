@@ -227,7 +227,7 @@ sub make_deb_execute_actions {
 			my $mode = ($r{"mode"} ? "" : "#! ");
 			# reproducbile builds: push a pair with name as first element
 			# to ease sorting!
-			push @formatlines, [ $r{'name'} , "$mode$r{'name'} $r{'engine'} $r{'patterns'} $r{'options'}\n" ];
+			push @formatlines, [ "$r{'name'}/$r{'engine'}/$r{'patterns'}" , "$mode$r{'name'} $r{'engine'} $r{'patterns'} $r{'options'}\n" ];
 		} elsif ($what eq 'AddHyphen') {
 			push @languagelines, join(" ", $first, @rest) . "\n";
 		}
