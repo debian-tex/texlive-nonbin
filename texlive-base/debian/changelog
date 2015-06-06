@@ -2,8 +2,9 @@ texlive-base (2015.20150524-1) experimental; urgency=medium
 
   * new upstream checkout
   * euenc moved from -extra to -latexrecommended (Closes: #771078)
+  * rebuild with fixed tex-common (Closes: #741681)
 
- -- Norbert Preining <preining@debian.org>  Sun, 24 May 2015 17:06:41 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 06 Jun 2015 16:55:00 +0900
 
 texlive-base (2014.20141024-2) unstable; urgency=medium
 
