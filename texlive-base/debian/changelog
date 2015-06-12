@@ -1,3 +1,9 @@
+texlive-base (2015.20150524-2) UNRELEASED; urgency=medium
+
+  * drop eperl from build-deps, not needed anymore (Closes: #788521)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 12 Jun 2015 23:08:19 +0900
+
 texlive-base (2015.20150524-1) experimental; urgency=medium
 
   * new upstream checkout
