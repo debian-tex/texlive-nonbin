@@ -3,8 +3,11 @@ texlive-extra (2015.20150524-1) experimental; urgency=medium
   * new upstream checkout
   * texlive-latex-extra suggests libspreadsheet-parseexcel-perl for
     exceltex (Closes: #770368)
+  * temporarily remove sRGB_IEC61966-2-1_black_scaled.icc due to
+    a bogus bug in lintian, and auto-reject on ftp-masters based
+    on this bogus bug. Happy life.
 
- -- Norbert Preining <preining@debian.org>  Sun, 24 May 2015 17:07:05 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 12 Jun 2015 10:28:14 +0900
 
 texlive-extra (2014.20141024-1) unstable; urgency=medium
 
