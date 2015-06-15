@@ -1,10 +1,11 @@
-<: :>//
+changecom()dnl
+changequote(`<:',`:>')dnl
 #!/usr/bin/make -f
 # 
-# debian/rules file for <:=$srcpackage:>
+# debian/rules file for _srcpackage_
 
-PACKAGES=<:=$binpackages:>
-METAPACKAGES=<:=$metapackages:>
+PACKAGES=_binpackages_
+METAPACKAGES=_metapackages_
 
 SHELL=/bin/bash
 
@@ -22,9 +23,9 @@ clean:
 	  rm -f debian/$$i.{maps,hyphens,formats,info,manpages} ; \
 	  rm -f debian/$$i.{lintian-overrides} ; \
 	done
-<: if ($srcpackage eq "texlive-base") { _:>//
+ifelse(_srcpackage_,texlive-base,<:
 	rm -f debian/texlive-base.cnf
-<: } :>//
+:>)
 	# texlive contains some .orig files we need to keep otherwise
 	# the copy will fail due to the files occurring in the tlpdb
 	dh_clean -X.orig -X.bak
@@ -44,15 +45,14 @@ install-stamp: build-stamp
 	  bash debian/fix-privacy-breach $$i ; \
 	  if [ -r debian/$$i.links.dist ] ; then cat debian/$$i.links.dist >> debian/$$i.links ; fi ; \
 	done
-<: if ($srcpackage eq "texlive-base") { _:>//
+ifelse(_srcpackage_,texlive-base,<:
 	mkdir -p debian/texlive-base/etc/texmf/texdoctk
 	mv debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk/texdocrc.defaults \
 	  debian/texlive-base/etc/texmf/texdoctk
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk
-<: } :>//
-<: if ($srcpackage eq "texlive-extra") { _:>//
+:>,_srcpackage_,texlive-extra,<:
 	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
-<: } :>//
+:>)
 	# link pfb/afm files (type1 fonts) into /usr/share/fonts
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/create-font-links $$i >> debian/$$i.links ; \
@@ -70,7 +70,7 @@ binary-indep: build install
 	dh_lintian
 	dh_bugfiles -A
 	dh_installdocs -A debian/README.source debian/README.Debian
-<: if ($srcpackage eq "texlive-base") { _:>//
+ifelse(_srcpackage_,texlive-base,<:
 	dh_installdocs -p texlive-base README readme-txt.dir readme-html.dir debian/CHANGES.packaging
 	# nasty trick
 	# mptopdf needs a dump, but is a link to a script
@@ -102,29 +102,29 @@ binary-indep: build install
 	dh_installdebconf -n
 	cp debian/texlive-base.libpaper debian/texlive-base/etc/libpaper.d/texlive-base
 	chmod a+x debian/texlive-base/etc/libpaper.d/texlive-base
-<: } elsif ($srcpackage eq "texlive-lang") { _:>//
+:>,_srcpackage_,texlive-lang,<:
 	# we create the format links via the texlive-lang-czechslovak.links
 	# file, since otherwise dh_installtex boils out as several formats
 	# with different engines have the same name
 	dh_installtex -p texlive-lang-czechslovak --flavor=tree:texlive,format:no_links
 	dh_installtex -N texlive-lang-czechslovak --flavor=tree:texlive
-<: } else { _:>//
+:>,<:
 	dh_installtex -A --flavor=tree:texlive
-<: } :>//
+:>)
 	dh_installchangelogs
 	dh_installman
 	bash debian/fix-manpages.sh
 	# info pages
 	bash debian/convert-info-files-to-unix.sh
 	dh_installinfo
-<: if ($srcpackage eq "texlive-base") { _:>//
+ifelse(_srcpackage_,texlive-base,<:
 	# remove info files that are present in texlive-binaries
 	# has to be done after the dh_installinfo call
 	rm debian/texlive-base/usr/share/info/dvips.info*
 	rm debian/texlive-base/usr/share/info/web2c.info*
 	rm debian/texlive-base/usr/share/info/kpathsea.info*
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/info
-<: } :>//
+:>)
 	dh_installmime
 	dh_lintian
 	dh_link
@@ -139,12 +139,12 @@ binary-indep: build install
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums
-<: if ($srcpackage eq "texlive-extra") { _:>//
+ifelse(_srcpackage_,texlive-extra,<:
 	dh_builddeb -Ntexlive-latex-extra-doc -- -Zxz
 	dh_builddeb -ptexlive-latex-extra-doc -- -Zxz -Sextreme -z9
-<: } else { _:>//
+:>,<:
 	dh_builddeb -- -Zxz
-<: } :>//
+:>)
 
 binary: binary-indep binary-arch
 

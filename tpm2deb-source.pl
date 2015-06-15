@@ -450,7 +450,7 @@ sub make_deb_source {
 			push @normalpackages, $foo;
 		}
 	}
-	system (qq{eperl -k -d arch=$arch -d srcpackage=$package -dbinpackages="@normalpackages" -dmetapackages="@metapackages" $mydir/all/debian/rules.in > $debdest/rules}) == 0
+	system (qq{m4 -D_srcpackage_=$package -D_binpackages_="@normalpackages" -D_metapackages_="@metapackages" $mydir/all/debian/rules.in > $debdest/rules}) == 0
 	    or die("Error creating debian/rules");;
 	system(qq{chmod ugo+x $debdest/rules}) == 0
 	    or die("Cannot change permissions of $debdest/rules");;
