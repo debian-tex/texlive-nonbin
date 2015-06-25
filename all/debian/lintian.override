@@ -26,45 +26,21 @@ texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/so
 texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-ItalicOsF.pe #!fontforge
 texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-SC.pe #!fontforge
 texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/hfbright/simplify-rename.pe #!pfaedit
-texlive-publishers-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/latex/ejpecp/mgetmref.py
 texlive-fonts-extra-doc: missing-dep-for-interpreter fontforge => fontforge-nox | fontforge (usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/kernclasses.py)
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/ranges/Arabic/arabic_test.py
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/ranges/Arabic/generate_arabic_shaping.py
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/ranges/Arabic/unicode_joining.py
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/utility/hex_range.py
 texlive-fonts-extra-doc: missing-dep-for-interpreter fontforge => fontforge-nox | fontforge (usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/utility/metafont/bulk_eps_import.py)
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/xits/postprocess.py
 texlive-fonts-extra-doc: missing-dep-for-interpreter fontforge => fontforge-nox | fontforge (usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/kernclasses.py)
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/ranges/Arabic/arabic_test.py
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/ranges/Arabic/generate_arabic_shaping.py
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/ranges/Arabic/unicode_joining.py
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/utility/hex_range.py
-texlive-fonts-extra-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/xits/postprocess.py
-texlive-publishers-doc: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/latex/ejpecp/mgetmref.py
-texlive-lang-other: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/latex/aramaic-serto/serto.py
-texlive-lang-arabic: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/amiri/tools/build.py
-texlive-lang-arabic: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/amiri/tools/runtest.py
-texlive-lang-arabic: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/amiri/tools/build.py
-texlive-lang-arabic: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/fonts/amiri/tools/runtest.py
-texlive-lang-other: python-script-but-no-python-dep usr/share/texlive/texmf-dist/doc/latex/aramaic-serto/serto.py
+texlive-publishers-doc: python-script-but-no-python-dep
+texlive-science: python-script-but-no-python-dep
+texlive-fonts-extra-doc: python-script-but-no-python-dep
+texlive-extra-utils: python-script-but-no-python-dep
+texlive-lang-other: python-script-but-no-python-dep
+texlive-lang-arabic: python-script-but-no-python-dep
 texlive-base: no-debconf-config
 tetex-base: maintainer-script-needs-depends-on-ucf postinst
 texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/beamer-themes.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
 texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/polices.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
 texlive-music: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/songbook/contrib/crd2sb/crd2sb (#!/usr/local/bin/perl != /usr/bin/perl)
 texlive-fonts-extra-doc: shell-script-fails-syntax-check usr/share/texlive/texmf-dist/doc/fonts/wsuipa/compilefonts
-texlive-science: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pygmentex/pygmentex.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/de-macro/de-macro
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/dviasm/dviasm.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex2.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/depythontex3.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex2.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex3.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_2to3.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_install.py
-texlive-extra-utils: python-script-but-no-python-dep usr/share/texlive/texmf-dist/scripts/texliveonfly/texliveonfly.py
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/latexindent/defaultSettings.yaml
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_engines.py
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/ltximg/ltximg.pl
