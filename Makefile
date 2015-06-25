@@ -1,6 +1,7 @@
 LANG=C
 
-MASTER?=/var/www/norbert/tlpretest
+TLROOT?=/src/TeX/texlive.git
+MASTER?=/var/www/norbert/tlnet
 OLDPKG?=$(PWD)/old
 OLDSOURCES?=$(PWD)/src
 CURRENTDIR=$(PWD)
@@ -25,8 +26,8 @@ first:
 	@echo "No, I don't do anything without being told exactely what!"
 
 norbert:
-	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-orig-tar texlive-base texlive-extra texlive-lang
-	perl tpm2deb-source.pl --master=/src/TeX/texlive-svn/Master make-deb-source texlive-base texlive-extra texlive-lang
+	perl tpm2deb-source.pl --master=$(TLROOT)/Master make-orig-tar texlive-base texlive-extra texlive-lang
+	perl tpm2deb-source.pl --master=$(TLROOT)/Master make-deb-source texlive-base texlive-extra texlive-lang
 
 all: sources pbuilder lintian packages debdiff deepdiff alltests
 
@@ -109,7 +110,7 @@ debdiff:
 	mv pool/*.debdiff pool/*.nodoc log
 
 update-scripts-file:
-	cat /src/TeX/texlive-svn/Build/source/texk/texlive/linked_scripts/scripts.lst /src/TeX/texlive-svn/Build/source/texk/texlive/tl_scripts/scripts.lst  > all/debian/scripts.lst
+	cat $(TLROOT)/Build/source/texk/texlive/linked_scripts/scripts.lst $(TLROOT)/Build/source/texk/texlive/tl_scripts/scripts.lst  > all/debian/scripts.lst
 
 packages:
 	bash scripts/build-infra -p . -nosign pool
