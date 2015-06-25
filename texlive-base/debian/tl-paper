@@ -5,7 +5,7 @@
 # query and change paper settings using TLPaper
 # this is independent from tlmgr
 #
-# Copyright 2011-2014 Norbert Preining
+# Copyright 2011-2015 Norbert Preining
 # This file is licensed under the GNU General Public License version 3
 # or any later version.
 #
@@ -57,7 +57,8 @@ sub main {
     }
     # the following actually also *reads* the configuration and returns
     # a list where the first item is the one selected.
-    my ($current_paper, @other_options) = TeXLive::TLPaper::get_paper_list($prg);
+    my $paperref = TeXLive::TLPaper::get_paper_list($prg);
+    my ($current_paper, @other_options) = @{$paperref};
     for my $i ($current_paper, sort @other_options) {
       print "$i\n";
     }
@@ -107,7 +108,8 @@ sub main {
       usage();
       exit 1;
     }
-    my ($current_paper, @other_options) = TeXLive::TLPaper::get_paper_list($prg);
+    my $paperref = TeXLive::TLPaper::get_paper_list($prg);
+    my ($current_paper, @other_options) = @{$paperref};
     print "$current_paper\n" if defined($current_paper);
     
   } else {
