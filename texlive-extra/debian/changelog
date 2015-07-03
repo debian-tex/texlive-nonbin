@@ -1,9 +1,12 @@
-texlive-extra (2015.20150702-1) unstable; urgency=medium
+texlive-extra (2015.20150703-1) unstable; urgency=medium
 
-  * new upstream checkout
+  * new upstream checkout - The LENNA release - We love you!
   * fix replaces for texlive-pictures-doc (piano) (Closes: #790051)
+  * remove several instances of lenna images, and the documentation
+    for reflectgraphics, as it is contained therein (upstream already
+    asked for changes).
 
- -- Norbert Preining <preining@debian.org>  Thu, 02 Jul 2015 18:36:06 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 03 Jul 2015 09:38:49 +0900
 
 texlive-extra (2015.20150625-1) unstable; urgency=medium
 

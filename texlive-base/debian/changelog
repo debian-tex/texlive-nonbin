@@ -1,4 +1,4 @@
-texlive-base (2015.20150702-1) unstable; urgency=medium
+texlive-base (2015.20150703-1) unstable; urgency=medium
 
   * new upstream checkout
   * fix tex4ht/pgf combination (Closes: #790018)
@@ -6,7 +6,7 @@ texlive-base (2015.20150702-1) unstable; urgency=medium
   * don't install texconfig, it is not useful in Debian 
     (Closes: #411636, #568799)
 
- -- Norbert Preining <preining@debian.org>  Thu, 02 Jul 2015 14:28:18 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 03 Jul 2015 08:17:22 +0900
 
 texlive-base (2015.20150625-1) unstable; urgency=medium
 
