@@ -1,3 +1,9 @@
+texlive-extra (2015.20150703-2) unstable; urgency=medium
+
+  * fix fithesis move/overwrite bug (Closes: #791349)
+
+ -- Norbert Preining <preining@debian.org>  Sat, 04 Jul 2015 10:03:04 +0900
+
 texlive-extra (2015.20150703-1) unstable; urgency=medium
 
   * new upstream checkout - The LENNA release - We love you!
