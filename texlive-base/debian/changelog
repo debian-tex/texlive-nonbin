@@ -1,8 +1,11 @@
-texlive-base (2015.20150810-2) UNRELEASED; urgency=medium
+texlive-base (2015.20150821-1) UNRELEASED; urgency=medium
 
+  * NEW UPSTREAM NECESSARY
+  * new upstream checkout
+    - fixes fontspec/l3/whatever incompatibility (Closes: #796120)
   * fix deactivation of libpaper integration (Closes: #795111)
 
- -- Norbert Preining <preining@debian.org>  Tue, 11 Aug 2015 08:10:31 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 21 Aug 2015 15:31:58 +0900
 
 texlive-base (2015.20150810-1) unstable; urgency=medium
 
