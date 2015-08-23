@@ -1,11 +1,12 @@
-texlive-base (2015.20150821-1) UNRELEASED; urgency=medium
+texlive-base (2015.20150823-1) unstable; urgency=medium
 
-  * NEW UPSTREAM NECESSARY
   * new upstream checkout
     - fixes fontspec/l3/whatever incompatibility (Closes: #796120)
   * fix deactivation of libpaper integration (Closes: #795111)
+  * stop linking URW++ Base35 fonts to /u/s/fonts/type1 as they
+    might overwrite gsfonts' version with bigger glyph set
 
- -- Norbert Preining <preining@debian.org>  Fri, 21 Aug 2015 15:31:58 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 23 Aug 2015 14:06:00 +0900
 
 texlive-base (2015.20150810-1) unstable; urgency=medium
 
