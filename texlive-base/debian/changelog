@@ -1,3 +1,11 @@
+texlive-base (2015.20150917-1) unstable; urgency=medium
+
+  * new upstream checkout
+    - fixes critical math-unicode problem
+    - support for uptex added to the l3 packages
+
+ -- Norbert Preining <preining@debian.org>  Thu, 17 Sep 2015 12:56:25 +0900
+
 texlive-base (2015.20150823-1) unstable; urgency=medium
 
   * new upstream checkout
