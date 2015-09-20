@@ -570,6 +570,9 @@ sub make_deb_control {
 			print CONTROL "Priority: $TeXLive{$type_of_package}{$pkg}{'priority'}\n";
 		}
 		print CONTROL "Architecture: $arch\n";
+		# Multi-arch setup, see discussion at bug #792281
+		print CONTROL "Multi-Arch: foreign\n";
+		#
 		my @AllDepends = @{$TeXLive{$type_of_package}{$pkg}{'depends'}};
 		# in case that we have binaries included we add the dep
 		# onto texlive-bin-$source
