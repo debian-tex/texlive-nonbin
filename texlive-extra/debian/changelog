@@ -1,8 +1,9 @@
-texlive-extra (2015.20150917-2~1) UNRELEASED; urgency=medium
+texlive-extra (2015.20151014-1) unstable; urgency=medium
 
+  * new upstream checkout
   * set all packages to M-A: foreign
 
- -- Norbert Preining <preining@debian.org>  Fri, 25 Sep 2015 17:03:13 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 14 Oct 2015 11:14:36 +0900
 
 texlive-extra (2015.20150917-1) unstable; urgency=medium
 
