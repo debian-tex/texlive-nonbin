@@ -1,11 +1,11 @@
-texlive-base (2015.20151014-1) unstable; urgency=medium
+texlive-base (2015.20151016-1) unstable; urgency=medium
 
   * set all packages to M-A: foreign (Closes: #792281)
   * new upstream checkout
     - adds missing logosl8.mf and  missing logo*tfm files (Closes: #796097)
       (thanks to Giuseppe Bilotta for perseverance)
 
- -- Norbert Preining <preining@debian.org>  Wed, 14 Oct 2015 11:14:17 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 16 Oct 2015 09:42:12 +0900
 
 texlive-base (2015.20150917-1) unstable; urgency=medium
 
