@@ -51,13 +51,6 @@ usr/share/fonts/truetype/ttf-dejavu/DejaVuSerifCondensed-Bold.ttf usr/share/texl
 usr/share/fonts/truetype/ttf-dejavu/DejaVuSerifCondensed-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/dejavu/DejaVuSerifCondensed-BoldItalic.ttf
 usr/share/fonts/truetype/ttf-dejavu/DejaVuSerifCondensed-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/dejavu/DejaVuSerifCondensed-Italic.ttf
 usr/share/fonts/truetype/ttf-dejavu/DejaVuSerifCondensed.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/dejavu/DejaVuSerifCondensed.ttf
-usr/share/fonts/truetype/droid/DroidSans-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/droid/DroidSans-Bold.ttf
-usr/share/fonts/truetype/droid/DroidSans.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/droid/DroidSans.ttf
-usr/share/fonts/truetype/droid/DroidSansMono.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/droid/DroidSansMono.ttf
-usr/share/fonts/truetype/droid/DroidSerif-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/droid/DroidSerif-Bold.ttf
-usr/share/fonts/truetype/droid/DroidSerif-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/droid/DroidSerif-BoldItalic.ttf
-usr/share/fonts/truetype/droid/DroidSerif-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/droid/DroidSerif-Italic.ttf
-usr/share/fonts/truetype/droid/DroidSerif-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/droid/DroidSerif-Regular.ttf
 usr/share/fonts/truetype/gentium/GenAI102.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumAlt-I.ttf
 usr/share/fonts/truetype/gentium/GenAR102.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumAlt-R.ttf
 usr/share/fonts/truetype/gentium-basic/GenBasB.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GenBasB.ttf
