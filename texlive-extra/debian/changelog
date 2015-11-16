@@ -1,3 +1,10 @@
+texlive-extra (2015.20151116-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * switch back to upstream droid fonts (Closes: #804690)
+
+ -- Norbert Preining <preining@debian.org>  Mon, 16 Nov 2015 13:22:22 +0900
+
 texlive-extra (2015.20151016-1) unstable; urgency=medium
 
   * new upstream checkout
