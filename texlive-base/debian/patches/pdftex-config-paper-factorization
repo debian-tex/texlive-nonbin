@@ -5,7 +5,7 @@
  3 files changed, 16 insertions(+), 10 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2015.20151014/texmf-dist/tex/generic/config/pdftexconfig-paper.tex
++++ texlive-base-2015.20151116/texmf-dist/tex/generic/config/pdftexconfig-paper.tex
 @@ -0,0 +1,13 @@
 +% paper size settings, included from pdftexconfig.tex for pdftex
 +%
@@ -20,8 +20,8 @@
 +\ifx\pdfpageheight\undefined\else \pdfpageheight=297 true mm \fi
 +\ifx\pageheight\undefined\else \pageheight=297 true mm \fi
 +\endinput
---- texlive-base-2015.20151014.orig/texmf-dist/tex/generic/config/pdftexconfig.tex
-+++ texlive-base-2015.20151014/texmf-dist/tex/generic/config/pdftexconfig.tex
+--- texlive-base-2015.20151116.orig/texmf-dist/tex/generic/config/pdftexconfig.tex
++++ texlive-base-2015.20151116/texmf-dist/tex/generic/config/pdftexconfig.tex
 @@ -3,16 +3,8 @@
  % Thomas Esser, 2004. public domain.
  \pdfoutput=1
@@ -41,9 +41,9 @@
  %
  % Other settings.
  \pdfcompresslevel=9
---- texlive-base-2015.20151014.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2015.20151014/tlpkg/texlive.tlpdb
-@@ -160096,6 +160096,7 @@
+--- texlive-base-2015.20151116.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2015.20151116/tlpkg/texlive.tlpdb
+@@ -160593,6 +160593,7 @@
   texmf-dist/scripts/simpdftex/simpdftex
   texmf-dist/tex/generic/config/pdftex-dvi.tex
   texmf-dist/tex/generic/config/pdftexconfig.tex
