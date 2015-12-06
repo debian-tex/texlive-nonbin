@@ -53,7 +53,13 @@ ifelse(_srcpackage_,texlive-base,<:
 :>,_srcpackage_,texlive-extra,<:
 	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
 :>)
+	# move ltx-help.el into emacs directory
+ifelse(_srcpackage_,texlive-lang,<:
+	mkdir -p debian/texlive-lang-english/usr/share/emacs/site-lisp
+	mv debian/texlive-lang-english/usr/share/doc/texlive-doc/latex/latex2e-help-texinfo/ltx-help.el \
+		debian/texlive-lang-english/usr/share/emacs/site-lisp
 	# link pfb/afm files (type1 fonts) into /usr/share/fonts
+:>)
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/create-font-links $$i >> debian/$$i.links ; \
 	done
@@ -111,6 +117,7 @@ ifelse(_srcpackage_,texlive-base,<:
 :>,<:
 	dh_installtex -A --flavor=tree:texlive
 :>)
+	dh_installemacsen
 	dh_installchangelogs
 	dh_installman
 	bash debian/fix-manpages.sh

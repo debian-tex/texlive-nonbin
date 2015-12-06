@@ -2,8 +2,9 @@ texlive-lang (2015.20151116-2) UNRELEASED; urgency=medium
 
   * remove adobemapping, use poppler-data instead (Closes: #805691)
     (thanks to Hideki Yamane)
+  * install ltx-help.el for emacs, thanks to Kevin Ryde (Closes: #807154)
 
- -- Norbert Preining <preining@debian.org>  Sat, 21 Nov 2015 11:55:49 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 06 Dec 2015 20:03:09 +0900
 
 texlive-lang (2015.20151116-1) unstable; urgency=medium
 
