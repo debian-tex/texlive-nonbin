@@ -1,9 +1,9 @@
-texlive-base (2015.201512XX-1) UNRELEASED; urgency=medium
+texlive-base (2015.20151225-1) unstable; urgency=medium
 
   * new upstream checkout
   * drop dep onto prerex from recommends to suggests (Closes: #808776)
 
- -- Norbert Preining <preining@debian.org>  Thu, 24 Dec 2015 12:56:18 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 26 Dec 2015 10:42:29 +0900
 
 texlive-base (2015.20151116-1) unstable; urgency=medium
 
