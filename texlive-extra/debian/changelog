@@ -1,3 +1,9 @@
+texlive-extra (2015.20151225-2) unstable; urgency=medium
+
+  * simplewick moved from latex-extra to science (Closes: #809039)
+
+ -- Norbert Preining <preining@debian.org>  Sun, 27 Dec 2015 09:45:00 +0900
+
 texlive-extra (2015.20151225-1) unstable; urgency=medium
 
   * new upstream checkout
