@@ -1,8 +1,9 @@
-texlive-extra (2015.20151225-3) UNRELEASED; urgency=medium
+texlive-extra (2015.20160117-1) unstable; urgency=medium
 
+  * new upstream checkout
   * fix some font links (Gentium, Roboto) (Closes: #809202)
 
- -- Norbert Preining <preining@debian.org>  Sat, 02 Jan 2016 21:23:53 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 17 Jan 2016 16:48:00 +0900
 
 texlive-extra (2015.20151225-2) unstable; urgency=medium
 

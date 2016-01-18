@@ -83,6 +83,9 @@ lintian:
 	mv pool/*.log log
 	-perl scripts/generate-lin-report.pl log/*.lintian.log > log/lintian.log
 
+adequate:
+	cd pool && for i in *.deb ; do pkg=`echo $$i | sed -e 's/_.*//'`; adequate $$pkg >> ../log/adequate.log ; done
+
 deepdiff:
 	cd pool && \
 	for i in *.deb ; do \
