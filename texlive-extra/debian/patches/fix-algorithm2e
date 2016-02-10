@@ -1,0 +1,22 @@
+---
+ texmf-dist/tex/latex/algorithm2e/algorithm2e.sty |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--- texlive-extra-2015.20160117.orig/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
++++ texlive-extra-2015.20160117/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+@@ -1058,7 +1058,7 @@
+ \DeclareOption{displayblockmarkers}{%
+   \setboolean{algocf@displayblockmarkers}{true}%
+ }
+-\newboolean{algocf@displaygroupmarkers}{\setboolean{algocf@displaygroupmarkers}{false}
++\newboolean{algocf@displaygroupmarkers}\setboolean{algocf@displaygroupmarkers}{false}
+ \DeclareOption{displaygroupmarkers}{%
+   \setboolean{algocf@displaygroupmarkers}{true}%
+ }
+@@ -3251,4 +3251,4 @@
+ %
+ %%
+ %%%
+-%%%% END
+\ No newline at end of file
++%%%% END

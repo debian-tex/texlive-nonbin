@@ -5,3 +5,4 @@ tmp-dir-for-pdfjam
 fix-invoice.sty
 epstopdf-remove-pswrite
 fix-perl522-noise
+fix-algorithm2e
