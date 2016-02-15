@@ -1,12 +1,12 @@
-texlive-extra (2015.20160117-2) UNRELEASED; urgency=medium
+texlive-extra (2015.20160215-1) unstable; urgency=medium
 
-  * UNRELEASED
+  * new upstream checkout
   * tl-math-extra depends on tl-luatex (unicode-math -> ucharcat)
     (Closes: #811508)
   * fix perl-noisiness in texdef (Closes: #812154)
   * fix algorithm2e.sty superfluous brace (Closes: #814317)
 
- -- Norbert Preining <preining@debian.org>  Wed, 10 Feb 2016 21:14:28 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 15 Feb 2016 20:04:27 +0900
 
 texlive-extra (2015.20160117-1) unstable; urgency=medium
 
