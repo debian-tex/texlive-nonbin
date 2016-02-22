@@ -10,6 +10,10 @@
 
 pkg="$1"
 
+jadetexfiles="
+	usr/share/doc/texlive-doc/otherformats/jadetex/base/index.html
+"
+
 pdfjamfiles="
 	usr/share/doc/texlive-doc/support/pdfjam/PDFjam-README.html
 "
@@ -81,3 +85,13 @@ for f in $komafiles ; do
   fi
 done
 
+for f in $jadetexfiles ; do
+  ff="debian/$pkg/$f"
+  if [ -r $ff ] ; then
+    sed \
+        -e 's!src="http://sourceforge.net/sflogo.php[^"]*"!!g'  \
+	   $ff > $ff.new
+    mv $ff.new $ff
+  fi
+done
+  
