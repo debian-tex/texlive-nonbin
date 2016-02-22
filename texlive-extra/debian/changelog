@@ -3,8 +3,9 @@ texlive-extra (2015.20160222-1) UNRELEASED; urgency=medium
   * new upstream checkout
   * ensure proper upgrade from intermediate sid releases
     (replaces for texlive-math-extra vs texlive-latex-extra)
+  * reinclusion of musixtex, pmx, m-tx in texlive-music
 
- -- Norbert Preining <preining@debian.org>  Mon, 22 Feb 2016 20:32:20 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 22 Feb 2016 22:03:50 +0900
 
 texlive-extra (2015.20160215-1) unstable; urgency=medium
 
