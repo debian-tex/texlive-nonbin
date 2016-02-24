@@ -76,14 +76,11 @@ done
 # forget this for now ...
 changesfiles=""
 for p in $list ; do
-  changesfiles="$changesfiles $(ls $component/$p/*.changes $component/$p/*.dsc 2>/dev/null)"
+  #changesfiles="$changesfiles $(ls $component/$p/*.changes $component/$p/*.dsc 2>/dev/null)"
+  changesfiles="$changesfiles $(ls $component/$p/*.changes 2>/dev/null)"
 done
 if [ $sign = 1 ] ; then
-# better not sign all the binary deb, only the dsc and changes
-#  dpkg-sig -p --sign-changes force_full --sign builder $changesfiles
-   for p in $changesfiles ; do
-      debsign -k$signkey $p
-   done
+  debsign --no-re-sign $changesfiles
 fi
 
 #
