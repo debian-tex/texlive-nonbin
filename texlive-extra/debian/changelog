@@ -1,9 +1,8 @@
-texlive-extra (2015.20160223-2) UNRELEASED; urgency=medium
+texlive-extra (2015.20160223-2) unstable; urgency=medium
 
-  * UNRELEASED
   * re-add dropped dependency when incorporating jadetex (Closes: #816584)
 
- -- Norbert Preining <preining@debian.org>  Fri, 04 Mar 2016 09:41:15 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 10 Mar 2016 16:19:25 +0900
 
 texlive-extra (2015.20160223-1) unstable; urgency=medium
 
