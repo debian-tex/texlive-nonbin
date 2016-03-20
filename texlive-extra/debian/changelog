@@ -1,3 +1,11 @@
+texlive-extra (2015.20160320-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * texlive-bibtex-extra: break on old biber for biblatex 3.3
+  * bump standards version, no changes necessary
+
+ -- Norbert Preining <preining@debian.org>  Sun, 20 Mar 2016 13:37:48 +0900
+
 texlive-extra (2015.20160223-2) unstable; urgency=medium
 
   * re-add dropped dependency when incorporating jadetex (Closes: #816584)

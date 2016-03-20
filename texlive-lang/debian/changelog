@@ -1,8 +1,9 @@
-texlive-lang (2015.20160223-2) UNRELEASED; urgency=medium
+texlive-lang (2015.20160320-1) unstable; urgency=medium
 
-  * UNRELEASED
+  * new upstream checkout
+  * bump standards version, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Fri, 04 Mar 2016 09:42:19 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 20 Mar 2016 13:38:07 +0900
 
 texlive-lang (2015.20160223-1) unstable; urgency=medium
 
