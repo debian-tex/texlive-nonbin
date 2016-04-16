@@ -1,10 +1,10 @@
 Adjust the texmfcnf.lua file to realities in Debian
 ---
- texmf-dist/web2c/texmfcnf.lua |   30 ++++++++++++++----------------
- 1 file changed, 14 insertions(+), 16 deletions(-)
+ texmf-dist/web2c/texmfcnf.lua |   26 ++++++++++++--------------
+ 1 file changed, 12 insertions(+), 14 deletions(-)
 
---- texlive-base-2015.20150524.orig/texmf-dist/web2c/texmfcnf.lua
-+++ texlive-base-2015.20150524/texmf-dist/web2c/texmfcnf.lua
+--- texlive-base-2016.20160416.orig/texmf-dist/web2c/texmfcnf.lua
++++ texlive-base-2016.20160416/texmf-dist/web2c/texmfcnf.lua
 @@ -3,17 +3,15 @@
  -- ConTeXt needs a properly expanded TEXMFLOCAL, so here is a
  -- bit of lua code to make that happen
@@ -25,24 +25,15 @@ Adjust the texmfcnf.lua file to realities in Debian
  
      content = {
  
-@@ -44,14 +42,14 @@
+@@ -44,7 +42,7 @@
  
              -- only used for FONTCONFIG_PATH & TEXMFCACHE in TeX Live
  
 -            TEXMFSYSVAR     = "selfautoparent:texmf-var",
--            TEXMFVAR        = "home:.texlive2015/texmf-var",
 +            TEXMFSYSVAR     = "/var/lib/texmf",
-+            TEXMFVAR        = "home:.texmf-var",
+             TEXMFVAR        = "home:.texlive2016/texmf-var",
  
              -- We have only one cache path but there can be more. The first writable one
-             -- will be chosen but there can be more readable paths.
- 
-             TEXMFCACHE      = "$TEXMFSYSVAR;$TEXMFVAR",
--            TEXMFCONFIG     = "home:.texlive2015/texmf-config",
-+            TEXMFCONFIG     = "home:.texmf-config",
- 
-             -- I don't like this texmf under home and texmf-home would make more
-             -- sense. One never knows what installers put under texmf anywhere and
 @@ -61,13 +59,13 @@
              -- By using prefixes we don't get expanded paths in the cache __path__
              -- entry. This makes the tex root relocatable.

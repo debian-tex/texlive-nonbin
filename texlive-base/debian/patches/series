@@ -12,7 +12,8 @@ fix-scripts
 # debian internal stuff
 dvips-config-paper-factorization
 dvipdfmx-config-paper-factorization
-pdftex-config-paper-factorization
+# is done by copying pdftexconfig.tex to /etc/texmf...
+#pdftex-config-paper-factorization
 xdvi-config-paper-factorization
 # debian internal, location of modules is different
 debian_updmap-search-path

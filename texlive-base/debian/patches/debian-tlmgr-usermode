@@ -1,10 +1,10 @@
 ---
  texmf-dist/doc/man/man1/tlmgr.1     |    2 +
- texmf-dist/scripts/texlive/tlmgr.pl |   43 ++++--------------------------------
- 2 files changed, 7 insertions(+), 38 deletions(-)
+ texmf-dist/scripts/texlive/tlmgr.pl |   50 +++---------------------------------
+ 2 files changed, 7 insertions(+), 45 deletions(-)
 
---- texlive-base-2015.20150809.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2015.20150809/texmf-dist/scripts/texlive/tlmgr.pl
+--- texlive-base-2016.20160416.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2016.20160416/texmf-dist/scripts/texlive/tlmgr.pl
 @@ -20,7 +20,7 @@
  $tlmgrrevision .= " ($datrev)";
  
@@ -14,7 +14,7 @@
  our $loadmediasrcerror;
  our $packagelogfile;
  our $packagelogged;
-@@ -38,44 +38,8 @@
+@@ -38,50 +38,7 @@
  
  BEGIN {
    $^W = 1;
@@ -54,13 +54,19 @@
 -    # if not in bootstrapping mode => kpsewhich exists, so use it to get $Master
 -    chomp($Master = `kpsewhich -var-value=SELFAUTOPARENT`);
 -  }
-+  $Master = "/usr/share/texlive";
-   $::installerdir = $Master;
 -
-   #
+-  # if we have no directory in which to find our modules,
+-  # no point in going on.
+-  if (! $Master) {
+-    die ("Could not determine directory of tlmgr executable, "
+-         . "maybe shared library woes?\nCheck for error messages above");
+-  }
+-
++  $Master = "/usr/share/texlive";
+   $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
+ 
    # make Perl find our packages first:
-   unshift (@INC, "$Master/tlpkg");
-@@ -378,6 +342,9 @@
+@@ -370,6 +327,9 @@
  
    GetOptions(\%opts, keys(%optarg)) or pod2usage(2);
  
@@ -70,8 +76,8 @@
    $::debug_translation = 0;
    $::debug_translation = 1 if $opts{"debug-translation"};
  
---- texlive-base-2015.20150809.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2015.20150809/texmf-dist/doc/man/man1/tlmgr.1
+--- texlive-base-2016.20160416.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2016.20160416/texmf-dist/doc/man/man1/tlmgr.1
 @@ -154,6 +154,8 @@
  <http://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
