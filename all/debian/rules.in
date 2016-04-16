@@ -50,6 +50,10 @@ ifelse(_srcpackage_,texlive-base,<:
 	mv debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk/texdocrc.defaults \
 	  debian/texlive-base/etc/texmf/texdoctk
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk
+	# for paper handling we install pdftexconfig.tex which is read by luatex and pdftex
+	mkdir -p debian/etc/texmf/tex/generic/tex-ini-files
+	cp debian/texlive-base/usr/share/texlive/texmf-dist/tex/generic/tex-ini-files/pdftexconfig.tex \
+		debian/etc/texmf/tex/generic/tex-ini-files
 :>,_srcpackage_,texlive-extra,<:
 	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
 :>)

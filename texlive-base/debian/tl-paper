@@ -26,7 +26,7 @@ use TeXLive::TLPaper;
 # overwrite the default paper config settings
 our %paper_config_name = (
   "xdvi"     => "XDvi-paper",
-  "pdftex"   => "pdftexconfig-paper.tex",
+  "pdftex"   => "pdftexconfig.tex",
   "dvips"    => "config-paper.ps",
   "dvipdfmx" => "dvipdfmx-paper.cfg",
   "context"  => "cont-sys-paper.tex",
