@@ -50,6 +50,8 @@ ifelse(_srcpackage_,texlive-base,<:
 	mv debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk/texdocrc.defaults \
 	  debian/texlive-base/etc/texmf/texdoctk
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk
+	mkdir -p debian/texlive-base/usr/share/applications
+	install debian/texdoctk.desktop debian/texlive-base/usr/share/applications
 :>,_srcpackage_,texlive-extra,<:
 	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
 :>)
@@ -72,7 +74,7 @@ binary-indep: build install
 	dh_testroot
 	dh_install
 	dh_installdirs
-	dh_installmenu
+	#dh_installmenu
 	dh_lintian
 	dh_bugfiles -A
 	dh_installdocs -A debian/README.source debian/README.Debian
