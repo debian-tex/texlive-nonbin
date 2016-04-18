@@ -1,9 +1,11 @@
-texlive-base (2016.20160416-1) experimental; urgency=medium
+texlive-base (2016.20160417-1) experimental; urgency=medium
 
   * new upstream checkout of tlpretest
-  * remove stale menu file for texconfig (Closes: #820828)
+  * remove stale menu file for texlive-base, replace with
+    desktop file for texdoctk (Closes: #820828)
+    (Thanks to Pino Toscano)
 
- -- Norbert Preining <preining@debian.org>  Sat, 16 Apr 2016 14:12:58 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 17 Apr 2016 16:57:12 +0900
 
 texlive-base (2015.20160320-1) unstable; urgency=medium
 

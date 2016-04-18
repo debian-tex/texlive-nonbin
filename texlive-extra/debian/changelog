@@ -1,11 +1,11 @@
-texlive-extra (2016.20160416-1) experimental; urgency=medium
+texlive-extra (2016.20160417-1) experimental; urgency=medium
 
   * new upstream checkout of tlpretest
     - fix missing Euro sign in Inconsolata (Closes: #811384)
       (thanks to Thorsten Glaser for tracking it down)
   * tl-htmlxml recommends openjade (Closes: #803527)
 
- -- Norbert Preining <preining@debian.org>  Sat, 16 Apr 2016 14:14:33 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 17 Apr 2016 14:29:35 +0900
 
 texlive-extra (2015.20160320-1) unstable; urgency=medium
 
