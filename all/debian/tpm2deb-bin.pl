@@ -248,12 +248,17 @@ sub make_deb_execute_actions {
 		foreach (@maplines) { print OUTFILE; }
 		close(OUTFILE);
 	}
-	if ($#formatlines >= 0) {
+	if ($#formatlines >= 0 || (-r "$debdest/$package.formats.add")) {
 		open(OUTFILE, ">$debdest/$package.formats")
 			or die("Cannot open $debdest/$package.formats");
 		@formatlines =
 			map { $_->[1] } sort { $a->[0] cmp $b->[0] } @formatlines;
 		foreach (@formatlines) { print OUTFILE; }
+		if (-r "$debdest/$package.formats.add") {
+			open(INFILE, "<$debdest/$package.formats.add") || die("Cannot open: $!");
+			while (<INFILE>) { print OUTFILE; }
+			close(INFILE);
+		}
 		close(OUTFILE);
 	}
 	if ($#languagelines >= 0) {
