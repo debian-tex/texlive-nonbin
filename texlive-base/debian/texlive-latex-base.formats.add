@@ -1,1 +1,0 @@
-pdflatex-reproducible pdftex language.dat -translate-file=cp227.tcx *pdflatex-reproducible.ini
