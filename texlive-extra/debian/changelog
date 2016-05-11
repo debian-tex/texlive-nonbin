@@ -1,8 +1,8 @@
-texlive-extra (2016.20160417-2) UNRELEASED; urgency=medium
+texlive-extra (2016.20160430-1) experimental; urgency=medium
 
   * add missing conflicts against xmltex/jadetex (Closes: #820736)
 
- -- Norbert Preining <preining@debian.org>  Sun, 24 Apr 2016 15:29:00 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 30 Apr 2016 17:58:33 +0900
 
 texlive-extra (2016.20160417-1) experimental; urgency=medium
 
