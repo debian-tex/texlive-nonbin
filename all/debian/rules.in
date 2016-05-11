@@ -46,17 +46,12 @@ install-stamp: build-stamp
 	  if [ -r debian/$$i.links.dist ] ; then cat debian/$$i.links.dist >> debian/$$i.links ; fi ; \
 	done
 ifelse(_srcpackage_,texlive-base,<:
-	# install texdoctk stuff
 	mkdir -p debian/texlive-base/etc/texmf/texdoctk
 	mv debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk/texdocrc.defaults \
 	  debian/texlive-base/etc/texmf/texdoctk
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk
-	# install .desktop files
 	mkdir -p debian/texlive-base/usr/share/applications
 	install debian/texdoctk.desktop debian/texlive-base/usr/share/applications
-	# install pdflatex-reproducible ini file
-	mkdir -p debian/texlive-latex-base/usr/share/texlive/texmf-dist/tex/latex/latexconfig/
-	install debian/pdflatex-reproducible.ini debian/texlive-latex-base/usr/share/texlive/texmf-dist/tex/latex/latexconfig/
 :>,_srcpackage_,texlive-extra,<:
 	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
 :>)
