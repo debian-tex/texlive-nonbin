@@ -1,8 +1,8 @@
-texlive-base (2016.20160430-1) experimental; urgency=medium
+texlive-base (2016.20160511-1) unstable; urgency=medium
 
   * new upstream checkout of tlpretest
 
- -- Norbert Preining <preining@debian.org>  Sat, 30 Apr 2016 17:57:49 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 11 May 2016 21:39:32 +0900
 
 texlive-base (2016.20160417-1) experimental; urgency=medium
 
