@@ -45,3 +45,13 @@ texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/s
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_engines.py
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/ltximg/ltximg.pl
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/pythontex/pythontex_utils.py
+texlive-extra-utils: shell-script-fails-syntax-check usr/share/texlive/texmf-dist/scripts/pdfxup/pdfxup
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/tex4ebook/exec_epub3.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/tex4ebook/list-fonts.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/make4ht/make4ht-lib.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/tex4ebook/exec_mobi.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/make4ht/mkparams.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/tex4ebook/config-t4e.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/make4ht/mkutils.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/tex4ebook/exec_epub.lua
+texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/make4ht/lapp-mk4.lua
