@@ -1,8 +1,10 @@
 texlive-extra (2016.20160511-1) unstable; urgency=medium
 
   * add missing conflicts against xmltex/jadetex (Closes: #820736)
+  * remove sympytexpackage files that are either licenses cc-by-sa-nc
+    or do not have accompanying sources (Closes: #824068, #824069)
 
- -- Norbert Preining <preining@debian.org>  Wed, 11 May 2016 21:40:37 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 12 May 2016 09:54:27 +0900
 
 texlive-extra (2016.20160417-1) experimental; urgency=medium
 
