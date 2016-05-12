@@ -161,3 +161,5 @@ usr/share/fonts/truetype/roboto/hinted/Roboto-ThinItalic.ttf usr/share/texlive/t
 usr/share/fonts/truetype/roboto/hinted/Roboto-Thin.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-Thin.ttf
 usr/share/fonts/opentype/gentiumplus/GentiumPlus-I.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlus-I.ttf
 usr/share/fonts/opentype/gentiumplus/GentiumPlus-R.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlus-R.ttf
+usr/share/fonts/opentype/gentiumplus/GentiumPlusCompact-I.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlusCompact-I.ttf
+usr/share/fonts/opentype/gentiumplus/GentiumPlusCompact-R.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlusCompact-R.ttf
