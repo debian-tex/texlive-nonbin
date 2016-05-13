@@ -1,4 +1,4 @@
-texlive-extra (2016.20160511-1) unstable; urgency=medium
+texlive-extra (2016.20160512-1) unstable; urgency=medium
 
   * add missing conflicts against xmltex/jadetex (Closes: #820736)
   * remove sympytexpackage files that are either licenses cc-by-sa-nc
@@ -6,7 +6,7 @@ texlive-extra (2016.20160511-1) unstable; urgency=medium
   * adjust sympytex python path (Closes: #824071)
   * bump standards version, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Thu, 12 May 2016 10:11:52 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 12 May 2016 10:30:06 +0900
 
 texlive-extra (2016.20160417-1) experimental; urgency=medium
 
