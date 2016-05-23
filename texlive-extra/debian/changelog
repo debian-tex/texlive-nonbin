@@ -1,9 +1,9 @@
-texlive-extra (2016.20160512-2) UNRELEASED; urgency=medium
+texlive-extra (2016.20160520-1) unstable; urgency=medium
 
-  * UNRELEASED
+  * new upstream checkout - TL 2016 (first trial)
   * fix replace (mweights moved latex-extra -> fonts-extra) (Closes: #824137)
 
- -- Norbert Preining <preining@debian.org>  Fri, 13 May 2016 11:01:48 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 20 May 2016 10:04:59 +0900
 
 texlive-extra (2016.20160512-1) unstable; urgency=medium
 
