@@ -1,3 +1,9 @@
+texlive-lang (2016.20160520-2) unstable; urgency=medium
+
+  * add dep tl-lang-cz -> texlive-luatex for luatex85.sty (Closes: #825117)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 24 May 2016 08:24:18 +0900
+
 texlive-lang (2016.20160520-1) unstable; urgency=medium
 
   * new upstream checkout - TL 2016 (first trial)
