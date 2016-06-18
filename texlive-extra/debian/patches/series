@@ -3,7 +3,7 @@ ulqda-use-digest-sha
 latex2man-mktemp
 tmp-dir-for-pdfjam
 fix-invoice.sty
-epstopdf-remove-pswrite
+#epstopdf-remove-pswrite
 fix-perl522-noise
 fix-algorithm2e
 sympytex-path
