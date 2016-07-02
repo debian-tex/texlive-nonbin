@@ -1,3 +1,10 @@
+texlive-extra (2016.20160XXX-1) UNRELEASED; urgency=medium
+
+  * UNRELEASED
+  * new upstream checkout (Closes: #829330)
+
+ -- Norbert Preining <preining@debian.org>  Sun, 03 Jul 2016 07:12:41 +0900
+
 texlive-extra (2016.20160623-1) unstable; urgency=medium
 
   * new upstream checkout - first after the release of TL2016
