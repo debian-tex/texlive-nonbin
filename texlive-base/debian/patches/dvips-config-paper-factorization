@@ -1,12 +1,12 @@
 ---
- texmf-dist/dvips/config/config-paper.ps |  524 +++++++++++++++++++++++++++++++
- texmf-dist/dvips/config/config.ps       |  525 --------------------------------
+ texmf-dist/dvips/config/config-paper.ps |  533 +++++++++++++++++++++++++++++++
+ texmf-dist/dvips/config/config.ps       |  535 --------------------------------
  tlpkg/texlive.tlpdb                     |    1 
- 3 files changed, 532 insertions(+), 518 deletions(-)
+ 3 files changed, 542 insertions(+), 527 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2016.20160520/texmf-dist/dvips/config/config-paper.ps
-@@ -0,0 +1,524 @@
++++ texlive-base-2016.20160719/texmf-dist/dvips/config/config-paper.ps
+@@ -0,0 +1,533 @@
 +%
 +% config-paper.ps
 +%
@@ -67,6 +67,15 @@
 +@+ %%BeginPaperSize: smallbook
 +@+ /setpagedevice where
 +@+  { pop << /PageSize [504 666] >> setpagedevice }
++@+ if
++@+ %%EndPaperSize
++
++% Special paper size for IEEE Computer Society Journals
++@ ieeecs 7.875in 10.75in
++@+ ! %%DocumentPaperSizes: ieeecs
++@+ %%BeginPaperSize: ieeecs
++@+ /setpagedevice where
++@+  { pop << /PageSize [567 774] >> setpagedevice }
 +@+ if
 +@+ %%EndPaperSize
 +
@@ -531,9 +540,9 @@
 +@+ if
 +@+ %%EndPaperSize
 +
---- texlive-base-2016.20160520.orig/texmf-dist/dvips/config/config.ps
-+++ texlive-base-2016.20160520/texmf-dist/dvips/config/config.ps
-@@ -67,524 +67,13 @@
+--- texlive-base-2016.20160719.orig/texmf-dist/dvips/config/config.ps
++++ texlive-base-2016.20160719/texmf-dist/dvips/config/config.ps
+@@ -67,533 +67,13 @@
  %
  % emacs-page
  
@@ -592,6 +601,15 @@
 -@+ %%BeginPaperSize: smallbook
 -@+ /setpagedevice where
 -@+  { pop << /PageSize [504 666] >> setpagedevice }
+-@+ if
+-@+ %%EndPaperSize
+-
+-% Special paper size for IEEE Computer Society Journals
+-@ ieeecs 7.875in 10.75in
+-@+ ! %%DocumentPaperSizes: ieeecs
+-@+ %%BeginPaperSize: ieeecs
+-@+ /setpagedevice where
+-@+  { pop << /PageSize [567 774] >> setpagedevice }
 -@+ if
 -@+ %%EndPaperSize
 -
@@ -1065,9 +1083,14 @@
  
  % use -t unknown with a \special{papersize=...} for a nonstandard page size.
  @ unknown 0in 0in
---- texlive-base-2016.20160520.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2016.20160520/tlpkg/texlive.tlpdb
-@@ -73485,6 +73485,7 @@
+@@ -611,3 +91,4 @@
+ % and mactex mailing list thread from 24 Sep 2009 11:36:26.
+ @ nopaper 0in 0in
+ @+ % dvips-nopaper
++
+--- texlive-base-2016.20160719.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2016.20160719/tlpkg/texlive.tlpdb
+@@ -73621,6 +73621,7 @@
   texmf-dist/dvips/config/config.mirrorprint
   texmf-dist/dvips/config/config.ot2
   texmf-dist/dvips/config/config.ps
