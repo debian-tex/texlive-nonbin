@@ -144,6 +144,8 @@ ifelse(_srcpackage_,texlive-base,<:
 	find debian/texlive-*/usr/share/texlive/texmf-dist/ -name \*.bat -a -type f -exec rm '{}' \;
 	# remove x bit from files in the doc hierarchy
 	find debian/texlive-*/usr/share/doc/texlive-doc -type f -exec chmod a-x '{}' \;
+	# remove x bit from jar files
+	find debian/texlive-*/usr/share/texlive -name \*.jar -exec chmod a-x '{}' \;
 	# we also have to fix the permissions of the link targets from /usr/bin
 	bash debian/fix-bin-symlink-targets-permissions.sh
 	dh_installdeb
