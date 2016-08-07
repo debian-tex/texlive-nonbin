@@ -1,3 +1,9 @@
+texlive-base (2016.20160805-1) unstable; urgency=medium
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Sat, 06 Aug 2016 09:16:53 +0900
+
 texlive-base (2016.20160623-1) unstable; urgency=medium
 
   * new upstream checkout - first after the release of TL2016
