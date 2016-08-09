@@ -1,9 +1,8 @@
 texlive-base (2016.201608NN-1) UNRELEASED; urgency=medium
 
-  * new upstream checkout:
-    - introduction of texlive-unicodetex
+  * new upstream checkout
 
- -- Norbert Preining <preining@debian.org>  Sun, 07 Aug 2016 10:50:40 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 09 Aug 2016 13:58:57 +0900
 
 texlive-base (2016.20160805-1) unstable; urgency=medium
 
