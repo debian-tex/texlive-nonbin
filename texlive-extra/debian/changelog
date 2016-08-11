@@ -1,8 +1,9 @@
 texlive-extra (2016.201608NN-1) UNRELEASED; urgency=medium
 
   * new upstream checkout
+  * tl-bibtex-extra conflicts with biblatex, biblatex-dw (Closes: #833967)
 
- -- Norbert Preining <preining@debian.org>  Sun, 07 Aug 2016 10:51:07 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 11 Aug 2016 11:51:04 +0900
 
 texlive-extra (2016.20160805-1) unstable; urgency=medium
 
