@@ -1,8 +1,9 @@
-texlive-base (2016.201608NN-1) UNRELEASED; urgency=medium
+texlive-base (2016.20160814-1) experimental; urgency=medium
 
   * new upstream checkout
+  * adapt to takeover of tex4ht
 
- -- Norbert Preining <preining@debian.org>  Tue, 09 Aug 2016 13:58:57 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 14 Aug 2016 22:18:00 +0900
 
 texlive-base (2016.20160805-1) unstable; urgency=medium
 
