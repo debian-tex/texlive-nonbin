@@ -1,9 +1,9 @@
-texlive-extra (2016.201608NN-1) UNRELEASED; urgency=medium
+texlive-extra (2016.20160814-1) experimental; urgency=medium
 
-  * new upstream checkout
   * tl-bibtex-extra conflicts with biblatex, biblatex-dw (Closes: #833967)
+  * reintroduce tex4ht in texlive-htmlxml
 
- -- Norbert Preining <preining@debian.org>  Thu, 11 Aug 2016 11:51:04 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 14 Aug 2016 11:09:41 +0900
 
 texlive-extra (2016.20160805-1) unstable; urgency=medium
 
