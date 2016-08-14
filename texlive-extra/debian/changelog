@@ -2,8 +2,9 @@ texlive-extra (2016.20160814-1) experimental; urgency=medium
 
   * tl-bibtex-extra conflicts with biblatex, biblatex-dw (Closes: #833967)
   * reintroduce tex4ht in texlive-htmlxml
+  * conflict with logreq (Closes: #833990)
 
- -- Norbert Preining <preining@debian.org>  Sun, 14 Aug 2016 11:09:41 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 14 Aug 2016 22:19:35 +0900
 
 texlive-extra (2016.20160805-1) unstable; urgency=medium
 
