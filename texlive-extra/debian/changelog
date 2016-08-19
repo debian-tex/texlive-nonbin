@@ -1,3 +1,10 @@
+texlive-extra (2016.20160819-2) unstable; urgency=medium
+
+  * UNRELEASED
+  * add breaks for package moving via unreleased tl-unicodetex
+
+ -- Norbert Preining <preining@debian.org>  Fri, 19 Aug 2016 23:53:26 +0900
+
 texlive-extra (2016.20160819-1) unstable; urgency=medium
 
   * new upstream checkout
