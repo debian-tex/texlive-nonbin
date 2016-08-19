@@ -1,3 +1,10 @@
+texlive-extra (2016.20160819-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * ship to unstable, make texlive-htmlxml installable again (Closes: #834616)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 19 Aug 2016 12:17:06 +0900
+
 texlive-extra (2016.20160814-1) experimental; urgency=medium
 
   * tl-bibtex-extra conflicts with biblatex, biblatex-dw (Closes: #833967)
