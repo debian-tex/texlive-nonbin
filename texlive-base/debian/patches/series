@@ -32,3 +32,4 @@ mptopdf-manpage-fixes
 # this patch creates different problems
 # fix-listings-bug
 pgf-tex4ht-fix
+texdoctk-colors

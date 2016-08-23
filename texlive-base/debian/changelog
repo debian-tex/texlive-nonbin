@@ -1,9 +1,11 @@
 texlive-base (2016.2016MMDD-1) UNRELEASED; urgency=medium
 
+  * UNRELEASED
   * new upstream checkout
   * make texlive-full depend on biber and asymptote (Closes: #834901)
+  * silence texdoctk warning about colors (Closes: #835153)
 
- -- Norbert Preining <preining@debian.org>  Sun, 21 Aug 2016 02:10:24 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 23 Aug 2016 18:28:34 +0900
 
 texlive-base (2016.20160819-2) unstable; urgency=medium
 

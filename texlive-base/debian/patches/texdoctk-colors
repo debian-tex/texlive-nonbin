@@ -1,0 +1,16 @@
+silence texdoctk warning about colors, see #835153
+---
+ texmf-dist/texdoctk/texdocrc.defaults |    4 ++++
+ 1 file changed, 4 insertions(+)
+
+--- texlive-base-2016.20160819.orig/texmf-dist/texdoctk/texdocrc.defaults
++++ texlive-base-2016.20160819/texmf-dist/texdoctk/texdocrc.defaults
+@@ -51,4 +51,8 @@
+ PRINT_CMD=lpr
+ PRINT_OPTS=-h -Plp
+ 
++# button colours: default and active back-/foreground
++# names and RGB values are both allowed; use the form #xxxxxx for RGB
++TDCOLORS=#d9d9d9 Black #ececec red
++
+ # end of config
