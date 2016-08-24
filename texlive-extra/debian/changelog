@@ -18,6 +18,7 @@ texlive-extra (2016.20160814-1) experimental; urgency=medium
 
   * tl-bibtex-extra conflicts with biblatex, biblatex-dw (Closes: #833967)
   * reintroduce tex4ht in texlive-htmlxml
+    This gives fixed support for scrreport in tex4ht (Closes: #775190)
   * conflict with logreq (Closes: #833990)
 
  -- Norbert Preining <preining@debian.org>  Sun, 14 Aug 2016 22:19:35 +0900
