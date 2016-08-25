@@ -2,10 +2,11 @@ texlive-extra (2016.2016MMDD-1) unstable; urgency=medium
 
   * UNRELEASED
   * new upstream release
+    - fix for newtxsf breakage (Closes: #835401)
   * add breaks for package moving via unreleased tl-unicodetex
   * tl-htmlxml conflicts with tex4ht-common (Closes: #834936)
 
- -- Norbert Preining <preining@debian.org>  Sun, 21 Aug 2016 02:13:33 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 26 Aug 2016 06:07:56 +0900
 
 texlive-extra (2016.20160819-1) unstable; urgency=medium
 
