@@ -8,8 +8,9 @@ texlive-extra (2016.2016MMDD-1) unstable; urgency=medium
   * move various tex4ht scripts from tl-binaries to tl-htmlxml
     (Closes: #835803)
     --> add symlinks in /usr/bin (Closes: #495768)
+  * breaks against old version of biber
 
- -- Norbert Preining <preining@debian.org>  Mon, 29 Aug 2016 11:22:30 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 26 Sep 2016 23:43:14 +0900
 
 texlive-extra (2016.20160819-1) unstable; urgency=medium
 
