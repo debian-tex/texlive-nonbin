@@ -216,7 +216,7 @@ stable-tests:
 	done
 
 duplicate-check:
-	@if zgrep , pool/Contents-i386.gz >/dev/null ; then echo "Duplicate file inclusion detected!" ; zgrep , pool/Contents-i386.gz ; return 1 ; else return 0 ; fi
+	@if zcat pool/Contents-i386.gz | awk '{print$$2}' | grep , >/dev/null ; then echo "Duplicate file inclusion detected!" ; zcat pool/Contents-i386.gz | awk '{print$$2}' | grep , ; return 1 ; else return 0 ; fi
 
 
 clean:
