@@ -1,6 +1,5 @@
-texlive-extra (2016.2016MMDD-1) unstable; urgency=medium
+texlive-extra (2016.20161008-1) unstable; urgency=medium
 
-  * UNRELEASED
   * new upstream release
     - fix for newtxsf breakage (Closes: #835401)
   * add breaks for package moving via unreleased tl-unicodetex
@@ -10,7 +9,7 @@ texlive-extra (2016.2016MMDD-1) unstable; urgency=medium
     --> add symlinks in /usr/bin (Closes: #495768)
   * breaks against old version of biber
 
- -- Norbert Preining <preining@debian.org>  Mon, 26 Sep 2016 23:43:14 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 08 Oct 2016 11:07:37 +0900
 
 texlive-extra (2016.20160819-1) unstable; urgency=medium
 
