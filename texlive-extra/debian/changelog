@@ -1,8 +1,10 @@
 texlive-extra (2016.20161008-2) UNRELEASED; urgency=medium
 
   * break against old dblatex (Closes: #840189)
+  * fix g-brief2 for multiple instances (Closes: #840700)
+    (thanks to Julius Seemayer)
 
- -- Norbert Preining <preining@debian.org>  Mon, 10 Oct 2016 08:52:54 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 31 Oct 2016 10:56:08 +0900
 
 texlive-extra (2016.20161008-1) unstable; urgency=medium
 

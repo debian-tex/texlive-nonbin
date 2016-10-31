@@ -1,0 +1,15 @@
+---
+ texmf-dist/tex/latex/g-brief/g-brief2.cls |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- texlive-extra-2016.20161008.orig/texmf-dist/tex/latex/g-brief/g-brief2.cls
++++ texlive-extra-2016.20161008/texmf-dist/tex/latex/g-brief/g-brief2.cls
+@@ -333,7 +333,7 @@
+     \unitlength1mm
+     \begin{picture}(0,0)
+       \put(-9,0){\parbox{180mm}{
+-        \tiny \newcounter{blockzahl} \def\@blockbreite{170mm}
++	\tiny \ifdef{\theblockzahl}{\setcounter{blockzahl}{0}}{\newcounter{blockzahl}} \def\@blockbreite{170mm}
+         \iftrennlinien \rule{180mm}{0.5pt} \fi
+         \ifthenelse{
+           \equal{\namezeilea}{\empty} \and \equal{\namezeileb}{\empty} \and
