@@ -1,0 +1,48 @@
+.TH A5TOA4 1
+
+.SH NAME
+a5toa4 \- arrange A5 pages in a PDF onto A4 landscape paper
+
+.SH SYNOPSIS
+.B a5toa4
+[\fB\-b\fR|\fB\-s\fR]
+[\fB\-o\fR]
+.IR input.pdf ...
+
+.SH DESCRIPTION
+Arrange A5 pages in a PDF onto A4 landscape paper, either side-by-side
+(default) or as a booklet.
+
+.SH OPTIONS
+.SS "Processing options"
+.TP
+.BR \-b ", " \-\-booklet
+Generate a booklet instead of only two pages side by side onto one page. The
+whole booklet will be one signature.
+
+.TP
+.BR \-s ", " \-\-sidebyside
+Generate only two pages side by side onto one page instead of a booklet. This
+is the default.
+
+.TP
+.BR \-o ", " \-\-overwrite
+Write the output to \fIinput.pdf\fR instead of appending "\-sidebyside.pdf"
+or "\-booklet.pdf" to the basename of \fIinput.pdf\fR.
+
+.SS "Getting help"
+.TP
+.BR \-h ", " \-\-help
+Print a help message.
+.TP
+.BR \-V ", " \-\-version
+Print the version information.
+
+.SH AUTHORS
+.B a5toa4
+was written by Markus Kohm.
+
+.SH COPYRIGHT
+.B a5toa4
+is distributed under the conditions of the LaTeX Project Public License, either
+version 1.3c or (at your option) any later version..
