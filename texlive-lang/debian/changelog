@@ -1,9 +1,11 @@
-texlive-lang (2016.20161008-2) UNRELEASED; urgency=medium
+texlive-lang (2016.20161103-1) unstable; urgency=medium
 
   * xepersian moved from texlive-xetex to texlive-lang-arabian.
     Conflict added (Closes: #840200)
+  * new upstream checkout:
+    - fix missing shorthands in German dialects (Closes: #753143)
 
- -- Norbert Preining <preining@debian.org>  Sun, 09 Oct 2016 22:48:12 +0200
+ -- Norbert Preining <preining@debian.org>  Thu, 03 Nov 2016 11:51:19 +0900
 
 texlive-lang (2016.20161008-1) unstable; urgency=medium
 

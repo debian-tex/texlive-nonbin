@@ -1,4 +1,4 @@
-texlive-extra (2016.20161008-2) UNRELEASED; urgency=medium
+texlive-extra (2016.20161103-1) unstable; urgency=medium
 
   * break against old dblatex (Closes: #840189)
   * fix g-brief2 for multiple instances (Closes: #840700)
@@ -6,8 +6,10 @@ texlive-extra (2016.20161008-2) UNRELEASED; urgency=medium
   * include a5toa4 man page (Closes: #841310) (thanks to James Clarke)
   * tl-latex-extra recs tl-generic-extra for datetime2 -> tracklong
     (Closes: #838755)
+  * tl-math-extra is merged into tl-science (actually upstream calls
+    it collection-mathscience)
 
- -- Norbert Preining <preining@debian.org>  Mon, 31 Oct 2016 11:13:26 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 03 Nov 2016 11:51:11 +0900
 
 texlive-extra (2016.20161008-1) unstable; urgency=medium
 

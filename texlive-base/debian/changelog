@@ -1,3 +1,11 @@
+texlive-base (2016.20161103-1) unstable; urgency=medium
+
+  * new upstream checkout
+    - remove non-free ehandler.ps in dvips files (Closes: #775911)
+    - fix parallel mktexdir execution (Closes: #794228)
+
+ -- Norbert Preining <preining@debian.org>  Thu, 03 Nov 2016 11:50:45 +0900
+
 texlive-base (2016.20161008-1) unstable; urgency=medium
 
   * new upstream checkout
