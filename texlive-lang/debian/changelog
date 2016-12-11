@@ -1,3 +1,9 @@
+texlive-lang (2016.20161130-1) unstable; urgency=medium
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Wed, 30 Nov 2016 13:18:20 +0900
+
 texlive-lang (2016.20161103-1) unstable; urgency=medium
 
   * xepersian moved from texlive-xetex to texlive-lang-arabian.

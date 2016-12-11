@@ -1,3 +1,11 @@
+texlive-base (2016.20161130-1) unstable; urgency=medium
+
+  * new upstream checkout
+    - remove mpost from list of commands that are allowed in 
+      restricted write18 mode
+
+ -- Norbert Preining <preining@debian.org>  Wed, 30 Nov 2016 13:18:09 +0900
+
 texlive-base (2016.20161103-1) unstable; urgency=medium
 
   * new upstream checkout
