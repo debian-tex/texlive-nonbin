@@ -1,2 +1,4 @@
- usr/share/texlive/texmf-dist/fonts/truetype/public/padauk/Padauk-Bold.ttf
- usr/share/texlive/texmf-dist/fonts/truetype/public/padauk/Padauk-Bold.ttf
+usr/share/fonts/truetype/padauk/Padauk-bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/padauk/Padauk-Bold.ttf
+usr/share/fonts/truetype/padauk/Padauk.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/padauk/Padauk-Regular.ttf
+usr/share/fonts/truetype/padauk/Padauk-bookbold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/padauk/PadaukBook-Bold.ttf
+usr/share/fonts/truetype/padauk/Padauk-book.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/padauk/PadaukBook-Regular.ttf
