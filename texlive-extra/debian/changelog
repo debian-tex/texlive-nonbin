@@ -1,3 +1,10 @@
+texlive-extra (2016.20170123-1) unstable; urgency=medium
+
+  * new upstream checkout
+    - filehook needed by unicode-math moved to tl-latex-recommended
+
+ -- Norbert Preining <preining@debian.org>  Mon, 23 Jan 2017 10:44:05 +0900
+
 texlive-extra (2016.20170118-2) unstable; urgency=medium
 
   * conflict with old biber (Closes: #851966)

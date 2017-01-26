@@ -1,3 +1,10 @@
+texlive-lang (2016.20170123-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * fix Padauk font links
+
+ -- Norbert Preining <preining@debian.org>  Mon, 23 Jan 2017 12:33:09 +0900
+
 texlive-lang (2016.20170118-1) unstable; urgency=medium
 
   * new upstream checkout

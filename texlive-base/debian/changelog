@@ -1,3 +1,11 @@
+texlive-base (2016.20170123-1) unstable; urgency=medium
+
+  * new upstream checkout
+    - filehook needed by unicode-math moved to tl-latex-recommended
+    - several file placement errors fixed
+
+ -- Norbert Preining <preining@debian.org>  Mon, 23 Jan 2017 10:44:49 +0900
+
 texlive-base (2016.20170118-1) unstable; urgency=medium
 
   * new upstream checkout
