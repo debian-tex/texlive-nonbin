@@ -2,8 +2,10 @@ texlive-base (2016.20170123-2) UNRELEASED; urgency=medium
 
   * fix wrong replace/break statements (Closes: #852599)
   * tighten inter-package dependencies
+  * add fonts-lmodern to dependency of texlive-latex-base (change since
+    the introduction of TU encoding) (Closes: #853119)
 
- -- Norbert Preining <preining@debian.org>  Thu, 26 Jan 2017 12:43:40 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 31 Jan 2017 15:12:19 +0900
 
 texlive-base (2016.20170123-1) unstable; urgency=medium
 
