@@ -1,3 +1,10 @@
+texlive-base (2016.20170123-3) unstable; urgency=medium
+
+  * fix regression in LaTeX 2017/01/01 where ligatures are not
+    enabled in XeLaTeX (Closes: #854930)
+
+ -- Norbert Preining <preining@debian.org>  Sun, 12 Feb 2017 20:04:51 +0900
+
 texlive-base (2016.20170123-2) unstable; urgency=medium
 
   * fix wrong replace/break statements (Closes: #852599)
