@@ -1581,7 +1581,7 @@
   RELOC/source/latex/contracard/contracard.dtx
  runfiles size=1
   RELOC/tex/latex/contracard/contracard.cls
-+ RELOC/doc/latex/contracard/contracard.sty
++ RELOC/tex/latex/contracard/contracard.sty
  catalogue-ctan /macros/latex/contrib/contracard
  catalogue-date 2015-08-03 05:43:12 +0200
  catalogue-license lppl1.3
