@@ -34,7 +34,8 @@
  texmf-dist/tex/luatex/luatexja/patches/lltjp-footmisc.sty       |    6 
  texmf-dist/tex/luatex/luatexja/patches/lltjp-stfloats.sty       |   39 -
  texmf-dist/tex/luatex/luatexja/patches/lltjp-xunicode.sty       |    4 
- 35 files changed, 835 insertions(+), 267 deletions(-)
+ tlpkg/texlive.tlpdb                                             |    1 
+ 36 files changed, 836 insertions(+), 267 deletions(-)
 
 --- texlive-lang-2016.20170123.orig/texmf-dist/doc/luatex/luatexja/README
 +++ texlive-lang-2016.20170123/texmf-dist/doc/luatex/luatexja/README
@@ -1892,3 +1893,13 @@
  \let\ltj@temp=\@temp
  \edef\@temp{\noexpand\ReloadXunicode{\UTFencname}}\@temp
  \makeatletter
+--- texlive-lang-2016.20170123.orig/tlpkg/texlive.tlpdb
++++ texlive-lang-2016.20170123/tlpkg/texlive.tlpdb
+@@ -144226,6 +144226,7 @@
+  RELOC/tex/luatex/luatexja/addons/luatexja-adjust.sty
+  RELOC/tex/luatex/luatexja/addons/luatexja-ajmacros.sty
+  RELOC/tex/luatex/luatexja/addons/luatexja-fontspec-24.sty
++ RELOC/tex/luatex/luatexja/addons/luatexja-fontspec-25c.sty
+  RELOC/tex/luatex/luatexja/addons/luatexja-fontspec.sty
+  RELOC/tex/luatex/luatexja/addons/luatexja-otf.sty
+  RELOC/tex/luatex/luatexja/addons/luatexja-preset.sty
