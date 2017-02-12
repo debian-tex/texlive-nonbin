@@ -1,3 +1,9 @@
+texlive-extra (2016.20170123-3) UNRELEASED; urgency=medium
+
+  * fix location of contracard.sty (Closes: #854800)
+
+ -- Norbert Preining <preining@debian.org>  Sun, 12 Feb 2017 15:23:11 +0900
+
 texlive-extra (2016.20170123-2) unstable; urgency=medium
 
   * fix wrong replace/break statements
