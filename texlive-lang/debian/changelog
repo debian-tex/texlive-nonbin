@@ -1,8 +1,8 @@
-texlive-lang (2016.20170123-3) UNRELEASED; urgency=medium
+texlive-lang (2016.20170123-3) unstable; urgency=medium
 
   * include fixed luatex-ja (Closes: #854528)
 
- -- Norbert Preining <preining@debian.org>  Sun, 12 Feb 2017 15:18:40 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 12 Feb 2017 16:32:29 +0900
 
 texlive-lang (2016.20170123-2) unstable; urgency=medium
 

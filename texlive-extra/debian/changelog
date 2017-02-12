@@ -1,9 +1,9 @@
-texlive-extra (2016.20170123-3) UNRELEASED; urgency=medium
+texlive-extra (2016.20170123-3) unstable; urgency=medium
 
   * fix location of contracard.sty (Closes: #854800)
   * backport fix for infinite loop in glossaries-extra (Closes: #854931)
 
- -- Norbert Preining <preining@debian.org>  Sun, 12 Feb 2017 15:50:18 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 12 Feb 2017 15:51:00 +0900
 
 texlive-extra (2016.20170123-2) unstable; urgency=medium
 
