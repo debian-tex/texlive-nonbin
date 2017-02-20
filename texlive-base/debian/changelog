@@ -4,7 +4,7 @@ texlive-base (2016.20170123-4) unstable; urgency=medium
     fontspec 2.6 (\emph was broken!) (Closes: #855491)
   * fix typo in oberdiek box drawing macros (Closes: #855390)
 
- -- Norbert Preining <preining@debian.org>  Mon, 20 Feb 2017 12:26:50 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 20 Feb 2017 13:37:50 +0900
 
 texlive-base (2016.20170123-3) unstable; urgency=medium
 
