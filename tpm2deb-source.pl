@@ -600,7 +600,7 @@ sub make_deb_control {
 				push @finaldeps, "$d";
 			}
 		}
-		print CONTROL join(", ",@finaldeps), "\n";
+		print CONTROL join(", ",sort @finaldeps), "\n";
 		$opt_debug && print STDERR  "\nDependencies for $package: ", join(", ",@AllDepends), "\n";
 		#
 		# Conflicts
@@ -608,7 +608,7 @@ sub make_deb_control {
 		my @AllConflicts = @{$TeXLive{$type_of_package}{$pkg}{'conflicts'}};
 		if ($#AllConflicts >= 0) {
 			makeuniq(\@AllConflicts);
-			print CONTROL "Conflicts: ", join(", ", @AllConflicts), "\n";
+			print CONTROL "Conflicts: ", join(", ", sort @AllConflicts), "\n";
 		}
 		#
 		# Recommends
@@ -616,7 +616,7 @@ sub make_deb_control {
 		my @AllRecommends = @{$TeXLive{$type_of_package}{$pkg}{'recommends'}};
 		if ($#AllRecommends >= 0) {
 			makeuniq(\@AllRecommends);
-			print CONTROL "Recommends: ", join(", ", @AllRecommends), "\n";
+			print CONTROL "Recommends: ", join(", ", sort @AllRecommends), "\n";
 		}
 		#
 		# Provides
@@ -624,7 +624,7 @@ sub make_deb_control {
 		my @AllProvides = @{$TeXLive{$type_of_package}{$pkg}{'provides'}};
 		if ($#AllProvides >= 0) {
 			makeuniq(\@AllProvides);
-			print CONTROL "Provides: ", join(", ", @AllProvides), "\n";
+			print CONTROL "Provides: ", join(", ", sort @AllProvides), "\n";
 		}
 		#
 		# Suggests
@@ -632,7 +632,7 @@ sub make_deb_control {
 		my @AllSuggests = @{$TeXLive{$type_of_package}{$pkg}{'suggests'}};
 		if ($#AllSuggests >= 0) {
 			makeuniq(\@AllSuggests);
-			print CONTROL "Suggests: ", join(", ", @AllSuggests), "\n";
+			print CONTROL "Suggests: ", join(", ", sort @AllSuggests), "\n";
 		}
 		#
 		# Replaces
@@ -640,7 +640,7 @@ sub make_deb_control {
 		my @AllReplaces = @{$TeXLive{$type_of_package}{$pkg}{'replaces'}};
 		if ($#AllReplaces >= 0) {
 			makeuniq(\@AllReplaces);
-			print CONTROL "Replaces: ", join(", ", @AllReplaces), "\n";
+			print CONTROL "Replaces: ", join(", ", sort @AllReplaces), "\n";
 		}
 		#
 		# Breaks
@@ -648,7 +648,7 @@ sub make_deb_control {
 		my @AllBreaks = @{$TeXLive{$type_of_package}{$pkg}{'breaks'}};
 		if ($#AllBreaks >= 0) {
 			makeuniq(\@AllBreaks);
-			print CONTROL "Breaks: ", join(", ", @AllBreaks), "\n";
+			print CONTROL "Breaks: ", join(", ", sort @AllBreaks), "\n";
 		}
 		#
 		print CONTROL "Description: TeX Live: $title\n";
