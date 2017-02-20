@@ -1,0 +1,15 @@
+---
+ texmf-dist/tex/latex/oberdiek/pmboxdrawenc.dfu |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/oberdiek/pmboxdrawenc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/oberdiek/pmboxdrawenc.dfu
+@@ -136,7 +136,7 @@
+ \DeclareUnicodeCharacter{257C}{\pmboxdrawuni{257C}}
+ \DeclareUnicodeCharacter{257D}{\pmboxdrawuni{257D}}
+ \DeclareUnicodeCharacter{257E}{\pmboxdrawuni{257E}}
+-\DeclareUnicodeCharacter{257F}{\pmboxdrawuni{257R}}
++\DeclareUnicodeCharacter{257F}{\pmboxdrawuni{257F}}
+ \DeclareUnicodeCharacter{2580}{\textupblock}
+ \DeclareUnicodeCharacter{2581}{\pmboxdrawuni{2581}}
+ \DeclareUnicodeCharacter{2582}{\pmboxdrawuni{2582}}
