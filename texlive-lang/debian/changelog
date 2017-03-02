@@ -1,3 +1,9 @@
+texlive-lang (2016.20170123-4) unstable; urgency=medium
+
+  * fix missing links for kanji-config-updmap{,-sys} (Closes: #856450)
+
+ -- Norbert Preining <preining@debian.org>  Thu, 02 Mar 2017 11:03:58 +0900
+
 texlive-lang (2016.20170123-3) unstable; urgency=medium
 
   * include fixed luatex-ja (Closes: #854528)
