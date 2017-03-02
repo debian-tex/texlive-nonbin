@@ -1,6 +1,6 @@
 LANG=C
 
-TLROOT?=/src/TeX/texlive.git
+TLROOT?=$(HOME)/Development/TeX/texlive.git
 MASTER?=/var/www/norbert/tlnet
 OLDPKG?=$(PWD)/old
 OLDSOURCES?=$(PWD)/src
