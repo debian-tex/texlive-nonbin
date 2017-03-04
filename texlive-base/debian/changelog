@@ -1,3 +1,9 @@
+texlive-base (2016.20170123-5) unstable; urgency=medium
+
+  * update LaTeX to patchlevel 3 - fixes for TU encoding
+
+ -- Norbert Preining <preining@debian.org>  Sat, 04 Mar 2017 15:53:36 +0900
+
 texlive-base (2016.20170123-4) unstable; urgency=medium
 
   * fix brown paper bag release of fontspec by including

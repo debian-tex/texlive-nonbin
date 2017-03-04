@@ -1,0 +1,3354 @@
+---
+ texmf-dist/doc/latex/base/bugs.txt        |   86 ---
+ texmf-dist/doc/latex/base/changes.txt     |  113 ++++
+ texmf-dist/doc/latex/base/manifest.txt    |   15 
+ texmf-dist/source/latex/base/ltluatex.dtx |   61 +-
+ texmf-dist/source/latex/base/ltoutenc.dtx |   86 ++-
+ texmf-dist/source/latex/base/ltvers.dtx   |    2 
+ texmf-dist/source/latex/base/tulm.fdd     |  330 +++++++++++
+ texmf-dist/source/latex/base/tulm.ins     |  107 +++
+ texmf-dist/source/latex/base/unpack.ins   |    2 
+ texmf-dist/source/latex/base/utf8ienc.dtx |    9 
+ texmf-dist/tex/latex/base/fontenc.sty     |    2 
+ texmf-dist/tex/latex/base/latex.ltx       |    4 
+ texmf-dist/tex/latex/base/latexbug.tex    |  835 ------------------------------
+ texmf-dist/tex/latex/base/lcyenc.dfu      |    2 
+ texmf-dist/tex/latex/base/ltluatex.lua    |   44 -
+ texmf-dist/tex/latex/base/ltluatex.tex    |    2 
+ texmf-dist/tex/latex/base/ly1enc.dfu      |    2 
+ texmf-dist/tex/latex/base/omlenc.def      |    2 
+ texmf-dist/tex/latex/base/omsenc.def      |    2 
+ texmf-dist/tex/latex/base/omsenc.dfu      |    2 
+ texmf-dist/tex/latex/base/ot1enc.def      |    2 
+ texmf-dist/tex/latex/base/ot1enc.dfu      |    2 
+ texmf-dist/tex/latex/base/ot2enc.dfu      |    2 
+ texmf-dist/tex/latex/base/ot4enc.def      |    2 
+ texmf-dist/tex/latex/base/t1enc.def       |    2 
+ texmf-dist/tex/latex/base/t1enc.dfu       |    6 
+ texmf-dist/tex/latex/base/t2aenc.dfu      |    2 
+ texmf-dist/tex/latex/base/t2benc.dfu      |    2 
+ texmf-dist/tex/latex/base/t2cenc.dfu      |    2 
+ texmf-dist/tex/latex/base/textcomp.sty    |    2 
+ texmf-dist/tex/latex/base/ts1enc.dfu      |    2 
+ texmf-dist/tex/latex/base/tuenc.def       |   49 +
+ texmf-dist/tex/latex/base/tulmdh.fd       |   58 ++
+ texmf-dist/tex/latex/base/tulmr.fd        |  114 +++-
+ texmf-dist/tex/latex/base/tulmss.fd       |   92 ++-
+ texmf-dist/tex/latex/base/tulmssq.fd      |   68 ++
+ texmf-dist/tex/latex/base/tulmtt.fd       |  121 ++--
+ texmf-dist/tex/latex/base/tulmvtt.fd      |   89 +++
+ texmf-dist/tex/latex/base/utf8-test.tex   |    2 
+ texmf-dist/tex/latex/base/utf8.def        |    2 
+ texmf-dist/tex/latex/base/utf8enc.dfu     |    6 
+ texmf-dist/tex/latex/base/utf8test.tex    |    2 
+ texmf-dist/tex/latex/base/x2enc.dfu       |    2 
+ tlpkg/texlive.tlpdb                       |   31 -
+ 44 files changed, 1275 insertions(+), 1095 deletions(-)
+
+--- texlive-base-2016.20170123.orig/texmf-dist/doc/latex/base/bugs.txt
++++ texlive-base-2016.20170123/texmf-dist/doc/latex/base/bugs.txt
+@@ -1,6 +1,6 @@
+                          LaTeX Error Reports
+  
+-                           28 March 2005
++                            January 2017
+ 
+ ERROR REPORTS
+ 
+@@ -8,7 +8,8 @@
+ 
+   * Your LaTeX system is not too old, i.e., your version is the
+     current or the previous release. Information about the latest
+-    release can be found at http://www.latex-project.org/ltnews/.
++    release can be found at
++    http://www.latex-project.org/news/latex2e-news/
+ 
+  * The error is not already mentioned in the documentation of the
+    distribution, e.g. in a .dtx file (in this case it is a feature :-).
+@@ -16,11 +17,11 @@
+  * The error has not already been reported.  If you have WWW
+    access, you can search the LaTeX bugs database using this URL:
+ 
+-     http://www.latex-project.org/bugs.html
++     https://www.latex-project.org/bugs.html
+ 
+  * The error is not caused by software other than the core LaTeX
+    software that is produced and maintained by the LaTeX3 project
+-   team. please report problems with other software to the authors
++   team. Please report problems with other software to the authors
+    or suppliers of that software, and not to us!
+ 
+    Thus you should check that the problem is not caused by, for
+@@ -29,7 +30,9 @@
+    Also, the test file demonstrating the error should not use any
+    classes or packages other than those authored and supported by the
+    LaTeX3 team.  The files for the package or class will tell you how
+-   it is supported.
++   it is supported. The test file should use the package latexbug to
++   check that all packages in the file are supported by the LaTeX3
++   Project (see the discussion on the website why this is important).
+ 
+  * The error is not caused by using an obsolete version of any file or
+    of other software. 
+@@ -45,78 +48,17 @@
+ 
+  * Run this file through latex to obtain the transcript file
+    (often .log) since you will need to submit this file also.
+- 
+- * There are two ways to submit a bug report:
+-    a) Submit the test and transcript files through the Web interface at:
+ 
+-         http://www.latex-project.org/bugs-upload.html
++
++    Submit the test and transcript files through the Web interface at:
++
++         https://www.latex-project.org/bugs/bugs-upload.html
+ 
+     Please fill in all required fields; in particular, make sure 
+     that your name, email address, and the summary description
+-    are correct.
++    are correct (the email address will not be shared or made public).
+ 
+-    b) Submit your bug report by electronic mail. To do this, you need to
+ 
+-    * Generate a bug report template by running the file
+-      latexbug.tex through LaTeX.
+-
+-    * Fill in the spaces in the generated template file. Please note that
+-      the reporting language is *English*, irregardless of the fact that
+-      the address you are sending the bug report to might not be in an
+-      English speaking country. Reports received in a language other than
+-      English might not be understandable to the person currently
+-      looking at bug reports!
+- 
+-    * Include all necessary information, especially a complete input
+-      file, a complete transcript file, and all other files used (if they
+-      are not standard).
+-   
+-      Please check carefully to ensure that any non-standard files are
+-      essential to the bug; and remember that we cannot debug files not
+-      supplied by us.
+-
+-      Any such non-standard files should be included in a `filecontents'
+-      environment at the start of your input file!  This allows us to
+-      run your test file without a lot of manual preparation; this is 
+-      essential since we have to deal with many reports, not just with
+-      the one written by you.
+-
+-    * Please note that it is important to make the input file as short
+-      as possible since this will enable us to find and fix the error
+-      quickly.  It also helps us because then we can often use it as a test
+-      file for future releases.
+-   
+-      We would expect most files to be less than 60 lines, and very
+-      rarely to be longer than 100 lines.
+-   
+-      This can often be achieved by defining a command to be some
+-      arbitrary text and using this several times if it is necessary
+-      to generate longer bits of text.
+-
+-   Error reports concerning UNCHANGED versions of CORE LaTeX files
+-   which are less than five years old should be sent by E-mail to:
+-
+-     latex-bugs@latex-project.org
+-
+-You will receive an acknowledgement by E-mail containing at the
+-beginning of its subject line a problem reference of the form
+-category/number:, e.g. latex/1234:. Please use this subject line in ALL
+-further E-mails concerning the problem. Otherwise your reply will be
+-categorized and filed separately from the original.
+-
+-
+-LAYOUT PROBLEMS
+-
+-If you think you have found a bug or some problematic behavior that
+-has been present in LaTeX for a long time (e.g., it was already in
+-LaTeX 2.09) you are, of course, equally welcome to report this, using
+-the above procedure.  However, please note that we will normally not
+-change layout decisions made in the LaTeX standard classes (which are
+-derived from their 2.09 counterparts); nor will we change layout
+-decisions or the behaviour of core commands, even when these are
+-questionable from a typographic point of view, since such changes
+-would make thousands of documents invalid.  See also the file
+-ltnews07.tex with regard to this policy.
+ 
+ 
+ 
+@@ -142,6 +84,6 @@
+ Please *do not* send such reports to the latex-bugs address.
+ 
+  
+---- Copyright 1997,1998,2006,2008 the LaTeX3 project.  All rights reserved ---
++--- Copyright 1997,1998,2006,2008,2017 the LaTeX3 project.  All rights reserved ---
+ 
+ 
+--- texlive-base-2016.20170123.orig/texmf-dist/doc/latex/base/changes.txt
++++ texlive-base-2016.20170123/texmf-dist/doc/latex/base/changes.txt
+@@ -5,6 +5,53 @@
+ =======================================================================
+ 
+ #########################
++# 2017/01/01 PL 3 Release
++#########################
++
++2017-02-22  David Carlisle  <latex-bugs@latex-project.org>
++
++	* ltoutenc.dtx: Correction to test for empty argument in TU
++	accents.
++
++#########################
++# 2017/01/01 PL 2 Release
++#########################
++
++2017-02-19  David Carlisle  <latex-bugs@latex-project.org>
++
++	* ltoutenc.dtx: Guard against empty base in
++	\DeclareTextCompositeCommand, and \add@unicode@accent.
++	Declare \^{} and \~{} in tuenc.def.  
++	Declare \textquotesingle, \textasciigrave and
++	\textquotedbl for TU encoding (\remove@tlig version)
++
++2017-02-18  Joseph Wright  <latex-bugs@latex-project.org>
++
++	* ltluatex.dtx: parametrise Lua access to register
++          allocation count data
++
++2017-02-12  David Carlisle  <latex-bugs@latex-project.org>
++
++	* ltoutenc.dtx: add fallback code for \textasteriskcentered
++	in TU encoding (http://tex.stackexchange.com/q/353425/)
++
++2017-01-28  David Carlisle  <latex-bugs@latex-project.org>
++
++	* build.lua bugs.txt, manifest.txt: drop latexbug.tex from the
++          distribution
++
++	* ltoutenc.dtx, utf8ienc.dtx: add \= for YyGg
++	U+0232, U+0233, U+1E20, U+1E21
++
++2017-01-27  David Carlisle  <latex-bugs@latex-project.org>
++
++	* latexbug.tex: add new banner suggesting to use latexbug.sty
++	instead.
++
++	* tulm.fdd: New file tu*fd file sources, including tulmssq,
++	tulmvtt and tulmdh (all based on eu1*fd files from fontspec).
++
++#########################
+ # 2017/01/01 PL 1 Release
+ #########################
+ 
+@@ -21,7 +68,7 @@
+ 	* ltoutenc.dtx: the TeX ligature syntax for xetex and luatex was
+ 	reversed in tuenc.def
+ 	Change \textasteriskcentered from U+204E to U+2217
+-	as the former is not available in common fomnts (Latin
++	as the former is not available in common fonts (Latin
+ 	Modern, TeX Gyre Pagella,LinLibertine...)
+ 
+ 2017-01-23  David Carlisle  <latex-bugs@latex-project.org>
+@@ -946,6 +993,11 @@
+ 
+ 	* inputenc.dtx: Typo in \textquotedblleft (pr/3673)
+ 
++
++######################
++# 2003/12/01 Release
++######################
++
+ 2004-02-24 Frank Mittelbach <latex-bugs@latex-project.org>
+ 
+ 	* ltplain.dtx: added \loggingall and \loggingoutput as variant of
+@@ -1223,6 +1275,11 @@
+ 
+ 	* oztex.txt: new version added
+ 
++
++######################
++# 2001/06/01 Release
++######################
++
+ 2001-08-26 Frank Mittelbach <latex-bugs@latex-project.org>
+ 
+ 	* ltclass.dtx: readded lost catcode setting for space in
+@@ -1358,6 +1415,11 @@
+ 	* ltfinal.dtx: finally moved emptying \errhelp to a place
+ 	after its last use (pr/449)
+ 
++
++######################
++# 2000/06/01 Release
++######################
++
+ 2000-08-30 Chris Rowley <latex-bugs@latex-project.org>
+ 
+ 	* ltoutenc.dtx
+@@ -1484,6 +1546,10 @@
+ 	* inputenc.dtx: fix error message for undefined code points
+ 	(pr/3158)
+ 
++######################
++# 1999/12/01 Release
++######################
++
+ 2000-01-07 Rainer Schoepf <latex-bugs@latex-project.org>
+ 
+ 	* ltmiscen.dtx: Disable hyphenation in verbatim even if the font
+@@ -1600,6 +1666,11 @@
+ 	* lppl.txt: fixed minor glitches found by Matt and Eberhard
+ 	This is probably going to be LPPL 1.2
+ 
++
++######################
++# 1999/06/01 Release
++######################
++
+ 1999-07-10 Frank Mittelbach <latex-bugs@latex-project.org>
+ 
+ 	* lppl.txt: final changes to LPPL 1.1
+@@ -1942,6 +2013,10 @@
+ 	* inputenc.dtx: give better error message if source document contains
+ 	a character which is not defined by current input encoding (pr/2845)
+ 
++######################
++# 1998/06/01 Release
++######################
++
+ 1998-06-19 Frank Mittelbach <latex-bugs@latex-project.org>
+ 
+ 	* clsguide.tex (subsection{Identification}): Explicitly warn that
+@@ -2187,6 +2262,10 @@
+ 	Added large sizes for ec fonts only
+ 	Removed long lines
+ 
++######################
++# 1997/12/01 Release
++######################
++
+ 1998-01-06 Frank Mittelbach <latex-bugs@latex-project.org>
+ 
+ 	* ltoutenc.dtx: added missing braces and \upshape for \textcircled
+@@ -2595,6 +2674,10 @@
+ 	* lablst.tex: Documentation fixes by Andreas Schwab
+ 	<schwab@issan.informatik.uni-dortmund.de>.
+ 
++######################
++# 1997/06/01 Release
++######################
++
+ 1997-06-17 Chris Rowley <latex-bugs@latex-project.org>
+ 
+ 	* fntguide.tex:
+@@ -2776,6 +2859,10 @@
+ 
+ 	* ltclass.dtx: missing % in last g@addto@macro change.
+ 
++######################
++# 1996/12/01 Release
++######################
++
+ 1997-01-15 David Carlisle <latex-bugs@latex-project.org>
+ 
+ 	* install.txt: ec fonts.
+@@ -3298,6 +3385,10 @@
+ 
+ 	* ltnews05.tex: (Barbara Beeton) Wrong attribution for IPA fonts
+ 
++######################
++# 1996/06/01 Release
++######################
++
+ 1996-06-17 David Carlisle <latex-bugs@latex-project.org>
+ 
+ 	* classes.dtx: spelling...  J"org Knappen /2176
+@@ -3770,6 +3861,10 @@
+ 
+         Added documentation
+ 
++######################
++# 1995/12/01 Release
++######################
++
+ 1995-12-13 David Carlisle <latex-bugs@latex-project.org>
+ 
+ 	* install.txt (NOTE): add info to run olddc.ins.
+@@ -4803,6 +4898,10 @@
+ 	Fixed the definition for footnotemarks in \maketitle for article
+ 	which got corrupted in the june release. pr/1683
+ 
++######################
++# 1995/06/01 Release
++######################
++
+ 1995-06-19 David Carlisle <latex-bugs@latex-project.org>
+ 
+ 	* ltbibl.dtx: Modify \bibcite so a repeated key produces
+@@ -5616,6 +5715,10 @@
+ 	* classes.dtx (subsection{Left equation numbering}): Added
+ 	\normalcolor to defintion of \@eqnnum (PR 1351)
+ 
++######################
++# 1994/12/01 Release
++######################
++
+ 1994-12-17 Alan Jeffrey <latex-bugs@latex-project.org>
+ 
+         * ltnews02.tex: Edited description of AMS-LaTeX to get everything
+@@ -6712,6 +6815,10 @@
+ 
+ 	* textures.txt: Added file. Mainly written by Blue Sky Research.
+ 
++######################
++# 1994/06/01 PL3 Release
++######################
++
+ 1994-07-28 Rainer Schoepf <latex-bugs@latex-project.org>
+ 
+ 	* ltfinal.dtx: Correct Checksum.
+@@ -7080,6 +7187,10 @@
+ 	(section{A driver for this document}): rearranged the \DoNotIndex
+ 	stuff
+ 
++######################
++# 1994/06/01 Release
++######################
++
+ 1994-06-02 Rainer Schoepf <latex-bugs@latex-project.org>
+ 
+ 	* copyright.txt and others: Changed copyright message.
+--- texlive-base-2016.20170123.orig/texmf-dist/doc/latex/base/manifest.txt
++++ texlive-base-2016.20170123/texmf-dist/doc/latex/base/manifest.txt
+@@ -1,5 +1,5 @@
+ %
+-% The following files form the LaTeX2e distribution of 2016-03-31
++% The following files form the LaTeX2e distribution of 2017-01-31
+ %
+ %
+ % CONTENTS OF THE LaTeX DISTRIBUTION
+@@ -24,7 +24,6 @@
+ % lppl.tex        --  The LaTeX Project Public License (current as .tex).
+ % 
+ % bugs.txt        --  How to submit a bug report for LaTeX.
+-% latexbug.tex    --  File to generate a bug report.
+ % 
+ % source2e.tex    --  File to produce kernel documentation.
+ % changes.txt     --  List of changes in reverse chronological order.
+@@ -57,11 +56,16 @@
+ % ltnews15.tex    --  What was new in the release dated 2003/12.
+ % ltnews16.tex    --  What may happen in 2004 and beyond.
+ % ltnews17.tex    --  What was new in the release dated 2005/12.
+-% ltnews18.tex    --  What was new in the release dated 2007/12.
++% ltnews18.tex    --  (empty)
+ % ltnews19.tex    --  What was new in the release dated 2009/09.
+ % ltnews20.tex    --  What was new in the release dated 2011/06.
+ % ltnews21.tex    --  What was new in the release dated 2014/05.
+-% ltnews22.tex    --  What was new in the latest release dated 2015/05.
++% ltnews22.tex    --  What was new in the release dated 2015/01.
++% ltnews23.tex    --  What was new in the release dated 2015/10.
++% ltnews24.tex    --  What was new in the release dated 2016/02.
++% ltnews25.tex    --  What was new in the release dated 2016/03.
++% ltnews26.tex    --  What was new in the release dated 2017/01.
++
+ %
+ % ltx3info.tex    --  Information about the LaTeX3 project.
+ %
+@@ -116,6 +120,7 @@
+ % ltsect.dtx      --  Sectioning and title commands.
+ % ltvers.dtx      --  Version identification code.
+ % preload.dtx     --  Code for preloading fonts.
++% tulm.fdd        --  Font definitions for TU latin  modern fonts.
+ %
+ %
+ % Standard Classes:
+@@ -195,7 +200,7 @@
+ % proc.ins        --  Installation script for the proc package.
+ % slides.ins      --  Installation script for SLiTeX.
+ % syntonly.ins    --  Installation script for the syntonly package.
+-%
++% tulm.ins        --  Installation script for TU Latin Modern fonts.
+ %
+ % Installation scripts to be used by themselves:
+ % ----------------------------------------------
+--- texlive-base-2016.20170123.orig/texmf-dist/source/latex/base/ltluatex.dtx
++++ texlive-base-2016.20170123/texmf-dist/source/latex/base/ltluatex.dtx
+@@ -24,7 +24,7 @@
+ \ProvidesFile{ltluatex.dtx}
+ %</driver>
+ %<*tex>
+-[2017/01/20 v1.1b
++[2017/02/18 v1.1c
+ %</tex>
+ %<plain>  LuaTeX support for plain TeX (core)
+ %<*tex>
+@@ -200,6 +200,17 @@
+ % The number is returned and also \meta{name} argument is added to the
+ % |lua.name| array at that index.
+ %
++% These functions all require access to a named \TeX{} count register
++% to manage their allocations. The standard names are those defined
++% above for access from \TeX{}, \emph{e.g.}~\string\e@alloc@attribute@count,
++% but these can be adjusted by defining the variable
++% \texttt{\meta{type}\_count\_name} before loading |ltluatex.lua|, for example
++% \begin{verbatim}
++% local attribute_count_name = "attributetracker"
++% require("ltluatex")
++% \end{verbatim}
++% would use a \TeX{} |\count| (|\countdef|'d token) called |attributetracker|
++% in place of \string\e@alloc@attribute@count.
+ %
+ % \subsection{Lua access to \TeX{} register numbers}
+ %
+@@ -1080,6 +1091,7 @@
+ %
+ % \begin{macro}{new\_attribute}
+ % \changes{v1.0a}{2015/09/24}{Function added}
++% \changes{v1.1c}{2017/02/18}{Parameterise count used in tracking}
+ %   As attributes are used for Lua manipulations its useful to be able
+ %   to assign from this end.
+ %    \begin{macrocode}
+@@ -1090,20 +1102,21 @@
+ return registernumber(key) or nil
+ end}
+ )
+-luatexbase.attributes=attributes
++luatexbase.attributes = attributes
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
++local attribute_count_name = attribute_count_name or "e@alloc@attribute@count"
+ local function new_attribute(name)
+-  tex_setcount("global", "e@alloc@attribute@count",
+-                          tex_count["e@alloc@attribute@count"] + 1)
+-  if tex_count["e@alloc@attribute@count"] > 65534 then
++  tex_setcount("global", attribute_count_name,
++                          tex_count[attribute_count_name] + 1)
++  if tex_count[attribute_count_name] > 65534 then
+     luatexbase_error("No room for a new \\attribute")
+   end
+-  attributes[name]= tex_count["e@alloc@attribute@count"]
++  attributes[name]= tex_count[attribute_count_name]
+   luatexbase_log("Lua-only attribute " .. name .. " = " ..
+-                 tex_count["e@alloc@attribute@count"])
+-  return tex_count["e@alloc@attribute@count"]
++                 tex_count[attribute_count_name])
++  return tex_count[attribute_count_name]
+ end
+ luatexbase.new_attribute = new_attribute
+ %    \end{macrocode}
+@@ -1112,17 +1125,19 @@
+ % \subsection{Custom whatsit allocation}
+ %
+ % \begin{macro}{new\_whatsit}
++% \changes{v1.1c}{2017/02/18}{Parameterise count used in tracking}
+ % Much the same as for attribute allocation in Lua.
+ %    \begin{macrocode}
++local whatsit_count_name = whatsit_count_name or "e@alloc@whatsit@count"
+ local function new_whatsit(name)
+-  tex_setcount("global", "e@alloc@whatsit@count", 
+-                         tex_count["e@alloc@whatsit@count"] + 1)
+-  if tex_count["e@alloc@whatsit@count"] > 65534 then
++  tex_setcount("global", whatsit_count_name, 
++                         tex_count[whatsit_count_name] + 1)
++  if tex_count[whatsit_count_name] > 65534 then
+     luatexbase_error("No room for a new custom whatsit")
+   end
+   luatexbase_log("Custom whatsit " .. (name or "") .. " = " ..
+-                 tex_count["e@alloc@whatsit@count"])
+-  return tex_count["e@alloc@whatsit@count"]
++                 tex_count[whatsit_count_name])
++  return tex_count[whatsit_count_name]
+ end
+ luatexbase.new_whatsit = new_whatsit
+ %    \end{macrocode}
+@@ -1131,18 +1146,20 @@
+ % \subsection{Bytecode register allocation}
+ %
+ % \begin{macro}{new\_bytecode}
++% \changes{v1.1c}{2017/02/18}{Parameterise count used in tracking}
+ % Much the same as for attribute allocation in Lua.
+ % The optional \meta{name} argument is used in the log if given.
+ %    \begin{macrocode}
++local bytecode_count_name = bytecode_count_name or "e@alloc@bytecode@count"
+ local function new_bytecode(name)
+-  tex_setcount("global", "e@alloc@bytecode@count", 
+-                         tex_count["e@alloc@bytecode@count"] + 1)
+-  if tex_count["e@alloc@bytecode@count"] > 65534 then
++  tex_setcount("global", bytecode_count_name, 
++                         tex_count[bytecode_count_name] + 1)
++  if tex_count[bytecode_count_name] > 65534 then
+     luatexbase_error("No room for a new bytecode register")
+   end
+   luatexbase_log("Lua bytecode " .. (name or "") .. " = " ..
+-                 tex_count["e@alloc@bytecode@count"])
+-  return tex_count["e@alloc@bytecode@count"]
++                 tex_count[bytecode_count_name])
++  return tex_count[bytecode_count_name]
+ end
+ luatexbase.new_bytecode = new_bytecode
+ %    \end{macrocode}
+@@ -1151,13 +1168,15 @@
+ % \subsection{Lua chunk name allocation}
+ %
+ % \begin{macro}{new\_chunkname}
++% \changes{v1.1c}{2017/02/18}{Parameterise count used in tracking}
+ % As for bytecode registers but also store the name in the
+ % |lua.name| table.
+ %    \begin{macrocode}
++local chunkname_count_name = chunkname_count_name or "e@alloc@luachunk@count"
+ local function new_chunkname(name)
+-  tex_setcount("global", "e@alloc@luachunk@count", 
+-                         tex_count["e@alloc@luachunk@count"] + 1)
+-  local chunkname_count = tex_count["e@alloc@luachunk@count"]
++  tex_setcount("global", chunkname_count_name, 
++                         tex_count[chunkname_count_name] + 1)
++  local chunkname_count = tex_count[chunkname_count_name]
+   chunkname_count = chunkname_count + 1
+   if chunkname_count > 65534 then
+     luatexbase_error("No room for a new chunkname")
+--- texlive-base-2016.20170123.orig/texmf-dist/source/latex/base/ltoutenc.dtx
++++ texlive-base-2016.20170123/texmf-dist/source/latex/base/ltoutenc.dtx
+@@ -38,14 +38,14 @@
+ %<TU>\ProvidesFile{tuenc.def}
+ %<package>\ProvidesPackage{fontenc}
+ %<TS1sty>\ProvidesPackage{textcomp}
+-%<OT1|T1|OMS|OML|OT4|TU|package|TS1sty> [2017/01/24 v2.0c
++%<OT1|T1|OMS|OML|OT4|TU|package|TS1sty> [2017/02/22 v2.0g
+ %<OT1|T1|OMS|OML|OT4|TS1|TU>         Standard LaTeX file]
+ %<package|TS1sty>                 Standard LaTeX package]
+ %
+ %<*driver>
+ % \fi
+ \ProvidesFile{ltoutenc.dtx}
+-             [2017/01/24 v2.0c LaTeX Kernel (font encodings)]
++             [2017/02/22 v2.0g LaTeX Kernel (font encodings)]
+ % \iffalse
+ \documentclass{ltxdoc}
+ \GetFileInfo{ltoutenc.dtx}
+@@ -892,7 +892,7 @@
+       \expandafter\reserved@b\expandafter{\reserved@a{##1}}%
+    \fi
+    \expandafter\def\csname\expandafter\string\csname
+-      #2\endcsname\string#1-\string#3\endcsname{#4}}
++      #2\endcsname\string#1-\string#3\@empty\endcsname{#4}}
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
+@@ -1662,6 +1662,8 @@
+ %      {Added \cs{r} A}
+ % \changes{v1.96}{2002/10/28}{%
+ %   coding change, to follow bug fix by DEK in plain.tex (pr/3469)}
++% \changes{v2.0f}{2017/02/19}{%
++%     add \cs{@empty} to guard against 3rd argument being empty}
+ %    \begin{macrocode}
+ \DeclareTextCompositeCommand{\r}{OT1}{A}
+    {\leavevmode\setbox\z@\hbox{!}\dimen@\ht\z@\advance\dimen@-1ex%
+@@ -2644,6 +2646,14 @@
+ % \changes{v2.0c}{2017/01/24}{TeX ligature syntax for xetex and luatex reversed}
+ % \changes{v2.0c}{2017/01/24}{Make \cs{textasteriskcentered} U+2217 not U+204E}
+ % \changes{v2.0c}{2017/01/24}{Declare TU composites for i and j}
++% \changes{v2.0d}{2017/01/24}{Declare macron composites for YyGg}
++% \changes{v2.0e}{2017/02/12}{Declare fallback code for \cs{textasteriskcentered}}
++% \changes{v2.0f}{2017/02/19}{%
++%     declare composites with empty base for hat and tilde,
++%     use same slots for \cs{textasciicircum} ans \cs{textasciitilde}}
++% \changes{v2.0f}{2017/02/19}{%
++%     declare straight quotes using new \cs{remove@tlig} command}
++% \changes{v2.0g}{2017/02/22}{Fix typo introduced at 2.0f}
+ %
+ % The TU encoding was originally introduced in the contributed
+ % package \texttt{fontspec} as a Unicode encoding for XeTeX and
+@@ -2707,6 +2717,29 @@
+ % LuaTeX.
+ %    \begin{macrocode}
+     \def\UnicodeFontTeXLigatures{+tlig;}
++%    \end{macrocode}
++%
++%    \begin{macrocode}
++    \def\reserved@a#1{%
++      \def\@remove@tlig##1{\@remove@tlig@##1\@nil#1\@nil\relax}
++      \def\@remove@tlig@##1#1{\@remove@tlig@@##1}}
++    \edef\reserved@b{\detokenize{+tlig;}}
++    \expandafter\reserved@a\expandafter{\reserved@b}
++    \def\@remove@tlig@@#1\@nil#2\relax{#1}
++%    \end{macrocode}
++%
++%    \begin{macrocode}
++    \def\remove@tlig#1{%
++      \begingroup
++      \font\remove@tlig
++      \expandafter\@remove@tlig\expandafter{\fontname\font}%
++      \remove@tlig
++      \char#1\relax
++      \endgroup
++    }
++%    \end{macrocode}
++%
++%    \begin{macrocode}
+   \fi
+ \else
+ %    \end{macrocode}
+@@ -2717,6 +2750,10 @@
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
++  \def\remove@tlig#1{\XeTeXglyph\numexpr\XeTeXcharglyph#1\relax}
++%    \end{macrocode}
++%
++%    \begin{macrocode}
+ \fi
+ %    \end{macrocode}
+ %
+@@ -2733,7 +2770,9 @@
+ % Declare accent command to use a postpended combining character
+ % rather than the TeX |\accent| primitive
+ %    \begin{macrocode}
+-\def\add@unicode@accent#1#2{#2\char#1\relax}
++\def\add@unicode@accent#1#2{%
++  \if\relax\detokenize{#2}\relax^^a0\else#2\fi
++  \char#1\relax}
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
+@@ -2743,14 +2782,25 @@
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
++\DeclareTextCommand\textquotesingle \UnicodeEncodingName{%
++                                                \remove@tlig{"0027}}
++\DeclareTextCommand\textasciigrave  \UnicodeEncodingName{%
++                                                \remove@tlig{"0060}}
++\DeclareTextCommand\textquotedbl    \UnicodeEncodingName{%
++                                                \remove@tlig{"0022}}
++%    \end{macrocode}
++%
++%    \begin{macrocode}
+ \DeclareTextSymbol{\textdollar}          \UnicodeEncodingName{"0024}
+ \DeclareTextSymbol{\textless}            \UnicodeEncodingName{"003C}
+ \DeclareTextSymbol{\textgreater}         \UnicodeEncodingName{"003E}
+ \DeclareTextSymbol{\textbackslash}       \UnicodeEncodingName{"005C}
++\DeclareTextSymbol{\textasciicircum}     \UnicodeEncodingName{"005E}
+ \DeclareTextSymbol{\textunderscore}      \UnicodeEncodingName{"005F}
+ \DeclareTextSymbol{\textbraceleft}       \UnicodeEncodingName{"007B}
+ \DeclareTextSymbol{\textbar}             \UnicodeEncodingName{"007C}
+ \DeclareTextSymbol{\textbraceright}      \UnicodeEncodingName{"007D}
++\DeclareTextSymbol{\textasciitilde}      \UnicodeEncodingName{"007E}
+ \DeclareTextSymbol{\textexclamdown}      \UnicodeEncodingName{"00A1}
+ \DeclareTextSymbol{\textcent}            \UnicodeEncodingName{"00A2}
+ \DeclareTextSymbol{\textsterling}        \UnicodeEncodingName{"00A3}
+@@ -2803,15 +2853,17 @@
+ \DeclareTextSymbol{\OE}                  \UnicodeEncodingName{"0152}
+ \DeclareTextSymbol{\oe}                  \UnicodeEncodingName{"0153}
+ \DeclareTextSymbol{\textflorin}          \UnicodeEncodingName{"0192}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{Y}{"0232}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{y}{"0232}
+ \DeclareTextSymbol{\j}                   \UnicodeEncodingName{"0237}
+-\DeclareTextSymbol{\textasciicircum}     \UnicodeEncodingName{"02C6}
+ \DeclareTextSymbol{\textasciicaron}      \UnicodeEncodingName{"02C7}
+-\DeclareTextSymbol{\textasciitilde}      \UnicodeEncodingName{"02DC}
+ \DeclareTextSymbol{\textasciibreve}      \UnicodeEncodingName{"02D8}
+ \DeclareTextSymbol{\textacutedbl}        \UnicodeEncodingName{"02DD}
+ \DeclareTextSymbol{\textgravedbl}        \UnicodeEncodingName{"02F5}
+ \DeclareTextSymbol{\texttildelow}        \UnicodeEncodingName{"02F7}
+ \DeclareTextSymbol{\textbaht}            \UnicodeEncodingName{"0E3F}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{G}{"1E20}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{g}{"1E21}
+ \DeclareTextSymbol{\SS}                  \UnicodeEncodingName{"1E9E}
+ \DeclareTextSymbol{\textcompwordmark}    \UnicodeEncodingName{"200C}
+ \DeclareTextSymbol{\textendash}          \UnicodeEncodingName{"2013}
+@@ -2858,7 +2910,22 @@
+ \DeclareTextSymbol{\textrightarrow}      \UnicodeEncodingName{"2192}
+ \DeclareTextSymbol{\textdownarrow}       \UnicodeEncodingName{"2193}
+ \DeclareTextSymbol{\textminus}           \UnicodeEncodingName{"2212}
+-\DeclareTextSymbol{\textasteriskcentered}\UnicodeEncodingName{"2217}
++%    \end{macrocode}
++% Not all fonts have U+2217 but using U+002A requires some adjustment.
++%    \begin{macrocode}
++\DeclareTextCommand{\textasteriskcentered}\UnicodeEncodingName{%
++  \iffontchar\font"2217 \char"2217 \else
++    \begingroup
++      \fontsize
++       {\the\dimexpr1.2\dimexpr\f@size pt\relax}%
++       {\f@baselineskip}%
++      \selectfont
++      \raisebox{-0.6ex}[\dimexpr\height-0.6ex][0pt]{*}%
++    \endgroup
++  \fi
++}
++%    \end{macrocode}
++%    \begin{macrocode}
+ \DeclareTextSymbol{\textsurd}            \UnicodeEncodingName{"221A}
+ \DeclareTextSymbol{\textlangle}          \UnicodeEncodingName{"2329}
+ \DeclareTextSymbol{\textrangle}          \UnicodeEncodingName{"232A}
+@@ -2891,6 +2958,11 @@
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
++\DeclareTextComposite{\^}             \UnicodeEncodingName {}{"005E}
++\DeclareTextComposite{\~}             \UnicodeEncodingName {}{"007E}
++%    \end{macrocode}
++%
++%    \begin{macrocode}
+ \DeclareTextComposite{\`}             \UnicodeEncodingName{A}{"00C0}
+ \DeclareTextComposite{\'}             \UnicodeEncodingName{A}{"00C1}
+ \DeclareTextComposite{\^}             \UnicodeEncodingName{A}{"00C2}
+--- texlive-base-2016.20170123.orig/texmf-dist/source/latex/base/ltvers.dtx
++++ texlive-base-2016.20170123/texmf-dist/source/latex/base/ltvers.dtx
+@@ -95,7 +95,7 @@
+    {2017/01/01}
+ %</2ekernel|latexrelease>
+ %<*2ekernel>
+-\def\patch@level{1}
++\def\patch@level{3}
+ %    \end{macrocode}
+ % \end{macro}
+ % \end{macro}
+--- /dev/null
++++ texlive-base-2016.20170123/texmf-dist/source/latex/base/tulm.fdd
+@@ -0,0 +1,330 @@
++% \iffalse meta-comment
++%
++% Copyright 2016-2017
++% The LaTeX3 Project and any individual authors listed elsewhere
++% in this file. 
++% 
++% This file is part of the LaTeX base system.
++% -------------------------------------------
++% 
++% It may be distributed and/or modified under the
++% conditions of the LaTeX Project Public License, either version 1.3c
++% of this license or (at your option) any later version.
++% The latest version of this license is in
++%    http://www.latex-project.org/lppl.txt
++% and version 1.3c or later is part of all distributions of LaTeX 
++% version 2005/12/01 or later.
++% 
++% This file has the LPPL maintenance status "maintained".
++% 
++% The list of all files belonging to the LaTeX base distribution is
++% given in the file `manifest.txt'. See also `legal.txt' for additional
++% information.
++% 
++% The list of derived (unpacked) files belonging to the distribution 
++% and covered by LPPL is defined by the unpacking scripts (with 
++% extension .ins) which are part of the distribution.
++% 
++% \fi
++%
++%\iffalse        This is a META comment
++%
++% File `cmfonts.fdd'.
++% Copyright (C) 2016-2017 LaTeX3 Project
++%
++%
++%<TUlmr>\ProvidesFile{tulmr.fd}
++%<TUlmss>\ProvidesFile{tulmss.fd}
++%<TUlmssq>\ProvidesFile{tulmssq.fd}
++%<TUlmtt>\ProvidesFile{tulmtt.fd}
++%<TUlmvtt>\ProvidesFile{tulmvtt.fd}
++%<TUlmdh>\ProvidesFile{tulmdh.fd}
++%<*driver>
++             \ProvidesFile{tulm.drv}
++%</driver>
++        [2017/01/26 v1.8 Standard LaTeX font definitions for Latin Modern]
++%
++%<*driver>
++\documentclass{ltxdoc}
++\GetFileInfo{tulm.drv}
++\providecommand\dst{\expandafter{\normalfont\scshape docstrip}}
++\title{The file \texttt{tulm.fdd} for use with
++      \LaTeXe.\thanks{This file has version
++           number \fileversion, dated \filedate.}}
++\date{\filedate}\author{LaTeX3 Project}
++\addtolength\textwidth{30pt}
++\begin{document}
++\MaintainedByLaTeXTeam{latex}
++\maketitle
++ \DocInput{tulm.fdd}
++\end{document}
++%</driver>
++%
++%\fi
++%
++% \section{TUlmr}
++%    \begin{macrocode}
++%<*TUlmr>
++\DeclareFontFamily{TU}{lmr}{}
++\DeclareFontShape{TU}{lmr}{m}{n}%
++  {<-5.5>    \UnicodeFontFile{lmroman5-regular}{\UnicodeFontTeXLigatures}
++   <5.5-6.5> \UnicodeFontFile{lmroman6-regular}{\UnicodeFontTeXLigatures}
++   <6.5-7.5> \UnicodeFontFile{lmroman7-regular}{\UnicodeFontTeXLigatures}
++   <7.5-8.5> \UnicodeFontFile{lmroman8-regular}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmroman9-regular}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmroman10-regular}{\UnicodeFontTeXLigatures}
++   <11-15>   \UnicodeFontFile{lmroman12-regular}{\UnicodeFontTeXLigatures}
++   <15-> \UnicodeFontFile{lmroman17-regular}{\UnicodeFontTeXLigatures}
++   }{}
++\DeclareFontShape{TU}{lmr}{m}{sl}%
++  {<-8.5>    \UnicodeFontFile{lmromanslant8-regular}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmromanslant9-regular}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmromanslant10-regular}{\UnicodeFontTeXLigatures}
++   <11-15>   \UnicodeFontFile{lmromanslant12-regular}{\UnicodeFontTeXLigatures}
++   <15-> \UnicodeFontFile{lmromanslant17-regular}{\UnicodeFontTeXLigatures}
++   }{}
++\DeclareFontShape{TU}{lmr}{m}{it}%
++  {<-7.5>    \UnicodeFontFile{lmroman7-italic}{\UnicodeFontTeXLigatures}
++   <7.5-8.5> \UnicodeFontFile{lmroman8-italic}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmroman9-italic}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmroman10-italic}{\UnicodeFontTeXLigatures}
++   <11->   \UnicodeFontFile{lmroman12-italic}{\UnicodeFontTeXLigatures}
++   }{}
++\DeclareFontShape{TU}{lmr}{m}{sc}%
++  {<-> \UnicodeFontFile{lmromancaps10-regular}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmr}{m}{ui}%
++  {<-> ec-lmu10}{}
++\DeclareFontShape{TU}{lmr}{m}{scsl}%
++  {<-> \UnicodeFontFile{lmromancaps10-oblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmr}{b}{n}
++  {<-> \UnicodeFontFile{lmromandemi10-regular}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmr}{b}{sl}
++  {<-> \UnicodeFontFile{lmromandemi10-oblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmr}{bx}{n}
++  {<-5.5>   \UnicodeFontFile{lmroman5-bold}{\UnicodeFontTeXLigatures}
++   <5.5-6.5> \UnicodeFontFile{lmroman6-bold}{\UnicodeFontTeXLigatures}
++   <6.5-7.5> \UnicodeFontFile{lmroman7-bold}{\UnicodeFontTeXLigatures}
++   <7.5-8.5> \UnicodeFontFile{lmroman8-bold}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmroman9-bold}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmroman10-bold}{\UnicodeFontTeXLigatures}
++   <11->   \UnicodeFontFile{lmroman12-bold}{\UnicodeFontTeXLigatures}
++   }{}
++\DeclareFontShape{TU}{lmr}{bx}{it}
++  {<-> \UnicodeFontFile{lmroman10-bolditalic}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmr}{bx}{sl}
++  {<-> \UnicodeFontFile{lmromanslant10-bold}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmr}{b}{it}
++  {<->sub * lmr/b/sl}{}
++%</TUlmr>
++%    \end{macrocode}
++%
++% \section{TUlmss}
++%    \begin{macrocode}
++%<*TUlmss>
++\DeclareFontFamily{TU}{lmss}{}
++\DeclareFontShape{TU}{lmss}{m}{n}
++  {<-8.5> \UnicodeFontFile{lmsans8-regular}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmsans9-regular}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmsans10-regular}{\UnicodeFontTeXLigatures}
++   <11-15.5> \UnicodeFontFile{lmsans12-regular}{\UnicodeFontTeXLigatures}
++   <15.5-> \UnicodeFontFile{lmsans17-regular}{\UnicodeFontTeXLigatures}
++   }{}
++\DeclareFontShape{TU}{lmss}{m}{it}
++   {<->ssub*lmss/m/sl}{}
++\DeclareFontShape{TU}{lmss}{m}{sl}
++  {<-8.5> \UnicodeFontFile{lmsans8-oblique}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmsans9-oblique}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmsans10-oblique}{\UnicodeFontTeXLigatures}
++   <11-15.5> \UnicodeFontFile{lmsans12-oblique}{\UnicodeFontTeXLigatures}
++   <15.5-> \UnicodeFontFile{lmsans17-oblique}{\UnicodeFontTeXLigatures}
++   }{}
++\DeclareFontShape{TU}{lmss}{m}{sc}
++  {<->sub*lmr/m/sc}{}
++\DeclareFontShape{TU}{lmss}{b}{n}
++  {<->ssub * lmss/bx/n}{}
++\DeclareFontShape{TU}{lmss}{b}{sl}
++  {<->ssub * lmss/bx/sl}{}
++\DeclareFontShape{TU}{lmss}{b}{it}
++  {<->ssub * lmss/bx/it}{}
++\DeclareFontShape{TU}{lmss}{sbc}{n}
++  {<-> \UnicodeFontFile{lmsansdemicond10-regular}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmss}{sbc}{sl}
++  {<-> \UnicodeFontFile{lmsansdemicond10-oblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmss}{sbc}{it}
++  {<->ssub*lmss/sbc/sl}{}
++\DeclareFontShape{TU}{lmss}{bx}{n}
++  {<-> \UnicodeFontFile{lmsans10-bold}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmss}{bx}{sl}
++  {<-> \UnicodeFontFile{lmsans10-boldoblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmss}{bx}{it}
++  {<->ssub*lmss/bx/sl}{}
++%</TUlmss>
++%    \end{macrocode}
++%
++% \section{TUlmssq}
++%    \begin{macrocode}
++%<*TUlmssq>
++\DeclareFontFamily{TU}{lmssq}{}
++\DeclareFontShape{TU}{lmssq}{m}{n}
++  {<-> \UnicodeFontFile{lmsansquot8-regular}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{m}{sl}
++  {<-> \UnicodeFontFile{lmsansquot8-oblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{bx}{n}
++  {<-> \UnicodeFontFile{lmsansquot8-bold}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{bx}{sl}
++  {<-> \UnicodeFontFile{lmsansquot8-boldoblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{m}{it}
++  {<->ssub*lmssq/m/sl}{}
++\DeclareFontShape{TU}{lmssq}{bx}{it}
++  {<->ssub*lmssq/bx/sl}{}
++\DeclareFontShape{TU}{lmssq}{b}{n}
++  {<->ssub * lmssq/bx/n}{}
++\DeclareFontShape{TU}{lmssq}{b}{sl}
++  {<->ssub * lmssq/bx/sl}{}
++\DeclareFontShape{TU}{lmssq}{b}{it}
++  {<->ssub * lmssq/bx/it}{}
++%</TUlmssq>
++%    \end{macrocode}
++%
++% \section{TUlmtt}
++%    \begin{macrocode}
++%<*TUlmtt>
++\DeclareFontFamily{TU}{lmtt}{%
++\hyphenchar \font\m@ne
++\fontdimen3\font\z@
++\fontdimen4\font\z@
++}
++\ifx\lmtt@use@light@as@normal\@empty
++\DeclareFontShape{TU}{lmtt}{sb}{n}
++  {<-8.5>   \UnicodeFontFile{lmmono8-regular}{}
++   <8.5-9.5> \UnicodeFontFile{lmmono9-regular}{}
++   <9.5-11> \UnicodeFontFile{lmmono10-regular}{}
++   <11->  \UnicodeFontFile{lmmono12-regular}{}
++   }{}
++\DeclareFontShape{TU}{lmtt}{sb}{it}
++  {<-> \UnicodeFontFile{lmmono10-italic}{}}{}
++\DeclareFontShape{TU}{lmtt}{sb}{sl}
++  {<-> \UnicodeFontFile{lmmonoslant10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{sb}{sc}
++  {<-> \UnicodeFontFile{lmmonocaps10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{sb}{scsl}
++  {<-> \UnicodeFontFile{lmmonocaps10-oblique}{}}{}
++\DeclareFontShape{TU}{lmtt}{m}{n}
++  {<-> \UnicodeFontFile{lmmonolt10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{m}{it}
++  {<->sub*lmtt/l/sl}{}
++\DeclareFontShape{TU}{lmtt}{m}{sl}
++  {<-> \UnicodeFontFile{lmmonolt10-oblique}{}}{}
++\DeclareFontShape{TU}{lmtt}{c}{n}
++  {<-> \UnicodeFontFile{lmmonoltcond10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{c}{it}
++  {<->sub*lmtt/lc/sl}{}
++\DeclareFontShape{TU}{lmtt}{c}{sl}
++  {<-> \UnicodeFontFile{lmmonoltcond10-oblique}{}}{}
++\else
++\DeclareFontShape{TU}{lmtt}{m}{n}
++  {<-8.5>   \UnicodeFontFile{lmmono8-regular}{}
++  <8.5-9.5> \UnicodeFontFile{lmmono9-regular}{}
++   <9.5-11> \UnicodeFontFile{lmmono10-regular}{}
++   <11->  \UnicodeFontFile{lmmono12-regular}{}
++   }{}
++\DeclareFontShape{TU}{lmtt}{m}{it}
++  {<-> \UnicodeFontFile{lmmono10-italic}{}}{}
++\DeclareFontShape{TU}{lmtt}{m}{sl}
++  {<-> \UnicodeFontFile{lmmonoslant10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{m}{sc}
++  {<-> \UnicodeFontFile{lmmonocaps10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{m}{scsl}
++  {<-> \UnicodeFontFile{lmmonocaps10-oblique}{}}{}
++\DeclareFontShape{TU}{lmtt}{l}{n}
++  {<-> \UnicodeFontFile{lmmonolt10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{l}{it}
++  {<->sub*lmtt/l/sl}{}
++\DeclareFontShape{TU}{lmtt}{l}{sl}
++  {<-> \UnicodeFontFile{lmmonolt10-oblique}{}}{}
++\DeclareFontShape{TU}{lmtt}{lc}{n}
++  {<-> \UnicodeFontFile{lmmonoltcond10-regular}{}}{}
++\DeclareFontShape{TU}{lmtt}{lc}{it}
++  {<->sub*lmtt/lc/sl}{}
++\DeclareFontShape{TU}{lmtt}{lc}{sl}
++  {<-> \UnicodeFontFile{lmmonoltcond10-oblique}{}}{}
++\fi
++\DeclareFontShape{TU}{lmtt}{b}{n}
++  {<-> \UnicodeFontFile{lmmonolt10-bold}{}}{}
++\DeclareFontShape{TU}{lmtt}{b}{it}
++  {<->sub*lmtt/b/sl}{}
++\DeclareFontShape{TU}{lmtt}{b}{sl}
++{<-> \UnicodeFontFile{lmmonolt10-boldoblique}{}}{}
++\DeclareFontShape{TU}{lmtt}{bx}{it}
++  {<->sub*lmtt/b/sl}{}
++\DeclareFontShape{TU}{lmtt}{bx}{n}
++  {<->ssub*lmtt/b/n}{}
++\DeclareFontShape{TU}{lmtt}{bx}{sl}
++  {<->ssub*lmtt/b/sl}{}
++%</TUlmtt>
++%    \end{macrocode}
++%
++% \section{TUlmvtt}
++%    \begin{macrocode}
++%<*TUlmvtt>
++\DeclareFontFamily{TU}{lmvtt}{}
++\ifx\lmtt@use@light@as@normal\@empty
++\DeclareFontShape{TU}{lmvtt}{sb}{n}
++  {<->\UnicodeFontFile{lmmonoprop10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{sb}{sl}
++  {<->\UnicodeFontFile{lmmonoprop10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{sb}{it}
++  {<->sub*lmvtt/m/sl}{}
++\DeclareFontShape{TU}{lmvtt}{m}{n}
++  {<->\UnicodeFontFile{lmmonoproplt10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{sl}
++  {<->\UnicodeFontFile{lmmonoproplt10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{it}
++  {<->sub*lmvtt/l/sl}{}
++\else
++\DeclareFontShape{TU}{lmvtt}{m}{n}
++  {<->\UnicodeFontFile{lmmonoprop10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{sl}
++  {<->\UnicodeFontFile{lmmonoprop10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{it}
++  {<->sub*lmvtt/m/sl}{}
++\DeclareFontShape{TU}{lmvtt}{l}{n}
++  {<->\UnicodeFontFile{lmmonoproplt10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{l}{sl}
++  {<->\UnicodeFontFile{lmmonoproplt10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{l}{it}
++  {<->sub*lmvtt/l/sl}{}
++\fi
++\DeclareFontShape{TU}{lmvtt}{b}{n}
++  {<->\UnicodeFontFile{lmmonoproplt10-bold}{}}{}
++\DeclareFontShape{TU}{lmvtt}{b}{sl}
++  {<->\UnicodeFontFile{lmmonoproplt10-boldoblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{b}{it}
++  {<->sub*lmvtt/b/sl}{}
++\DeclareFontShape{TU}{lmvtt}{bx}{n}
++  {<->ssub*lmvtt/b/n}{}
++\DeclareFontShape{TU}{lmvtt}{bx}{sl}
++  {<->ssub*lmvtt/b/sl}{}
++\DeclareFontShape{TU}{lmvtt}{bx}{it}
++  {<->sub*lmvtt/b/sl}{}
++%</TUlmvtt>
++%    \end{macrocode}
++%
++% \section{TUlmdh}
++%    \begin{macrocode}
++%<*TUlmdh>
++\DeclareFontFamily{TU}{lmdh}{}%
++\DeclareFontShape{TU}{lmdh}{m}{n}
++  {<->   \UnicodeFontFile{lmromandunh10-regular}{\UnicodeFontTeXLigatures}
++  }{}
++\DeclareFontShape{TU}{lmdh}{m}{sl}
++  {<->   \UnicodeFontFile{lmromandunh10-oblique}{\UnicodeFontTeXLigatures}
++  }{}
++\DeclareFontShape{TU}{lmdh}{m}{it}
++  {<->sub*lmdh/m/sl}{}
++%</TUlmdh>
++%    \end{macrocode}
++%
++%
++% \Finale
++%
+--- /dev/null
++++ texlive-base-2016.20170123/texmf-dist/source/latex/base/tulm.ins
+@@ -0,0 +1,107 @@
++%%
++%% This file will generate fast loadable files and documentation
++%% driver files from the doc files in this package when run through
++%% LaTeX or TeX.
++%%
++%% Copyright 2016-2017
++%% The LaTeX3 Project and any individual authors listed elsewhere
++%% in this file. 
++%% 
++%% This file is part of the LaTeX base system.
++%% -------------------------------------------
++%% 
++%% It may be distributed and/or modified under the
++%% conditions of the LaTeX Project Public License, either version 1.3b
++%% of this license or (at your option) any later version.
++%% The latest version of this license is in
++%%    http://www.latex-project.org/lppl.txt
++%% and version 1.3b or later is part of all distributions of LaTeX 
++%% version 2005/12/01 or later.
++%% 
++%% This file has the LPPL maintenance status "maintained".
++%% 
++%% In particular, NO PERMISSION is granted to modify the contents of this
++%% file since it contains the legal notices that are placed in the files
++%% it generates.
++%% 
++%% The list of all files belonging to the LaTeX base distribution is
++%% given in the file `manifest.txt'. See also `legal.txt' for additional
++%% information.
++%% 
++%% 
++%% 
++%%
++%% --------------- start of docstrip commands ------------------
++%%
++
++\input docstrip
++
++\preamble
++
++This is a generated file.
++
++The source is maintained by the LaTeX Project team and bug
++reports for it can be opened at http://latex-project.org/bugs.html
++(but please observe conditions on bug reports sent to that address!)
++
++
++Copyright 1993-2016
++The LaTeX3 Project and any individual authors listed elsewhere
++in this file. 
++
++This file was generated from file(s) of the LaTeX base system.
++--------------------------------------------------------------
++
++It may be distributed and/or modified under the
++conditions of the LaTeX Project Public License, either version 1.3c
++of this license or (at your option) any later version.
++The latest version of this license is in
++   http://www.latex-project.org/lppl.txt
++and version 1.3c or later is part of all distributions of LaTeX 
++version 2005/12/01 or later.
++
++This file may only be distributed together with a copy of the LaTeX
++base system. You may however distribute the LaTeX base system without
++such generated files.
++
++The list of all files belonging to the LaTeX base distribution is
++given in the file `manifest.txt'. See also `legal.txt' for additional
++information.
++
++In particular, permission is granted to customize the declarations in
++this file to serve the needs of your installation.
++
++However, NO PERMISSION is granted to distribute a modified version
++of this file under its original name.
++
++\endpreamble
++
++
++\keepsilent
++\usedir{tex/latex/base}
++
++\generate{\file{tulmss.fd}{\from{tulm.fdd}{TUlmss}}
++          \file{tulmssq.fd}{\from{tulm.fdd}{TUlmssq}}
++          \file{tulmr.fd}{\from{tulm.fdd}{TUlmr}}
++          \file{tulmtt.fd}{\from{tulm.fdd}{TUlmtt}}
++          \file{tulmvtt.fd}{\from{tulm.fdd}{TUlmvtt}}
++          \file{tulmdh.fd}{\from{tulm.fdd}{TUlmdh}}}
++
++ 
++\ifToplevel{
++\Msg{***********************************************************}
++\Msg{*}
++\Msg{* To finish the installation you have to move the following}
++\Msg{* files into a directory searched by TeX:}
++\Msg{*}
++\Msg{* \space\space All *.fd}
++\Msg{*}
++\Msg{* To produce the documentation run the files ending with}
++\Msg{* `.fdd' through LaTeX.}
++\Msg{*}
++\Msg{* Happy TeXing}
++\Msg{***********************************************************}
++}
++ 
++\endbatchfile
++
+--- texlive-base-2016.20170123.orig/texmf-dist/source/latex/base/unpack.ins
++++ texlive-base-2016.20170123/texmf-dist/source/latex/base/unpack.ins
+@@ -94,6 +94,8 @@
+ 
+ \batchinput{cmfonts.ins}
+ 
++\batchinput{tulm.ins}
++
+ \batchinput{ec.ins}
+ 
+ \batchinput{latex209.ins}
+--- texlive-base-2016.20170123.orig/texmf-dist/source/latex/base/utf8ienc.dtx
++++ texlive-base-2016.20170123/texmf-dist/source/latex/base/utf8ienc.dtx
+@@ -1,6 +1,6 @@
+ % \iffalse meta-comment
+ %
+-% Copyright 1993-2016
++% Copyright 1993-2017
+ % The LaTeX3 Project and any individual authors listed elsewhere
+ % in this file.
+ %
+@@ -218,7 +218,7 @@
+ %<+ts1> \ProvidesFile{ts1enc.dfu}
+ %<+x2>  \ProvidesFile{x2enc.dfu}
+ %<+all> \ProvidesFile{utf8enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
+@@ -839,6 +839,7 @@
+ % \changes{v1.1q}{2015/12/02}{Add remaining latin uses of accents in T1}
+ % \changes{v1.1r}{2015/12/03}{Add some more ogoneck cases}
+ % \changes{v1.1s}{2016/01/11}{Add some more caron and acute}
++% \changes{v1.1t}{2017/01/28}{Add caron cominations for GgYy}
+ %    \begin{macrocode}
+ %<all,t1,ot1,ly1>\DeclareUnicodeCharacter{00A0}{\nobreakspace}
+ %<all,t1,ot1,ly1>\DeclareUnicodeCharacter{00A1}{\textexclamdown}
+@@ -1096,6 +1097,8 @@
+ %    \end{macrocode}
+ %
+ %    \begin{macrocode}
++%<all,t1>\DeclareUnicodeCharacter{0232}{\@tabacckludge=Y}
++%<all,t1>\DeclareUnicodeCharacter{0233}{\@tabacckludge=y}
+ %<all,ly1,utf8>\DeclareUnicodeCharacter{02C6}{\textasciicircum}
+ %<all,ts1>\DeclareUnicodeCharacter{02C7}{\textasciicaron}
+ %<all,ly1,utf8>\DeclareUnicodeCharacter{02DC}{\textasciitilde}
+@@ -1467,6 +1470,8 @@
+ %<all,ts1>\DeclareUnicodeCharacter{25E6}{\textopenbullet}
+ %<all,ts1>\DeclareUnicodeCharacter{25EF}{\textbigcircle}
+ %<all,ts1>\DeclareUnicodeCharacter{266A}{\textmusicalnote}
++%<all,t1>\DeclareUnicodeCharacter{1E20}{\@tabacckludge=G}
++%<all,t1>\DeclareUnicodeCharacter{1E21}{\@tabacckludge=g}
+ %    \end{macrocode}
+ %
+ % \subsection{Notes}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/fontenc.sty
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/fontenc.sty
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesPackage{fontenc}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+                  Standard LaTeX package]
+ \def\update@uclc@with@cyrillic{%
+  \expandafter\def\expandafter\@uclclist\expandafter
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/latex.ltx
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/latex.ltx
+@@ -698,7 +698,7 @@
+ \def\fmtname{LaTeX2e}
+ \edef\fmtversion
+    {2017/01/01}
+-\def\patch@level{1}
++\def\patch@level{3}
+ \iffalse
+ \def\reserved@a#1/#2/#3\@nil{%
+   \count@\year
+@@ -1907,7 +1907,7 @@
+       \expandafter\reserved@b\expandafter{\reserved@a{##1}}%
+    \fi
+    \expandafter\def\csname\expandafter\string\csname
+-      #2\endcsname\string#1-\string#3\endcsname{#4}}
++      #2\endcsname\string#1-\string#3\@empty\endcsname{#4}}
+ \@onlypreamble\DeclareTextCompositeCommand
+ \def\@text@composite#1#2#3\@text@composite{%
+    \expandafter\@text@composite@x
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/latexbug.tex
++++ /dev/null
+@@ -1,835 +0,0 @@
+-% \iffalse meta-comment
+-%
+-% Copyright 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009
+-% The LaTeX3 Project and any individual authors listed elsewhere
+-% in this file. 
+-% 
+-% This file is part of the LaTeX base system.
+-% -------------------------------------------
+-% 
+-% It may be distributed and/or modified under the
+-% conditions of the LaTeX Project Public License, either version 1.3c
+-% of this license or (at your option) any later version.
+-% The latest version of this license is in
+-%    http://www.latex-project.org/lppl.txt
+-% and version 1.3c or later is part of all distributions of LaTeX 
+-% version 2005/12/01 or later.
+-% 
+-% This file has the LPPL maintenance status "maintained".
+-% 
+-% The list of all files belonging to the LaTeX base distribution is
+-% given in the file `manifest.txt'. See also `legal.txt' for additional
+-% information.
+-% 
+-% The list of derived (unpacked) files belonging to the distribution 
+-% and covered by LPPL is defined by the unpacking scripts (with 
+-% extension .ins) which are part of the distribution.
+-% 
+-% \fi
+-%%% ====================================================================
+-%%%  @LaTeX-file{
+-%%%     author          = "David Carlisle",
+-%%%     version         = "$Revision: 5652 $",
+-%%%     date            = "$Date: 2005-12-08 00:11:59 +0100 (Thu, 08 Dec 2005) $",
+-%%%     filename        = "latexbug.tex",
+-%%%     email           = "latex-bugs@latex-project.org",
+-%%%     codetable       = "ISO/ASCII",
+-%%%     keywords        = "LaTeX, bugs, reporting",
+-%%%     supported       = "yes",
+-%%%     docstring       = "
+-%%%
+-%%%     LaTeX bug report generator.
+-%%%     %%%%%%%%%%%%%%%%%%%%%%%%%%
+-%%%
+-%%%     Processing this file with LaTeX should produce
+-%%%     a file latexbug.msg in the current directory.
+-%%%
+-%%%     latexbug.msg may be used as a template for submitting bug
+-%%%     reports concerning files in the standard LaTeX distribution.
+-%%%
+-%%%     * Any bug report should include a small LaTeX test file
+-%%%       that shows the bug, and the log that LaTeX produces on the
+-%%%       test file.
+-%%%
+-%%%     * Reports should be in English.
+-%%%
+-%%%     * Reports should be as short as possible.
+-%%%
+-%%%     Please check before submitting a bug report that your format
+-%%%     is not more than two years old. New LaTeX releases occur at
+-%%%     regular intervals, and so your bug may be fixed in a later
+-%%%     release.
+-%%%
+-%%%     Completed bug report forms should be submitted to:
+-%%%     latex-bugs@latex-project.org
+-%%%
+-%%%     Please:
+-%%%     use the synopsis text as the `Subject' line of the message.
+-%%%     ===========================================================
+-%%%
+-%%%     For example:
+-%%%     Subject: \verb does not work inside \caption
+-%%%
+-%%%     So that your message has an identifying subject. 
+-%%%     Do not use subject lines such as `LaTeX bug' as this does not
+-%%%     help us to identify your message.
+-%%%
+-%%%     To follow up an existing report, include the bug reference, e.g.
+-%%%     "latex/1234: ", preceding the subject text.
+-%%%
+-%%%     Configuring latexbug
+-%%%     ====================
+-%%%     If you often test early release of LaTeX packages, and feel that
+-%%%     you may need to use this program often, you may create a file
+-%%%     latexbug.cfg
+-%%%     This should contain the answers of certain standard questions.
+-%%%     (Such as your name and email address.)
+-%%%
+-%%%     Currently the responses that may be stored in latexbug.cfg are:
+-%%%     name address organisation and interactive.
+-%%%     (If organisation is not set in the .cfg file latexbug does not
+-%%%     prompt for it, as this is not vital information.)
+-%%%
+-%%%     For example, a personal latexbug.cfg could look like
+-%%%     
+-%%%     \def\name{My Real Name}
+-%%%     \def\address{name@some.place}
+-%%%     \def\organisation{My Institution}
+-%%%     \def\interactive{y}
+-%%%     
+-%%%     A site latexbug.cfg might just set the \organisation, leaving
+-%%%     the personal details to be filled in interactively by the user.
+-%%%     
+-%%%  }
+-%%% ====================================================================
+-
+-% Test if we are using INITEX (or a strange format that does not
+-% have { as a `group open' character).
+-\ifcat{=
+-
+-\catcode`\{=1 \let\bgroup{
+-\catcode`\}=2 \let\egroup}
+-\catcode`\#=6 
+-\catcode`\^=7
+-\catcode`\@=11
+-
+-\newlinechar`\^^J
+-\def\m@ne{-1 }
+-\countdef\count@255
+-
+-\def\fmtname{INITEX}
+-\def\fmtversion{9999/00/00}
+-\def\@secondoftwo#1#2{#2}
+-\def\@empty{}
+-\everyjob{\typeout{INITEX}}
+-\def\space{ }
+-\def\@spaces{\space\space\space\space}
+-\let\@@end\end
+-\let\loop\relax
+-
+-% hide outer macro names as we are inside an if
+-\expandafter\let\csname repeat\expandafter\endcsname
+-                \csname fi\endcsname
+-
+-\chardef\msg15
+-\immediate\openout\msg=\jobname.msg
+-
+-\expandafter\edef\csname newif\endcsname#1#2{%
+-  \let\noexpand\ifinteractive
+-    \expandafter\noexpand\csname iffalse\endcsname}
+-
+-\expandafter\def\csname newcount\endcsname#1{}
+-
+-\def\dospecials{\catcode`\\=12 }
+-
+-\def\typeout{\immediate\write17}
+-
+-\def\two@digits#1{\ifnum#1<10 0\fi\number#1}
+-
+-\def\wmsg#1#{\bgroup\@wmsg}
+-
+-\def\@ifundefined#1#2#3%
+-  {\expandafter\ifx\csname#1\endcsname\relax#2\else#3\fi}
+-
+-\def\@inputfiles{INITEX}
+-\else
+-%%
+-%% @ is a letter
+-%%
+-\catcode`\@=11
+-
+-%%
+-%% Grab the initex file list
+-%%
+-%% If this file is called via 
+-%%     latex "\input{latexbug}" or some
+-%% similar command sequence rather than 
+-%%     latex latexbug
+-%% then the debugging info in \reserved@a will already have been lost.
+-%% This might not matter, but if it does we may ask the user to resubmit
+-%% the report.
+-\ifx\reserved@b\@undefined
+-  \ifx\reserved@a\@gobble
+-    \def\@inputfiles{NONE}
+-  \else
+-    \let\@inputfiles\reserved@a
+-  \fi
+-\else
+-  \def\@inputfiles{LOST}
+-\fi
+-
+-%%
+-%% Output stream to produce the bug report template.
+-%%
+-\newwrite\msg
+-\immediate\openout\msg=\jobname.msg
+-
+-
+-%%
+-%% Check that LaTeX2e is being used.
+-%%
+-\ifx\undefined\newcommand
+- \newlinechar`\^^J%
+- \immediate\write17{^^J%
+-    You must use LaTeX2e to generate the bug report!^^J^^J%
+-    If there is a bug in the installation procedure,^^J%
+-    and you can not create LaTeX2e, you may use initex^^J%
+-    to generate the report}%
+-
+- \let\relax\end
+-\else
+-\def\@tempa{LaTeX2e}\ifx\@tempa\fmtname\else
+- \immediate\write17{^^J%
+-  Older Versions of LaTeX are no longer supported.^^J%
+-  You must use LaTeX2e to generate the bug report!^^J^^J%
+-  If there is a bug in the installation procedure,^^J%
+-  and you can not create LaTeX2e, you may use initex^^J%
+-  to generate the report}%
+- \let\relax\@@end
+-\fi\fi
+-
+-%%
+-%% \wmsg writes to the terminal, and the .msg file
+-%% \wmsg* just writes to the .msg file
+-%% \typeout just writes to the terminal
+-%%
+-
+-\def\wmsg{\bgroup\@ifstar{\interactivefalse\@wmsg}\@wmsg}
+-
+-\fi
+-
+-\relax
+-\endlinechar=-1
+-
+-\def\@wmsg#1{%
+-  \ifinteractive\immediate\write17{#1}\fi
+-  \immediate\write\msg{#1}%
+-  \egroup}
+-
+-%%
+-%% if \interactivefalse just make a blank template.
+-%%
+-\newif\ifinteractive
+-\interactivetrue
+-
+-%%
+-%% Prompt for an answer from the user, if the answer is not
+-%% provided by the cfg file.
+-%%
+-
+-\def\readifnotknown#1{%
+- \@ifundefined{#1}%
+-    {{\message{#1> }%
+-     \catcode`\^^I=12 \let\do\@makeother\dospecials
+-     \global\read\m@ne t\expandafter o\csname#1\endcsname}}%
+-    {\message{\csname#1\endcsname}}}
+-
+-%%
+-%% Pause so messages do not scroll off screen.
+-%%
+-\def\pause{%
+-  \ifinteractive
+-    \message{Press <return> key to continue. }%
+-    \read\m@ne to \@tempa
+-  \fi}
+-
+-%%
+-%% Opening Banner.
+-%%
+-\typeout{^^J%
+-============================================================^^J%
+-^^J%
+-LaTeX bug report generator^^J%
+-==========================^^J%
+-Processing this file with LaTeX will produce a template \jobname.msg^^J
+-for submitting bug reports for the LaTeX distribution.^^J^^J
+-* Please do not report bugs in contributed, non-standard, files to the
+-  ^^J \space latex-bugs address.^^J
+-* Please write your report in English.^^J
+-* Please keep the report as short as possible.^^J%
+-* If possible, check whether the bug has already been reported.^^J %
+-  \space The bugs database is available on WWW:^^J \space
+-   http://www.latex-project.org/bugs.html^^J}
+-
+-
+-\ifinteractive
+-  \InputIfFileExists{latexbug.cfg}{\typeout{** latexbug.cfg used **}}{}
+-\fi
+-
+-%% \batch is a `private' macro used to get a batchmode
+-%% (actually \nonstopmode) run for use with latexbug.el
+-\ifx\batch\undefined
+-
+-\def\getcategory{%
+-\count@=0
+-\ifinteractive
+-
+-\typeout{%
+-* Please carefully select the category as different categories^^J
+-\space\space are supported by different people!^^J^^J%
+-0) LaTeX:\@spaces
+-         The `base' format, and standard classes only (base).^^J
+-1) tools:\@spaces
+-         Packages supported by the LaTeX3 project team (tools).^^J
+-2) graphics:\space 
+-         The color and graphics packages (graphics).^^J
+-3) mfnfss: \space\space
+-         --- Don't use, no longer supported! ---^^J
+-4) psnfss: \space\space
+-         Packages for using PostScript fonts LaTeX (psnfss).^^J
+-5) amslatex:\space
+-         AMS supported Classes and Packages (amsfonts and amslatex).^^J
+-6) babel:\@spaces
+-         Packages supporting many different languages (babel).^^J%
+-7) expl3:\@spaces
+-         Experimental packages for TeX programmers. (expl3)^^J%
+-8) cyrillic: Packages for using Cyrillic fonts (cyrillic).^^J}
+-
+-\message{Please select a category 0--8:  }
+-\read\m@ne to \answer
+-\if!\answer!\let\answer\m@ne\fi
+-\count@=\answer\relax
+-\else
+-\typeout{As you are using INITEX, I will assume category `latex'}
+-\fi
+-
+-\ifcase\count@
+-\def\category{latex}\or
+-\def\category{tools}\or
+-\def\category{graphics}\or
+-\errhelp{Retry with <return>, or quit with x.}
+-\def\badcategory{This category is no longer supported}
+-\errmessage{\badcategory}
+-\expandafter\getcategory
+-\or
+-\def\category{psnfss}\or
+-\def\category{amslatex}\or
+-\def\category{babel}\or
+-\def\category{expl3}\or
+-\def\category{cyrillic}%
+-\else
+-\errhelp{Retry with <return>, or quit with x.}
+-\def\badcategory{Only categories 0,...,8 are supported at this time}
+-\errmessage{\badcategory}
+-\expandafter\getcategory
+-\fi}
+-\getcategory
+-
+-
+-\typeout{^^J%
+-============================================================^^J%
+-^^J%
+-Please give a one line ( < 50 character ) description of the problem.%
+-^^J^^J%
+-If you are using email to report the problem,^^J%
+-please also use this text as the `Subject' line for the mail message:%
+-^^J \@spaces\@spaces\space
+-                 |<------------------------------------------------>|} 
+-
+-
+-\loop
+-\let\synopsis\relax
+-\readifnotknown{synopsis}
+-\ifx\synopsis\@empty
+-\repeat
+-
+-
+-\typeout{%
+-^^J%
+-\ifinteractive
+-This report generator may be used in one of two ways.^^J%
+-If you choose the interactive option, you will be prompted to answer^^J%
+-several questions. Otherwise a blank template will be created for^^J%
+-you to fill in using your editor.^^J%
+-\else
+-INITEX should only be used for reporting bugs with the LaTeX2e^^J%
+-installation procedure. If you have a working copy of LaTeX2e,^^J%
+-please use that to generate the report.
+-\fi}
+-
+-\ifinteractive
+-\typeout{Interactive session (y/n) ? }
+-\readifnotknown{interactive}
+-
+-\ifx\interactive\@empty
+-   \def\interactive{n}
+-\fi
+-
+-%%
+-%% Allow anything begining with `y' or `Y' for yes.
+-%%
+-\edef\interactive{\uccode`\expandafter\@car\interactive\@nil}
+-\ifnum \interactive=`Y \else\interactivefalse\fi
+-\else
+-\def\interactive{`\N}
+-\fi
+-
+-\else
+-\def\category{< CATEGORY >}
+-\def\synopsis{< SYNOPSIS >}
+-\batchmode
+-\interactivefalse
+-\def\interactive{`\N}
+-\fi
+-
+-%%
+-%% Header in the msg file.
+-%%
+-\wmsg*{^^J%
+- LaTeX2e bug report.^^J%
+-\ifnum \interactive=`Y Generated \else Template generated \fi
+- by latexbug.tex on \number\year/\two@digits\month/\two@digits\day^^J%
+-^^J%
+- Reports may be submitted by email to latex-bugs@latex-project.org^^J%
+- Please use the subject line:^^J%
+- Subject: \synopsis^^J%
+-^^J%
+- To follow up an existing report, include the bug reference, e.g.^^J
+- "latex/1234: ", preceding the subject text.^^J
+- ============================================================^^J}
+-
+-
+-
+-%%
+-%% Category of bug, obtained earlier but put out now, after the header.
+-%%
+-\wmsg{>Category: \category}
+-
+-%%
+-%% synopsis of bug, obtained earlier but put out now, after the header.
+-%%
+-\wmsg{>Synopsis: \synopsis}
+-
+-
+-%%
+-%% >Confidential: Default to no unless this is overridden
+-%% in latexbug.cfg. If you want to send a one-off confidential
+-%% report, just edit the latexbug.msg file to say yes.
+-%%
+-\wmsg{>Confidential: \ifx\confidential\undefined
+-                         no
+-                       \else
+-                         \confidential
+-                       \fi}
+-
+-
+-%% Try to catch various formats that babel has used to add to the banner
+-%% over the years. Currently it uses \typeout, so put the first \typeout
+-%% in \format and the second in \hyphenation. Earlier releases used 
+-%% \immedite\write
+-\begingroup
+- \global\let\format\@empty
+- \gdef\hyphenation{standard}
+- \def\immediate#1#{\xdef\hyphenation}
+- \def\typeout#1{%
+-    \xdef\format{\format#1}\def\typeout##1{\xdef\hyphenation{##1}}}
+- \the\everyjob
+-\endgroup
+-
+-\wmsg{>Release: \format}
+-
+-\ifinteractive
+-%%
+-%% if interactive, \wread reads a line (verbatim) and writes it to the
+-%% .msg file, until two consecutive blank lines are entered.
+-%%
+-  \def\wread{%
+-    \begingroup
+-    \catcode`\^^I=12 
+-    \let\do\@makeother\dospecials
+-    \wreadloop}
+-
+-  \def\wreadloop{%
+-    \let\lastanswer\answer
+-    \message{=> }\read\m@ne to \answer
+-    \ifx\lastanswer\@empty
+-      \let\lastanswer\answer
+-    \fi
+-    \ifx\lastanswer\@empty
+-      \endgroup
+-    \else
+-      \immediate\write\msg{\answer}%
+-      \expandafter\wreadloop
+-    \fi}
+-\else
+-%%
+-%% If non-interactive, \wread just writes a blank line to the .msg file,
+-%% and \wmsg does not write to the terminal.
+-%%
+-  \def\wread{\wmsg{}}
+-\fi
+-
+-%%
+-%% \copytomsg copies the contents of a file into the .msg file.
+-%% (at least it does it as well as TeX can, so there may be
+-%% transcription problems with 8-bit characters).
+-%%
+-%% It does a line count, and complains if the test file is
+-%% too large.
+-
+-\chardef\inputfile=15
+-
+-\newcount\linecount
+-
+-\def\copytomsg#1{{%
+-   \def\do##1{\catcode`##1=11}%
+-   \dospecials
+-   \global\linecount\z@
+-   \openin\inputfile#1\relax
+-   \def\thefile{#1}%
+-   \@copytomsg
+-   \closein\inputfile}}
+-
+-\def\@copytomsg{%
+-   \ifeof\inputfile
+-      \typeout{*** \thefile\space line count = \the\linecount}
+-   \else
+-      \global\advance\linecount\@ne
+-      \read\inputfile to \inputline
+-      \ifx\inputline\@empty
+-         \wmsg*{}
+-      \else
+-         \wmsg*{\inputline}
+-      \fi
+-      \expandafter\@copytomsg
+-   \fi}
+-
+-
+-%%
+-%% Test the age of the current format.
+-%%
+-\def\getage#1/#2/#3\@nil{%
+-  \count@\year
+-  \advance\count@-#1\relax
+-  \multiply\count@ by 12\relax
+-  \advance\count@\month
+-  \advance\count@-#2\relax}
+-%
+-\expandafter\getage\fmtversion\@nil
+-%%
+-%% \count@ should now be the age of the format in months.
+-%%
+-%% Take a generous definition of `year'.
+-\ifnum\count@>65
+-\def\oldformat{^^J%
+-   ! Your LaTeX installation is more than five years old.^^J%
+-   ! Please consider updating LaTeX before submitting this report.^^J%
+-   ! At least check a current LaTeX changes.txt file, to see if the^^J%
+-   ! bug has been fixed in the current release.^^J%
+-   !}
+-%%
+-%% Put the message in a macro to improve the look of the error mesage.
+-%%
+-
+-\errhelp{If you still wish to complete the form, just type return.}
+-\errmessage{\oldformat}
+-\fi
+-
+-%%
+-%% Test fonts not customised too much. (unless using initex)
+-%%
+-\ifx\loop\relax\else
+-\edef\fontdefaults{%
+-  \encodingdefault/\familydefault/\seriesdefault/\shapedefault}
+-\def\standardfontdefaults{OT1/cmr/m/n}
+-\ifx\fontdefaults\standardfontdefaults\else
+-\wmsg*{>Unformatted:}
+-\wmsg{Normal font: \fontdefaults}
+-\def\customisedfonts{^^J%
+-! This format has customised font defaults.^^J%
+-! Please try to re-create the error using a standard format^^J%
+-! before submitting this report}
+-\errhelp{If you still wish to complete the form, just type return.}
+-\errmessage{\customisedfonts}
+-\fi
+-\fi
+-
+-%%
+-%% Now use \wmsg and \wread for each of the multi-line fields 
+-%% in the form.
+-%% One line fields use \readifnotknown, which will only prompt
+-%% if the field has not already been set in the configuration file.
+-%%
+-\ifinteractive
+-  \typeout{^^JYour name:}
+-  \readifnotknown{name}
+-\else
+-  \ifx\name\undefined
+-    \def\name{ < ENTER YOUR NAME > }
+-  \fi
+-\fi
+-
+-
+-\ifinteractive
+-  \typeout{^^JYour Address (preferably email):}
+-  \readifnotknown{address}
+-\else
+-  \ifx\address\undefined
+-    \def\address{ < ENTER YOUR EMAIL ADDRESS > }
+-  \fi
+-\fi
+-
+-\wmsg*{>Originator: \address \space(\name)}
+-
+-%%
+-%% >Organisation: is really a GNATS multiline field
+-%% but we treat it as a one-line field.
+-%%
+-\wmsg*{>Organization: \ifx\organisation\undefined
+-                        \ifx\organization\undefined\else
+-                           \organization
+-                        \fi
+-                       \else
+-                         \organisation
+-                       \fi}
+-
+-
+-%%
+-%% Test which format is being used. These fields are completed
+-%% automatically even if the blank template is being produced.
+-%%
+-
+-\wmsg*{>Environment:}
+-\wmsg*{ Hyphenation: \hyphenation}
+-\wmsg*{ \string\@TeXversion: \meaning\@TeXversion
+-        \ifx\@TeXversion\@@undefined
+-         \space (Standard setting for TeX3.141 and later)\fi}
+-\wmsg*{ \string\@currdir: \meaning\@currdir}
+-\wmsg*{ \string\input@path: \meaning\input@path
+-        \ifx\input@path\@@undefined
+-         \space (Standard setting)\fi}
+-
+-\wmsg*{>Unformatted:}
+-\wmsg*{ *** Initex configuration files}
+-%%
+-%% These are in a comma separated list, so locally reset
+-%% \newlinechar
+-{\newlinechar`\,
+- \wmsg*{\@inputfiles}}
+-\wmsg*{ ***}
+-
+-\wmsg*{>Description:}
+-\typeout{}
+-\wmsg{Description of bug:}
+-\ifinteractive
+-  \typeout{%
+-    \@spaces The answer to this  question may take several lines.^^J%
+-    \@spaces (Each such line will be prompted by =>.)^^J%
+-    \@spaces Typing TWO consecutive blank lines terminates the answer.}
+-\else
+-\wmsg{ < ENTER BUG REPORT HERE >}
+-\fi
+-\wread
+-
+-
+-
+-%%
+-%% insertion of the test file
+-%%
+-
+-
+-
+-\ifinteractive
+-   \typeout{^^J%
+- Name of a SHORT, SELF-CONTAINED file which indicates the problem:^^J%
+- This file should be as small as possible (preferably < 60 lines)^^J%
+- Any non-standard files that the test file uses should be included^^J%
+- using the filecontents environment.^^J^^J%
+-%
+- LaTeX will try to input this file, so give the full path^^J%
+- if the file is not in the current directory.^^J^^J%
+-%
+- If you are not reporting a bug, and there is therefore^^J%
+- no test file, just hit <return>}
+-   \message{filename> }\read\m@ne to \filename
+-\else
+-   \def\filename{}
+-\fi
+-
+-%% 
+-%% Try to find the .tex file and .log file
+-%%
+-
+-
+-\ifx\filename\@empty
+-  \ifx\LaTeX\undefinedcommand
+-  \else
+-    \ifinteractive
+-      \typeout{^^J^^JNo test file.^^J^^J%
+-      Three classes of report are supported:^^J^^J%
+-      0) sw-bug:^^J\@spaces
+-         Bug in the software, the report should include a test file.^^J
+-      1) doc-bug:^^J\@spaces
+-         Inaccuracies in the documentation.^^J
+-      2) change-request:^^J\@spaces 
+-         Not a bug, but rather a request for LaTeX to be changed.^^J}
+-      \message{Please select a category 0--2:  }
+-      \read\m@ne to \answer
+-      \ifx\answer\@empty
+-        \def\answer{-1}
+-      \fi
+-      \count@=\answer\relax
+-      \else
+-        \count@=\z@
+-      \fi
+-    \ifcase\count@
+-      \ifinteractive\wmsg{>Class: sw-bug}\fi
+-      \typeout{^^J! Please edit the message to add a test file and log!}
+-      \pause
+-      \wmsg*{^^J>How-To-Repeat:}
+-      \wmsg*{%
+-      Sample file which indicates the problem:^^J%
+-      ========================================^^J%
+-      \space< TEST FILE HERE >^^J%
+-      ^^J%
+-      The log file from running LaTeX on the sample:^^J%
+-      ==============================================^^J%
+-      \space< LOG FROM TEST FILE HERE >}
+-    \or
+-      \wmsg{>Class: doc-bug}
+-    \or
+-      \wmsg{>Class: change-request}
+-    \else
+-      \errhelp{Quit with `x' and then re-start latexbug}
+-      \def\badcategory{Only classes 0,1,2 are supported at this time}
+-      \errmessage{\badcategory}
+-    \fi
+-  \fi
+-\else
+-
+-\filename@parse\filename
+-
+-\IfFileExists{\filename}{\edef\samplefile{\filename}}{}
+-
+-\IfFileExists{\filename@area\filename@base.log}
+-  {\edef\logfile{\filename@area\filename@base.log}}
+-  {\IfFileExists{\filename@area\filename@base.lis}
+-    {\edef\logfile{\filename@area\filename@base.lis}}
+-    {}}
+-
+-
+-%% 
+-%% The example file goes here:
+-%%
+-\wmsg*{^^J>How-To-Repeat:}
+-
+-\wmsg*{^^J%
+-Sample file which indicates the problem:^^J%
+-========================================}
+-
+-\ifx\samplefile\undefinedcommand
+-   \typeout{^^J%
+-      Sample file \filename\space not found.^^J%
+-      Please edit \jobname.msg to include the sample file.}
+-   \wmsg*{ < TEST FILE HERE >}
+-   \pause
+-\else
+-   \copytomsg{\samplefile}
+-   \ifnum\linecount>60
+-    \typeout{%
+-^^J%
+-!!! Your test file is \the\linecount\space lines long.^^J%
+-!!! Such a large test file causes us problems:^^J%
+-!!! * It makes it difficult to track down the error^^J%
+-!!! * It makes our database for storing reports unnecessarily large.^^J%
+-!!! ^^J%
+-!!! Please, if at all possible, cut down your test file to the^^J%
+-!!! smallest file that shows the behaviour.^^J}
+-   \pause
+-   \fi
+-\fi
+-
+-
+-%%
+-%% The log file goes here:
+-%%
+-\wmsg*{^^J%
+-The log file from running LaTeX on the sample:^^J%
+-==============================================}
+-
+-\ifx\logfile\undefinedcommand
+-   \typeout{^^J%
+-      Log file \filename@area\filename@base.log not found.^^J%
+-      Please edit \jobname.msg to include the log file.}
+-   \wmsg*{ < < LOG FROM TEST FILE HERE >}
+-   \pause
+-\else
+-   \copytomsg{\logfile}
+-\fi
+-
+-\fi
+-
+-
+-%%
+-%% Closing Banner.
+-%%
+-\typeout{^^J%
+-============================================================}
+-
+-\ifinteractive
+- \typeout{^^J%
+-   You may wish to make further changes to the bug report file:^^J%
+-   `\jobname.msg'^^J%
+-   using your editor.}
+-\else
+- \typeout{^^J%
+-   A template for submitting bug reports has been left in the file:^^J%
+-   \jobname.msg^^J%
+-   Please use your editor to complete the file before submitting^^J%
+-   your report.}
+-\fi
+-
+-\let\ifinteractivetrue\iftrue
+-\typeout{^^J%
+-  If you have access to email, please send `\jobname.msg' to:^^J%
+-  latex-bugs@latex-project.org  Please use the subject line:^^J%
+-  \@spaces Subject: \synopsis^^J%
+-^^J%
+- (This subject will be used in all subsequent correspondence.)^^J%
+-^^J%
+- To follow up an existing report, include the bug reference, e.g.^^J%
+- "latex/1234: ", preceding the subject text.^^J%
+-^^J%
+-  Your message will be entered into a publicly readable database^^J%
+-  Accessable via the www (see bugs.txt for details).^^J%
+-  If do not wish this message made public, Edit the^^J%
+-  >Confidential: no^^J%
+-  field to  yes  before submitting this message.^^J%
+-^^J%
+-  Thank you for taking the time to submit a bug report.}
+-
+-\wmsg*{^^J%
+-============================================================^^J
+-^^J%
+-   End of LaTeX2e bug report.^^J%
+-============================================================}
+-
+-%%
+-%% Close the .msg output stream.
+-%%
+-\immediate\closeout\msg
+-
+-%%
+-%% This is the TeX primitive \end command.
+-%%
+-\@@end
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/lcyenc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/lcyenc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{lcyenc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A4}{\textcurrency}
+ \DeclareUnicodeCharacter{00AB}{\guillemotleft}
+ \DeclareUnicodeCharacter{00BB}{\guillemotright}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ltluatex.lua
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ltluatex.lua
+@@ -170,45 +170,49 @@
+ return registernumber(key) or nil
+ end}
+ )
+-luatexbase.attributes=attributes
++luatexbase.attributes = attributes
++local attribute_count_name = attribute_count_name or "e@alloc@attribute@count"
+ local function new_attribute(name)
+-  tex_setcount("global", "e@alloc@attribute@count",
+-                          tex_count["e@alloc@attribute@count"] + 1)
+-  if tex_count["e@alloc@attribute@count"] > 65534 then
++  tex_setcount("global", attribute_count_name,
++                          tex_count[attribute_count_name] + 1)
++  if tex_count[attribute_count_name] > 65534 then
+     luatexbase_error("No room for a new \\attribute")
+   end
+-  attributes[name]= tex_count["e@alloc@attribute@count"]
++  attributes[name]= tex_count[attribute_count_name]
+   luatexbase_log("Lua-only attribute " .. name .. " = " ..
+-                 tex_count["e@alloc@attribute@count"])
+-  return tex_count["e@alloc@attribute@count"]
++                 tex_count[attribute_count_name])
++  return tex_count[attribute_count_name]
+ end
+ luatexbase.new_attribute = new_attribute
++local whatsit_count_name = whatsit_count_name or "e@alloc@whatsit@count"
+ local function new_whatsit(name)
+-  tex_setcount("global", "e@alloc@whatsit@count",
+-                         tex_count["e@alloc@whatsit@count"] + 1)
+-  if tex_count["e@alloc@whatsit@count"] > 65534 then
++  tex_setcount("global", whatsit_count_name,
++                         tex_count[whatsit_count_name] + 1)
++  if tex_count[whatsit_count_name] > 65534 then
+     luatexbase_error("No room for a new custom whatsit")
+   end
+   luatexbase_log("Custom whatsit " .. (name or "") .. " = " ..
+-                 tex_count["e@alloc@whatsit@count"])
+-  return tex_count["e@alloc@whatsit@count"]
++                 tex_count[whatsit_count_name])
++  return tex_count[whatsit_count_name]
+ end
+ luatexbase.new_whatsit = new_whatsit
++local bytecode_count_name = bytecode_count_name or "e@alloc@bytecode@count"
+ local function new_bytecode(name)
+-  tex_setcount("global", "e@alloc@bytecode@count",
+-                         tex_count["e@alloc@bytecode@count"] + 1)
+-  if tex_count["e@alloc@bytecode@count"] > 65534 then
++  tex_setcount("global", bytecode_count_name,
++                         tex_count[bytecode_count_name] + 1)
++  if tex_count[bytecode_count_name] > 65534 then
+     luatexbase_error("No room for a new bytecode register")
+   end
+   luatexbase_log("Lua bytecode " .. (name or "") .. " = " ..
+-                 tex_count["e@alloc@bytecode@count"])
+-  return tex_count["e@alloc@bytecode@count"]
++                 tex_count[bytecode_count_name])
++  return tex_count[bytecode_count_name]
+ end
+ luatexbase.new_bytecode = new_bytecode
++local chunkname_count_name = chunkname_count_name or "e@alloc@luachunk@count"
+ local function new_chunkname(name)
+-  tex_setcount("global", "e@alloc@luachunk@count",
+-                         tex_count["e@alloc@luachunk@count"] + 1)
+-  local chunkname_count = tex_count["e@alloc@luachunk@count"]
++  tex_setcount("global", chunkname_count_name,
++                         tex_count[chunkname_count_name] + 1)
++  local chunkname_count = tex_count[chunkname_count_name]
+   chunkname_count = chunkname_count + 1
+   if chunkname_count > 65534 then
+     luatexbase_error("No room for a new chunkname")
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ltluatex.tex
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ltluatex.tex
+@@ -47,7 +47,7 @@
+   #1#2[#3]{\endgroup\immediate\write-1{File: #1 #3}}
+ \fi
+ \ProvidesFile{ltluatex.tex}
+-[2017/01/20 v1.1b
++[2017/02/18 v1.1c
+   LuaTeX support for plain TeX (core)
+ ]
+ \edef\etatcatcode{\the\catcode`\@}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ly1enc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ly1enc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{ly1enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+ \DeclareUnicodeCharacter{00A1}{\textexclamdown}
+ \DeclareUnicodeCharacter{00A2}{\textcent}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/omlenc.def
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/omlenc.def
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesFile{omlenc.def}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+          Standard LaTeX file]
+ \DeclareFontEncoding{OML}{}{}
+ \DeclareTextSymbol{\textless}{OML}{`\<}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/omsenc.def
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/omsenc.def
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesFile{omsenc.def}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+          Standard LaTeX file]
+ \DeclareFontEncoding{OMS}{}{}
+ \DeclareTextSymbol{\textasteriskcentered}{OMS}{3}   % "03
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/omsenc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/omsenc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{omsenc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A7}{\textsection}
+ \DeclareUnicodeCharacter{00B6}{\textparagraph}
+ \DeclareUnicodeCharacter{00B7}{\textperiodcentered}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ot1enc.def
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ot1enc.def
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesFile{ot1enc.def}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+          Standard LaTeX file]
+ \DeclareFontEncoding{OT1}{}{}
+ \DeclareTextAccent{\"}{OT1}{127}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ot1enc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ot1enc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{ot1enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+ \DeclareUnicodeCharacter{00A1}{\textexclamdown}
+ \DeclareUnicodeCharacter{00A3}{\textsterling}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ot2enc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ot2enc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{ot2enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00AB}{\guillemotleft}
+ \DeclareUnicodeCharacter{00BB}{\guillemotright}
+ \DeclareUnicodeCharacter{0131}{\i}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ot4enc.def
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ot4enc.def
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesFile{ot4enc.def}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+          Standard LaTeX file]
+ \DeclareFontEncoding{OT4}{}{}
+ \DeclareFontSubstitution{OT4}{cmr}{m}{n}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/t1enc.def
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/t1enc.def
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesFile{t1enc.def}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+          Standard LaTeX file]
+ \DeclareFontEncoding{T1}{}{}
+ \DeclareTextAccent{\`}{T1}{0}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/t1enc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/t1enc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+   \ProvidesFile{t1enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+ \DeclareUnicodeCharacter{00A1}{\textexclamdown}
+ \DeclareUnicodeCharacter{00A3}{\textsterling}
+@@ -254,6 +254,8 @@
+ \DeclareUnicodeCharacter{0219}{\textcommabelow s}
+ \DeclareUnicodeCharacter{021A}{\textcommabelow T}
+ \DeclareUnicodeCharacter{021B}{\textcommabelow t}
++\DeclareUnicodeCharacter{0232}{\@tabacckludge=Y}
++\DeclareUnicodeCharacter{0233}{\@tabacckludge=y}
+ \DeclareUnicodeCharacter{1E02}{\.B}
+ \DeclareUnicodeCharacter{1E03}{\.b}
+ \DeclareUnicodeCharacter{200C}{\textcompwordmark}
+@@ -274,6 +276,8 @@
+ \DeclareUnicodeCharacter{2039}{\guilsinglleft}
+ \DeclareUnicodeCharacter{203A}{\guilsinglright}
+ \DeclareUnicodeCharacter{2423}{\textvisiblespace}
++\DeclareUnicodeCharacter{1E20}{\@tabacckludge=G}
++\DeclareUnicodeCharacter{1E21}{\@tabacckludge=g}
+ \endinput
+ %%
+ %% End of file `t1enc.dfu'.
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/t2aenc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/t2aenc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{t2aenc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A4}{\textcurrency}
+ \DeclareUnicodeCharacter{00A7}{\textsection}
+ \DeclareUnicodeCharacter{00AB}{\guillemotleft}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/t2benc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/t2benc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{t2benc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A4}{\textcurrency}
+ \DeclareUnicodeCharacter{00A7}{\textsection}
+ \DeclareUnicodeCharacter{00AB}{\guillemotleft}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/t2cenc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/t2cenc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{t2cenc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A4}{\textcurrency}
+ \DeclareUnicodeCharacter{00A7}{\textsection}
+ \DeclareUnicodeCharacter{00AB}{\guillemotleft}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/textcomp.sty
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/textcomp.sty
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesPackage{textcomp}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+                  Standard LaTeX package]
+ 
+ \PackageInfo{textcomp}{Sub-encoding information:\MessageBreak
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/ts1enc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/ts1enc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{ts1enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A2}{\textcent}
+ \DeclareUnicodeCharacter{00A3}{\textsterling}
+ \DeclareUnicodeCharacter{00A4}{\textcurrency}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/tuenc.def
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/tuenc.def
+@@ -43,7 +43,7 @@
+ %% extension .ins) which are part of the distribution.
+ %%% From File: ltoutenc.dtx
+ \ProvidesFile{tuenc.def}
+- [2017/01/24 v2.0c
++ [2017/02/22 v2.0g
+          Standard LaTeX file]
+ \providecommand\UnicodeEncodingName{TU}
+ \begingroup\expandafter\expandafter\expandafter\endgroup
+@@ -58,25 +58,50 @@
+     \expandafter\expandafter\expandafter\endinput
+   \else
+     \def\UnicodeFontTeXLigatures{+tlig;}
++    \def\reserved@a#1{%
++      \def\@remove@tlig##1{\@remove@tlig@##1\@nil#1\@nil\relax}
++      \def\@remove@tlig@##1#1{\@remove@tlig@@##1}}
++    \edef\reserved@b{\detokenize{+tlig;}}
++    \expandafter\reserved@a\expandafter{\reserved@b}
++    \def\@remove@tlig@@#1\@nil#2\relax{#1}
++    \def\remove@tlig#1{%
++      \begingroup
++      \font\remove@tlig
++      \expandafter\@remove@tlig\expandafter{\fontname\font}%
++      \remove@tlig
++      \char#1\relax
++      \endgroup
++    }
+   \fi
+ \else
+   \def\UnicodeFontTeXLigatures{mapping=tex-text;}
++  \def\remove@tlig#1{\XeTeXglyph\numexpr\XeTeXcharglyph#1\relax}
+ \fi
+ \def\UnicodeFontFile#1#2{"[#1]:#2"}
+ \def\UnicodeFontName#1#2{"#1:#2"}
+ \DeclareFontEncoding\UnicodeEncodingName{}{}
+-\def\add@unicode@accent#1#2{#2\char#1\relax}
++\def\add@unicode@accent#1#2{%
++  \if\relax\detokenize{#2}\relax^^a0\else#2\fi
++  \char#1\relax}
+ \def\DeclareUnicodeAccent#1#2#3{%
+   \DeclareTextCommand{#1}{#2}{\add@unicode@accent{#3}}%
+ }
++\DeclareTextCommand\textquotesingle \UnicodeEncodingName{%
++                                                \remove@tlig{"0027}}
++\DeclareTextCommand\textasciigrave  \UnicodeEncodingName{%
++                                                \remove@tlig{"0060}}
++\DeclareTextCommand\textquotedbl    \UnicodeEncodingName{%
++                                                \remove@tlig{"0022}}
+ \DeclareTextSymbol{\textdollar}          \UnicodeEncodingName{"0024}
+ \DeclareTextSymbol{\textless}            \UnicodeEncodingName{"003C}
+ \DeclareTextSymbol{\textgreater}         \UnicodeEncodingName{"003E}
+ \DeclareTextSymbol{\textbackslash}       \UnicodeEncodingName{"005C}
++\DeclareTextSymbol{\textasciicircum}     \UnicodeEncodingName{"005E}
+ \DeclareTextSymbol{\textunderscore}      \UnicodeEncodingName{"005F}
+ \DeclareTextSymbol{\textbraceleft}       \UnicodeEncodingName{"007B}
+ \DeclareTextSymbol{\textbar}             \UnicodeEncodingName{"007C}
+ \DeclareTextSymbol{\textbraceright}      \UnicodeEncodingName{"007D}
++\DeclareTextSymbol{\textasciitilde}      \UnicodeEncodingName{"007E}
+ \DeclareTextSymbol{\textexclamdown}      \UnicodeEncodingName{"00A1}
+ \DeclareTextSymbol{\textcent}            \UnicodeEncodingName{"00A2}
+ \DeclareTextSymbol{\textsterling}        \UnicodeEncodingName{"00A3}
+@@ -129,15 +154,17 @@
+ \DeclareTextSymbol{\OE}                  \UnicodeEncodingName{"0152}
+ \DeclareTextSymbol{\oe}                  \UnicodeEncodingName{"0153}
+ \DeclareTextSymbol{\textflorin}          \UnicodeEncodingName{"0192}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{Y}{"0232}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{y}{"0232}
+ \DeclareTextSymbol{\j}                   \UnicodeEncodingName{"0237}
+-\DeclareTextSymbol{\textasciicircum}     \UnicodeEncodingName{"02C6}
+ \DeclareTextSymbol{\textasciicaron}      \UnicodeEncodingName{"02C7}
+-\DeclareTextSymbol{\textasciitilde}      \UnicodeEncodingName{"02DC}
+ \DeclareTextSymbol{\textasciibreve}      \UnicodeEncodingName{"02D8}
+ \DeclareTextSymbol{\textacutedbl}        \UnicodeEncodingName{"02DD}
+ \DeclareTextSymbol{\textgravedbl}        \UnicodeEncodingName{"02F5}
+ \DeclareTextSymbol{\texttildelow}        \UnicodeEncodingName{"02F7}
+ \DeclareTextSymbol{\textbaht}            \UnicodeEncodingName{"0E3F}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{G}{"1E20}
++\DeclareTextComposite{\=}             \UnicodeEncodingName{g}{"1E21}
+ \DeclareTextSymbol{\SS}                  \UnicodeEncodingName{"1E9E}
+ \DeclareTextSymbol{\textcompwordmark}    \UnicodeEncodingName{"200C}
+ \DeclareTextSymbol{\textendash}          \UnicodeEncodingName{"2013}
+@@ -184,7 +211,17 @@
+ \DeclareTextSymbol{\textrightarrow}      \UnicodeEncodingName{"2192}
+ \DeclareTextSymbol{\textdownarrow}       \UnicodeEncodingName{"2193}
+ \DeclareTextSymbol{\textminus}           \UnicodeEncodingName{"2212}
+-\DeclareTextSymbol{\textasteriskcentered}\UnicodeEncodingName{"2217}
++\DeclareTextCommand{\textasteriskcentered}\UnicodeEncodingName{%
++  \iffontchar\font"2217 \char"2217 \else
++    \begingroup
++      \fontsize
++       {\the\dimexpr1.2\dimexpr\f@size pt\relax}%
++       {\f@baselineskip}%
++      \selectfont
++      \raisebox{-0.6ex}[\dimexpr\height-0.6ex][0pt]{*}%
++    \endgroup
++  \fi
++}
+ \DeclareTextSymbol{\textsurd}            \UnicodeEncodingName{"221A}
+ \DeclareTextSymbol{\textlangle}          \UnicodeEncodingName{"2329}
+ \DeclareTextSymbol{\textrangle}          \UnicodeEncodingName{"232A}
+@@ -211,6 +248,8 @@
+ \DeclareUnicodeAccent{\c}                \UnicodeEncodingName{"0327}
+ \DeclareUnicodeAccent{\d}                \UnicodeEncodingName{"0323}
+ \DeclareUnicodeAccent{\k}                \UnicodeEncodingName{"0328}
++\DeclareTextComposite{\^}             \UnicodeEncodingName {}{"005E}
++\DeclareTextComposite{\~}             \UnicodeEncodingName {}{"007E}
+ \DeclareTextComposite{\`}             \UnicodeEncodingName{A}{"00C0}
+ \DeclareTextComposite{\'}             \UnicodeEncodingName{A}{"00C1}
+ \DeclareTextComposite{\^}             \UnicodeEncodingName{A}{"00C2}
+--- /dev/null
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/tulmdh.fd
+@@ -0,0 +1,58 @@
++%%
++%% This is file `tulmdh.fd',
++%% generated with the docstrip utility.
++%%
++%% The original source files were:
++%%
++%% tulm.fdd  (with options: `TUlmdh')
++%% 
++%% This is a generated file.
++%% 
++%% The source is maintained by the LaTeX Project team and bug
++%% reports for it can be opened at http://latex-project.org/bugs.html
++%% (but please observe conditions on bug reports sent to that address!)
++%% 
++%% 
++%% Copyright 1993-2016
++%% The LaTeX3 Project and any individual authors listed elsewhere
++%% in this file.
++%% 
++%% This file was generated from file(s) of the LaTeX base system.
++%% --------------------------------------------------------------
++%% 
++%% It may be distributed and/or modified under the
++%% conditions of the LaTeX Project Public License, either version 1.3c
++%% of this license or (at your option) any later version.
++%% The latest version of this license is in
++%%    http://www.latex-project.org/lppl.txt
++%% and version 1.3c or later is part of all distributions of LaTeX
++%% version 2005/12/01 or later.
++%% 
++%% This file may only be distributed together with a copy of the LaTeX
++%% base system. You may however distribute the LaTeX base system without
++%% such generated files.
++%% 
++%% The list of all files belonging to the LaTeX base distribution is
++%% given in the file `manifest.txt'. See also `legal.txt' for additional
++%% information.
++%% 
++%% In particular, permission is granted to customize the declarations in
++%% this file to serve the needs of your installation.
++%% 
++%% However, NO PERMISSION is granted to distribute a modified version
++%% of this file under its original name.
++%% 
++\ProvidesFile{tulmdh.fd}
++        [2017/01/26 v1.8 Standard LaTeX font definitions for Latin Modern]
++\DeclareFontFamily{TU}{lmdh}{}%
++\DeclareFontShape{TU}{lmdh}{m}{n}
++  {<->   \UnicodeFontFile{lmromandunh10-regular}{\UnicodeFontTeXLigatures}
++  }{}
++\DeclareFontShape{TU}{lmdh}{m}{sl}
++  {<->   \UnicodeFontFile{lmromandunh10-oblique}{\UnicodeFontTeXLigatures}
++  }{}
++\DeclareFontShape{TU}{lmdh}{m}{it}
++  {<->sub*lmdh/m/sl}{}
++\endinput
++%%
++%% End of file `tulmdh.fd'.
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/tulmr.fd
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/tulmr.fd
+@@ -1,43 +1,99 @@
+-
+-\ProvidesFile{tulmr.fd}[2009/10/30 v1.6 Font defs for Latin Modern]
++%%
++%% This is file `tulmr.fd',
++%% generated with the docstrip utility.
++%%
++%% The original source files were:
++%%
++%% tulm.fdd  (with options: `TUlmr')
++%% 
++%% This is a generated file.
++%% 
++%% The source is maintained by the LaTeX Project team and bug
++%% reports for it can be opened at http://latex-project.org/bugs.html
++%% (but please observe conditions on bug reports sent to that address!)
++%% 
++%% 
++%% Copyright 1993-2016
++%% The LaTeX3 Project and any individual authors listed elsewhere
++%% in this file.
++%% 
++%% This file was generated from file(s) of the LaTeX base system.
++%% --------------------------------------------------------------
++%% 
++%% It may be distributed and/or modified under the
++%% conditions of the LaTeX Project Public License, either version 1.3c
++%% of this license or (at your option) any later version.
++%% The latest version of this license is in
++%%    http://www.latex-project.org/lppl.txt
++%% and version 1.3c or later is part of all distributions of LaTeX
++%% version 2005/12/01 or later.
++%% 
++%% This file may only be distributed together with a copy of the LaTeX
++%% base system. You may however distribute the LaTeX base system without
++%% such generated files.
++%% 
++%% The list of all files belonging to the LaTeX base distribution is
++%% given in the file `manifest.txt'. See also `legal.txt' for additional
++%% information.
++%% 
++%% In particular, permission is granted to customize the declarations in
++%% this file to serve the needs of your installation.
++%% 
++%% However, NO PERMISSION is granted to distribute a modified version
++%% of this file under its original name.
++%% 
++\ProvidesFile{tulmr.fd}
++        [2017/01/26 v1.8 Standard LaTeX font definitions for Latin Modern]
+ \DeclareFontFamily{TU}{lmr}{}
+ \DeclareFontShape{TU}{lmr}{m}{n}%
+-     {<-5.5>    \UnicodeFontFile{lmroman5-regular}{\UnicodeFontTeXLigatures}     <5.5-6.5> \UnicodeFontFile{lmroman6-regular}{\UnicodeFontTeXLigatures}
+-      <6.5-7.5> \UnicodeFontFile{lmroman7-regular}{\UnicodeFontTeXLigatures}     <7.5-8.5> \UnicodeFontFile{lmroman8-regular}{\UnicodeFontTeXLigatures}
+-      <8.5-9.5> \UnicodeFontFile{lmroman9-regular}{\UnicodeFontTeXLigatures}     <9.5-11>  \UnicodeFontFile{lmroman10-regular}{\UnicodeFontTeXLigatures}
+-      <11-15>   \UnicodeFontFile{lmroman12-regular}{\UnicodeFontTeXLigatures}
+-      <15-> \UnicodeFontFile{lmroman17-regular}{\UnicodeFontTeXLigatures}
+-      }{}
++  {<-5.5>    \UnicodeFontFile{lmroman5-regular}{\UnicodeFontTeXLigatures}
++   <5.5-6.5> \UnicodeFontFile{lmroman6-regular}{\UnicodeFontTeXLigatures}
++   <6.5-7.5> \UnicodeFontFile{lmroman7-regular}{\UnicodeFontTeXLigatures}
++   <7.5-8.5> \UnicodeFontFile{lmroman8-regular}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmroman9-regular}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmroman10-regular}{\UnicodeFontTeXLigatures}
++   <11-15>   \UnicodeFontFile{lmroman12-regular}{\UnicodeFontTeXLigatures}
++   <15-> \UnicodeFontFile{lmroman17-regular}{\UnicodeFontTeXLigatures}
++   }{}
+ \DeclareFontShape{TU}{lmr}{m}{sl}%
+-     {<-8.5>    \UnicodeFontFile{lmromanslant8-regular}{\UnicodeFontTeXLigatures}    <8.5-9.5> \UnicodeFontFile{lmromanslant9-regular}{\UnicodeFontTeXLigatures}
+-      <9.5-11>  \UnicodeFontFile{lmromanslant10-regular}{\UnicodeFontTeXLigatures}   <11-15>   \UnicodeFontFile{lmromanslant12-regular}{\UnicodeFontTeXLigatures}
+-      <15-> \UnicodeFontFile{lmromanslant17-regular}{\UnicodeFontTeXLigatures}
+-      }{}
++  {<-8.5>    \UnicodeFontFile{lmromanslant8-regular}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmromanslant9-regular}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmromanslant10-regular}{\UnicodeFontTeXLigatures}
++   <11-15>   \UnicodeFontFile{lmromanslant12-regular}{\UnicodeFontTeXLigatures}
++   <15-> \UnicodeFontFile{lmromanslant17-regular}{\UnicodeFontTeXLigatures}
++   }{}
+ \DeclareFontShape{TU}{lmr}{m}{it}%
+-     {<-7.5>    \UnicodeFontFile{lmroman7-italic}{\UnicodeFontTeXLigatures}
+-      <7.5-8.5> \UnicodeFontFile{lmroman8-italic}{\UnicodeFontTeXLigatures}    <8.5-9.5> \UnicodeFontFile{lmroman9-italic}{\UnicodeFontTeXLigatures}
+-      <9.5-11>  \UnicodeFontFile{lmroman10-italic}{\UnicodeFontTeXLigatures}   <11->   \UnicodeFontFile{lmroman12-italic}{\UnicodeFontTeXLigatures}
+-      }{}
++  {<-7.5>    \UnicodeFontFile{lmroman7-italic}{\UnicodeFontTeXLigatures}
++   <7.5-8.5> \UnicodeFontFile{lmroman8-italic}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmroman9-italic}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmroman10-italic}{\UnicodeFontTeXLigatures}
++   <11->   \UnicodeFontFile{lmroman12-italic}{\UnicodeFontTeXLigatures}
++   }{}
+ \DeclareFontShape{TU}{lmr}{m}{sc}%
+-     {<-> \UnicodeFontFile{lmromancaps10-regular}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmromancaps10-regular}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmr}{m}{ui}%
+-     {<-> ec-lmu10}{}
++  {<-> ec-lmu10}{}
+ \DeclareFontShape{TU}{lmr}{m}{scsl}%
+-     {<-> \UnicodeFontFile{lmromancaps10-oblique}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmromancaps10-oblique}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmr}{b}{n}
+-     {<-> \UnicodeFontFile{lmromandemi10-regular}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmromandemi10-regular}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmr}{b}{sl}
+-     {<-> \UnicodeFontFile{lmromandemi10-oblique}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmromandemi10-oblique}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmr}{bx}{n}
+-     {<-5.5>   \UnicodeFontFile{lmroman5-bold}{\UnicodeFontTeXLigatures}      <5.5-6.5> \UnicodeFontFile{lmroman6-bold}{\UnicodeFontTeXLigatures}
+-      <6.5-7.5> \UnicodeFontFile{lmroman7-bold}{\UnicodeFontTeXLigatures}      <7.5-8.5> \UnicodeFontFile{lmroman8-bold}{\UnicodeFontTeXLigatures}
+-      <8.5-9.5> \UnicodeFontFile{lmroman9-bold}{\UnicodeFontTeXLigatures}      <9.5-11>  \UnicodeFontFile{lmroman10-bold}{\UnicodeFontTeXLigatures}
+-      <11->   \UnicodeFontFile{lmroman12-bold}{\UnicodeFontTeXLigatures}
+-      }{}
++  {<-5.5>   \UnicodeFontFile{lmroman5-bold}{\UnicodeFontTeXLigatures}
++   <5.5-6.5> \UnicodeFontFile{lmroman6-bold}{\UnicodeFontTeXLigatures}
++   <6.5-7.5> \UnicodeFontFile{lmroman7-bold}{\UnicodeFontTeXLigatures}
++   <7.5-8.5> \UnicodeFontFile{lmroman8-bold}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmroman9-bold}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmroman10-bold}{\UnicodeFontTeXLigatures}
++   <11->   \UnicodeFontFile{lmroman12-bold}{\UnicodeFontTeXLigatures}
++   }{}
+ \DeclareFontShape{TU}{lmr}{bx}{it}
+-     {<-> \UnicodeFontFile{lmroman10-bolditalic}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmroman10-bolditalic}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmr}{bx}{sl}
+-     {<-> \UnicodeFontFile{lmromanslant10-bold}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmromanslant10-bold}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmr}{b}{it}
+-     {<->sub * lmr/b/sl}{}
++  {<->sub * lmr/b/sl}{}
+ \endinput
++%%
++%% End of file `tulmr.fd'.
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/tulmss.fd
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/tulmss.fd
+@@ -1,36 +1,86 @@
+-
+-\ProvidesFile{tulmss.fd}[2009/10/30 v1.6 Font defs for Latin Modern]
++%%
++%% This is file `tulmss.fd',
++%% generated with the docstrip utility.
++%%
++%% The original source files were:
++%%
++%% tulm.fdd  (with options: `TUlmss')
++%% 
++%% This is a generated file.
++%% 
++%% The source is maintained by the LaTeX Project team and bug
++%% reports for it can be opened at http://latex-project.org/bugs.html
++%% (but please observe conditions on bug reports sent to that address!)
++%% 
++%% 
++%% Copyright 1993-2016
++%% The LaTeX3 Project and any individual authors listed elsewhere
++%% in this file.
++%% 
++%% This file was generated from file(s) of the LaTeX base system.
++%% --------------------------------------------------------------
++%% 
++%% It may be distributed and/or modified under the
++%% conditions of the LaTeX Project Public License, either version 1.3c
++%% of this license or (at your option) any later version.
++%% The latest version of this license is in
++%%    http://www.latex-project.org/lppl.txt
++%% and version 1.3c or later is part of all distributions of LaTeX
++%% version 2005/12/01 or later.
++%% 
++%% This file may only be distributed together with a copy of the LaTeX
++%% base system. You may however distribute the LaTeX base system without
++%% such generated files.
++%% 
++%% The list of all files belonging to the LaTeX base distribution is
++%% given in the file `manifest.txt'. See also `legal.txt' for additional
++%% information.
++%% 
++%% In particular, permission is granted to customize the declarations in
++%% this file to serve the needs of your installation.
++%% 
++%% However, NO PERMISSION is granted to distribute a modified version
++%% of this file under its original name.
++%% 
++\ProvidesFile{tulmss.fd}
++        [2017/01/26 v1.8 Standard LaTeX font definitions for Latin Modern]
+ \DeclareFontFamily{TU}{lmss}{}
+ \DeclareFontShape{TU}{lmss}{m}{n}
+-     {<-8.5> \UnicodeFontFile{lmsans8-regular}{\UnicodeFontTeXLigatures}
+-      <8.5-9.5> \UnicodeFontFile{lmsans9-regular}{\UnicodeFontTeXLigatures}      <9.5-11>  \UnicodeFontFile{lmsans10-regular}{\UnicodeFontTeXLigatures}
+-      <11-15.5> \UnicodeFontFile{lmsans12-regular}{\UnicodeFontTeXLigatures}     <15.5-> \UnicodeFontFile{lmsans17-regular}{\UnicodeFontTeXLigatures}
+-      }{}
++  {<-8.5> \UnicodeFontFile{lmsans8-regular}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmsans9-regular}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmsans10-regular}{\UnicodeFontTeXLigatures}
++   <11-15.5> \UnicodeFontFile{lmsans12-regular}{\UnicodeFontTeXLigatures}
++   <15.5-> \UnicodeFontFile{lmsans17-regular}{\UnicodeFontTeXLigatures}
++   }{}
+ \DeclareFontShape{TU}{lmss}{m}{it}
+-      {<->ssub*lmss/m/sl}{}
++   {<->ssub*lmss/m/sl}{}
+ \DeclareFontShape{TU}{lmss}{m}{sl}
+-     {<-8.5> \UnicodeFontFile{lmsans8-oblique}{\UnicodeFontTeXLigatures}
+-      <8.5-9.5> \UnicodeFontFile{lmsans9-oblique}{\UnicodeFontTeXLigatures}      <9.5-11>  \UnicodeFontFile{lmsans10-oblique}{\UnicodeFontTeXLigatures}
+-      <11-15.5> \UnicodeFontFile{lmsans12-oblique}{\UnicodeFontTeXLigatures}     <15.5-> \UnicodeFontFile{lmsans17-oblique}{\UnicodeFontTeXLigatures}
+-      }{}
++  {<-8.5> \UnicodeFontFile{lmsans8-oblique}{\UnicodeFontTeXLigatures}
++   <8.5-9.5> \UnicodeFontFile{lmsans9-oblique}{\UnicodeFontTeXLigatures}
++   <9.5-11>  \UnicodeFontFile{lmsans10-oblique}{\UnicodeFontTeXLigatures}
++   <11-15.5> \UnicodeFontFile{lmsans12-oblique}{\UnicodeFontTeXLigatures}
++   <15.5-> \UnicodeFontFile{lmsans17-oblique}{\UnicodeFontTeXLigatures}
++   }{}
+ \DeclareFontShape{TU}{lmss}{m}{sc}
+-     {<->sub*lmr/m/sc}{}
++  {<->sub*lmr/m/sc}{}
+ \DeclareFontShape{TU}{lmss}{b}{n}
+-     {<->ssub * lmss/bx/n}{}
++  {<->ssub * lmss/bx/n}{}
+ \DeclareFontShape{TU}{lmss}{b}{sl}
+-     {<->ssub * lmss/bx/sl}{}
++  {<->ssub * lmss/bx/sl}{}
+ \DeclareFontShape{TU}{lmss}{b}{it}
+-     {<->ssub * lmss/bx/it}{}
++  {<->ssub * lmss/bx/it}{}
+ \DeclareFontShape{TU}{lmss}{sbc}{n}
+-     {<-> \UnicodeFontFile{lmsansdemicond10-regular}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmsansdemicond10-regular}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmss}{sbc}{sl}
+-     {<-> \UnicodeFontFile{lmsansdemicond10-oblique}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmsansdemicond10-oblique}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmss}{sbc}{it}
+-     {<->ssub*lmss/sbc/sl}{}
++  {<->ssub*lmss/sbc/sl}{}
+ \DeclareFontShape{TU}{lmss}{bx}{n}
+-     {<-> \UnicodeFontFile{lmsans10-bold}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmsans10-bold}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmss}{bx}{sl}
+-     {<-> \UnicodeFontFile{lmsans10-boldoblique}{\UnicodeFontTeXLigatures}}{}
++  {<-> \UnicodeFontFile{lmsans10-boldoblique}{\UnicodeFontTeXLigatures}}{}
+ \DeclareFontShape{TU}{lmss}{bx}{it}
+-     {<->ssub*lmss/bx/sl}{}
++  {<->ssub*lmss/bx/sl}{}
+ \endinput
++%%
++%% End of file `tulmss.fd'.
+--- /dev/null
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/tulmssq.fd
+@@ -0,0 +1,68 @@
++%%
++%% This is file `tulmssq.fd',
++%% generated with the docstrip utility.
++%%
++%% The original source files were:
++%%
++%% tulm.fdd  (with options: `TUlmssq')
++%% 
++%% This is a generated file.
++%% 
++%% The source is maintained by the LaTeX Project team and bug
++%% reports for it can be opened at http://latex-project.org/bugs.html
++%% (but please observe conditions on bug reports sent to that address!)
++%% 
++%% 
++%% Copyright 1993-2016
++%% The LaTeX3 Project and any individual authors listed elsewhere
++%% in this file.
++%% 
++%% This file was generated from file(s) of the LaTeX base system.
++%% --------------------------------------------------------------
++%% 
++%% It may be distributed and/or modified under the
++%% conditions of the LaTeX Project Public License, either version 1.3c
++%% of this license or (at your option) any later version.
++%% The latest version of this license is in
++%%    http://www.latex-project.org/lppl.txt
++%% and version 1.3c or later is part of all distributions of LaTeX
++%% version 2005/12/01 or later.
++%% 
++%% This file may only be distributed together with a copy of the LaTeX
++%% base system. You may however distribute the LaTeX base system without
++%% such generated files.
++%% 
++%% The list of all files belonging to the LaTeX base distribution is
++%% given in the file `manifest.txt'. See also `legal.txt' for additional
++%% information.
++%% 
++%% In particular, permission is granted to customize the declarations in
++%% this file to serve the needs of your installation.
++%% 
++%% However, NO PERMISSION is granted to distribute a modified version
++%% of this file under its original name.
++%% 
++\ProvidesFile{tulmssq.fd}
++        [2017/01/26 v1.8 Standard LaTeX font definitions for Latin Modern]
++\DeclareFontFamily{TU}{lmssq}{}
++\DeclareFontShape{TU}{lmssq}{m}{n}
++  {<-> \UnicodeFontFile{lmsansquot8-regular}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{m}{sl}
++  {<-> \UnicodeFontFile{lmsansquot8-oblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{bx}{n}
++  {<-> \UnicodeFontFile{lmsansquot8-bold}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{bx}{sl}
++  {<-> \UnicodeFontFile{lmsansquot8-boldoblique}{\UnicodeFontTeXLigatures}}{}
++\DeclareFontShape{TU}{lmssq}{m}{it}
++  {<->ssub*lmssq/m/sl}{}
++\DeclareFontShape{TU}{lmssq}{bx}{it}
++  {<->ssub*lmssq/bx/sl}{}
++\DeclareFontShape{TU}{lmssq}{b}{n}
++  {<->ssub * lmssq/bx/n}{}
++\DeclareFontShape{TU}{lmssq}{b}{sl}
++  {<->ssub * lmssq/bx/sl}{}
++\DeclareFontShape{TU}{lmssq}{b}{it}
++  {<->ssub * lmssq/bx/it}{}
++\endinput
++%%
++%% End of file `tulmssq.fd'.
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/tulmtt.fd
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/tulmtt.fd
+@@ -1,76 +1,121 @@
+-
+-\ProvidesFile{tulmtt.fd}[2017/01/25 v1.7 Font defs for Latin Modern]
++%%
++%% This is file `tulmtt.fd',
++%% generated with the docstrip utility.
++%%
++%% The original source files were:
++%%
++%% tulm.fdd  (with options: `TUlmtt')
++%% 
++%% This is a generated file.
++%% 
++%% The source is maintained by the LaTeX Project team and bug
++%% reports for it can be opened at http://latex-project.org/bugs.html
++%% (but please observe conditions on bug reports sent to that address!)
++%% 
++%% 
++%% Copyright 1993-2016
++%% The LaTeX3 Project and any individual authors listed elsewhere
++%% in this file.
++%% 
++%% This file was generated from file(s) of the LaTeX base system.
++%% --------------------------------------------------------------
++%% 
++%% It may be distributed and/or modified under the
++%% conditions of the LaTeX Project Public License, either version 1.3c
++%% of this license or (at your option) any later version.
++%% The latest version of this license is in
++%%    http://www.latex-project.org/lppl.txt
++%% and version 1.3c or later is part of all distributions of LaTeX
++%% version 2005/12/01 or later.
++%% 
++%% This file may only be distributed together with a copy of the LaTeX
++%% base system. You may however distribute the LaTeX base system without
++%% such generated files.
++%% 
++%% The list of all files belonging to the LaTeX base distribution is
++%% given in the file `manifest.txt'. See also `legal.txt' for additional
++%% information.
++%% 
++%% In particular, permission is granted to customize the declarations in
++%% this file to serve the needs of your installation.
++%% 
++%% However, NO PERMISSION is granted to distribute a modified version
++%% of this file under its original name.
++%% 
++\ProvidesFile{tulmtt.fd}
++        [2017/01/26 v1.8 Standard LaTeX font definitions for Latin Modern]
+ \DeclareFontFamily{TU}{lmtt}{%
+ \hyphenchar \font\m@ne
+ \fontdimen3\font\z@
+ \fontdimen4\font\z@
+ }
+-
+ \ifx\lmtt@use@light@as@normal\@empty
+ \DeclareFontShape{TU}{lmtt}{sb}{n}
+-     {<-8.5>   \UnicodeFontFile{lmmono8-regular}{}
+-      <8.5-9.5> \UnicodeFontFile{lmmono9-regular}{}
+-      <9.5-11> \UnicodeFontFile{lmmono10-regular}{}
+-      <11->     \UnicodeFontFile{lmmono12-regular}{}
+-      }{}
++  {<-8.5>   \UnicodeFontFile{lmmono8-regular}{}
++   <8.5-9.5> \UnicodeFontFile{lmmono9-regular}{}
++   <9.5-11> \UnicodeFontFile{lmmono10-regular}{}
++   <11->  \UnicodeFontFile{lmmono12-regular}{}
++   }{}
+ \DeclareFontShape{TU}{lmtt}{sb}{it}
+-     {<-> \UnicodeFontFile{lmmono10-italic}{}}{}
++  {<-> \UnicodeFontFile{lmmono10-italic}{}}{}
+ \DeclareFontShape{TU}{lmtt}{sb}{sl}
+-     {<-> \UnicodeFontFile{lmmonoslant10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonoslant10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{sb}{sc}
+-     {<-> \UnicodeFontFile{lmmonocaps10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonocaps10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{sb}{scsl}
+-     {<-> \UnicodeFontFile{lmmonocaps10-oblique}{}}{}
++  {<-> \UnicodeFontFile{lmmonocaps10-oblique}{}}{}
+ \DeclareFontShape{TU}{lmtt}{m}{n}
+-     {<-> \UnicodeFontFile{lmmonolt10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonolt10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{m}{it}
+-     {<->sub*lmtt/l/sl}{}
++  {<->sub*lmtt/l/sl}{}
+ \DeclareFontShape{TU}{lmtt}{m}{sl}
+-     {<-> \UnicodeFontFile{lmmonolt10-oblique}{}}{}
++  {<-> \UnicodeFontFile{lmmonolt10-oblique}{}}{}
+ \DeclareFontShape{TU}{lmtt}{c}{n}
+-     {<-> \UnicodeFontFile{lmmonoltcond10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonoltcond10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{c}{it}
+-     {<->sub*lmtt/lc/sl}{}
++  {<->sub*lmtt/lc/sl}{}
+ \DeclareFontShape{TU}{lmtt}{c}{sl}
+-     {<-> \UnicodeFontFile{lmmonoltcond10-oblique}{}}{}
++  {<-> \UnicodeFontFile{lmmonoltcond10-oblique}{}}{}
+ \else
+ \DeclareFontShape{TU}{lmtt}{m}{n}
+-     {<-8.5>   \UnicodeFontFile{lmmono8-regular}{}
+-     <8.5-9.5> \UnicodeFontFile{lmmono9-regular}{}
+-      <9.5-11> \UnicodeFontFile{lmmono10-regular}{}
+-      <11->     \UnicodeFontFile{lmmono12-regular}{}
+-      }{}
++  {<-8.5>   \UnicodeFontFile{lmmono8-regular}{}
++  <8.5-9.5> \UnicodeFontFile{lmmono9-regular}{}
++   <9.5-11> \UnicodeFontFile{lmmono10-regular}{}
++   <11->  \UnicodeFontFile{lmmono12-regular}{}
++   }{}
+ \DeclareFontShape{TU}{lmtt}{m}{it}
+-     {<-> \UnicodeFontFile{lmmono10-italic}{}}{}
++  {<-> \UnicodeFontFile{lmmono10-italic}{}}{}
+ \DeclareFontShape{TU}{lmtt}{m}{sl}
+-     {<-> \UnicodeFontFile{lmmonoslant10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonoslant10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{m}{sc}
+-     {<-> \UnicodeFontFile{lmmonocaps10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonocaps10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{m}{scsl}
+-     {<-> \UnicodeFontFile{lmmonocaps10-oblique}{}}{}
++  {<-> \UnicodeFontFile{lmmonocaps10-oblique}{}}{}
+ \DeclareFontShape{TU}{lmtt}{l}{n}
+-     {<-> \UnicodeFontFile{lmmonolt10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonolt10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{l}{it}
+-     {<->sub*lmtt/l/sl}{}
++  {<->sub*lmtt/l/sl}{}
+ \DeclareFontShape{TU}{lmtt}{l}{sl}
+-     {<-> \UnicodeFontFile{lmmonolt10-oblique}{}}{}
++  {<-> \UnicodeFontFile{lmmonolt10-oblique}{}}{}
+ \DeclareFontShape{TU}{lmtt}{lc}{n}
+-     {<-> \UnicodeFontFile{lmmonoltcond10-regular}{}}{}
++  {<-> \UnicodeFontFile{lmmonoltcond10-regular}{}}{}
+ \DeclareFontShape{TU}{lmtt}{lc}{it}
+-     {<->sub*lmtt/lc/sl}{}
++  {<->sub*lmtt/lc/sl}{}
+ \DeclareFontShape{TU}{lmtt}{lc}{sl}
+-     {<-> \UnicodeFontFile{lmmonoltcond10-oblique}{}}{}
++  {<-> \UnicodeFontFile{lmmonoltcond10-oblique}{}}{}
+ \fi
+ \DeclareFontShape{TU}{lmtt}{b}{n}
+-     {<-> \UnicodeFontFile{lmmonolt10-bold}{}}{}
++  {<-> \UnicodeFontFile{lmmonolt10-bold}{}}{}
+ \DeclareFontShape{TU}{lmtt}{b}{it}
+-     {<->sub*lmtt/b/sl}{}
++  {<->sub*lmtt/b/sl}{}
+ \DeclareFontShape{TU}{lmtt}{b}{sl}
+ {<-> \UnicodeFontFile{lmmonolt10-boldoblique}{}}{}
+ \DeclareFontShape{TU}{lmtt}{bx}{it}
+-     {<->sub*lmtt/b/sl}{}
++  {<->sub*lmtt/b/sl}{}
+ \DeclareFontShape{TU}{lmtt}{bx}{n}
+-     {<->ssub*lmtt/b/n}{}
++  {<->ssub*lmtt/b/n}{}
+ \DeclareFontShape{TU}{lmtt}{bx}{sl}
+-     {<->ssub*lmtt/b/sl}{}
++  {<->ssub*lmtt/b/sl}{}
+ \endinput
++%%
++%% End of file `tulmtt.fd'.
+--- /dev/null
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/tulmvtt.fd
+@@ -0,0 +1,89 @@
++%%
++%% This is file `tulmvtt.fd',
++%% generated with the docstrip utility.
++%%
++%% The original source files were:
++%%
++%% tulm.fdd  (with options: `TUlmvtt')
++%% 
++%% This is a generated file.
++%% 
++%% The source is maintained by the LaTeX Project team and bug
++%% reports for it can be opened at http://latex-project.org/bugs.html
++%% (but please observe conditions on bug reports sent to that address!)
++%% 
++%% 
++%% Copyright 1993-2016
++%% The LaTeX3 Project and any individual authors listed elsewhere
++%% in this file.
++%% 
++%% This file was generated from file(s) of the LaTeX base system.
++%% --------------------------------------------------------------
++%% 
++%% It may be distributed and/or modified under the
++%% conditions of the LaTeX Project Public License, either version 1.3c
++%% of this license or (at your option) any later version.
++%% The latest version of this license is in
++%%    http://www.latex-project.org/lppl.txt
++%% and version 1.3c or later is part of all distributions of LaTeX
++%% version 2005/12/01 or later.
++%% 
++%% This file may only be distributed together with a copy of the LaTeX
++%% base system. You may however distribute the LaTeX base system without
++%% such generated files.
++%% 
++%% The list of all files belonging to the LaTeX base distribution is
++%% given in the file `manifest.txt'. See also `legal.txt' for additional
++%% information.
++%% 
++%% In particular, permission is granted to customize the declarations in
++%% this file to serve the needs of your installation.
++%% 
++%% However, NO PERMISSION is granted to distribute a modified version
++%% of this file under its original name.
++%% 
++\ProvidesFile{tulmvtt.fd}
++        [2017/01/26 v1.8 Standard LaTeX font definitions for Latin Modern]
++\DeclareFontFamily{TU}{lmvtt}{}
++\ifx\lmtt@use@light@as@normal\@empty
++\DeclareFontShape{TU}{lmvtt}{sb}{n}
++  {<->\UnicodeFontFile{lmmonoprop10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{sb}{sl}
++  {<->\UnicodeFontFile{lmmonoprop10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{sb}{it}
++  {<->sub*lmvtt/m/sl}{}
++\DeclareFontShape{TU}{lmvtt}{m}{n}
++  {<->\UnicodeFontFile{lmmonoproplt10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{sl}
++  {<->\UnicodeFontFile{lmmonoproplt10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{it}
++  {<->sub*lmvtt/l/sl}{}
++\else
++\DeclareFontShape{TU}{lmvtt}{m}{n}
++  {<->\UnicodeFontFile{lmmonoprop10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{sl}
++  {<->\UnicodeFontFile{lmmonoprop10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{m}{it}
++  {<->sub*lmvtt/m/sl}{}
++\DeclareFontShape{TU}{lmvtt}{l}{n}
++  {<->\UnicodeFontFile{lmmonoproplt10-regular}{}}{}
++\DeclareFontShape{TU}{lmvtt}{l}{sl}
++  {<->\UnicodeFontFile{lmmonoproplt10-oblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{l}{it}
++  {<->sub*lmvtt/l/sl}{}
++\fi
++\DeclareFontShape{TU}{lmvtt}{b}{n}
++  {<->\UnicodeFontFile{lmmonoproplt10-bold}{}}{}
++\DeclareFontShape{TU}{lmvtt}{b}{sl}
++  {<->\UnicodeFontFile{lmmonoproplt10-boldoblique}{}}{}
++\DeclareFontShape{TU}{lmvtt}{b}{it}
++  {<->sub*lmvtt/b/sl}{}
++\DeclareFontShape{TU}{lmvtt}{bx}{n}
++  {<->ssub*lmvtt/b/n}{}
++\DeclareFontShape{TU}{lmvtt}{bx}{sl}
++  {<->ssub*lmvtt/b/sl}{}
++\DeclareFontShape{TU}{lmvtt}{bx}{it}
++  {<->sub*lmvtt/b/sl}{}
++\endinput
++%%
++%% End of file `tulmvtt.fd'.
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/utf8-test.tex
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/utf8-test.tex
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+ \ProvidesFile{utf8-test.tex}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \documentclass{article}
+ 
+ \usepackage[latin1,utf8]{inputenc}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/utf8.def
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/utf8.def
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+ \ProvidesFile{utf8.def}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \makeatletter
+ \catcode`\ \saved@space@catcode
+ \def\UTFviii@two@octets#1#2{\expandafter
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/utf8enc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/utf8enc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+  \ProvidesFile{utf8enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+ \DeclareUnicodeCharacter{00A1}{\textexclamdown}
+ \DeclareUnicodeCharacter{00A2}{\textcent}
+@@ -282,6 +282,8 @@
+ \DeclareUnicodeCharacter{0219}{\textcommabelow s}
+ \DeclareUnicodeCharacter{021A}{\textcommabelow T}
+ \DeclareUnicodeCharacter{021B}{\textcommabelow t}
++\DeclareUnicodeCharacter{0232}{\@tabacckludge=Y}
++\DeclareUnicodeCharacter{0233}{\@tabacckludge=y}
+ \DeclareUnicodeCharacter{02C6}{\textasciicircum}
+ \DeclareUnicodeCharacter{02C7}{\textasciicaron}
+ \DeclareUnicodeCharacter{02DC}{\textasciitilde}
+@@ -561,6 +563,8 @@
+ \DeclareUnicodeCharacter{25E6}{\textopenbullet}
+ \DeclareUnicodeCharacter{25EF}{\textbigcircle}
+ \DeclareUnicodeCharacter{266A}{\textmusicalnote}
++\DeclareUnicodeCharacter{1E20}{\@tabacckludge=G}
++\DeclareUnicodeCharacter{1E21}{\@tabacckludge=g}
+ \endinput
+ %%
+ %% End of file `utf8enc.dfu'.
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/utf8test.tex
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/utf8test.tex
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+ \ProvidesFile{utf8-test.tex}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \documentclass{article}
+ 
+ \usepackage[latin1,utf8]{inputenc}
+--- texlive-base-2016.20170123.orig/texmf-dist/tex/latex/base/x2enc.dfu
++++ texlive-base-2016.20170123/texmf-dist/tex/latex/base/x2enc.dfu
+@@ -42,7 +42,7 @@
+ %% and covered by LPPL is defined by the unpacking scripts (with
+ %% extension .ins) which are part of the distribution.
+   \ProvidesFile{x2enc.dfu}
+-   [2016/02/28 v1.1s UTF-8 support for inputenc]
++   [2017/01/28 v1.1t UTF-8 support for inputenc]
+ \DeclareUnicodeCharacter{00A4}{\textcurrency}
+ \DeclareUnicodeCharacter{00A7}{\textsection}
+ \DeclareUnicodeCharacter{00AB}{\guillemotleft}
+--- texlive-base-2016.20170123.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2016.20170123/tlpkg/texlive.tlpdb
+@@ -127975,7 +127975,7 @@
+ 
+ name latex
+ category Package
+-revision 43024
++revision 43315
+ shortdesc A TeX macro package that defines LaTeX
+ relocated 1
+ longdesc LaTeX is a widely-used macro package for TeX, providing many
+@@ -127997,11 +127997,11 @@
+ depend pdftex
+ depend latexconfig
+ depend latex-fonts
+-containersize 168088
+-containerchecksum 11bd7e33beb59aab6621f5cf4690ffb441ca1383ff3b1342e83653d20d7e67f10f309859014c233473934480961e3759029eda259ef792b91ccb05498ed34b9a
+-doccontainersize 12540180
+-doccontainerchecksum 0aba37eaaf687abf5e09e6a6af6b8cb9aa3fddb7e18505c3ccebf475baa6553a755018a736a8b0c9008d5ec7c60ed75644d3b70adc73073f5de1639305b31242
+-docfiles size=3721
++containersize 163320
++containerchecksum d71185f558ac4802a3153497f9f05f94aff0cfb5f372cb6b569406c76a1a2040e3cf98589e5ebfe958806f7bd2ef7f2c9e27350d1163e8371c6866a0091a2f1b
++doccontainersize 12644944
++doccontainerchecksum c648e8f1fae8c8a9c948a1fd72ec75e48ee8042e4b742e0266934ad1d78bfad6bb42c931ce1170c646fc9ed178e563fd7b184f5e97005b26511642483d168d9c
++docfiles size=3765
+  RELOC/doc/latex/base/README.txt
+  RELOC/doc/latex/base/alltt.pdf
+  RELOC/doc/latex/base/bugs.txt
+@@ -128064,14 +128064,15 @@
+  RELOC/doc/latex/base/texpert.txt
+  RELOC/doc/latex/base/tlc2.err
+  RELOC/doc/latex/base/tlc2.pdf
++ RELOC/doc/latex/base/tulm.pdf
+  RELOC/doc/latex/base/usrguide.pdf
+  RELOC/doc/latex/base/usrguide.tex
+  RELOC/doc/latex/base/utf8ienc.pdf
+  RELOC/doc/latex/base/webcomp.err
+  RELOC/doc/latex/base/webcomp.pdf
+-srccontainersize 510408
+-srccontainerchecksum ce951ccadbb168e31751f36d38595ca4afc4ff11b75b0b5260ac455dee911ab038299338873eff693e506bae84e3176c8c4dfca6b1b6fa413d26d050bbdf35ff
+-srcfiles size=741
++srccontainersize 512544
++srccontainerchecksum f55375c05af703f61c282673b702de0c67e1d80229ceb2e16ee937894c788812ac04b5e711a002c918ce97d11ee46c5e82203c716a60e0993c1ba32de9990486
++srcfiles size=747
+  RELOC/source/latex/base/alltt.dtx
+  RELOC/source/latex/base/alltt.ins
+  RELOC/source/latex/base/classes.dtx
+@@ -128186,9 +128187,11 @@
+  RELOC/source/latex/base/slifonts.fdd
+  RELOC/source/latex/base/syntonly.dtx
+  RELOC/source/latex/base/syntonly.ins
++ RELOC/source/latex/base/tulm.fdd
++ RELOC/source/latex/base/tulm.ins
+  RELOC/source/latex/base/unpack.ins
+  RELOC/source/latex/base/utf8ienc.dtx
+-runfiles size=411
++runfiles size=410
+  RELOC/makeindex/latex/gglo.ist
+  RELOC/makeindex/latex/gind.ist
+  RELOC/tex/latex/base/alltt.sty
+@@ -128235,7 +128238,6 @@
+  RELOC/tex/latex/base/lablst.tex
+  RELOC/tex/latex/base/latex.ltx
+  RELOC/tex/latex/base/latex209.def
+- RELOC/tex/latex/base/latexbug.tex
+  RELOC/tex/latex/base/latexrelease.sty
+  RELOC/tex/latex/base/latexsym.sty
+  RELOC/tex/latex/base/latin1.def
+@@ -128335,9 +128337,12 @@
+  RELOC/tex/latex/base/ts1enc.def
+  RELOC/tex/latex/base/ts1enc.dfu
+  RELOC/tex/latex/base/tuenc.def
++ RELOC/tex/latex/base/tulmdh.fd
+  RELOC/tex/latex/base/tulmr.fd
+  RELOC/tex/latex/base/tulmss.fd
++ RELOC/tex/latex/base/tulmssq.fd
+  RELOC/tex/latex/base/tulmtt.fd
++ RELOC/tex/latex/base/tulmvtt.fd
+  RELOC/tex/latex/base/ucmr.fd
+  RELOC/tex/latex/base/ucmss.fd
+  RELOC/tex/latex/base/ucmtt.fd
+@@ -128348,10 +128353,10 @@
+  RELOC/tex/latex/base/utf8enc.dfu
+  RELOC/tex/latex/base/utf8test.tex
+  RELOC/tex/latex/base/x2enc.dfu
+-catalogue-date 2017-01-22 17:01:40 +0100
++catalogue-date 2017-01-25 23:33:57 +0100
+ catalogue-license lppl1.3
+ catalogue-topics format
+-catalogue-version 2017/01/01
++catalogue-version 2017/01/01 PL1
+ 
+ name latex-bib-ex
+ category Package
