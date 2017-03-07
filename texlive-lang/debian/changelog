@@ -1,3 +1,9 @@
+texlive-lang (2016.20170123-5) unstable; urgency=medium
+
+  * backport fix for wrong warnings in babel-french (Closes: #856993)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 07 Mar 2017 10:35:52 +0900
+
 texlive-lang (2016.20170123-4) unstable; urgency=medium
 
   * fix missing links for kanji-config-updmap{,-sys} (Closes: #856450)
