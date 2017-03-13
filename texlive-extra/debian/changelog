@@ -1,3 +1,9 @@
+texlive-extra (2016.20170123-5) unstable; urgency=medium
+
+  * fix Latin1 encoding in algorithm2e (Closes: #857478)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 14 Mar 2017 00:12:31 +0900
+
 texlive-extra (2016.20170123-4) unstable; urgency=medium
 
   * g-brief2.cls: correct the wrong patch for bug #840700
