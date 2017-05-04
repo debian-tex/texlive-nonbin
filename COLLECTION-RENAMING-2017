@@ -1,0 +1,21 @@
+    Some scheme/collection rearranging; discussion at thread from
+    http://tug.org/pipermail/tex-live/2017-May/040053.html.
+    
+    collection-langother: move contents of c-langafrican and c-langindic here,
+    and remove those two.
+    
+    collection-plaingeneric: new collection, comprising the previous
+    c-plainextra, c-genericextra, and c-genericrecommended, and tex4ht.
+    
+    collection-htmlxml, collection-omega: remove, constituent packages
+    mostly moved to c-formatsextra.
+    
+    collection-latexextra: gets classpack from c-htmlxml.
+    collection-latexrecommended: gets lwarp from c-htmlxml.
+    
+    scheme-full, scheme-gust, scheme-medium, scheme-text: adjust
+    dependencies such that all existing dependencies will still be satisfied.
+    
+    scheme-xml: remove, as most of these packages are old, and context has
+    its own scheme.
+
