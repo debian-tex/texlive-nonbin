@@ -6,5 +6,5 @@ usr/share/texlive/texmf-dist/scripts/tex4ht/httex.sh usr/bin/httex
 usr/share/texlive/texmf-dist/scripts/tex4ht/httexi.sh usr/bin/httexi
 usr/share/texlive/texmf-dist/scripts/tex4ht/htxelatex.sh usr/bin/htxelatex
 usr/share/texlive/texmf-dist/scripts/tex4ht/htxetex.sh usr/bin/htxetex
-usr/share/texlive/texmf-dist/scripts/tex4ht/xhtlatex.sh usr/bin/xhtlatex
+usr/share/texlive/texmf-dist/scripts/tex4ht/xhlatex.sh usr/bin/xhlatex
 usr/share/texlive/texmf-dist/scripts/tex4ht/mk4ht.pl usr/bin/mk4ht

@@ -1,3 +1,9 @@
+texlive-extra (2017.20170525-1~1) experimental; urgency=medium
+
+  * TL 2017
+
+ -- Norbert Preining <preining@debian.org>  Thu, 25 May 2017 12:20:30 +0900
+
 texlive-extra (2016.20170123-5) unstable; urgency=medium
 
   * fix Latin1 encoding in algorithm2e (Closes: #857478)
