@@ -4,7 +4,7 @@
  tlpkg/texlive.tlpdb                            |    2 
  3 files changed, 780 insertions(+), 780 deletions(-)
 
---- texlive-extra-2016.20170123.orig/texmf-dist/doc/latex/contracard/contracard.sty
+--- texlive-extra-2017.20170525.orig/texmf-dist/doc/latex/contracard/contracard.sty
 +++ /dev/null
 @@ -1,779 +0,0 @@
 -%%
@@ -787,7 +787,7 @@
 -%%
 -%% End of file `contracard.sty'.
 --- /dev/null
-+++ texlive-extra-2016.20170123/texmf-dist/tex/latex/contracard/contracard.sty
++++ texlive-extra-2017.20170525/texmf-dist/tex/latex/contracard/contracard.sty
 @@ -0,0 +1,779 @@
 +%%
 +%% This is file `contracard.sty',
@@ -1568,20 +1568,20 @@
 +%% 
 +%%
 +%% End of file `contracard.sty'.
---- texlive-extra-2016.20170123.orig/tlpkg/texlive.tlpdb
-+++ texlive-extra-2016.20170123/tlpkg/texlive.tlpdb
-@@ -59660,13 +59660,13 @@
+--- texlive-extra-2017.20170525.orig/tlpkg/texlive.tlpdb
++++ texlive-extra-2017.20170525/tlpkg/texlive.tlpdb
+@@ -61519,13 +61519,13 @@
   RELOC/doc/latex/contracard/README.md
   RELOC/doc/latex/contracard/contracard.lod
   RELOC/doc/latex/contracard/contracard.pdf details="Package documentation"
 - RELOC/doc/latex/contracard/contracard.sty
- srccontainersize 16756
- srccontainerchecksum 326f23db1b4a9db46465db95b21dd3d1a25496071adb843db6014a0bf9d7b966a0b9739080358c6d37627dfdcf3a25e4d2711b9a2e34198810cdde27b8127fe7
+ srccontainersize 16760
+ srccontainerchecksum 91ee1d9d668902ab1970150211c4d5caaec7dc11d683b697df673b6544c53f7adc0f994650482367ae4918fb104d152901dba8f53285b4b79285cb916d88ff39
  srcfiles size=20
   RELOC/source/latex/contracard/contracard.dtx
  runfiles size=1
   RELOC/tex/latex/contracard/contracard.cls
 + RELOC/tex/latex/contracard/contracard.sty
  catalogue-ctan /macros/latex/contrib/contracard
- catalogue-date 2015-08-03 05:43:12 +0200
+ catalogue-date 2016-06-24 19:18:15 +0200
  catalogue-license lppl1.3

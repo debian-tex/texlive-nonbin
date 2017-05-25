@@ -5,20 +5,20 @@ Debian bug #668779
  texmf-dist/scripts/latex2man/latex2man |    4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
---- texlive-extra-2013.20130509.orig/texmf-dist/scripts/latex2man/latex2man
-+++ texlive-extra-2013.20130509/texmf-dist/scripts/latex2man/latex2man
+--- texlive-extra-2017.20170525.orig/texmf-dist/scripts/latex2man/latex2man
++++ texlive-extra-2017.20170525/texmf-dist/scripts/latex2man/latex2man
 @@ -29,8 +29,6 @@
- $VERSION = "1.24";
- $DATE    = date2str ('$Date: 2010/12/22 12:44:30 $' =~ m|(\d+/\d+/\d+)|);
+ $VERSION = "1.25";
+ $DATE    = date2str ('$Date: 2017/04/13 14:25:56 $' =~ m|(\d+/\d+/\d+)|);
  
 -$tmp = "/tmp/$CMD.$$";
 -
  ##################################################################
  # check option and arguments
  ##################################################################
-@@ -124,6 +122,8 @@
- $DestFile = $ARGV[1];
- open (SRC,  "<$SrcFile")  || die "$CMD: Can't open file \`$SrcFile' for reading.\n";
+@@ -2012,6 +2010,8 @@
+ 
+ open (my $SRC, "<$SrcFile") || die "$CMD: Can't open file \`$SrcFile' for reading.\n";
  if ($opt_H || $opt_T) {
 +    $tmp = `mktemp` || die;
 +    chomp $tmp;

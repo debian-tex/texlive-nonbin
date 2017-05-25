@@ -3,8 +3,8 @@
  texmf-dist/scripts/texlive/tlmgr.pl |   50 +++---------------------------------
  2 files changed, 7 insertions(+), 45 deletions(-)
 
---- texlive-base-2016.20160719.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2016.20160719/texmf-dist/scripts/texlive/tlmgr.pl
+--- texlive-base-2017.20170525.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2017.20170525/texmf-dist/scripts/texlive/tlmgr.pl
 @@ -20,7 +20,7 @@
  $tlmgrrevision .= " ($datrev)";
  
@@ -66,7 +66,7 @@
    $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
  
    # make Perl find our packages first:
-@@ -391,6 +348,9 @@
+@@ -396,6 +353,9 @@
  
    GetOptions(\%opts, keys(%optarg)) or pod2usage(2);
  
@@ -76,8 +76,8 @@
    $::debug_translation = 0;
    $::debug_translation = 1 if $opts{"debug-translation"};
  
---- texlive-base-2016.20160719.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2016.20160719/texmf-dist/doc/man/man1/tlmgr.1
+--- texlive-base-2017.20170525.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2017.20170525/texmf-dist/doc/man/man1/tlmgr.1
 @@ -150,6 +150,8 @@
  <http://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.

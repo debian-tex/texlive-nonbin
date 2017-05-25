@@ -12,17 +12,11 @@ fix-scripts
 # debian internal stuff
 dvips-config-paper-factorization
 dvipdfmx-config-paper-factorization
-# is done by copying pdftexconfig.tex to /etc/texmf...
-#pdftex-config-paper-factorization
 xdvi-config-paper-factorization
 # debian internal, location of modules is different
 debian_updmap-search-path
 debian-updmap-man
-# TODO adaption to new fmtutil.pl ???
-#debian-fmtutil-adaptions
-#fmtutil_keep_failedlog
-#set-e-fmtutil
-debian-texconfig-adaptions
+#debian-texconfig-adaptions
 texdoc-see-and-zip
 fix-natbib-add-spaces
 upstream_fix_babel_french_days
@@ -33,7 +27,4 @@ mptopdf-manpage-fixes
 # fix-listings-bug
 pgf-tex4ht-fix
 texdoctk-colors
-upstream-latex-patchlevel1
-upstream-fontspec-2.6
 oberdiek-fix-boxdraw
-upstream-latex-patchlevel3

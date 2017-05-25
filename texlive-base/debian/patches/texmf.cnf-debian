@@ -2,8 +2,8 @@
  texmf-dist/web2c/texmf.cnf |   49 +++++++++++----------------------------------
  1 file changed, 13 insertions(+), 36 deletions(-)
 
---- texlive-base-2016.20160416.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2016.20160416/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2017.20170525.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2017.20170525/texmf-dist/web2c/texmf.cnf
 @@ -54,7 +54,7 @@
  % Redistributors will probably want $SELFAUTODIR/share, i.e., /usr/share.
  % Kpathsea sets SELFAUTOLOC (the directory with the binary),
@@ -34,32 +34,32 @@
  
  % Per-user texmf tree(s) -- organized per the TDS, as usual.  To define
  % more than one per-user tree, set this to a list of directories in
-@@ -94,7 +97,7 @@
- % should take precedence over distribution files -- although it is
- % generally a source of confusion to have different versions of a
- % package installed, whatever the trees, so try to avoid it.
--TEXMF = {$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFLOCAL,!!$TEXMFDIST}
-+TEXMF = {$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFLOCAL,!!$TEXMFDEBIAN,!!$TEXMFDIST}
+@@ -103,7 +106,7 @@
+ % The odd-looking $TEXMFAUXTREES$TEXMF... construct is so that if no auxtree is
+ % ever defined (the 99% common case), no extra elements will be added to
+ % the search paths. tlmgr takes care to end any value with a trailing comma.
+-TEXMF = {$TEXMFAUXTREES$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFDIST}
++TEXMF = {$TEXMFAUXTREES$TEXMFCONFIG,$TEXMFVAR,$TEXMFHOME,!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFDEBIAN,!!$TEXMFDIST}
  
  % Where to look for ls-R files.  There need not be an ls-R in the
  % directories in this path, but if there is one, Kpathsea will use it.
-@@ -102,13 +105,13 @@
+@@ -111,13 +114,13 @@
  % does not create ls-R files in the non-!! elements -- because if an
  % ls-R is present, it will be used, and the disk will not be searched.
  % This is arguably a bug in kpathsea.
--TEXMFDBS = {!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFLOCAL,!!$TEXMFDIST}
-+TEXMFDBS = {!!$TEXMFSYSVAR,!!$TEXMFLOCAL,!!$TEXMFDEBIAN,!!$TEXMFDIST}
+-TEXMFDBS = {!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFDIST}
++TEXMFDBS = {!!$TEXMFLOCAL,!!$TEXMFSYSCONFIG,!!$TEXMFSYSVAR,!!$TEXMFDEBIAN,!!$TEXMFDIST}
  
  % The system trees.  These are the trees that are shared by all users.
  % If a tree appears in this list, the mktex* scripts will use
  % VARTEXFONTS for generated files, if the original tree isn't writable;
  % otherwise the current working directory is used.
 -SYSTEXMF = $TEXMFSYSVAR;$TEXMFLOCAL;$TEXMFDIST
-+SYSTEXMF = $TEXMFSYSVAR;$TEXMFLOCAL;$TEXMFDEBIAN;$TEXMFDIST
++SYSTEXMF = $TEXMFSYSVAR;$TEXMFLOCAL;$TEXMFDIST;$TEXMFDEBIAN
  
  % First writable tree here is used by Lua(La)TeX for the font cache.
  % LuaLaTeX uses the value here, while ConTeXt uses the same variable but
-@@ -119,7 +122,7 @@
+@@ -128,7 +131,7 @@
  % Where generated fonts may be written.  This tree is used when the sources
  % were found in a system tree and either that tree wasn't writable, or the
  % varfonts feature was enabled in MT_FEATURES in mktex.cnf.
@@ -68,7 +68,7 @@
  
  % On some systems, there will be a system tree which contains all the font
  % files that may be created as well as the formats.  For example
-@@ -333,7 +336,7 @@
+@@ -343,7 +346,7 @@
  % OSFONTDIR is to provide a convenient hook for allowing TeX to find
  % fonts installed on the system (outside of TeX).  An empty default
  % value would add "//" to the search paths, so we give it a dummy value.
@@ -77,7 +77,7 @@
  
  % PostScript Type 1 outline fonts.
  T1FONTS = .;$TEXMF/fonts/type1//;$OSFONTDIR//
-@@ -489,33 +492,7 @@
+@@ -503,33 +506,7 @@
  % since we don't want to scatter ../'s throughout the value.  Hence we
  % explicitly list every directory.  Arguably more understandable anyway.
  %

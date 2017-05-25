@@ -9,5 +9,5 @@ fix-algorithm2e
 sympytex-path
 fix-gbrief-multiple
 upstream-fix-contracard
-upstream-glossaries-extra-infinite-loop
+#upstream-glossaries-extra-infinite-loop
 fix-algorithm2e-latin1
