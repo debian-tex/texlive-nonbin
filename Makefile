@@ -122,7 +122,7 @@ packages:
 alltests: installtests stable-tests testing-tests sid-tests
 
 installtests:
-	-for i in pool/*.deb ; do \
+	-for i in `ls pool/*.deb | grep -v dbgsym`; do \
 		debname=`basename $$i` ;				\
 		debname=`echo $$debname | sed -e 's/_201.*\.deb//'` ;	\
 		echo $$debname ... ;					\
@@ -130,7 +130,7 @@ installtests:
 	done
 
 simpleinstalltests:
-	-for i in pool/*.deb ; do \
+	-for i in `ls pool/*.deb | grep -v dbgsym`; do \
 		debname=`basename $$i` ;				\
 		debname=`echo $$debname | sed -e 's/_201.*\.deb//'` ;	\
 		echo $$debname ... ;					\
