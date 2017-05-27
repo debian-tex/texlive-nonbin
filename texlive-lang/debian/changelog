@@ -1,8 +1,8 @@
-texlive-lang (2017.20170525-1~1) experimental; urgency=medium
+texlive-lang (2017.20170525-1) experimental; urgency=medium
 
   * TL 2017
 
- -- Norbert Preining <preining@debian.org>  Thu, 25 May 2017 12:20:38 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 27 May 2017 11:03:54 +0900
 
 texlive-lang (2016.20170123-5) unstable; urgency=medium
 
