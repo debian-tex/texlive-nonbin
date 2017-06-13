@@ -1,3 +1,9 @@
+texlive-lang (2017.20170613-1) experimental; urgency=medium
+
+  * first post 2017 checkout with all the updates since the freeze
+
+ -- Norbert Preining <preining@debian.org>  Tue, 13 Jun 2017 10:00:08 +0900
+
 texlive-lang (2017.20170525-1) experimental; urgency=medium
 
   * TL 2017
