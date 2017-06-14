@@ -1,8 +1,8 @@
-texlive-extra (2017.20170613-2) UNRELEASED; urgency=medium
+texlive-extra (2017.20170614-1) experimental; urgency=medium
 
   * add missing dep on tl-fonts-recommended (Closes: #864744)
 
- -- Norbert Preining <preining@debian.org>  Wed, 14 Jun 2017 08:26:17 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 14 Jun 2017 12:09:52 +0900
 
 texlive-extra (2017.20170613-1) experimental; urgency=medium
 

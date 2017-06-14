@@ -2,7 +2,7 @@ texlive-base (2017.20170614-1) experimental; urgency=medium
 
   * new upstream checkout - fix for broken dvipdmfx.def (Closes: #864750)
 
- -- Norbert Preining <preining@debian.org>  Wed, 14 Jun 2017 08:34:23 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 14 Jun 2017 12:09:43 +0900
 
 texlive-base (2017.20170613-1) experimental; urgency=medium
 
