@@ -4,6 +4,12 @@ texlive-lang (2017.20170619-1) unstable; urgency=medium
 
  -- Norbert Preining <preining@debian.org>  Mon, 19 Jun 2017 17:07:15 +0900
 
+texlive-lang (2017.20170614-1) experimental; urgency=medium
+
+  * new checkout
+
+ -- Norbert Preining <preining@debian.org>  Wed, 14 Jun 2017 12:10:17 +0900
+
 texlive-lang (2017.20170613-1) experimental; urgency=medium
 
   * first post 2017 checkout with all the updates since the freeze
