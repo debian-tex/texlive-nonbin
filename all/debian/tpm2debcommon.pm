@@ -602,6 +602,19 @@ sub read_one_config_file {
 			$Config{'breaks'}{$a} = [ @{$Config{'breaks'}{$a}}, split(/[ \t]*,[ \t]*/,$b) ];
 			next;
 		}
+		if ($type eq "filemove") {
+			my ($b,$v) = @rest;
+			$opt_debug && print STDERR "b=$b.\n";
+			# file movement from package A to package B
+			# filemove;A;B;VERSION
+			# see https://wiki.debian.org/PackageTransition
+			# in A: breaks B (<< V)
+			# in B: breaks A (<< V)
+			#       replaces A (<< V)
+			$Config{'breaks'}{$a} = [ @{$Config{'breaks'}{$a}}, "$b (<< $v)" ];
+			$Config{'replaces'}{$a} = [ @{$Config{'replaces'}{$a}}, "$b (<< $v)" ];
+			$Config{'breaks'}{$b} = [ @{$Config{'breaks'}{$b}}, "$a (<< $v)" ];
+		}
 		if ($type eq "execute") {
 			my ($b) = @rest;
 			$opt_debug && print STDERR  "b=$b.\n";
