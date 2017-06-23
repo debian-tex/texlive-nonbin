@@ -1,3 +1,10 @@
+texlive-base (2017.201706NN-1) UNRELEASED; urgency=medium
+
+  * new upstream checkout
+    - graphics driver file use private version of space (Closes: #865323)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 23 Jun 2017 09:54:42 +0900
+
 texlive-base (2017.20170619-1) unstable; urgency=medium
 
   * new checkout and upload to unstable
