@@ -614,6 +614,7 @@ sub read_one_config_file {
 			$Config{'breaks'}{$a} = [ @{$Config{'breaks'}{$a}}, "$b (<< $v)" ];
 			$Config{'replaces'}{$a} = [ @{$Config{'replaces'}{$a}}, "$b (<< $v)" ];
 			$Config{'breaks'}{$b} = [ @{$Config{'breaks'}{$b}}, "$a (<< $v)" ];
+			next;
 		}
 		if ($type eq "execute") {
 			my ($b) = @rest;
