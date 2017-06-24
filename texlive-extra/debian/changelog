@@ -1,8 +1,9 @@
-texlive-extra (2017.20170619-3) UNRELEASED; urgency=medium
+texlive-extra (2017.20170623-1) unstable; urgency=medium
 
+  * new upstream checkout
   * leipzig moved from tl-humanities to tl-latex-extra (Closes: #865207)
 
- -- Norbert Preining <preining@debian.org>  Tue, 20 Jun 2017 08:25:03 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 23 Jun 2017 23:00:30 +0900
 
 texlive-extra (2017.20170619-2) unstable; urgency=medium
 
