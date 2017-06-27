@@ -611,9 +611,9 @@ sub read_one_config_file {
 			# in A: breaks B (<< V)
 			# in B: breaks A (<< V)
 			#       replaces A (<< V)
-			$Config{'breaks'}{$a} = [ @{$Config{'breaks'}{$a}}, "$b (<< $v)" ];
-			$Config{'replaces'}{$a} = [ @{$Config{'replaces'}{$a}}, "$b (<< $v)" ];
 			$Config{'breaks'}{$b} = [ @{$Config{'breaks'}{$b}}, "$a (<< $v)" ];
+			$Config{'replaces'}{$b} = [ @{$Config{'replaces'}{$b}}, "$a (<< $v)" ];
+			$Config{'breaks'}{$a} = [ @{$Config{'breaks'}{$a}}, "$b (<< $v)" ];
 			next;
 		}
 		if ($type eq "execute") {
