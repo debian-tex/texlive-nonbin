@@ -4,8 +4,9 @@ texlive-extra (2017.20170722-1) unstable; urgency=medium
   * tl-extra-utils depends on libunicode-linebreak-perl (Closes: #868012)
   * tl-science depends on tl-lang-greek for lgrenc.def (Closes: #778917)
   * update patches
+  * switch from ttf-adf-* to fonts-adf-* (Closes: #868939)
 
- -- Norbert Preining <preining@debian.org>  Sat, 22 Jul 2017 21:24:26 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 23 Jul 2017 08:29:24 +0900
 
 texlive-extra (2017.20170629-1) unstable; urgency=medium
 
