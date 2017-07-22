@@ -1,3 +1,13 @@
+texlive-base (2017.20170722-1) unstable; urgency=medium
+
+  * new upstream checkout
+    - new fancyhdr fixes extramarks (Closes: #869078)
+    - fixes for fontenc/polyglossia (Closes: #672742)
+  * make TEXMFSYSCONFIG (/etc/texmf) searchable without ls-R
+    (Closes: #869185)
+
+ -- Norbert Preining <preining@debian.org>  Sat, 22 Jul 2017 19:24:11 +0900
+
 texlive-base (2017.20170629-1) unstable; urgency=medium
 
   * new upstream checkout
