@@ -3,11 +3,7 @@ ulqda-use-digest-sha
 latex2man-mktemp
 tmp-dir-for-pdfjam
 fix-invoice.sty
-#epstopdf-remove-pswrite
 fix-perl522-noise
-fix-algorithm2e
 sympytex-path
 fix-gbrief-multiple
 upstream-fix-contracard
-#upstream-glossaries-extra-infinite-loop
-fix-algorithm2e-latin1

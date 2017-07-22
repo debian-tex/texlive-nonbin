@@ -4,7 +4,7 @@
  tlpkg/texlive.tlpdb                            |    2 
  3 files changed, 780 insertions(+), 780 deletions(-)
 
---- texlive-extra-2017.20170525.orig/texmf-dist/doc/latex/contracard/contracard.sty
+--- texlive-extra-2017.20170722.orig/texmf-dist/doc/latex/contracard/contracard.sty
 +++ /dev/null
 @@ -1,779 +0,0 @@
 -%%
@@ -787,7 +787,7 @@
 -%%
 -%% End of file `contracard.sty'.
 --- /dev/null
-+++ texlive-extra-2017.20170525/texmf-dist/tex/latex/contracard/contracard.sty
++++ texlive-extra-2017.20170722/texmf-dist/tex/latex/contracard/contracard.sty
 @@ -0,0 +1,779 @@
 +%%
 +%% This is file `contracard.sty',
@@ -1568,9 +1568,9 @@
 +%% 
 +%%
 +%% End of file `contracard.sty'.
---- texlive-extra-2017.20170525.orig/tlpkg/texlive.tlpdb
-+++ texlive-extra-2017.20170525/tlpkg/texlive.tlpdb
-@@ -61519,13 +61519,13 @@
+--- texlive-extra-2017.20170722.orig/tlpkg/texlive.tlpdb
++++ texlive-extra-2017.20170722/tlpkg/texlive.tlpdb
+@@ -62436,13 +62436,13 @@
   RELOC/doc/latex/contracard/README.md
   RELOC/doc/latex/contracard/contracard.lod
   RELOC/doc/latex/contracard/contracard.pdf details="Package documentation"
