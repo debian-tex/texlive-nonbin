@@ -1,4 +1,4 @@
-texlive-extra (2017.20170722-1) unstable; urgency=medium
+texlive-extra (2017.20170724-1) unstable; urgency=medium
 
   * new upstream checkout
   * tl-extra-utils depends on libunicode-linebreak-perl (Closes: #868012)
@@ -6,7 +6,7 @@ texlive-extra (2017.20170722-1) unstable; urgency=medium
   * update patches
   * switch from ttf-adf-* to fonts-adf-* (Closes: #868939)
 
- -- Norbert Preining <preining@debian.org>  Sun, 23 Jul 2017 08:29:24 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 24 Jul 2017 08:02:09 +0900
 
 texlive-extra (2017.20170629-1) unstable; urgency=medium
 
