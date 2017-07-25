@@ -1,8 +1,9 @@
 texlive-base (2017.20170724-2) UNRELEASED; urgency=medium
 
   * texdoctk: warn on missing perl-tk (Closes: #622403)
+    This also fixes the problem with startup (Closes: #836441)
 
- -- Norbert Preining <preining@debian.org>  Tue, 25 Jul 2017 10:00:04 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 25 Jul 2017 10:32:27 +0900
 
 texlive-base (2017.20170724-1) unstable; urgency=medium
 
