@@ -1,3 +1,10 @@
+texlive-extra (2017.20170801-1) unstable; urgency=medium
+
+  * new upstream checkout: The Long Dark release
+    - fixes media9 errors
+
+ -- Norbert Preining <preining@debian.org>  Tue, 01 Aug 2017 16:07:37 +0900
+
 texlive-extra (2017.20170724-1) unstable; urgency=medium
 
   * new upstream checkout
