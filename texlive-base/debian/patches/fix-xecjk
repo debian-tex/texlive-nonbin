@@ -1,0 +1,15 @@
+add missing def of a boolean, thanks Alexis Bienvenüe (Closes: #870280)
+---
+ texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty |    1 +
+ 1 file changed, 1 insertion(+)
+
+--- texlive-base-2017.20170801.orig/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
++++ texlive-base-2017.20170801/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
+@@ -157,6 +157,7 @@
+     \int_add:Nn \lst@length { #1 - \c_one }
+     \lst@Append #2
+   }
++\bool_new:N \l__xeCJK_listings_letter_bool
+ \cs_new_protected_nopar:Npn \__xeCJK_listings_process_letter:nN
+   {
+     \lst@whitespacefalse
