@@ -1,6 +1,6 @@
-texlive-base (2017.20170808-1) UNRELEASED; urgency=medium
+texlive-base (2017.20170808-1) unstable; urgency=medium
 
-  [ gregor herrmann ]
+  [ Gregor Herrmann ]
   * Fix "Unescaped left brace in regex is deprecated":
     add patch thumbpdf-unescaped-left-brace to fix unescaped literal curly.
     (Closes: #826465)
@@ -9,7 +9,7 @@ texlive-base (2017.20170808-1) UNRELEASED; urgency=medium
   * new upstream checkout
     - new xecjk fixes undefined boolean (Closes: #870280)
 
- -- Norbert Preining <preining@debian.org>  Tue, 08 Aug 2017 10:17:24 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 08 Aug 2017 10:32:11 +0900
 
 texlive-base (2017.20170801-1) unstable; urgency=medium
 

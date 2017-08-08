@@ -1,3 +1,14 @@
+texlive-extra (2017.20170808-1) unstable; urgency=medium
+
+  [ Gregor Herrmann ]
+  * Fix "Unescaped left brace in regex is deprecated" in latex2man
+    (Closes: #871159)
+
+  [ Norbert Preining ]
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Tue, 08 Aug 2017 10:32:01 +0900
+
 texlive-extra (2017.20170801-1) unstable; urgency=medium
 
   * new upstream checkout: The Long Dark release
