@@ -1,3 +1,15 @@
+texlive-base (2017.20170808-1) UNRELEASED; urgency=medium
+
+  [ gregor herrmann ]
+  * Fix "Unescaped left brace in regex is deprecated":
+    add patch thumbpdf-unescaped-left-brace to fix unescaped literal curly.
+    (Closes: #826465)
+
+  [ Norbert Preining ]
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Tue, 08 Aug 2017 09:33:33 +0900
+
 texlive-base (2017.20170801-1) unstable; urgency=medium
 
   * new upstream checkout: The Long Dark release!

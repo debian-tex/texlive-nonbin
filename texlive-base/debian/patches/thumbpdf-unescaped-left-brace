@@ -1,0 +1,18 @@
+Description: Fix "Unescaped left brace in regex is illegal here in regex" error
+Origin: vendor
+Bug-Debian: https://bugs.debian.org/826465
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2017-08-07
+
+--- a/texmf-dist/scripts/thumbpdf/thumbpdf.pl
++++ b/texmf-dist/scripts/thumbpdf/thumbpdf.pl
+@@ -1453,7 +1453,7 @@
+         my $length = $thumblength[$i];
+         my $dict = $objtext[$thumbobj[$i]];
+         $dict =~ s/\\the\\pdflastobj\\\s*\d+\s*R/{RGB_$i}/;
+-        $dict =~ s/\\UseRGB{(\d+)}\\\s*\d+\s*R/{RGB_$1}/;
++        $dict =~ s/\\UseRGB\{(\d+)}\\\s*\d+\s*R/{RGB_$1}/;
+         $dict =~ s/\/Length\s+\d+\s*//;
+         $dict =~ s/^\s+//;
+         $dict =~ s/\s+$//;
