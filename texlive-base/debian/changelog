@@ -7,9 +7,8 @@ texlive-base (2017.20170808-1) UNRELEASED; urgency=medium
 
   [ Norbert Preining ]
   * new upstream checkout
-  * xecjk: add missing def, thanks Alexis Bienvenüe (Closes: #870280)
 
- -- Norbert Preining <preining@debian.org>  Tue, 08 Aug 2017 10:10:39 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 08 Aug 2017 09:33:33 +0900
 
 texlive-base (2017.20170801-1) unstable; urgency=medium
 
