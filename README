@@ -343,6 +343,17 @@ blacklist;file;<origfilename>
 	file name in UPSTREAM source (as listed in tpm files).
 	It is a perl regexp!!!! 
 	Otherwise works as above.
+kill;<origfilename>
+	included in .orig.tar.gz
+	not installed 
+ignore;<origfilename>
+	included in .orig.tar
+	not installed
+	BUT post actions done!
+notinorig;<origfilename>
+	not included in .orig.tar
+	BUT installed
+	needs to be build in a different way (currently only tex4ht.jar!)
 special;<filename>;<tag>
 	currently only allowed for <tag> is "install-info"
 	which installs the file <filename> via pkg.info and dh_installinfo

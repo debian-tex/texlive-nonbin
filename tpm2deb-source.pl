@@ -254,6 +254,10 @@ sub make_orig_tar {
 	for my $f (@{$TeXLive{'all'}{'file_blacklist'}}) {
 		`rm -f \"$texlivedest/$f\"`;
 	}
+	# remove those files that should not appear in the .orig but might still be installed
+	for my $f (@{$TeXLive{'all'}{'notinorig'}}) {
+		`rm -f \"$texlivedest/$f\"`;
+	}
 	# remove binary files
 	`rm -rf \"$texlivedest/bin\"`;
 	#
@@ -413,6 +417,11 @@ sub make_deb_source {
 	if ($sourcedone) {
 		print "Reusing $oldorig file for source package building!\n";
 		system("tar -xf $oldorig") == 0 or die("Error untarring");
+		if ($package eq "texlive-extra") {
+		  my $extraorig = $oldorig;
+		  $extraorig =~ s/\.orig\./\.orig-tex4ht\./;
+		  system("mkdir ${package}-${version}/tex4ht && tar -C ${package}-${version}/tex4ht -xf $extraorig") == 0 or die("Cannot untar $extraorig, missing?");
+		}
 	} else {
 		die("Please create a .orig.tar.xz first!\n");
 	}

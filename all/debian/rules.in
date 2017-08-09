@@ -14,6 +14,12 @@ build-arch: build-stamp
 build-indep: build-stamp
 
 build-stamp:
+ifelse(_srcpackage_,texlive-extra,<:
+	mkdir tex4ht-java
+	mkdir -p texmf-dist/tex4ht/bin
+	cd tex4ht ; javac *.java */*.java */*/*.java -d ../tex4ht-java
+	cd tex4ht-java ; jar cvf ../texmf-dist/tex4ht/bin/tex4ht.jar .
+:>)
 	touch build-stamp
 
 clean: 
@@ -25,6 +31,9 @@ clean:
 	done
 ifelse(_srcpackage_,texlive-base,<:
 	rm -f debian/texlive-base.cnf
+:>)
+ifelse(_srcpackage_,texlive-extra,<:
+	rm -rf tex4ht-java texmf-dist/tex4ht/bin/tex4ht.jar
 :>)
 	# texlive contains some .orig files we need to keep otherwise
 	# the copy will fail due to the files occurring in the tlpdb

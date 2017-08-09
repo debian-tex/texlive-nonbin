@@ -1,3 +1,10 @@
+texlive-extra (2017.20170809-1) unstable; urgency=medium
+
+  * include tex4ht jar building from texlive-binaries to allow
+    for bootstrapping of texlive-binaries
+
+ -- Norbert Preining <preining@debian.org>  Wed, 09 Aug 2017 14:33:53 +0900
+
 texlive-extra (2017.20170808-1) unstable; urgency=medium
 
   [ Gregor Herrmann ]

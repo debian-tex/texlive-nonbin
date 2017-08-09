@@ -636,6 +636,10 @@ sub read_one_config_file {
 			push @{$TeXLive{'all'}{'kill'}}, $a;
 			next;
 		}
+		if ($type eq "notinorig") {
+			push @{$TeXLive{'all'}{'notinorig'}}, $a;
+			next;
+		}
 		if ($type eq "blacklist") {
 			if ($a eq "file") {
 				my ($b) = @rest;
