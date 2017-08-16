@@ -2,8 +2,10 @@ texlive-base (2017.20170808-2) UNRELEASED; urgency=medium
 
   * remove texlive-math-extra configuration files as this package
     is gone (Closes: #870216)
+  * Take over prosper into texlive-latex-extra, provide a
+    transitional package (Closes: #840890)
 
- -- Norbert Preining <preining@debian.org>  Tue, 15 Aug 2017 10:54:07 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 16 Aug 2017 18:14:27 +0900
 
 texlive-base (2017.20170808-1) unstable; urgency=medium
 
