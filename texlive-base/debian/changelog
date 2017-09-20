@@ -1,4 +1,4 @@
-texlive-base (2017.20170816-1) unstable; urgency=medium
+texlive-base (2017.20170818-1) unstable; urgency=medium
 
   * new upstream checkout
   * remove texlive-math-extra configuration files as this package
@@ -6,7 +6,7 @@ texlive-base (2017.20170816-1) unstable; urgency=medium
   * Take over prosper into texlive-latex-extra, provide a
     transitional package (Closes: #840890)
 
- -- Norbert Preining <preining@debian.org>  Thu, 17 Aug 2017 00:30:39 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 18 Aug 2017 11:46:06 +0900
 
 texlive-base (2017.20170808-1) unstable; urgency=medium
 

@@ -1,10 +1,10 @@
-texlive-extra (2017.20170816-1) unstable; urgency=medium
+texlive-extra (2017.20170818-1) unstable; urgency=medium
 
   * new upstream checkout
   * conflict against old texlive-math-extra packages that should not
     be installed (Closes: #872013)
 
- -- Norbert Preining <preining@debian.org>  Thu, 17 Aug 2017 00:34:20 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 18 Aug 2017 11:46:12 +0900
 
 texlive-extra (2017.20170809-1) unstable; urgency=medium
 

@@ -1,8 +1,8 @@
-texlive-lang (2017.20170816-1) unstable; urgency=medium
+texlive-lang (2017.20170818-1) unstable; urgency=medium
 
   * new upstream checkout
 
- -- Norbert Preining <preining@debian.org>  Thu, 17 Aug 2017 00:31:10 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 18 Aug 2017 11:46:17 +0900
 
 texlive-lang (2017.20170808-1) unstable; urgency=medium
 
