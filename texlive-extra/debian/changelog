@@ -1,3 +1,11 @@
+texlive-extra (2017.20170921-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * fix lt3graph and pkgloader for newer expl3 (Closes: #876323, #876325)
+    thanks Caraffini Diego for the patches
+
+ -- Norbert Preining <preining@debian.org>  Thu, 21 Sep 2017 14:41:06 +0900
+
 texlive-extra (2017.20170818-1) unstable; urgency=medium
 
   * new upstream checkout
