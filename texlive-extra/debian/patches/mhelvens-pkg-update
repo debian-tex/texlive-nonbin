@@ -1,0 +1,57 @@
+fixes for packages from https://github.com/mhelvens to adjust to new expl3
+Patches by Caraffini Diego, submitted upstream
+Closes: #876323 and #876325
+---
+ texmf-dist/tex/latex/lt3graph/lt3graph.sty   |    6 +++---
+ texmf-dist/tex/latex/pkgloader/pkgloader.sty |    4 ++--
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+--- texlive-extra-2017.20170920.orig/texmf-dist/tex/latex/lt3graph/lt3graph.sty
++++ texlive-extra-2017.20170920/texmf-dist/tex/latex/lt3graph/lt3graph.sty
+@@ -48,7 +48,7 @@
+ %    \begin{macrocode}
+ \NeedsTeXFormat{LaTeX2e}
+ \RequirePackage{expl3}
+-\ProvidesExplPackage{lt3graph}{2017/01/05}{0.1.8}
++\ProvidesExplPackage{lt3graph}{2017/09/20}{0.1.8a}
+   {a LaTeX3 datastructure for representing directed graphs with data}
+ %    \end{macrocode}
+ %
+@@ -1226,7 +1226,7 @@
+   % #6: ptr to edge value (not used)
+   \str_if_eq:nnT {#2} {#4} {
+     \__graph_map_successors_tokens_aux:nnv
+-        {#3} {#5} {\prop_get:cn{\__graph_tl:nnn{graph}{#1}{vertices}}{#5}}
++        {#3} {#5} {\prop_item:cn{\__graph_tl:nnn{graph}{#1}{vertices}}{#5}}
+   }
+ }
+ \cs_new:Nn \__graph_map_successors_tokens_aux:nnn {
+@@ -1275,7 +1275,7 @@
+   % #6: ptr to edge value (not used)
+   \str_if_eq:nnT {#2} {#4} {
+     \__graph_map_successors_function_aux:Nnv
+-        #3 {#5} {\prop_get:cn{\__graph_tl:nnn{graph}{#1}{vertices}}{#5}}
++        #3 {#5} {\prop_item:cn{\__graph_tl:nnn{graph}{#1}{vertices}}{#5}}
+   }
+ }
+ \cs_new:Nn \__graph_map_successors_function_aux:Nnn {
+--- texlive-extra-2017.20170920.orig/texmf-dist/tex/latex/pkgloader/pkgloader.sty
++++ texlive-extra-2017.20170920/texmf-dist/tex/latex/pkgloader/pkgloader.sty
+@@ -48,7 +48,7 @@
+ %    \begin{macrocode}
+ \NeedsTeXFormat{LaTeX2e}
+ \RequirePackage{expl3}
+-\ProvidesExplPackage{pkgloader}{2014/11/30}{0.5.0}
++\ProvidesExplPackage{pkgloader}{2017/09/20}{0.5.0a}
+   {managing the options and loading order of LaTeX packages}
+ %    \end{macrocode}
+ %
+@@ -844,7 +844,7 @@
+ %  filenames from their four character extension:
+ %  
+ %    \begin{macrocode}
+-\cs_new:Nn \__pkgloader_strip_extension:f {
++\cs_new:Npn \__pkgloader_strip_extension:f #1 {
+   \tl_reverse:f{
+     \tl_tail:f{\tl_tail:f{\tl_tail:f{\tl_tail:f{
+       \tl_reverse:n{#1}
