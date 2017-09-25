@@ -1,0 +1,20 @@
+---
+ texmf-dist/doc/generic/xypic/Xy-pic.html |    7 -------
+ 1 file changed, 7 deletions(-)
+
+--- texlive-base-2017.20170925.orig/texmf-dist/doc/generic/xypic/Xy-pic.html
++++ texlive-base-2017.20170925/texmf-dist/doc/generic/xypic/Xy-pic.html
+@@ -234,13 +234,6 @@
+ <a href="http://www.krisrose.net/">Kristoffer H&oslash;gsbro Rose</a>
+ &mdash;
+ $Id: Xy-pic.html,v 3.38 2013/10/02 02:04:28 krisrose Exp $
+-&mdash;
+-Hits by
+-<A HREF="http://www.digits.com/thumbnail/"><IMG
+- ALT=WebCounter SRC="http://www.digits.com/thumbnail/wc-01.gif"
+- WIDTH=79 HEIGHT=22 BORDER=1 ALIGN=absmiddle></A>:
+-<IMG SRC="http://counter.digits.com/wc/-c/13/-d/5/-f/000000/-b/bebebe/Xy-pic"
+- ALIGN=absmiddle WIDTH=75 HEIGHT=20 BORDER=0 ALT=Count>.
+ </address>
+ </body></html>
+ 
