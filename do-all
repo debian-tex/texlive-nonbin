@@ -5,7 +5,7 @@ bash do-one texlive-base 2>&1 > texlive-base.build.log &
 wait
 
 mkdir -p pool
-mv *.deb *.orig.tar.* *.debian.tar.* *.dsc *.changes *.buildinfo pool/
+mv *.deb *.orig*.tar.* *.debian.tar.* *.dsc *.changes *.buildinfo pool/
 mkdir -p log
 mv *.log log/
 
