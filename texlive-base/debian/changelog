@@ -2,8 +2,10 @@ texlive-base (2017.20171003-1) UNRELEASED; urgency=medium
 
   * new upstream checkout
     - move ucharcat to texlive-latex-recommended (Closes: #876756)
+  * update scripts.lst, recover many missing binary links
+    (in particular fmtutil-user and updmap-user)
 
- -- Norbert Preining <preining@debian.org>  Tue, 03 Oct 2017 08:10:20 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 03 Oct 2017 08:12:13 +0900
 
 texlive-base (2017.20170926-1) unstable; urgency=medium
 
