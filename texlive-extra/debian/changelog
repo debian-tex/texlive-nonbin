@@ -1,3 +1,10 @@
+texlive-extra (2017.201710XX-1) UNRELEASED; urgency=medium
+
+  * new upstream checkout
+    - fixes pstricks not loadable in plain tex (Closes: #877682)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 04 Oct 2017 21:18:41 +0900
+
 texlive-extra (2017.20171004-1) unstable; urgency=medium
 
   * new upstream checkout
