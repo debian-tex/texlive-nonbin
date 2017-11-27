@@ -1,8 +1,9 @@
-texlive-base (2017.20171031-2) UNRELEASED; urgency=medium
+texlive-base (2017.20171128-1) unstable; urgency=medium
 
+  * new upstream checkout
   * add missing replaces (see also #880901)
 
- -- Norbert Preining <preining@debian.org>  Mon, 06 Nov 2017 09:03:53 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 28 Nov 2017 08:50:56 +0900
 
 texlive-base (2017.20171031-1) unstable; urgency=medium
 
