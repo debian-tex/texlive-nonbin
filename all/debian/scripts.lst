@@ -47,8 +47,10 @@ convbkmk/convbkmk.rb
 crossrefware/bbl2bib.pl
 crossrefware/bibdoiadd.pl
 crossrefware/bibmradd.pl
+crossrefware/biburl2doi.pl
 crossrefware/bibzbladd.pl
 crossrefware/ltx2crossrefxml.pl
+ctan-o-mat/ctan-o-mat.pl
 ctanify/ctanify
 ctanupload/ctanupload.pl
 de-macro/de-macro
