@@ -1,4 +1,4 @@
-texlive-base (2017.20171128-2) UNRELEASED; urgency=medium
+texlive-base (2017.201801XX-1) UNRELEASED; urgency=medium
 
   * new upstream checkout
   * include prerex, thanks to Ryan Kavanagh for patches
