@@ -3,6 +3,5 @@ ulqda-use-digest-sha
 latex2man-mktemp
 tmp-dir-for-pdfjam
 fix-invoice.sty
-fix-perl522-noise
 sympytex-path
 fix-gbrief-multiple
