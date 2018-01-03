@@ -1,9 +1,9 @@
-texlive-base (2017.201801XX-1) UNRELEASED; urgency=medium
+texlive-base (2017.20180103-1) unstable; urgency=medium
 
   * new upstream checkout
   * include prerex, thanks to Ryan Kavanagh for patches
 
- -- Norbert Preining <preining@debian.org>  Tue, 02 Jan 2018 18:55:46 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 03 Jan 2018 19:46:18 +0900
 
 texlive-base (2017.20171128-1) unstable; urgency=medium
 
