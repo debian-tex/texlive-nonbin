@@ -1,0 +1,13 @@
+texlive-extra (2017.20180105-1) unstable; urgency=medium
+
+  Handling of dependencies on font packages has been changed in this release.
+  To reduce the installation size the following measure have been taken:
+  - texlive-fonts-extra only recommends various font-* packages
+  - links in the texmf tree are shipped in new texlive-fonts-extra-links
+    package
+  - texlive-fonts-extra recommends texlive-fonts-extra-links
+  - texlive-full depends on texlive-fonts-extra-links
+  This way it is possible to supress installation of all the font-* packages
+  by not installing recommends, and not installing texlive-full.
+
+ -- Norbert Preining <preining@debian.org>  Fri, 05 Jan 2018 14:46:19 +0900
