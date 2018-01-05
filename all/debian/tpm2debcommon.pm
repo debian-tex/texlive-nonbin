@@ -286,7 +286,9 @@ sub build_data_hash {
 				  "texlive-base (>= $TeXLive{'all'}{'tl_common_version'})" 
 				];
 			# add a recommends for the normal package on the doc pkg.
-			$TeXLive{'binary'}{$bin_pkg}{'recommends'} = [ @{$TeXLive{'binary'}{$bin_pkg}{'recommends'}}, "$bin_pkg-doc" ];
+            # NP 20180105 switch to suggests
+			$TeXLive{'binary'}{$bin_pkg}{'suggests'} = [ @{$TeXLive{'binary'}{$bin_pkg}{'suggests'}}, "$bin_pkg-doc" ];
+			$TeXLive{'binary'}{$bin_pkg}{'suggests'} = [ @{$TeXLive{'binary'}{$bin_pkg}{'suggests'}}, "$bin_pkg-doc" ];
 			# add source mapping
 			my $srcpkg = $TeXLive{'binary'}{$bin_pkg}{'source_package'};
 			$TeXLive{'source'}{$srcpkg}{'binary_packages'} = [ @{$TeXLive{'source'}{$srcpkg}{'binary_packages'}}, $doc_pkg ];
