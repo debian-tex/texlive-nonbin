@@ -1,3 +1,12 @@
+texlive-extra (2017.20180103-2) unstable; urgency=medium
+
+  * rename wordcount to latex-wordcount (name already grabbed by emboss)
+    (Closes: #886374)
+  * don't ship Lato and OpenSans fonts, rely on Debian packages instead
+    (Closes: #753839)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 05 Jan 2018 12:30:50 +0900
+
 texlive-extra (2017.20180103-1) unstable; urgency=medium
 
   * new upstream checkout
