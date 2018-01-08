@@ -1,3 +1,11 @@
+texlive-base (2017.20180108-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * demote -doc packages to being suggested
+  * bump standards version, no changes necessary
+
+ -- Norbert Preining <preining@debian.org>  Mon, 08 Jan 2018 22:06:36 +0900
+
 texlive-base (2017.20180103-1) unstable; urgency=medium
 
   * new upstream checkout

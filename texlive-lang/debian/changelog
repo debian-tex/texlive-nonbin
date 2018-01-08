@@ -1,3 +1,10 @@
+texlive-lang (2017.20180108-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * bump standards version, no changes necessary
+
+ -- Norbert Preining <preining@debian.org>  Mon, 08 Jan 2018 22:06:58 +0900
+
 texlive-lang (2017.20180103-1) unstable; urgency=medium
 
   * new upstream checkout
