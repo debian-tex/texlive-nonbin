@@ -1,4 +1,4 @@
-texlive-extra (2017.20180108-1) unstable; urgency=medium
+texlive-extra (2017.20180110-1) unstable; urgency=medium
 
   * new upstream checkout
   * font rework
@@ -13,7 +13,7 @@ texlive-extra (2017.20180108-1) unstable; urgency=medium
   * demote -doc packages to being suggested (Closes: #877771, #812905)
   * bump standards version, no changes necessary 
 
- -- Norbert Preining <preining@debian.org>  Mon, 08 Jan 2018 22:06:53 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 10 Jan 2018 11:42:12 +0900
 
 texlive-extra (2017.20180103-2) unstable; urgency=medium
 

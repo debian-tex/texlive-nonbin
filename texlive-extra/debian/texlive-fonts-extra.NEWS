@@ -1,4 +1,4 @@
-texlive-extra (2017.20180108-1) unstable; urgency=medium
+texlive-extra (2017.20180110-1) unstable; urgency=medium
 
   Handling of dependencies on font packages has been changed in this release.
   To reduce the installation size the following measure have been taken:
@@ -10,4 +10,4 @@ texlive-extra (2017.20180108-1) unstable; urgency=medium
   This way it is possible to suppress installation of all the font-* packages
   by not installing recommends, and not installing texlive-full.
 
- -- Norbert Preining <preining@debian.org>  Mon, 08 Jan 2018 22:02:41 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 09 Jan 2018 11:03:59 +0900
