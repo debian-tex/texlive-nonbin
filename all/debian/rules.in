@@ -151,6 +151,7 @@ ifelse(_srcpackage_,texlive-base,<:
 	dh_installmime
 	dh_lintian
 	dh_link
+	dh_strip_nondeterminism
 	dh_compress -X.pdf
 	dh_fixperms
 	# remove .bat files, nobody needs them
