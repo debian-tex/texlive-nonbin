@@ -1,3 +1,10 @@
+texlive-lang (2017.20180110-2) UNRELEASED; urgency=medium
+
+  * adjust links for Padauk fonts and add dependency onto the relevant
+    version to ensure correct fonts are available (Closes: #887574)
+
+ -- Norbert Preining <preining@debian.org>  Thu, 18 Jan 2018 13:15:01 +0900
+
 texlive-lang (2017.20180110-1) unstable; urgency=medium
 
   * new upstream checkout
