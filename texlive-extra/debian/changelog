@@ -1,10 +1,10 @@
-texlive-extra (2017.2018MMDD-1) UNRELEASED; urgency=medium
+texlive-extra (2017.20180211-1) unstable; urgency=medium
 
   * new upstream checkout
     - fixes empty autopict.sty (Closes: #887424)
   * add call to dh_strip_nondeterminism in d/rules (Closes: #886988)
 
- -- Norbert Preining <preining@debian.org>  Thu, 18 Jan 2018 09:40:51 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 11 Feb 2018 20:45:29 +0900
 
 texlive-extra (2017.20180110-1) unstable; urgency=medium
 
