@@ -1,3 +1,10 @@
+texlive-extra (2017.20180305-2) unstable; urgency=medium
+
+  * (again) fix replace version for texlive-fonts-extra-links (Closes: #891512)
+    (Thanks Andreas Beckmann)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 06 Mar 2018 14:18:00 +0900
+
 texlive-extra (2017.20180305-1) unstable; urgency=medium
 
   * new upstream checkout: final 2017 release
