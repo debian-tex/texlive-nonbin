@@ -9,7 +9,7 @@ upversion=$(echo $version | sed -e 's/-.*$//')
 debrevision=$(echo $version | sed -e 's/^.*-//')
 
 if [ $debrevision = 1 ] ; then
-  perl tpm2deb-source.pl --master=/home/norbert/public_html/tlnet make-orig-tar $pkg
+  perl tpm2deb-source.pl --master=/home/norbert/public_html/tlpretest make-orig-tar $pkg
   if [ $pkg = texlive-extra ] ; then
     tar -cvf texlive-extra_$upversion.orig-tex4ht.tar \
       --directory=/home/norbert/Development/TeX/debian/git/texlive-bin/texk/tex4htk/java .
