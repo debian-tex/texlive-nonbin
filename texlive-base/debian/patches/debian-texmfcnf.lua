@@ -3,8 +3,8 @@ Adjust the texmfcnf.lua file to realities in Debian
  texmf-dist/web2c/texmfcnf.lua |   26 ++++++++++++--------------
  1 file changed, 12 insertions(+), 14 deletions(-)
 
---- texlive-base-2017.20170525.orig/texmf-dist/web2c/texmfcnf.lua
-+++ texlive-base-2017.20170525/texmf-dist/web2c/texmfcnf.lua
+--- texlive-base-2018.20180312.orig/texmf-dist/web2c/texmfcnf.lua
++++ texlive-base-2018.20180312/texmf-dist/web2c/texmfcnf.lua
 @@ -3,17 +3,15 @@
  -- ConTeXt needs a properly expanded TEXMFLOCAL, so here is a
  -- bit of lua code to make that happen
@@ -31,7 +31,7 @@ Adjust the texmfcnf.lua file to realities in Debian
  
 -            TEXMFSYSVAR     = "selfautoparent:texmf-var",
 +            TEXMFSYSVAR     = "/var/lib/texmf",
-             TEXMFVAR        = "home:.texlive2017/texmf-var",
+             TEXMFVAR        = "home:.texlive2018/texmf-var",
  
              -- We have only one cache path but there can be more. The first writable one
 @@ -61,13 +59,13 @@

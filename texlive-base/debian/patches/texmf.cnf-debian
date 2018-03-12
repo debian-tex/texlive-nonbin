@@ -2,8 +2,8 @@
  texmf-dist/web2c/texmf.cnf |   49 +++++++++++----------------------------------
  1 file changed, 13 insertions(+), 36 deletions(-)
 
---- texlive-base-2017.20180211.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2017.20180211/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2018.20180312.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2018.20180312/texmf-dist/web2c/texmf.cnf
 @@ -58,7 +58,7 @@
  % SELFAUTOPARENT (its grandparent = /usr/local/texlive/YYYY), and
  % SELFAUTOGRANDPARENT (its great-grandparent = /usr/local/texlive).
@@ -68,7 +68,7 @@
  
  % On some systems, there will be a system tree which contains all the font
  % files that may be created as well as the formats.  For example
-@@ -347,7 +350,7 @@
+@@ -351,7 +354,7 @@
  % OSFONTDIR is to provide a convenient hook for allowing TeX to find
  % fonts installed on the system (outside of TeX).  An empty default
  % value would add "//" to the search paths, so we give it a dummy value.
@@ -77,7 +77,7 @@
  
  % PostScript Type 1 outline fonts.
  T1FONTS = .;$TEXMF/fonts/type1//;$OSFONTDIR//
-@@ -507,33 +510,7 @@
+@@ -511,33 +514,7 @@
  % since we don't want to scatter ../'s throughout the value.  Hence we
  % explicitly list every directory.  Arguably more understandable anyway.
  %
