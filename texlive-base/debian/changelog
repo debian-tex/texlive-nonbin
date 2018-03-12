@@ -1,3 +1,9 @@
+texlive-base (2018.20180312-1) experimental; urgency=medium
+
+  * TL 2018 pretest packages
+
+ -- Norbert Preining <preining@debian.org>  Mon, 12 Mar 2018 10:50:04 +0900
+
 texlive-base (2017.20180305-1) unstable; urgency=medium
 
   * new upstream checkout: final 2017 release

@@ -1,3 +1,9 @@
+texlive-extra (2018.20180312-1) experimental; urgency=medium
+
+  * TL 2018 pretest packages
+
+ -- Norbert Preining <preining@debian.org>  Mon, 12 Mar 2018 11:01:06 +0900
+
 texlive-extra (2017.20180305-2) unstable; urgency=medium
 
   * (again) fix replace version for texlive-fonts-extra-links (Closes: #891512)
