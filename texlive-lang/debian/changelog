@@ -1,8 +1,8 @@
-texlive-lang (2018.20180312-1) experimental; urgency=medium
+texlive-lang (2018.20180313-1) experimental; urgency=medium
 
   * TL 2018 pretest packages
 
- -- Norbert Preining <preining@debian.org>  Mon, 12 Mar 2018 11:01:17 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 13 Mar 2018 10:24:04 +0900
 
 texlive-lang (2017.20180305-1) unstable; urgency=medium
 
