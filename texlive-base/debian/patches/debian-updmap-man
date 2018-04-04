@@ -1,10 +1,10 @@
 ---
- texmf-dist/doc/man/man1/updmap.1 |   25 +++++++++++++------------
- 1 file changed, 13 insertions(+), 12 deletions(-)
+ texmf-dist/doc/man/man1/updmap.1 |   27 ++++++++++++++-------------
+ 1 file changed, 14 insertions(+), 13 deletions(-)
 
---- texlive-base-2017.20170525.orig/texmf-dist/doc/man/man1/updmap.1
-+++ texlive-base-2017.20170525/texmf-dist/doc/man/man1/updmap.1
-@@ -263,26 +263,27 @@
+--- texlive-base-2018.20180404.orig/texmf-dist/doc/man/man1/updmap.1
++++ texlive-base-2018.20180404/texmf-dist/doc/man/man1/updmap.1
+@@ -195,26 +195,27 @@
  mentioned in all the updmap.cfg files are merged.
  .IP
  Thus, if updmap.cfg files are present in all trees, and the default
@@ -24,9 +24,10 @@
 +TEXMFDIST      \fI/usr/share/texmf/web2c/updmap.cfg\/\fP
 +TEXMFDIST      \fI/usr/share/texlive/texmf\-dist/web2c/updmap.cfg\/\fP
  .IP
- For updmap\-user:
+-For updmap:
 -TEXMFCONFIG    $HOME/.texliveYYYY/texmf\-config/web2c/updmap.cfg
 -TEXMFVAR       $HOME/.texliveYYYY/texmf\-var/web2c/updmap.cfg
++For updmap\-user:
 +TEXMFCONFIG    $HOME/.texmf\-config/web2c/updmap.cfg
 +TEXMFVAR       $HOME/.texmf\-var/web2c/updmap.cfg
  TEXMFHOME      \fI\,$HOME/texmf/web2c/updmap.cfg\/\fP
