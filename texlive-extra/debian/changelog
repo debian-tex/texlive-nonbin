@@ -1,3 +1,9 @@
+texlive-extra (2018.20180416-1) unstable; urgency=medium
+
+  * TeX Live 2018 release for Debian
+
+ -- Norbert Preining <preining@debian.org>  Mon, 16 Apr 2018 13:06:19 +0900
+
 texlive-extra (2018.20180404-1) experimental; urgency=medium
 
   * new TL 2018 pretest checkout
