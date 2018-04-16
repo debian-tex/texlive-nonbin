@@ -917,7 +917,7 @@ sub mycopy {
 	my ($src,$dest) = @_;
 	&mkpath(dirname($dest));
 # 	system("/bin/cp -a $src $dest 2>/dev/null") == 0
-	my $cp_cmdline = "/bin/cp -a $src $dest" . ( $opt_debug ? "" : " 2>/dev/null");
+	my $cp_cmdline = "/bin/cp -a \"$src\" \"$dest\"" . ( $opt_debug ? "" : " 2>/dev/null");
 	if ($opt_onlyscripts == 0) {
 		system($cp_cmdline) == 0
 			or do {
