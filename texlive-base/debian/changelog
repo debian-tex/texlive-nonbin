@@ -1,3 +1,9 @@
+texlive-base (2018.20180505-1) unstable; urgency=medium
+
+  * New upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Sat, 05 May 2018 15:52:35 +0900
+
 texlive-base (2018.20180416-1) unstable; urgency=medium
 
   * TeX Live 2018 release for Debian
