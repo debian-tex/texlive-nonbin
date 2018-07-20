@@ -250,6 +250,9 @@ sub make_orig_tar {
 	foreach my $coll (@{$TeXLive{'source'}{$src_package}{'binary_packages'}}) {
 		copy_unpack_included_packages($coll, $texlivedest);
 	}
+	# remove all saved tlpobj, we use the one we parse out
+	`rm -rf \"$texlivedest/texmf-dist/tlpkg/tlpobj/\"`;
+	`rm -rf \"$texlivedest/tlpkg/tlpobj/\"`;
 	# remove blacklisted files, don't care if they were actually installed
 	for my $f (@{$TeXLive{'all'}{'file_blacklist'}}) {
 		`rm -f \"$texlivedest/$f\"`;
@@ -750,4 +753,4 @@ $shortl
 ### tab-width: 4
 ### indent-tabs-mode: t
 ### End:
-# vim:set tabstop=4: #
+# vim:set tabstop=4 noexpandtab: #

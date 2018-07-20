@@ -111,6 +111,8 @@ sub build_data_hash {
 		my ($pkg) = tpm2debname($bin_pkg);
 		my $realtype = $tlp->category;
 		next if ($realtype eq "Scheme");
+		# save tlpobj
+		$TeXLive{'binary'}{$pkg}{'tlpobj'}          = $tlp;
 		if ($realtype eq "Collection") {
 			push @collections, $pkg;
 		}
@@ -120,7 +122,7 @@ sub build_data_hash {
 		#
 		# we consider TLCore packages as normal packages
 		# since what we actually ship are the collections
-		$TeXLive{'binary'}{$pkg}{'type'} 	       = $faketype;
+		$TeXLive{'binary'}{$pkg}{'type'} 	        = $faketype;
 		$TeXLive{'binary'}{$pkg}{'realtype'}        = $realtype;
 		my %foo = %{$tlp->binfiles};
 		if (defined($foo{'i386-linux'})) {
