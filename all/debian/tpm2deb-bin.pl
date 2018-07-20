@@ -93,6 +93,14 @@ sub main {
 		# 
 		make_deb($package); #unless ($opt_onlyscripts);
 		#
+		my $tlpdb = make_local_tlpdb($package);
+		my $tlpdbdir = "./debian/$package/var/lib/tex-common/tlpdb";
+		File::Path::make_path($tlpdbdir);
+		open(my $fd, ">", "$tlpdbdir/$package.tlpdb") 
+			or die "Can't open > $tlpdbdir/$package.tlpdb: $!";
+		$tlpdb->writeout($fd);
+		close($fd);
+		#
 		# create the maintainer scripts
 		#
 		make_maintainer($package) unless ($opt_onlycopy);
@@ -269,6 +277,33 @@ sub make_deb_execute_actions {
 	}
 }
 
+sub make_local_tlpdb {
+	my $package = shift;
+    #
+    # TODO TODO TODO
+    # - -doc package splitting not supported!!!
+    #
+	my $tlpdb = TeXLive::TLPDB->new();
+	my @requires = @{$TeXLive{'binary'}{$package}{'includedpackages'}};
+    my $tlpobj = $TeXLive{'binary'}{$package}{'tlpobj'};
+	if ($tlpobj) {
+		$tlpdb->add_tlpobj($tlpobj);
+	} else {
+		warn("Cannot find tlpobj for $package!\n");
+	}
+	foreach my $r (@requires) {
+        # don't include binary packages, it is all wrong!
+        next if ($r =~ m/\./);
+		$tlpobj = $TeXLive{'binary'}{$r}{'tlpobj'};
+		if ($tlpobj) {
+			$tlpdb->add_tlpobj($tlpobj);
+		} else {
+			warn("Cannot find tlpobj for $r!\n");
+		}
+	}
+	return($tlpdb);
+}
+
 #
 # make_deb
 #
@@ -400,4 +435,4 @@ sub make_maintainer {
 ### tab-width: 4
 ### indent-tabs-mode: t
 ### End:
-# vim:set tabstop=4 autoindent: #
+# vim:set tabstop=4 noexpandtab autoindent: #
