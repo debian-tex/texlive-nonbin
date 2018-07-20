@@ -869,7 +869,7 @@ sub get_all_files {
 }
 
 sub get_all_files_real {
-	my ($entry,$reclevel) = @_;
+	my ($entry) = @_;
 	my @requires = @{$TeXLive{'binary'}{$entry}{'includedpackages'}};
 	my %files;
 	#
@@ -877,32 +877,26 @@ sub get_all_files_real {
 	$files{'DocFiles'} = \@{$TeXLive{'binary'}{$entry}{'docfiles'}};
 	$files{'RunFiles'} = \@{$TeXLive{'binary'}{$entry}{'runfiles'}};
 	$files{'SourceFiles'} = \@{$TeXLive{'binary'}{$entry}{'sourcefiles'}};
-	if ($reclevel > 0) {
-		foreach my $r (@requires) {
-			$opt_debug && print STDERR  "  package " . $r . "\n";
-			my %foo = %{&get_all_files_real($r,$reclevel-1)};
-			push @{$files{'BinFiles'}}, @{$foo{'BinFiles'}};
-			push @{$files{'DocFiles'}}, @{$foo{'DocFiles'}};
-			push @{$files{'RunFiles'}}, @{$foo{'RunFiles'}};
-			push @{$files{'SourceFiles'}}, @{$foo{'SourceFiles'}};
-		}
+	foreach my $r (@requires) {
+		$opt_debug && print STDERR  "  package " . $r . "\n";
+		push @{$files{'BinFiles'}}, @{$TeXLive{'binary'}{$r}{'binfiles'}};
+		push @{$files{'DocFiles'}}, @{$TeXLive{'binary'}{$r}{'docfiles'}};
+		push @{$files{'RunFiles'}}, @{$TeXLive{'binary'}{$r}{'runfiles'}};
+		push @{$files{'SourceFiles'}}, @{$TeXLive{'binary'}{$r}{'sourcefiles'}};
 	}
 	return(\%files);
 }
 
 sub get_all_executes {
-	my ($entry,$reclevel) = @_;
+	my ($entry) = @_;
 	my @requires = @{$TeXLive{'binary'}{$entry}{'includedpackages'}};
 	my %bar;
 	my @executes;
 	#
 	@executes = @{$TeXLive{'binary'}{$entry}{'executes'}};
-	if ($reclevel > 0) {
-		foreach my $r (@requires) {
-			$opt_debug && print STDERR  "  package " . $r . "\n";
-			my @foo = get_all_executes($r,$reclevel-1);
-			push @executes, @foo;
-		}
+	foreach my $r (@requires) {
+		$opt_debug && print STDERR  "  package " . $r . "\n";
+		push @executes, @{$TeXLive{'binary'}{$r}{'executes'}};
 	}
 	foreach (@executes) {
 		$bar{$_} = 1;

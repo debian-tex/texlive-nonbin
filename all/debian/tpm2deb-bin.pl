@@ -42,7 +42,6 @@ my $opt_onlycopy=0;
 
 our $opt_debug; #global variable
 our $Master;
-my $globalreclevel=1;
 
 my $result = GetOptions ("debug!" => \$opt_debug, 	# debug mode
 	"nosource!" => \$opt_nosource,			# don't include source files
@@ -188,13 +187,12 @@ sub make_deb_copy_to_rightplace {
 #
 # make_deb_execute_actions
 #
-# depends on global variable $globalreclevel
 # FIXXME: could be divided in get_execute_actions and
 # do_execute_actions, probably needs pass-by-reference if we don't
 # want to use global vars.
 sub make_deb_execute_actions {
 	my ($package) = @_;
-    my @Executes = get_all_executes($package,$globalreclevel);
+    my @Executes = get_all_executes($package);
 	my @maplines = ();
 	my @formatlines = ();
 	my @languagelines = ();
@@ -288,7 +286,7 @@ sub make_deb {
 		# this is a meta package!
 		$type_of_package = 'mbinary';
 	}
-	my %lists = %{&get_all_files($package, $globalreclevel)};
+	my %lists = %{&get_all_files($package)};
 	my $title = $TeXLive{$type_of_package}{$package}{'title'};
 	my $description = $TeXLive{$type_of_package}{$package}{'description'};
 	#eval { mkpath($rundest) };

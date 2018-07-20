@@ -16,7 +16,6 @@ my $opt_master;
 our $opt_debug;
 our $opt_nosrcpkg;
 our $opt_noremove;
-my $globalreclevel;
 my $oldsrcdir;
 
 BEGIN {
@@ -32,7 +31,6 @@ if (!($mydir =~ m,/.*,,)) { $mmydir = `pwd`; chomp($mmydir); $mydir = "$mmydir/$
 $opt_debug = 0;
 $opt_nosrcpkg = 0;
 $opt_noremove = 0;
-$globalreclevel = 1;
 $oldsrcdir = "./src";
 
 use Getopt::Long;
@@ -42,7 +40,6 @@ GetOptions ("debug!", 	# debug mode
 			"nosrcpkg!",			# dont build source package
 			"noremove!",			# dont remove build dir
 			"master=s" => \$opt_master,	# location of Master
-			"reclevel=i" => \$globalreclevel,	# recursion level
 			"oldsource=s" => \$oldsrcdir	# use old source
 	);
  
@@ -555,7 +552,7 @@ sub make_deb_control {
 		if (defined($TeXLive{'mbinary'}{$pkg})) {
 			$type_of_package = 'mbinary';
 		}
-		my %lists = %{&get_all_files($pkg,$globalreclevel)};
+		my %lists = %{&get_all_files($pkg)};
 		my $title = $TeXLive{$type_of_package}{$pkg}{'title'};
 		my @lop = ();
 		my $contains_binaries = 0;
