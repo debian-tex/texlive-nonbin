@@ -93,13 +93,14 @@ sub main {
 		# 
 		make_deb($package); #unless ($opt_onlyscripts);
 		#
-		my $tlpdb = make_local_tlpdb($package);
-		my $tlpdbdir = "./debian/$package/var/lib/tex-common/tlpdb";
-		File::Path::make_path($tlpdbdir);
-		open(my $fd, ">", "$tlpdbdir/$package.tlpdb") 
-			or die "Can't open > $tlpdbdir/$package.tlpdb: $!";
-		$tlpdb->writeout($fd);
-		close($fd);
+		# for now, don't write out local tlpdbs
+		# my $tlpdb = make_local_tlpdb($package);
+		# my $tlpdbdir = "./debian/$package/var/lib/tex-common/tlpdb";
+		# File::Path::make_path($tlpdbdir);
+		# open(my $fd, ">", "$tlpdbdir/$package.tlpdb") 
+		# 	or die "Can't open > $tlpdbdir/$package.tlpdb: $!";
+		# $tlpdb->writeout($fd);
+		# close($fd);
 		#
 		# create the maintainer scripts
 		#
