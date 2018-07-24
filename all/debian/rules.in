@@ -62,6 +62,9 @@ ifelse(_srcpackage_,texlive-base,<:
 	rmdir --ignore-fail-on-non-empty debian/texlive-base/usr/share/texlive/texmf-dist/texdoctk
 	mkdir -p debian/texlive-base/usr/share/applications
 	install debian/texdoctk.desktop debian/texlive-base/usr/share/applications
+	# install texdoc data cache
+	mkdir -p debian/texlive-base/usr/share/texlive/texmf-dist/scripts/texdoc/
+	install debian/Data.tlpdb.lua debian/texlive-base/usr/share/texlive/texmf-dist/scripts/texdoc/Data.tlpdb.lua
 :>,_srcpackage_,texlive-extra,<:
 	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
 :>)
