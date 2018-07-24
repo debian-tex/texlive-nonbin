@@ -263,6 +263,7 @@ sub make_orig_tar {
 	#
 	# these files should not be here, they are installed by texlive.infra
 	`rm -rf \"$texlivedest/tlpkg/installer/xz\"`;
+	`rm -rf \"$texlivedest/tlpkg/installer/lz4\"`;
 	#
 	# necessary for media detection!
 	&mkpath("$texlivedest/texmf-dist/web2c");
