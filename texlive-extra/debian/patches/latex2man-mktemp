@@ -5,11 +5,11 @@ Debian bug #668779
  texmf-dist/scripts/latex2man/latex2man |    4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
---- texlive-extra-2017.20171030.orig/texmf-dist/scripts/latex2man/latex2man
-+++ texlive-extra-2017.20171030/texmf-dist/scripts/latex2man/latex2man
+--- texlive-extra-2018.20180724.orig/texmf-dist/scripts/latex2man/latex2man
++++ texlive-extra-2018.20180724/texmf-dist/scripts/latex2man/latex2man
 @@ -30,8 +30,6 @@
- $VERSION = "1.26";
- $DATE    = date2str ('$Date: 2017/10/06 17:19:31 $' =~ m|(\d+/\d+/\d+)|);
+ $VERSION = "1.27";
+ $DATE    = date2str ('$Date: 2018/06/05 18:53:10 $' =~ m|(\d+/\d+/\d+)|);
  
 -$tmp = "/tmp/$CMD.$$";
 -
