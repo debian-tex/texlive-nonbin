@@ -649,6 +649,10 @@ sub read_one_config_file {
 				my ($b) = @rest;
 				$opt_debug && print STDERR  "b=$b.\n";
 				push @{$TeXLive{'all'}{'file_blacklist'}}, $b;
+                        } elsif ($a eq "dir") {
+				my ($b) = @rest;
+				$opt_debug && print STDERR  "b=$b.\n";
+				push @{$TeXLive{'all'}{'dir_blacklist'}}, $b;
 			} elsif ($a eq "tpm") {
 				my ($b,$c) = @rest;
 				$opt_debug && print STDERR  "b=$b, c=$c.\n";

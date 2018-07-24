@@ -254,6 +254,9 @@ sub make_orig_tar {
 	for my $f (@{$TeXLive{'all'}{'file_blacklist'}}) {
 		`rm -f \"$texlivedest/$f\"`;
 	}
+	for my $f (@{$TeXLive{'all'}{'dir_blacklist'}}) {
+		`rm -rf \"$texlivedest/$f\"`;
+	}
 	# remove those files that should not appear in the .orig but might still be installed
 	for my $f (@{$TeXLive{'all'}{'notinorig'}}) {
 		`rm -f \"$texlivedest/$f\"`;
