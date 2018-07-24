@@ -323,7 +323,7 @@ sub create_license_file {
 		push @filelist, $tlp->srcfiles;
 		my $lic = exists $tlp->cataloguedata->{'license'} ?
 			$tlp->cataloguedata->{'license'} : "";
-		my @files_dirs = TeXLive::TLUtils::collapse_dirs(@filelist);
+		my @files_dirs = TeXLive::TLUtils::collapse_dirs(grep { -r $_ } @filelist);
 		print FOO "$p: $lic\n";
 		for (@files_dirs) {
 			s!^$mydir/$texlivedest/!!;
