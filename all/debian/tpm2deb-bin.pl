@@ -117,6 +117,10 @@ sub tl_is_blacklisted {
 	foreach my $pat (@{$TeXLive{'all'}{'file_blacklist'}}) { 
 		$blacklisted = 1 if ($file =~ m|^${pat}$|);
 	}
+	foreach my $pat (@{$TeXLive{'all'}{'dir_blacklist'}}) { 
+		$pat = "$pat/" if ($pat !~ m|/$|);
+		$blacklisted = 1 if ($file =~ m|^${pat}|);
+	}
 	foreach my $pat (@{$TeXLive{'all'}{'kill'}}) { 
 		$blacklisted = 1 if ($file =~ m|^${pat}$|);
 	}

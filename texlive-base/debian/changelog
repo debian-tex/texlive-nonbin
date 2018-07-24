@@ -1,9 +1,9 @@
-texlive-base (2018.2018MMDD-1) UNRELEASED; urgency=medium
+texlive-base (2018.20180724-1) unstable; urgency=medium
 
   * New upstream checkout
     . use long gpg key ids in tlmgr man page (Closes: #900236)
 
- -- Norbert Preining <preining@debian.org>  Mon, 28 May 2018 09:33:40 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 24 Jul 2018 10:09:29 +0900
 
 texlive-base (2018.20180505-1) unstable; urgency=medium
 
