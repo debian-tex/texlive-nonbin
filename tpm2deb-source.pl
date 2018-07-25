@@ -264,20 +264,24 @@ sub make_orig_tar {
 	# remove binary files
 	`rm -rf \"$texlivedest/bin\"`;
 	#
+	# necessary for media detection!
+	&mkpath("$texlivedest/texmf-dist/web2c");
+	# 
+	# we need texlive.infra files for running tpm2deb-bin
+	# in texlive-base this has alreaady been unpacked, but we need to do it also for the others
+	unpack_package("texlive.infra", $texlivedest) if ($src_package ne "texlive-base");
+	# copy also texlive.tlpdb 
+	system("cp $Master/tlpkg/texlive.tlpdb $texlivedest/tlpkg") == 0
+		or die("Cannot copy texlive.tlpdb file");
+	#
 	# these files should not be here, they are installed by texlive.infra
 	`rm -rf \"$texlivedest/tlpkg/installer/xz\"`;
 	`rm -rf \"$texlivedest/tlpkg/installer/lz4\"`;
 	#
-	# necessary for media detection!
-	&mkpath("$texlivedest/texmf-dist/web2c");
-	# 
-	# copy the files necessary for tpm2deb.pl from the Tools directory
-	#
-	# TODO URGENT!!! This mixes files from the repo (tlcritical) with a tlmgr.pl from 
-	# stable tlnet ... it did break in current Debian!!!!
-	&mkpath("$texlivedest/tlpkg");
-	system("cp -a $Master/tlpkg/texlive.tlpdb $Master/tlpkg/TeXLive $texlivedest/tlpkg") == 0
-		or die("Cannot copy necessary tlpkg file");
+	# old code, did mix tlcritical files (tlnet/tlpkg/TeXLive == tlcritical!) with tlnet tlmgr
+	#&mkpath("$texlivedest/tlpkg");
+	#system("cp -a $Master/tlpkg/texlive.tlpdb $Master/tlpkg/TeXLive $texlivedest/tlpkg") == 0
+	#	or die("Cannot copy necessary tlpkg file");
 	#
 	# make everything writeable!
 	#
