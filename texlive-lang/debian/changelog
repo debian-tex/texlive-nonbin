@@ -1,3 +1,11 @@
+texlive-lang (2018.20180725-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * fix for mixture of modules from tlcritical
+  * fix dangling font links
+
+ -- Norbert Preining <preining@debian.org>  Wed, 25 Jul 2018 14:41:42 +0900
+
 texlive-lang (2018.20180724-1) unstable; urgency=medium
 
   * new upstream checkout
