@@ -273,6 +273,8 @@ sub make_orig_tar {
 	# 
 	# copy the files necessary for tpm2deb.pl from the Tools directory
 	#
+	# TODO URGENT!!! This mixes files from the repo (tlcritical) with a tlmgr.pl from 
+	# stable tlnet ... it did break in current Debian!!!!
 	&mkpath("$texlivedest/tlpkg");
 	system("cp -a $Master/tlpkg/texlive.tlpdb $Master/tlpkg/TeXLive $texlivedest/tlpkg") == 0
 		or die("Cannot copy necessary tlpkg file");
