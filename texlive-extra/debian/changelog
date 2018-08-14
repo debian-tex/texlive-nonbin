@@ -1,3 +1,9 @@
+texlive-extra (2018.2018MMDD-1) UNRELEASED; urgency=medium
+
+  * fix incorrect a2ping header mangling (Closes: #906123)
+
+ -- Norbert Preining <preining@debian.org>  Tue, 14 Aug 2018 23:50:49 +0900
+
 texlive-extra (2018.20180725-1) unstable; urgency=medium
 
   * new upstream checkout

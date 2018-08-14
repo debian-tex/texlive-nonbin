@@ -42,8 +42,8 @@
 -#!perl -w
 -package Htex::a2ping;  $0=~/(.*)/s;unshift@INC,'.';do($1);die$@if$@;__END__+if !1;
 -# Don't touch/remove any lines above; http://www.inf.bme.hu/~pts/justlib
-++#! /usr/bin/perl -w
-++package Htex::a2ping;
++#! /usr/bin/perl -w
++package Htex::a2ping;
  #
  # This program is free software, licensed under the GNU GPL, >=2.0.
  # This software comes with absolutely NO WARRANTY. Use at your own risk!
