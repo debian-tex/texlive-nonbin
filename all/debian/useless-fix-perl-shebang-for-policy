@@ -1,0 +1,85 @@
+#
+# useless-fix-perl-shebang-for-policy
+# (c) 2018 Norbert Preining
+#
+# try to fix the *very* helpful lintian error about perl shebang
+# not being #!/usr/bin/perl ... 
+#
+
+pkg="$1"
+
+allfiles="
+usr/share/texlive/texmf-dist/scripts/oberdiek/pdfatfi.pl
+usr/share/texlive/texmf-dist/scripts/fig4latex/fig4latex
+usr/share/texlive/texmf-dist/scripts/mkpic/mkpic
+usr/share/texlive/texmf-dist/scripts/texdoctk/texdoctk.pl
+usr/share/texlive/texmf-dist/scripts/texlive/fmtutil.pl
+usr/share/texlive/texmf-dist/scripts/texlive/mktexlsr.pl
+usr/share/texlive/texmf-dist/scripts/texlive/tlmgr.pl
+usr/share/texlive/texmf-dist/scripts/texlive/tlmgrgui.pl
+usr/share/texlive/texmf-dist/scripts/texlive/uninstall-win32.pl
+usr/share/texlive/texmf-dist/scripts/texlive/updmap.pl
+usr/share/texlive/tlpkg/TeXLive/trans.pl
+usr/share/texlive/texmf-dist/scripts/rubik/rubikrotation.pl
+usr/share/texlive/texmf-dist/scripts/authorindex/authorindex
+usr/share/texlive/texmf-dist/scripts/flowfram/flowfram.perl
+usr/share/texlive/texmf-dist/scripts/glossaries/makeglossaries
+usr/share/texlive/texmf-dist/scripts/pax/pdfannotextractor.pl
+usr/share/texlive/texmf-dist/scripts/perltex/perltex.pl
+usr/share/texlive/texmf-dist/scripts/dosepsbin/dosepsbin.pl
+usr/share/texlive/texmf-dist/scripts/epstopdf/epstopdf.pl
+usr/share/texlive/texmf-dist/scripts/fontools/afm2afm
+usr/share/texlive/texmf-dist/scripts/fontools/autoinst
+usr/share/texlive/texmf-dist/scripts/fontools/ot2kpx
+usr/share/texlive/texmf-dist/scripts/bundledoc/arlatex
+usr/share/texlive/texmf-dist/scripts/bundledoc/bundledoc
+usr/share/texlive/texmf-dist/scripts/ctanify/ctanify
+usr/share/texlive/texmf-dist/scripts/dviinfox/dviinfox.pl
+usr/share/texlive/texmf-dist/scripts/latex-git-log/latex-git-log
+usr/share/texlive/texmf-dist/scripts/latex2man/latex2man
+usr/share/texlive/texmf-dist/scripts/latexindent/latexindent.pl
+usr/share/texlive/texmf-dist/scripts/ltximg/ltximg.pl
+usr/share/texlive/texmf-dist/scripts/mkjobtexmf/mkjobtexmf.pl
+usr/share/texlive/texmf-dist/scripts/pdfcrop/pdfcrop.pl
+usr/share/texlive/texmf-dist/scripts/pkfix-helper/pkfix-helper
+usr/share/texlive/texmf-dist/scripts/srcredact/srcredact.pl
+usr/share/texlive/texmf-dist/scripts/sty2dtx/sty2dtx.pl
+usr/share/texlive/texmf-dist/scripts/texcount/texcount.pl
+usr/share/texlive/texmf-dist/scripts/texdef/texdef.pl
+usr/share/texlive/texmf-dist/scripts/texdiff/texdiff
+usr/share/texlive/texmf-dist/scripts/texdirflatten/texdirflatten
+usr/share/texlive/texmf-dist/scripts/texfot/texfot.pl
+usr/share/texlive/texmf-dist/scripts/texlive/e2pall.pl
+usr/share/texlive/texmf-dist/scripts/texloganalyser/texloganalyser
+usr/share/texlive/texmf-dist/scripts/pedigree-perl/pedigree.pl
+usr/share/texlive/texmf-dist/scripts/tex4ht/mk4ht.pl
+usr/share/texlive/texmf-dist/scripts/jmlr/makejmlrbook
+usr/share/texlive/texmf-dist/scripts/crossrefware/bbl2bib.pl
+usr/share/texlive/texmf-dist/scripts/crossrefware/bibdoiadd.pl
+usr/share/texlive/texmf-dist/scripts/crossrefware/bibmradd.pl
+usr/share/texlive/texmf-dist/scripts/crossrefware/biburl2doi.pl
+usr/share/texlive/texmf-dist/scripts/crossrefware/bibzbladd.pl
+usr/share/texlive/texmf-dist/scripts/crossrefware/ltx2crossrefxml.pl
+usr/share/texlive/texmf-dist/scripts/ptex-fontmaps/kanji-config-updmap.pl
+usr/share/texlive/texmf-dist/scripts/ptex-fontmaps/kanji-fontmap-creator.pl
+usr/share/texlive/texmf-dist/scripts/cjk-gs-integrate/cjk-gs-integrate.pl
+usr/share/texlive/texmf-dist/scripts/jfmutil/jfmutil.pl
+usr/share/texlive/texmf-dist/scripts/mkgrkindex/mkgrkindex
+usr/share/texlive/texmf-dist/scripts/kotex-utils/jamo-normalize.pl
+usr/share/texlive/texmf-dist/scripts/kotex-utils/komkindex.pl
+usr/share/texlive/texmf-dist/scripts/kotex-utils/ttf2kotexfont.pl
+"
+
+for f in $allfiles ; do
+  ff="debian/$pkg/$f"
+  if [ -r $ff ] ; then
+    echo "#!/usr/bin/perl" > $ff.new
+	echo "# Debian required shebang above" >> $ff.new
+	echo "# Original shebang below" >> $ff.new
+	echo -n "# " >> $ff.new
+	cat "$ff" >> $ff.new
+    mv $ff.new $ff
+  fi
+done
+
+  
