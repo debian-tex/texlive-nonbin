@@ -1,3 +1,10 @@
+texlive-lang (2018.20180824-1) unstable; urgency=medium
+
+  * new upstream checkout
+  * change Perl shebangs
+
+ -- Norbert Preining <preining@debian.org>  Fri, 24 Aug 2018 11:11:45 +0900
+
 texlive-lang (2018.20180725-1) unstable; urgency=medium
 
   * new upstream checkout

@@ -1,3 +1,11 @@
+texlive-base (2018.20180824-1) unstable; urgency=medium
+
+  * New checkout
+    - fix tlmgr docs (Closes: #904517)
+  * change Perl shebangs
+
+ -- Norbert Preining <preining@debian.org>  Fri, 24 Aug 2018 11:11:06 +0900
+
 texlive-base (2018.20180725-1) unstable; urgency=medium
 
   * New checkout

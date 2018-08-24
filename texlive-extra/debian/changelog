@@ -1,8 +1,11 @@
-texlive-extra (2018.2018MMDD-1) UNRELEASED; urgency=medium
+texlive-extra (2018.20180824-1) unstable; urgency=medium
 
+  * new upstream checkout
   * fix incorrect a2ping header mangling (Closes: #906123)
+  * remove upstream included patch for invoice.sty
+  * change Perl shebangs
 
- -- Norbert Preining <preining@debian.org>  Tue, 14 Aug 2018 23:50:49 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 24 Aug 2018 11:11:32 +0900
 
 texlive-extra (2018.20180725-1) unstable; urgency=medium
 
