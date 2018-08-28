@@ -1,11 +1,11 @@
 ---
  texmf-dist/doc/man/man1/tlmgr.1     |    2 +
- texmf-dist/scripts/texlive/tlmgr.pl |   50 +++---------------------------------
- 2 files changed, 7 insertions(+), 45 deletions(-)
+ texmf-dist/scripts/texlive/tlmgr.pl |   63 +++++++++---------------------------
+ 2 files changed, 18 insertions(+), 47 deletions(-)
 
---- texlive-base-2018.20180404.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2018.20180404/texmf-dist/scripts/texlive/tlmgr.pl
-@@ -20,7 +20,7 @@
+--- texlive-base-2018.20180824.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2018.20180824/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -20,7 +20,7 @@ $datrev =~ s/ \(.*$//;
  $tlmgrversion = "$tlmgrrevision ($datrev)";
  
  our $Master;
@@ -14,7 +14,7 @@
  our $loadmediasrcerror;
  our $packagelogfile;
  our $packagelogged;
-@@ -39,50 +39,7 @@
+@@ -39,50 +39,7 @@ END {
  
  BEGIN {
    $^W = 1;
@@ -66,19 +66,46 @@
    $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
  
    # make Perl find our packages first:
-@@ -405,6 +362,9 @@
+@@ -618,6 +575,12 @@ for the full story.\n";
+     tldie("$prg: Try --help if you need it.\n");
+   }
  
-   GetOptions(\%opts, keys(%optarg)) or pod2usage(2);
- 
-+  $opts{"usermode"} = 1;
-+  print "(running on Debian, switching to user mode!)\n";
++  # automatically switch to user mode on Debian, and warn
++  if (!$opts{"usermode"} && $action ne "init-usertree") {
++    $opts{"usermode"} = 1;
++    print "(running on Debian, switching to user mode!)\n";
++  }
 +
-   $::debug_translation = 0;
-   $::debug_translation = 1 if $opts{"debug-translation"};
- 
---- texlive-base-2018.20180404.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2018.20180404/texmf-dist/doc/man/man1/tlmgr.1
-@@ -150,6 +150,8 @@
+   #
+   # the main tree we will be working on
+   $::maintree = $Master;
+@@ -5912,7 +5875,9 @@ sub action_postaction {
+ # sets up the user tree for tlmgr in user mode
+ sub action_init_usertree {
+   # init_local_db but do not die if localtlpdb is not found!
+-  init_local_db(2);
++  # Debian: we don't ship tlpdb for system files, so don't even
++  # try to initialize it.
++  # init_local_db(2);
+   my $tlpdb = TeXLive::TLPDB->new;
+   my $usertree;
+   if ($opts{"usertree"}) {
+@@ -6547,7 +6512,11 @@ sub init_local_db {
+     if ($should_i_die == 2) {
+       return undef;
+     } else {
+-      die("cannot setup TLPDB in $::maintree");
++      if ($opts{'usermode'}) {
++        die("$prg: running in usermode, did you call `tlmgr init-usertree'?\n");
++      } else {
++        die("cannot setup TLPDB in $::maintree");
++      }
+     }
+   }
+   # setup the programs, for w32 we need the shipped wget/xz etc, so we
+--- texlive-base-2018.20180824.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2018.20180824/texmf-dist/doc/man/man1/tlmgr.1
+@@ -150,6 +150,8 @@ the development sources) is available at
  <http://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
  .PP
