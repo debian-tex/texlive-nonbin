@@ -226,3 +226,6 @@ usr/share/fonts/fonts-go/Go-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype
 usr/share/fonts/fonts-go/Go-Medium-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/bh/gofonts/Go-Medium-Italic.ttf
 usr/share/fonts/fonts-go/Go-Medium.ttf usr/share/texlive/texmf-dist/fonts/truetype/bh/gofonts/Go-Medium.ttf
 usr/share/fonts/fonts-go/Go-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/bh/gofonts/Go-Regular.ttf
+usr/share/fonts/opentype/cabin/Cabin-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/impallari/cabin/Cabin-Italic.otf
+usr/share/fonts/truetype/roboto/unhinted/RobotoTTF/Roboto-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/Roboto-Italic.ttf
+usr/share/fonts/truetype/roboto/unhinted/RobotoCondensed-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/RobotoCondensed-Italic.ttf
