@@ -1,3 +1,9 @@
+texlive-extra (2018.20181214-1) unstable; urgency=medium
+
+  * new upstream checkout
+
+ -- Norbert Preining <preining@debian.org>  Fri, 14 Dec 2018 13:58:18 +0900
+
 texlive-extra (2018.20181116-1) unstable; urgency=medium
 
   * add necessary replace/breaks for extraction of fonts to tl-f-e-links
