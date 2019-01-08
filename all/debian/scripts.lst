@@ -2,6 +2,7 @@ texmf_scripts='
 adhocfilelist/adhocfilelist.sh
 bibexport/bibexport.sh
 checklistings/checklistings.sh
+ctanbib/ctanbib
 dtxgen/dtxgen
 installfont/installfont-tl
 latexfileversion/latexfileversion
@@ -22,6 +23,7 @@ pdfjam/pdfjam-slides6up
 pdfjam/pdfjoin
 pdfjam/pdfnup
 pdfjam/pdfpun
+pdftex-quiet/pdftex-quiet
 pdfxup/pdfxup
 pst-pdf/ps4pdf
 simpdftex/simpdftex
@@ -43,6 +45,7 @@ bundledoc/bundledoc
 cachepic/cachepic.tlu
 checkcites/checkcites.lua
 cjk-gs-integrate/cjk-gs-integrate.pl
+cluttex/cluttex.lua
 context/perl/mptopdf.pl
 convbkmk/convbkmk.rb
 crossrefware/bbl2bib.pl
@@ -156,6 +159,7 @@ tlshell/tlshell.tcl
 ulqda/ulqda.pl
 urlbst/urlbst
 vpe/vpe.pl
+xindex/xindex.lua
 yplan/yplan
 context/stubs/unix/context
 context/stubs/unix/contextjit
