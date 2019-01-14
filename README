@@ -139,6 +139,10 @@ Please get a copy of tlnet from CTAN the ctan network
 
 	http://mirror.ctan.org/systems/texlive/tlnet/
 
+For hints how to download from there using rsync/wget please visit:
+
+	https://tug.org/texlive/acquire-mirror.html
+
 Then call in the texlive-new trunk repository:
 	perl tpm2deb-source.pl make-orig-tar --master=/path/to/tlnet $srcpackage
 where $srcpackage is one of texlive-{base,extra,lang}.
