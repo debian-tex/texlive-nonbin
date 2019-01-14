@@ -173,8 +173,8 @@ all this is done with the perl script
 	tpm2deb-source.pl
 
 If you want to build a single source package, say texlive-base, call
-	perl tpm2deb-source.pl make-deb-source 		\
-		--oldsource=$SRC 			\
+	perl tpm2deb-source.pl make-deb-source		\
+		--oldsource=$SRC			\
 		$sourcepackage
 
 NOTE: If you have your .orig.tar.gz in ./src/ then you can leave out the
@@ -183,6 +183,14 @@ NOTE: If you have your .orig.tar.gz in ./src/ then you can leave out the
 As usual, $sourcepackage can be one of texlive-{base,extra,lang,doc}
 or 'all' to build all of them.
 
+!!!To build texlive-extra source package you need in addition some parts
+from texlive-bin. Just create another .tar.xz like this:
+
+	tar -cvf texlive-extra_$upversion.orig-tex4ht.tar \
+	--directory=/path_to_local_copy_of_texlive-bin/texk/tex4htk/java .
+	xz -9 texlive-extra_$upversion.orig-tex4ht.tar
+
+...where $upversion is the upstream version from texlive-extra/debian/changelog.
 
 4) Binary package build time
 ============================
