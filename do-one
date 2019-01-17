@@ -8,14 +8,16 @@ cd ..
 upversion=$(echo $version | sed -e 's/-.*$//')
 debrevision=$(echo $version | sed -e 's/^.*-//')
 
-if [ $debrevision = 1 ] ; then
+case $debrevision in
+  1) ;;
+  1~*) 
   perl tpm2deb-source.pl --master=/home/norbert/public_html/tlnet make-orig-tar $pkg
   if [ $pkg = texlive-extra ] ; then
     tar -cvf texlive-extra_$upversion.orig-tex4ht.tar \
       --directory=/home/norbert/Development/TeX/debian/git/texlive-bin/texk/tex4htk/java .
     xz -9 texlive-extra_$upversion.orig-tex4ht.tar
-  fi
-fi
+  fi ;;
+esac
   
 perl tpm2deb-source.pl --noremove --nosrcpkg make-deb-source $pkg
 cd ${pkg}-$upversion
