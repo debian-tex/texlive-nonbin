@@ -25,7 +25,7 @@ mptopdf-manpage-fixes
 # not really good a fix, upupstream is working on it
 # this patch creates different problems
 # fix-listings-bug
-pgf-tex4ht-fix
+#pgf-tex4ht-fix
 texdoctk-colors
 oberdiek-fix-boxdraw
 texdoctk-warn-missing-perltk
