@@ -174,11 +174,10 @@ all this is done with the perl script
 
 If you want to build a single source package, say texlive-base, call
 	perl tpm2deb-source.pl make-deb-source		\
-		--oldsource=$SRC			\
 		$sourcepackage
 
-NOTE: If you have your .orig.tar.gz in ./src/ then you can leave out the
---oldsource line!
+Make sure the .orig.tar.xz you generated in step 2) are located in
+directory ../texlive-nonbin, from where the command is called.
 
 As usual, $sourcepackage can be one of texlive-{base,extra,lang,doc}
 or 'all' to build all of them.
