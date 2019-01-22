@@ -1,6 +1,7 @@
 texlive-base (2018.20190118-1~1) unstable; urgency=medium
 
-  * new upstream checkout (Closes: #917654)
+  * new upstream checkout
+    -  contains fixed version of xr.sty (Closes: #917654)
 
  -- Norbert Preining <norbert@preining.info>  Fri, 18 Jan 2019 11:57:49 +0900
 
