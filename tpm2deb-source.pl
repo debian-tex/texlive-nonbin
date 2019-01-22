@@ -2,7 +2,7 @@
 #
 # tpm2deb-source.pl
 # machinery to create debian packages from TeX Live depot
-# (c) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Norbert Preining
+# (c) 2005-2019 Norbert Preining
 #
 # configuration is done via the file tpm2deb.cfg
 # 
@@ -16,6 +16,7 @@ my $opt_master;
 our $opt_debug;
 our $opt_nosrcpkg;
 our $opt_noremove;
+my $tex4ht_source_dir;
 my $oldsrcdir;
 
 BEGIN {
@@ -40,7 +41,8 @@ GetOptions ("debug!", 	# debug mode
 			"nosrcpkg!",			# dont build source package
 			"noremove!",			# dont remove build dir
 			"master=s" => \$opt_master,	# location of Master
-			"oldsource=s" => \$oldsrcdir	# use old source
+			"oldsource=s" => \$oldsrcdir,	# use old source
+			"tex4ht-source=s" => \$tex4ht_source_dir,  # source for tex4ht java files
 	);
  
 
@@ -227,6 +229,25 @@ sub make_orig_tar {
 		return 0;
 	}
 
+	#
+	# for texlive-extra we need to build the -tex4ht source, too
+	#
+	if ($src_package eq "texlive-extra") {
+	  if (-f "${src_package}_${version}.orig-tex4ht.tar.xz") {
+		print "${src_package}_${version}.orig.tar.(gz|xz) already exists, skipping.\n";
+	  } else {
+		if ($tex4ht_source_dir && -f "$tex4ht_source_dir/xtpipes.java") {
+		  `tar -c --directory=\"$tex4ht_source_dir\" . | xz -9 > texlive-extra_${version}.orig-tex4ht.tar.xz`;
+		} else {
+		  print STDERR "No tex4ht-source directory defined (use --tex4ht-source)\n";
+		  print STDERR "or cannot find xtpipes.java in the directory\n";
+		  print STDERR "Cannot build texlive-extra_${version}.orig-tex4ht.tar.xz\n";
+		  print STDERR "Aborting.\n";
+		  exit 1;
+		}
+	  }
+	}
+
 	my $texlivedest = "$tmpdir";
 	#
 	# if $changelogrevision > 1 then bail out, we are not allowed to
@@ -304,6 +325,8 @@ sub make_orig_tar {
 	#
 	system("tar -cf - $tmpdir | xz > ${src_package}_${version}.orig.tar.xz") == 0
 	    or die("Error creating orig.tar.xz");
+	
+	
 	if (!$opt_debug && !$opt_noremove) { system("rm -rf $tmpdir"); }
 }
 
@@ -406,7 +429,7 @@ sub make_deb_source {
 	# check for different places of old sources
 	my $sourcedone = 0;
 	my $oldorig;
-	for my $t ("${package}_${version}.orig.tar.gz",
+	for my $t ("./${package}_${version}.orig.tar.gz",
 	           "./${package}_${version}.orig.tar.xz",
 			   "$oldsrcdir/${package}_${version}.orig.tar.gz",
 			   "$oldsrcdir/${package}_${version}.orig.tar.xz") {

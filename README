@@ -8,9 +8,9 @@ and how in the deb source packages the binary debs are build.
 ----------------------------------------------------
 QUICK HOWTO TO BUILD A SOURCE PACKAGE
 
-. Do NOT create a new .orig.tar.gz, ie only make a new Debian revision,
+. Do NOT create a new .orig.tar.xz, ie only make a new Debian revision,
   or read the whole text
-. Put the .orig.tar.gz into . (or ./src/)
+. Put the .orig.tar.xz into . (or ./src/)
 . edit whatever you have to change, don't forget to change 
   ./$sourcepackage/debian/changelog (it is the debian 
   changelog and defines the version number!)
@@ -70,6 +70,13 @@ Furthermore there are some files in the top level:
 tpm2deb-source.pl
 	the central script for building a .orig.tar.gz and a source
 	package
+
+do-one
+do-all
+	convenience scripts that builds one package (do-one) including
+	the .orig.tar if necessary. do-all builds all in parallel, moves
+	the generated files to pool directory, runs a apt archive 
+	generation and checks for duplicate files
 
 Makefile
 	not strictly essential, but it shows what you really have to do
@@ -147,7 +154,23 @@ Then call in the texlive-new trunk repository:
 	perl tpm2deb-source.pl make-orig-tar --master=/path/to/tlnet $srcpackage
 where $srcpackage is one of texlive-{base,extra,lang}.
 
-This does nothing else than unpacking the necessary archives from tlnet,
+IMPORTANT: for texlive-extra one additional argument is necessary: The texlive-extra
+source package contains an additional .orig tarball
+	texlive-extra_$version.orig-tex4ht.tar.xz
+which is generated from files either in the TeX Live repository, or the
+texlive-bin Debian package. One needs to pass in the location of the tex4ht
+java files to the script:
+	perl tpm2deb-source.pl make-orig-tar \
+		--master=/path/to/tlnet		\
+		--tex4ht-source=/path/to/tex4ht/java/	\
+		texlive-extra
+In the normal TeX Live repository these files are available in
+	REPO/Build/source/texk/tex4htk/java
+In the texlive-bin Debian package the files are available in
+	texlive-bin/texk/tex4htk/java
+
+
+The above call does nothing else than unpacking the necessary archives from tlnet,
 to the source package directory, and creates the orig.tar.gz file from it.
 
 Note that the blacklist: statements (see below) are taking action here, too,
@@ -179,17 +202,9 @@ If you want to build a single source package, say texlive-base, call
 Make sure the .orig.tar.xz you generated in step 2) are located in
 directory ../texlive-nonbin, from where the command is called.
 
-As usual, $sourcepackage can be one of texlive-{base,extra,lang,doc}
+As usual, $sourcepackage can be one of texlive-{base,extra,lang}
 or 'all' to build all of them.
 
-!!!To build texlive-extra source package you need in addition some parts
-from texlive-bin. Just create another .tar.xz like this:
-
-	tar -cvf texlive-extra_$upversion.orig-tex4ht.tar \
-	--directory=/path_to_local_copy_of_texlive-bin/texk/tex4htk/java .
-	xz -9 texlive-extra_$upversion.orig-tex4ht.tar
-
-...where $upversion is the upstream version from texlive-extra/debian/changelog.
 
 4) Binary package build time
 ============================
