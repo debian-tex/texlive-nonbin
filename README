@@ -11,8 +11,8 @@ QUICK HOWTO TO BUILD A SOURCE PACKAGE
 . Do NOT create a new .orig.tar.xz, ie only make a new Debian revision,
   or read the whole text
 . Put the .orig.tar.xz into . (or ./src/)
-. edit whatever you have to change, don't forget to change 
-  ./$sourcepackage/debian/changelog (it is the debian 
+. edit whatever you have to change, don't forget to change
+  ./$sourcepackage/debian/changelog (it is the debian
   changelog and defines the version number!)
 . call
 	perl ./tpm2deb-source.pl make-deb-source $sourcepackage
@@ -62,7 +62,7 @@ subdirectory and optionally other subdirectories.
 
 In addition there is a directory
 	all
-(also with the same structure as an unpacked source package) which holds 
+(also with the same structure as an unpacked source package) which holds
 stuff common for all source packages.
 
 Furthermore there are some files in the top level:
@@ -75,17 +75,17 @@ do-one
 do-all
 	convenience scripts that builds one package (do-one) including
 	the .orig.tar if necessary. do-all builds all in parallel, moves
-	the generated files to pool directory, runs a apt archive 
+	the generated files to pool directory, runs a apt archive
 	generation and checks for duplicate files
 
 Makefile
 	not strictly essential, but it shows what you really have to do
 	to generate a source package. Don't forget to call it with the
-	correct MASTER setting, e.g. 
+	correct MASTER setting, e.g.
 		MASTER=/checkout/of/tlnet make foobar
 	if you have need access to it at the foobar command (mostly
 	only at source package build time when you also create a new
-	.orig.tar.gz). 
+	.orig.tar.gz).
 
 TODO
 	well, obvious
@@ -110,7 +110,7 @@ docs/
 	tl4debtree.*
 		the sources/pdf of the dependency tree pdf
 		if you change something, please do not forget to update
-		also the respective .uu file in 
+		also the respective .uu file in
 		addons-per-source/texlive-doc/debian/tl4deb-deptree.pdf.uu
 	source-pkg.txt
 		approximate sizes and contents of the source packages
@@ -123,7 +123,7 @@ src/	(maybe not present)
 	into it ;-)
 
 tests/
-	tests/scripts: scripts that are run for 
+	tests/scripts: scripts that are run for
 		install-remove-install-purge etc tests
 	tests/stable tests/testing tests/sid
 		upgrade from the respective releases
@@ -139,7 +139,7 @@ The Debian TeXLive repository does not contain the actual sources,
 only the files needed to create Debian packages from them.  You have
 to get the sources separately. Since TL2012 we are building from
 a tlnet distribution, that is a set of .tar.xz files and some
-infrastructure. This is the primarly distribution of TeX Live 
+infrastructure. This is the primarly distribution of TeX Live
 nowadays.
 
 Please get a copy of tlnet from CTAN the ctan network
@@ -213,7 +213,7 @@ Besides the rest as found in rules(.in) the main action is taken by
 	perl debian/tpm2deb-bin.pl $packages
 which does the following for each binary package $pkg
 	- copy all the files to debian/$pkg/u/s/texlive/texmf-dist/...
-	  this honors the remap/blacklist/etc directives in the 
+	  this honors the remap/blacklist/etc directives in the
 	  config file (see below).
 	  Main function here is the do_remap_and_copy function.
 	- next the Execute statements from the tpm files are executed
@@ -226,16 +226,16 @@ which does the following for each binary package $pkg
 	  in this case a debian/$binpkg.info file is created for the
 	  dh_installinfo call later on in the debian/rules file
 	- finally the maintainer scripts are created (see below 5a)
-After this the debian/rules file continues and does the following 
+After this the debian/rules file continues and does the following
 (current situation) for each $binpkg:
 	- generate the license file
 	- remove the tpm files
 	- install lintian override, bug script and control files
-	- if present, add the shipped debian/$binpkg.links.dist to 
+	- if present, add the shipped debian/$binpkg.links.dist to
 	  debian/$binpkg.links (in earlier revision I think to remember
 	  that tpm2deb(-bin).pl created $binpkg.links, but this is not
 	  done anymore AFAIS, so this whole stuff could be deleted)
-	- create the README.Debian files from the package specific 
+	- create the README.Debian files from the package specific
 	  and the general one.
 ...
 
@@ -248,10 +248,10 @@ After this the debian/rules file continues and does the following
 
 sub make_maintainer in all/debian/tpm2deb-bin.pl
 
-The invocations of various commands (update-*, build_format etc) are 
-automatically generated from the various Execute statements in the 
+The invocations of various commands (update-*, build_format etc) are
+automatically generated from the various Execute statements in the
 tpm files. But you can add stuff *before* and *after* the
-automatically generated code by adding scripts 
+automatically generated code by adding scripts
 	$srcpackage/debian/$binpackage.$maintainerscript.{pre,post}
 so the final maintainer scripts look like this:
 
@@ -281,8 +281,8 @@ into addons-per-bin/:
 	Licenses:
 		$srcpackage/debian/$binpackage.Licenses.add
 So the final README.Debian for $package contains first a present
-$srcpackage/debian/$binpackage.README followed by the automatically 
-generated stuff, in this case followed by the content of 
+$srcpackage/debian/$binpackage.README followed by the automatically
+generated stuff, in this case followed by the content of
 all/debian/README.Debian.
 
 The final debian/$binpackage.links (input for dh_link) contains first the
@@ -290,7 +290,7 @@ content if present of $srcpackage/debian/$binpackage.links.dist followed by the
 automatically generated list.
 
 The final Licenses contains first all/debian/Licenses.header,
-then if present the file $srcpacakge/debian/$binpackage.Licenses.add 
+then if present the file $srcpacakge/debian/$binpackage.Licenses.add
 followed by the automatically generated content
 (generated by all/debian/generate-license-file).
 
@@ -361,17 +361,17 @@ blacklist;tpm;<tpmname>;<in-which-collection>
 	blacklist a whole tpm <tpmname>. the last entry gives
 	either * for all collections, or the name of a binary package
 	in which the tpm is blacklisted
-	blacklist is applied at ORIG build time and naturally at binary 
+	blacklist is applied at ORIG build time and naturally at binary
 	build time, so this way DFSG incompatible stuff can be excluded
 	from the .orig.tar.gz
 blacklist;file;<origfilename>
 	blacklist a file <origfilename>. The file name refers to the
 	file name in UPSTREAM source (as listed in tpm files).
-	It is a perl regexp!!!! 
+	It is a perl regexp!!!!
 	Otherwise works as above.
 kill;<origfilename>
 	included in .orig.tar.gz
-	not installed 
+	not installed
 ignore;<origfilename>
 	included in .orig.tar
 	not installed
@@ -404,7 +404,7 @@ mapping;<origfilename>;<action>;<arg>
 	properly for a conffile.
 
 	<origfilename> (perl regexp) is the file which should be installed
-	<arg> normally contains file names with possibly contained 
+	<arg> normally contains file names with possibly contained
 		backreferences (like $1) to sub-patterns in the <origfilename>
 		Filenames can be either given as relative paths, in this
 		case /usr/share/texmf-texlive is prepended, or as abolute
