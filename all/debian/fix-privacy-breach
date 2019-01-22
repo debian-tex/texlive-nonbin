@@ -10,6 +10,11 @@
 
 pkg="$1"
 
+xintfiles="
+	usr/share/doc/texlive-doc/generic/xint/CHANGES.html
+	usr/share/doc/texlive-doc/generic/xint/README.html
+"
+
 jadetexfiles="
 	usr/share/doc/texlive-doc/otherformats/jadetex/base/index.html
 "
@@ -94,4 +99,14 @@ for f in $jadetexfiles ; do
     mv $ff.new $ff
   fi
 done
-  
+
+for f in $xintfiles ; do
+  ff="debian/$pkg/$f"
+  if [ -r $ff ] ; then
+    sed \
+      -e 's!<script src="//cdnjs.cloudflare.com/[^"]*"></script>!!g' \
+         $ff > $ff.new
+    mv $ff.new $ff
+  fi
+done
+    
