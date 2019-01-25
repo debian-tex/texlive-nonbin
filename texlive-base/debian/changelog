@@ -1,10 +1,10 @@
-texlive-base (2018.20190125-1) unstable; urgency=medium
+texlive-base (2018.20190126-1) unstable; urgency=medium
 
   * new upstream checkout
     - fix for fontspec (Closes: #920366)
   * force same version of all TL packages (Closes: #920463)
 
- -- Norbert Preining <norbert@preining.info>  Sat, 26 Jan 2019 06:25:00 +0900
+ -- Norbert Preining <norbert@preining.info>  Sat, 26 Jan 2019 07:06:26 +0900
 
 texlive-base (2018.20190122-1) unstable; urgency=medium
 

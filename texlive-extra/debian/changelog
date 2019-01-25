@@ -1,8 +1,8 @@
-texlive-extra (2018.20190125-1) unstable; urgency=medium
+texlive-extra (2018.20190126-1) unstable; urgency=medium
 
   * new upstream checkout
 
- -- Norbert Preining <norbert@preining.info>  Sat, 26 Jan 2019 06:27:00 +0900
+ -- Norbert Preining <norbert@preining.info>  Sat, 26 Jan 2019 07:06:33 +0900
 
 texlive-extra (2018.20190122-1) unstable; urgency=medium
 
