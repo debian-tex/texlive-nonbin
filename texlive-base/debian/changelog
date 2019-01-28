@@ -1,3 +1,12 @@
+texlive-base (2018.20190126-2) UNRELEASED; urgency=medium
+
+  [Hilmar Preuße]
+  * Add commit 2ac708cefd71c111e783ba00d2dc13c3fe480140 (patch
+    texdoc-l_can_count) from Upstream to make "texdoc -l" work
+    (Closes: #914984).
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 28 Jan 2019 13:31:53 +0100
+
 texlive-base (2018.20190126-1) unstable; urgency=medium
 
   * new upstream checkout
