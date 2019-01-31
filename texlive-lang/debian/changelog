@@ -1,3 +1,10 @@
+texlive-lang (2018.20190131-1) unstable; urgency=medium
+
+  * new upstream checkout
+    - fix luatexja incompatibility with new fontspec
+
+ -- Norbert Preining <norbert@preining.info>  Thu, 31 Jan 2019 12:55:02 +0900
+
 texlive-lang (2018.20190126-1) unstable; urgency=medium
 
   * new upstream checkout
