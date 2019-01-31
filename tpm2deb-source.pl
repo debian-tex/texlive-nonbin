@@ -576,6 +576,9 @@ sub make_deb_control {
 		defined($TeXLive{'source'}{$package}{'standards'}) ? "$TeXLive{'source'}{$package}{'standards'}" : "$TeXLive{'all'}{'standards'}",
 		"\n";
 	print CONTROL "Homepage: http://www.tug.org/texlive/\n";
+	print CONTROL "Vcs-Git: https://github.com/debian-tex/texlive-nonbin.git\n";
+	print CONTROL "Vcs-Browser: https://github.com/debian-tex/texlive-nonbin\n";
+
 	#
 	# now start the individual packages
 	#
