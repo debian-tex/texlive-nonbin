@@ -1,8 +1,9 @@
 texlive-extra (2018.20190209-1) unstable; urgency=medium
 
   * new upstream checkout
+  * fix roboto font links (Closes: #922013)
 
- -- Norbert Preining <norbert@preining.info>  Sat, 09 Feb 2019 17:34:30 +0900
+ -- Norbert Preining <norbert@preining.info>  Tue, 12 Feb 2019 18:39:59 +0900
 
 texlive-extra (2018.20190131-1) unstable; urgency=medium
 

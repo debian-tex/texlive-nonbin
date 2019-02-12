@@ -1,0 +1,6 @@
+for i in `cat  */debian/*.links.dist | grep -v '^#' | awk '{print$1}'` ; do 
+  if [ ! -e /$i ] ; then 
+    echo "MISSING LINK TARGET $i"
+  fi
+done
+
