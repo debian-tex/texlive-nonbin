@@ -1,4 +1,4 @@
-texlive-base (2018.20190212-1) unstable; urgency=medium
+texlive-base (2018.20190219-1) unstable; urgency=medium
 
   [Hilmar Preuße]
   * Add patch 66ca798e541225fcf939c727e3b539711fbc60c6 from upstream
@@ -8,7 +8,7 @@ texlive-base (2018.20190212-1) unstable; urgency=medium
   [Norbert Preining]
   * new upstream checkout
 
- -- Norbert Preining <norbert@preining.info>  Tue, 12 Feb 2019 18:46:03 +0900
+ -- Norbert Preining <norbert@preining.info>  Tue, 19 Feb 2019 14:39:33 +0900
 
 texlive-base (2018.20190131-1) unstable; urgency=medium
 
