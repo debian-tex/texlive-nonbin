@@ -1,8 +1,9 @@
-texlive-extra (2018.20190219-2) UNRELEASED; urgency=medium
+texlive-extra (2018.201902DD-1) UNRELEASED; urgency=medium
 
   * recommend liblog-log4perl-perl for latexindent (Closes: #922305)
+  * blacklist docindex.sty, non-functional (Closes: #921653)
 
- -- Norbert Preining <norbert@preining.info>  Wed, 20 Feb 2019 08:35:29 +0900
+ -- Norbert Preining <norbert@preining.info>  Sun, 24 Feb 2019 14:30:50 +0900
 
 texlive-extra (2018.20190219-1) unstable; urgency=medium
 
