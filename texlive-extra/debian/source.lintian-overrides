@@ -6,7 +6,3 @@ texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/APla
 texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/VPlayer.swf
 texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/VPlayer9.swf
 texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/SlideShow.swf
-#
-# the license of the ICC files have changed, and an updated license statement
-# is included in the file ICC_Licenses
-texlive-extra source: license-problem-md5sum-non-free-file texmf-dist/tex/latex/pdfx/sRGB_IEC61966-2-1_black_scaled.icc*
