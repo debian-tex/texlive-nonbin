@@ -4,3 +4,4 @@ latex2man-mktemp
 tmp-dir-for-pdfjam
 sympytex-path
 fix-gbrief-multiple
+fix-tabu-920459

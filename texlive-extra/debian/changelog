@@ -4,8 +4,10 @@ texlive-extra (2018.20190224-1) unstable; urgency=medium
   * fix roboto font links (Closes: #922013)
   * recommend liblog-log4perl-perl for latexindent (Closes: #922305)
   * blacklist docindex.sty, non-functional (Closes: #921653)
+  * Patch tabu to fix multiple FTBFS in other packages (Closes: #920459)
+    (Thanks Thorsten Glaser)
 
- -- Norbert Preining <norbert@preining.info>  Tue, 19 Feb 2019 14:39:44 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 25 Feb 2019 09:17:06 +0900
 
 texlive-extra (2018.20190131-1) unstable; urgency=medium
 

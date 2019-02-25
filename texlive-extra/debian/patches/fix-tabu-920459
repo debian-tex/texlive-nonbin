@@ -1,0 +1,23 @@
+# DP: see #920459 and https://github.com/tabu-fixed/tabu/issues/1
+# DP: forwarded as https://github.com/tabu-fixed/tabu/pull/14
+
+--- a/texmf-dist/source/latex/tabu/tabu.dtx
++++ b/texmf-dist/source/latex/tabu/tabu.dtx
+@@ -6099,6 +6099,7 @@ morekeywords=[7]{yellow},
+         \ifdim \tabu@temp\p@>\z@ \ifdim \tabu@temp\tabucolX<\tabu@target
+                                         \tabu@target=\tabu@temp\tabucolX \fi\fi
+         \setbox\tabu@box  \hbox \bgroup
++            \color@begingroup%
+             \begin{varwidth}\tabu@target
+                 \let\FV@ListProcessLine \tabu@FV@ListProcessLine  % \hbox to natural width...
+                 \narrowragged \arraybackslash \parfillskip \@flushglue
+--- a/texmf-dist/tex/latex/tabu/tabu.sty
++++ b/texmf-dist/tex/latex/tabu/tabu.sty
+@@ -1663,6 +1663,7 @@
+         \ifdim \tabu@temp\p@>\z@ \ifdim \tabu@temp\tabucolX<\tabu@target
+                                         \tabu@target=\tabu@temp\tabucolX \fi\fi
+         \setbox\tabu@box  \hbox \bgroup
++            \color@begingroup%
+             \begin{varwidth}\tabu@target
+                 \let\FV@ListProcessLine \tabu@FV@ListProcessLine  % \hbox to natural width...
+                 \narrowragged \arraybackslash \parfillskip \@flushglue
