@@ -1,8 +1,8 @@
 texlive-lang (2018.20190224-1) unstable; urgency=medium
 
-  * new upstream checkout
+  * new upstream checkout: final TL2018 image
 
- -- Norbert Preining <norbert@preining.info>  Sun, 24 Feb 2019 14:40:43 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 27 Feb 2019 09:09:11 +0900
 
 texlive-lang (2018.20190131-1) unstable; urgency=medium
 

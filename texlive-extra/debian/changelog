@@ -1,13 +1,14 @@
-texlive-extra (2018.20190224-1) unstable; urgency=medium
+texlive-extra (2018.20190227-1) unstable; urgency=medium
 
-  * new upstream checkout
+  * new upstream checkout: final TL2018 image
+  * clean up the mess due to delayed acceptance
   * fix roboto font links (Closes: #922013)
   * recommend liblog-log4perl-perl for latexindent (Closes: #922305)
   * blacklist docindex.sty, non-functional (Closes: #921653)
   * Patch tabu to fix multiple FTBFS in other packages (Closes: #920459)
     (Thanks Thorsten Glaser)
 
- -- Norbert Preining <norbert@preining.info>  Mon, 25 Feb 2019 09:17:06 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 27 Feb 2019 09:09:08 +0900
 
 texlive-extra (2018.20190131-1) unstable; urgency=medium
 

@@ -1,4 +1,4 @@
-texlive-base (2018.20190224-1) unstable; urgency=medium
+texlive-base (2018.20190227-1) unstable; urgency=medium
 
   [Hilmar Preuße]
   * Add patch 66ca798e541225fcf939c727e3b539711fbc60c6 from upstream
@@ -6,10 +6,11 @@ texlive-base (2018.20190224-1) unstable; urgency=medium
     (Closes: #591781). Thanks to Norbert Preining & Takuto ASAKURA.
 
   [Norbert Preining]
-  * new upstream checkout
+  * clean up the mess due to delayed acceptance
+  * new upstream checkout: final TL2018 image
     - fix tikz spath3 lib (Closes: #922736)
 
- -- Norbert Preining <norbert@preining.info>  Sun, 24 Feb 2019 14:32:39 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 27 Feb 2019 09:08:59 +0900
 
 texlive-base (2018.20190131-1) unstable; urgency=medium
 
