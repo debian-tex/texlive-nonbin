@@ -1,3 +1,9 @@
+texlive-lang (2018.20190227-2) unstable; urgency=medium
+
+  * remove outdated docs from debian patch
+
+ -- Norbert Preining <norbert@preining.info>  Sat, 02 Mar 2019 11:31:43 +0900
+
 texlive-lang (2018.20190227-1) unstable; urgency=medium
 
   * new upstream checkout: final TL2018 image
