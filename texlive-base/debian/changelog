@@ -1,3 +1,11 @@
+texlive-base (2018.20190227-2) unstable; urgency=medium
+
+  * update microtype to 2.7b for compatibility with luaotfload
+  * remove outdated LaTeX and fontspec documentation to get correct
+    docs via orig.tar
+
+ -- Norbert Preining <norbert@preining.info>  Sat, 02 Mar 2019 11:27:24 +0900
+
 texlive-base (2018.20190227-1) unstable; urgency=medium
 
   [Hilmar Preuße]
