@@ -1,3 +1,9 @@
+texlive-extra (2019.20190311-1) experimental; urgency=medium
+
+  * first 2019 pre-release
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 11 Mar 2019 17:38:52 +0900
+
 texlive-extra (2018.20190227-1) unstable; urgency=medium
 
   * new upstream checkout: final TL2018 image

@@ -1,3 +1,9 @@
+texlive-lang (2019.20190311-1) experimental; urgency=medium
+
+  * first 2019 pre-release
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 11 Mar 2019 17:38:52 +0900
+
 texlive-lang (2018.20190227-2) unstable; urgency=medium
 
   * remove outdated docs from debian patch
