@@ -1,9 +1,12 @@
-texlive-extra (2019.20190311-2) UNRELEASED; urgency=medium
+texlive-extra (2019.20190324-1) experimental; urgency=medium
 
   [ Hilmar Preuße ]
   * add python-sympy to recommends of texlive-science (Closes: #907046).
 
- -- Norbert Preining <norbert@preining.info>  Tue, 19 Mar 2019 20:45:57 +0100
+  [ Norbert Preining ]
+  * new upstream checkout
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 25 Mar 2019 00:03:24 +0900
 
 texlive-extra (2019.20190311-1) experimental; urgency=medium
 
