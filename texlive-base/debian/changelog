@@ -1,9 +1,9 @@
-texlive-base (2019.20190324-1) experimental; urgency=medium
+texlive-base (2019.20190409-1) experimental; urgency=medium
 
+  * TeX Live 2019 checkout
   * Updated debconf PO Catalan translation (Closes: #876473).
-  * new upstream checkout
 
- -- Norbert Preining <norbert@preining.info>  Mon, 25 Mar 2019 00:02:32 +0900
+ -- Norbert Preining <norbert@preining.info>  Tue, 09 Apr 2019 10:33:48 +0900
 
 texlive-base (2019.20190311-1) experimental; urgency=medium
 
