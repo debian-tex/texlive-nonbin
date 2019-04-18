@@ -1,3 +1,10 @@
+texlive-extra (2018.20190227-2) unstable; urgency=medium
+
+  * more tabu fixes (Closes: #920459) (reopened bug, since cloning is not
+    possible, thanks BTS)
+
+ -- Norbert Preining <norbert@preining.info>  Thu, 18 Apr 2019 15:20:25 +0900
+
 texlive-extra (2018.20190227-1) unstable; urgency=medium
 
   * new upstream checkout: final TL2018 image
