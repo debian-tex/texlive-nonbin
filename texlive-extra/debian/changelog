@@ -1,3 +1,9 @@
+texlive-extra (2019.20190506-1) experimental; urgency=medium
+
+  * cherry pick from buster branch: more tabu fixes (Closes: #920459)
+
+ -- Norbert Preining <norbert@preining.info>  Thu, 18 Apr 2019 15:20:25 +0900
+
 texlive-extra (2019.20190409-1) experimental; urgency=medium
 
   [ Hilmar Preuße ]
