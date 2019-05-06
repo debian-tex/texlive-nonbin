@@ -1,8 +1,9 @@
 texlive-extra (2019.20190506-1) experimental; urgency=medium
 
+  * first post TL 2019 checkout
   * cherry pick from buster branch: more tabu fixes (Closes: #920459)
 
- -- Norbert Preining <norbert@preining.info>  Thu, 18 Apr 2019 15:20:25 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 06 May 2019 09:29:26 +0900
 
 texlive-extra (2019.20190409-1) experimental; urgency=medium
 
