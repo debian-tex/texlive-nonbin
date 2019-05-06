@@ -3,8 +3,8 @@ Adjust the texmfcnf.lua file to realities in Debian
  texmf-dist/web2c/texmfcnf.lua |   26 ++++++++++++--------------
  1 file changed, 12 insertions(+), 14 deletions(-)
 
---- texlive-base-2018.20180312.orig/texmf-dist/web2c/texmfcnf.lua
-+++ texlive-base-2018.20180312/texmf-dist/web2c/texmfcnf.lua
+--- texlive-base-2019.20190506.orig/texmf-dist/web2c/texmfcnf.lua
++++ texlive-base-2019.20190506/texmf-dist/web2c/texmfcnf.lua
 @@ -3,17 +3,15 @@
  -- ConTeXt needs a properly expanded TEXMFLOCAL, so here is a
  -- bit of lua code to make that happen
@@ -25,16 +25,16 @@ Adjust the texmfcnf.lua file to realities in Debian
  
      content = {
  
-@@ -44,7 +42,7 @@
+@@ -44,7 +42,7 @@ return {
  
              -- only used for FONTCONFIG_PATH & TEXMFCACHE in TeX Live
  
 -            TEXMFSYSVAR     = "selfautoparent:texmf-var",
 +            TEXMFSYSVAR     = "/var/lib/texmf",
-             TEXMFVAR        = "home:.texlive2018/texmf-var",
+             TEXMFVAR        = "home:.texlive2019/texmf-var",
  
              -- We have only one cache path but there can be more. The first writable one
-@@ -61,13 +59,13 @@
+@@ -61,13 +59,13 @@ return {
              -- By using prefixes we don't get expanded paths in the cache __path__
              -- entry. This makes the tex root relocatable.
  
@@ -55,7 +55,7 @@ Adjust the texmfcnf.lua file to realities in Debian
  
              TEXMFHOME       = "home:texmf",
           -- TEXMFHOME       = os.name == "macosx" and "home:Library/texmf" or "home:texmf",
-@@ -75,7 +73,7 @@
+@@ -75,7 +73,7 @@ return {
              -- We need texmfos for a few rare files but as I have a few more bin trees
              -- a hack is needed. Maybe other users also have texmf-platform-new trees.
  
@@ -64,7 +64,7 @@ Adjust the texmfcnf.lua file to realities in Debian
  
              TEXFONTMAPS     = ".;$TEXMF/fonts/data//;$TEXMF/fonts/map/{pdftex,dvips}//",
              ENCFONTS        = ".;$TEXMF/fonts/data//;$TEXMF/fonts/enc/{dvips,pdftex}//",
-@@ -174,7 +172,7 @@
+@@ -174,7 +172,7 @@ return {
              -- In an edit cycle it can be handy to launch an editor. The
              -- preferred one can be set here.
  

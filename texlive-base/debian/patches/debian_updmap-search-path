@@ -2,9 +2,9 @@
  texmf-dist/scripts/texlive/updmap.pl |   17 ++++++++++++++++-
  1 file changed, 16 insertions(+), 1 deletion(-)
 
---- texlive-base-2017.20170525.orig/texmf-dist/scripts/texlive/updmap.pl
-+++ texlive-base-2017.20170525/texmf-dist/scripts/texlive/updmap.pl
-@@ -24,7 +24,7 @@
+--- texlive-base-2019.20190506.orig/texmf-dist/scripts/texlive/updmap.pl
++++ texlive-base-2019.20190506/texmf-dist/scripts/texlive/updmap.pl
+@@ -24,7 +24,7 @@ BEGIN {
      die "$0: kpsewhich -var-value=TEXMFROOT failed, aborting early.\n";
    }
    chomp($TEXMFROOT);
@@ -12,8 +12,8 @@
 +  unshift (@INC, "/usr/share/texlive/tlpkg");
  }
  
- my $lastchdate = '$Date: 2017-05-14 04:15:43 +0200 (Sun, 14 May 2017) $';
-@@ -396,6 +396,21 @@
+ my $lastchdate = '$Date: 2019-03-18 12:35:23 +0100 (Mon, 18 Mar 2019) $';
+@@ -396,6 +396,21 @@ sub main {
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";

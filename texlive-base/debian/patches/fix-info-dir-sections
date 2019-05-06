@@ -6,11 +6,11 @@ add info dir section and entry to texdraw and epspdf
  texmf-dist/doc/info/texdraw.info |    5 +++++
  1 file changed, 5 insertions(+)
 
---- texlive-base-2013.20130509.orig/texmf-dist/doc/info/texdraw.info
-+++ texlive-base-2013.20130509/texmf-dist/doc/info/texdraw.info
-@@ -14,6 +14,11 @@
- entire resulting derived work is distributed under the terms of a
- permission notice identical to this one.
+--- texlive-base-2019.20190506.orig/texmf-dist/doc/info/texdraw.info
++++ texlive-base-2019.20190506/texmf-dist/doc/info/texdraw.info
+@@ -15,6 +15,11 @@ START-INFO-DIR-ENTRY
+ * TeXdraw: (texdraw).           Drawing PostScript diagrams within TeX.
+ END-INFO-DIR-ENTRY
  
 +INFO-DIR-SECTION TeX
 +START-INFO-DIR-ENTRY
@@ -18,5 +18,5 @@ add info dir section and entry to texdraw and epspdf
 +END-INFO-DIR-ENTRY
 +
  
- File: texdraw,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
+ File: texdraw.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
  

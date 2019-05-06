@@ -19,7 +19,6 @@ debian-updmap-man
 #debian-texconfig-adaptions
 texdoc-see-and-zip
 fix-natbib-add-spaces
-upstream_fix_babel_french_days
 debian-tlmgr-usermode
 mptopdf-manpage-fixes
 # not really good a fix, upupstream is working on it
@@ -28,8 +27,4 @@ mptopdf-manpage-fixes
 #pgf-tex4ht-fix
 texdoctk-colors
 oberdiek-fix-boxdraw
-texdoctk-warn-missing-perltk
 xypic-no-privacy-breach
-texdoc-l_can_count
-texdoc_591781
-upstream-update-microtype

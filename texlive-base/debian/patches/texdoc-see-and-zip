@@ -1,10 +1,10 @@
 ---
- texmf-dist/texdoc/texdoc.cnf |   13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+ texmf-dist/texdoc/texdoc.cnf |   12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
---- texlive-base-2013.20130509.orig/texmf-dist/texdoc/texdoc.cnf
-+++ texlive-base-2013.20130509/texmf-dist/texdoc/texdoc.cnf
-@@ -34,6 +34,12 @@
+--- texlive-base-2019.20190506.orig/texmf-dist/texdoc/texdoc.cnf
++++ texlive-base-2019.20190506/texmf-dist/texdoc/texdoc.cnf
+@@ -33,6 +33,12 @@
  # viewer_pdf = xpdf             # works
  # viewer_pdf = xpdf %s &        # works even better
  
@@ -17,17 +17,16 @@
  # If you want to enable support for zipped documentation (see below),
  # you may want to adapt viewer_* so that it starts a subshell:
  #
-@@ -61,8 +67,11 @@
+@@ -60,8 +66,10 @@
  # For each "ext" in zipext_list, you must define a "unzip_ext" unzipper.
  # The unzipped data must be printed on stdout. Example:
  #
 -# zipext_list = gz
--# unzip_gz    = gzip -d -c
+-# unzip_gz = gzip -d -c
 +zipext_list = gz, bz2, xz
 +unzip_gz    = gzip -d -c
 +unzip_bz2   = bzip2 -d -c
 +unzip_xz    = xz --decompress --stdout
-+
  
  ## User interaction
  
