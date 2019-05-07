@@ -1,3 +1,9 @@
+texlive-base (2019.20190507-1) experimental; urgency=medium
+
+  * New upstream checkout
+
+ -- Norbert Preining <norbert@preining.info>  Tue, 07 May 2019 14:41:01 +0900
+
 texlive-base (2019.20190506-1) experimental; urgency=medium
 
   * first post TL 2019 checkout
