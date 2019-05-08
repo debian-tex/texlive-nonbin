@@ -1,3 +1,10 @@
+texlive-lang (2019.20190508-1) experimental; urgency=medium
+
+  * New upstream checkout
+  * fix more file moves
+
+ -- Norbert Preining <norbert@preining.info>  Wed, 08 May 2019 15:33:06 +0900
+
 texlive-lang (2019.20190507-1) experimental; urgency=medium
 
   * New upstream checkout
