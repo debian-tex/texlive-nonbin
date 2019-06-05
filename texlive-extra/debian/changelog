@@ -1,3 +1,10 @@
+texlive-extra (2019.20190605-1) experimental; urgency=medium
+
+  * New upstream checkout
+    - remove non-free files
+
+ -- Norbert Preining <norbert@preining.info>  Wed, 05 Jun 2019 12:18:14 +0900
+
 texlive-extra (2019.20190508-1) experimental; urgency=medium
 
   * New upstream checkout

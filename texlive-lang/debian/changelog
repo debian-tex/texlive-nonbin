@@ -1,8 +1,9 @@
-texlive-lang (2019.20190508-2) UNRELEASED; urgency=medium
+texlive-lang (2019.20190605-1) experimental; urgency=medium
 
+  * New upstream checkout
   * Fix dependencies for cstex et al (Closes: #928805)
 
- -- Norbert Preining <norbert@preining.info>  Mon, 13 May 2019 06:28:17 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 05 Jun 2019 12:18:47 +0900
 
 texlive-lang (2019.20190508-1) experimental; urgency=medium
 
