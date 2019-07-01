@@ -1,3 +1,10 @@
+texlive-extra (2019.201907DD-1) UNRELEASED; urgency=medium
+
+  * New upstream checkout 
+  * ifplatform moved to texlive-base (Closes: #673273)
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 01 Jul 2019 09:03:41 +0900
+
 texlive-extra (2019.20190605-1) experimental; urgency=medium
 
   * New upstream checkout
