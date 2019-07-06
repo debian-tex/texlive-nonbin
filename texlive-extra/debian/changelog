@@ -6,6 +6,7 @@ texlive-extra (2019.201907DD-1) UNRELEASED; urgency=medium
     (Closes: #931367).
   * tex4ht needs very often a LaTeX executable. texlive-plain-generic
     now recommends texlive-latex-base. (Closes: #767871).
+  * texlive-font-utils now suggests lcdf-typetools (Closes: #641354)
 
  -- Norbert Preining <norbert@preining.info>  Mon, 01 Jul 2019 09:03:41 +0900
 
