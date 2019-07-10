@@ -1,9 +1,9 @@
-texlive-base (2019.201907DD-1) UNRELEASED; urgency=medium
+texlive-base (2019.20190710-1) unstable; urgency=medium
 
   * New upstream checkout
   * texlive-base suggests xpdf instead of xpdf-reader.
 
- -- Norbert Preining <norbert@preining.info>  Mon, 01 Jul 2019 09:04:29 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 10 Jul 2019 10:09:51 +0900
 
 texlive-base (2019.20190605-1) experimental; urgency=medium
 

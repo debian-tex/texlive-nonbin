@@ -1,14 +1,17 @@
-texlive-extra (2019.201907DD-1) UNRELEASED; urgency=medium
+texlive-extra (2019.20190710-1) unstable; urgency=medium
 
+  [ Norbert Preining ]
   * New upstream checkout 
   * ifplatform moved to texlive-base (Closes: #673273)
+
+  [ Hilmar Preuße ]
   * tex4ht needs sometimes JRE. Add suggests to texlive-plain-generic.
     (Closes: #931367).
   * tex4ht needs very often a LaTeX executable. texlive-plain-generic
     now recommends texlive-latex-base. (Closes: #767871).
   * texlive-font-utils now suggests lcdf-typetools (Closes: #641354)
 
- -- Norbert Preining <norbert@preining.info>  Mon, 01 Jul 2019 09:03:41 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 10 Jul 2019 10:11:32 +0900
 
 texlive-extra (2019.20190605-1) experimental; urgency=medium
 
