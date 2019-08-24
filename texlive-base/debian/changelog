@@ -1,4 +1,4 @@
-texlive-base (2019.20190XXX-1) UNRELEASED; urgency=medium
+texlive-base (2019.20190824-1) unstable; urgency=medium
 
   * new upstream checkout
     - move powerdot to texlive-latex-extra (Closes: #521201)
@@ -7,7 +7,7 @@ texlive-base (2019.20190XXX-1) UNRELEASED; urgency=medium
   * texlive-base suggests xzdec. Can be used by tlmgr.
     (Closes: #891968)
 
- -- Norbert Preining <norbert@preining.info>  Sun, 21 Jul 2019 14:12:57 +0900
+ -- Norbert Preining <norbert@preining.info>  Sat, 24 Aug 2019 15:16:28 +0900
 
 texlive-base (2019.20190710-1) unstable; urgency=medium
 

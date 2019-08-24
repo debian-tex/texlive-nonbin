@@ -1,9 +1,13 @@
-texlive-extra (2019.20190710-2) UNRELEASED; urgency=medium
+texlive-extra (2019.20190824-1) unstable; urgency=medium
 
+  [ Hilmar Preuße ]
   * texlive-fonts-extra recommends texlive-fonts-recommended.
     (Closes: #390190)
 
- -- Hilmar Preuße <hille42@web.de>  Wed, 17 Jul 2019 23:15:14 +0200
+  [ Norbert Preining ]
+  * New upstream checkout
+
+ -- Norbert Preining <norbert@preining.info>  Sat, 24 Aug 2019 15:16:52 +0900
 
 texlive-extra (2019.20190710-1) unstable; urgency=medium
 
