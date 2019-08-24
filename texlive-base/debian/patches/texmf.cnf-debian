@@ -2,8 +2,8 @@
  texmf-dist/web2c/texmf.cnf |   49 +++++++++++----------------------------------
  1 file changed, 13 insertions(+), 36 deletions(-)
 
---- texlive-base-2019.20190629.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2019.20190629/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2019.20190824.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2019.20190824/texmf-dist/web2c/texmf.cnf
 @@ -59,7 +59,7 @@
  % SELFAUTOPARENT (its grandparent = /usr/local/texlive/YYYY), and
  % SELFAUTOGRANDPARENT (its great-grandparent = /usr/local/texlive).
@@ -68,7 +68,7 @@
  
  % On some systems, there will be a system tree which contains all the font
  % files that may be created as well as the formats.  For example
-@@ -365,7 +368,7 @@ TEXPSHEADERS.gsftopk = $TEXMFDOTDIR;$TEX
+@@ -382,7 +385,7 @@ TEXPSHEADERS.gsftopk = $TEXMFDOTDIR;$TEX
  % OSFONTDIR is to provide a convenient hook for allowing TeX to find
  % fonts installed on the system (outside of TeX).  An empty default
  % value would add "//" to the search paths, so we give it a dummy value.
@@ -77,7 +77,7 @@
  
  % PostScript Type 1 outline fonts.
  T1FONTS = $TEXMFDOTDIR;$TEXMF/fonts/type1//;$OSFONTDIR//
-@@ -530,33 +533,7 @@ RUBYINPUTS   = $TEXMFDOTDIR;$TEXMF/scrip
+@@ -556,33 +559,7 @@ RUBYINPUTS   = $TEXMFDOTDIR;$TEXMF/scrip
  % since we don't want to scatter ../'s throughout the value.  Hence we
  % explicitly list every directory.  Arguably more understandable anyway.
  %
