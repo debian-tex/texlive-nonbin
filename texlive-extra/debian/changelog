@@ -1,3 +1,9 @@
+texlive-extra (2019.20190830-1) unstable; urgency=medium
+
+  * New upstream checkout: fix for broken eslint font (Closes: #935968)
+
+ -- Norbert Preining <norbert@preining.info>  Fri, 30 Aug 2019 10:33:01 +0900
+
 texlive-extra (2019.20190824-1) unstable; urgency=medium
 
   [ Hilmar Preuße ]
