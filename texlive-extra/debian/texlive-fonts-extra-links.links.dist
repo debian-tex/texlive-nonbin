@@ -215,10 +215,6 @@ usr/share/fonts/truetype/adf/BerenisADFPro-Bold.otf usr/share/texlive/texmf-dist
 usr/share/fonts/truetype/adf/BerenisADFPro-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/berenisadf/BerenisADFPro-BoldItalic.otf
 usr/share/fonts/truetype/adf/BerenisADFPro-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/berenisadf/BerenisADFPro-Italic.otf
 usr/share/fonts/truetype/adf/BerenisADFPro-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/berenisadf/BerenisADFPro-Regular.otf
-usr/share/fonts/truetype/adf/BerenisADFProSC-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/berenisadf/BerenisADFProSC-Bold.otf
-usr/share/fonts/truetype/adf/BerenisADFProSC-BoldItalic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/berenisadf/BerenisADFProSC-BoldItalic.otf
-usr/share/fonts/truetype/adf/BerenisADFProSC-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/berenisadf/BerenisADFProSC-Italic.otf
-usr/share/fonts/truetype/adf/BerenisADFProSC-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/berenisadf/BerenisADFProSC-Regular.otf
 usr/share/fonts/truetype/adf/UniversalisADFStd-BoldCond.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/universalis/UniversalisADFStd-BoldCond.otf
 usr/share/fonts/truetype/adf/UniversalisADFStd-Cond.otf usr/share/texlive/texmf-dist/fonts/opentype/arkandis/universalis/UniversalisADFStd-Cond.otf
 usr/share/fonts/fonts-go/Go-Bold-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/bh/gofonts/Go-Bold-Italic.ttf
