@@ -1,3 +1,9 @@
+texlive-extra (2019.20190930-2) unstable; urgency=medium
+
+  * latex-dev has moved, add necessary replace (Closes: #941441, #941445)
+
+ -- Norbert Preining <norbert@preining.info>  Tue, 01 Oct 2019 09:17:11 +0900
+
 texlive-extra (2019.20190930-1) unstable; urgency=medium
 
   * New upstream checkout
