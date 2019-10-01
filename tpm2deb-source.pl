@@ -529,6 +529,91 @@ sub make_deb_source {
 # make_deb_control
 #
 
+# NOT USED BY NOW, NOT COMPLETELY CORRECT MAYBE???
+# Even if we have multiple occurrences in the source package control file
+# the binary package will have minimized dependencies done by Dpkg, so
+# I guess it is better to leave the reduction to dpkg
+# if one used the function, the following use call has to be added!!!
+# use Dpkg::Version;
+sub reddeps {
+  my ($type, @alldeps) = @_;
+  my @retdeps;
+  my %deps;
+  for my $d (@alldeps) {
+    if ($d =~ m/^([^ ]*) \((..) ([^\)]*)\)/) {
+      my $pkg = $1;
+      my $rel = $2;
+      my $ver = $3;
+      my $v = Dpkg::Version->new($ver);
+      push @{$deps{$pkg}}, [$rel, $v];
+    } else {
+	  push @retdeps, $d;
+	}
+  }
+  for my $k (sort keys %deps) {
+    my $curmaxrel;
+    my $curmax;
+    my $curminrel;
+    my $curmin;
+    for my $a (@{$deps{$k}}) {
+      my ($r, $v) = @$a;
+      if ($r eq "<<" || $r eq "<=") {
+	if (defined($curmax)) {
+	  my $vcomp = version_compare($v, $curmax);
+	  if (($vcomp == -1 && $type eq "deps") || ($vcomp == 1 && $type eq "conflicts")) {
+	    # $v < $curmax
+	    $curmaxrel = $r;
+	    $curmax = $v;
+	  } elsif ($vcomp == 0) {
+	    # $v == $curmax -> we need to check the relations
+	    if ($curmaxrel eq "<=") {
+	      if ($type eq "deps" && $r eq "<<") {
+		$curmaxrel = "<<";
+	      }
+	    } else {
+	      if ($type eq "conflicts" && $r eq "<=") {
+		$curmaxrel = "<=";
+	      }
+	    }
+	  }
+	} else {
+	  $curmax = $v;
+	  $curmaxrel = $r;
+	}
+      } else {
+	if (defined($curmin)) {
+	  my $vcomp = version_compare($curmin, $v);
+	  if (($vcomp == -1 && $type eq "deps") || ($vcomp == 1 && $type eq "conflicts")) {
+	    # deps: $curmin < $v
+	    # conflicts: $curmin > $v
+	    $curminrel = $r;
+	    $curmin = $v;
+	  } elsif ($vcomp == 0) {
+	    # $v == $curmin -> we need to check the relations
+	    if ($curminrel eq ">=") {
+	      if ($type eq "deps" && $r eq ">>") {
+		$curminrel = ">>";
+	      }
+	    } else {
+	      if ($type eq "conflicts" && $r eq ">=") {
+		$curminrel = ">=";
+	      }
+	    }
+	  }
+	} else {
+	  $curmin = $v;
+	  $curminrel = $r;
+	}
+      }
+    }
+    push @retdeps, "$k ($curmaxrel $curmax)" if (defined($curmax));
+    push @retdeps, "$k ($curminrel $curmin)" if (defined($curmin));
+  }
+  return(@retdeps);
+}
+
+
+
 sub make_deb_control {
 	# my functions
 	sub makeuniq {
