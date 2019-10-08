@@ -1,3 +1,9 @@
+texlive-extra (2019.20190930-3) unstable; urgency=medium
+
+  * add missing replaces for BerenisADFProSC reinclusion (Closes: #941837)
+
+ -- Norbert Preining <norbert@preining.info>  Wed, 09 Oct 2019 07:52:43 +0900
+
 texlive-extra (2019.20190930-2) unstable; urgency=medium
 
   * latex-dev has moved, add necessary replace (Closes: #941441, #941445)
