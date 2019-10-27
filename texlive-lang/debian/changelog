@@ -1,3 +1,9 @@
+texlive-lang (2019.20191027-1) unstable; urgency=medium
+
+  * New upstream checkout
+
+ -- Norbert Preining <norbert@preining.info>  Sun, 27 Oct 2019 16:05:05 +0900
+
 texlive-lang (2019.20190930-1) unstable; urgency=medium
 
   * New upstream checkout

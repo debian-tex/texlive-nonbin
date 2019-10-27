@@ -2,8 +2,8 @@
  texmf-dist/web2c/texmf.cnf |   49 +++++++++++----------------------------------
  1 file changed, 13 insertions(+), 36 deletions(-)
 
---- texlive-base-2019.20190824.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2019.20190824/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2019.20191027.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2019.20191027/texmf-dist/web2c/texmf.cnf
 @@ -59,7 +59,7 @@
  % SELFAUTOPARENT (its grandparent = /usr/local/texlive/YYYY), and
  % SELFAUTOGRANDPARENT (its great-grandparent = /usr/local/texlive).
@@ -77,7 +77,7 @@
  
  % PostScript Type 1 outline fonts.
  T1FONTS = $TEXMFDOTDIR;$TEXMF/fonts/type1//;$OSFONTDIR//
-@@ -556,33 +559,7 @@ RUBYINPUTS   = $TEXMFDOTDIR;$TEXMF/scrip
+@@ -557,33 +560,7 @@ RUBYINPUTS   = $TEXMFDOTDIR;$TEXMF/scrip
  % since we don't want to scatter ../'s throughout the value.  Hence we
  % explicitly list every directory.  Arguably more understandable anyway.
  %
