@@ -1,3 +1,12 @@
+texlive-base (2019.2019MMDD-1) UNRELEASED; urgency=medium
+
+  * UPSTREAM CHECKOUT NECESSAYR
+  * New upstream checkout
+    - LaTeX2e patch level 3 - fixes to multiple dots and spaces in
+      filenames (Closes: #944400)
+
+ -- Norbert Preining <norbert@preining.info>  Sun, 10 Nov 2019 09:29:02 +0900
+
 texlive-base (2019.20191030-1) unstable; urgency=medium
 
   * New upstream checkout
