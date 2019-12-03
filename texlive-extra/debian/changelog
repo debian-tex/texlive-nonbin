@@ -1,9 +1,9 @@
-texlive-extra (2019.2019MMDD-1) UNRELEASED; urgency=medium
+texlive-extra (2019.20191203-1) unstable; urgency=medium
 
   * New upstream checkout:
     - dummy grffile.sty accepts options (Closes: #944733)
 
- -- Norbert Preining <norbert@preining.info>  Fri, 15 Nov 2019 13:06:21 +0900
+ -- Norbert Preining <norbert@preining.info>  Tue, 03 Dec 2019 12:07:22 +0900
 
 texlive-extra (2019.20191112-1) unstable; urgency=medium
 
