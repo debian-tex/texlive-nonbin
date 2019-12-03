@@ -1,7 +1,11 @@
 Respect TMPDIR env var in pdfjam (Closes: #714188) (thanks Ivan Shmakov)
---- texlive-extra-2013.20130509.orig/texmf-dist/scripts/pdfjam/pdfjam	2013-07-01 20:49:40.000000000 +0900
-+++ texlive-extra-2013.20130509/texmf-dist/scripts/pdfjam/pdfjam	2013-07-01 20:50:18.000000000 +0900
-@@ -169,7 +169,8 @@
+---
+ texmf-dist/scripts/pdfjam/pdfjam |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+--- texlive-extra-2019.20191203.orig/texmf-dist/scripts/pdfjam/pdfjam
++++ texlive-extra-2019.20191203/texmf-dist/scripts/pdfjam/pdfjam
+@@ -361,7 +361,8 @@ if [ -z "$pdfinfo" ] ; then pdfinfo="not
  ##
  ##  Next a permitted location for temporary files on your system:
  ##

@@ -5,8 +5,8 @@
  texmf-dist/scripts/vpe/vpe.pl         |    3 +--
  4 files changed, 7 insertions(+), 15 deletions(-)
 
---- texlive-extra-2018.20180312.orig/texmf-dist/scripts/pkfix/pkfix.pl
-+++ texlive-extra-2018.20180312/texmf-dist/scripts/pkfix/pkfix.pl
+--- texlive-extra-2019.20191203.orig/texmf-dist/scripts/pkfix/pkfix.pl
++++ texlive-extra-2019.20191203/texmf-dist/scripts/pkfix/pkfix.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -    if 0;
@@ -14,8 +14,8 @@
  use strict;
  $^W=1; # turn warning on
  #
---- texlive-extra-2018.20180312.orig/texmf-dist/scripts/pst2pdf/pst2pdf.pl
-+++ texlive-extra-2018.20180312/texmf-dist/scripts/pst2pdf/pst2pdf.pl
+--- texlive-extra-2019.20191203.orig/texmf-dist/scripts/pst2pdf/pst2pdf.pl
++++ texlive-extra-2019.20191203/texmf-dist/scripts/pst2pdf/pst2pdf.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -23,8 +23,8 @@
  
  use strict;			# to be sure, that all is safe ... :-)
  use v5.18;
---- texlive-extra-2018.20180312.orig/texmf-dist/scripts/vpe/vpe.pl
-+++ texlive-extra-2018.20180312/texmf-dist/scripts/vpe/vpe.pl
+--- texlive-extra-2019.20191203.orig/texmf-dist/scripts/vpe/vpe.pl
++++ texlive-extra-2019.20191203/texmf-dist/scripts/vpe/vpe.pl
 @@ -1,5 +1,4 @@
 -eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
 -  if 0;
@@ -32,8 +32,8 @@
  use strict;
  #
  # vpe.pl
---- texlive-extra-2018.20180312.orig/texmf-dist/scripts/a2ping/a2ping.pl
-+++ texlive-extra-2018.20180312/texmf-dist/scripts/a2ping/a2ping.pl
+--- texlive-extra-2019.20191203.orig/texmf-dist/scripts/a2ping/a2ping.pl
++++ texlive-extra-2019.20191203/texmf-dist/scripts/a2ping/a2ping.pl
 @@ -1,10 +1,5 @@
 -#! /bin/sh
 -eval '(exit $?0)' && eval 'PERL_BADLANG=x;export PERL_BADLANG;: \
@@ -47,7 +47,7 @@
  #
  # This program is free software, licensed under the GNU GPL, >=2.0.
  # This software comes with absolutely NO WARRANTY. Use at your own risk!
-@@ -13,7 +8,7 @@
+@@ -13,7 +8,7 @@ package Htex::a2ping;  $0=~/(.*)/s;unshi
  #      $ a2ping.pl -v debrecen-hyph.ps debrecen-hyph.pdf
  #      a2ping.pl ... -- Written by <pts@fazekas.hu> from April 2003.
  #      This is free software, GNU GPL >=2.0. There is NO WARRANTY.
@@ -56,8 +56,8 @@
  #      * Strongest BoundingBox comment: %%HiResBoundingBox:
  #      * Doing --PaperSize unchanged
  #      * Output filename: debrecen-hyph.pdf
-@@ -402,7 +397,7 @@
- my $filedate="2018-03-07";  # See also $Htex::a2ping::VERSION.
+@@ -402,7 +397,7 @@ my $program = "a2ping.pl";
+ my $filedate="2019-11-17";  # See also $Htex::a2ping::VERSION.
  my $copyright = "Written by <pts\@fazekas.hu> from April 2003.
  This is free software, GNU GPL >=2.0. There is NO WARRANTY.
 -(epstopdf 2.7 Copyright 1998-2001 by Sebastian Rahtz et al.)\n";
