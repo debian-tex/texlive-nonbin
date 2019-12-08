@@ -1,3 +1,9 @@
+texlive-base (2019.20191208-4) unstable; urgency=medium
+
+  * Fix wrong version numbers
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 09 Dec 2019 08:15:54 +0900
+
 texlive-base (2019.20191208-3) unstable; urgency=medium
 
   * more file moves (Closes: #946431, #946430)
