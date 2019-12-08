@@ -1,3 +1,9 @@
+texlive-base (2019.20191208-2) unstable; urgency=medium
+
+  * various file move fixes (Closes: #946428, #946429)
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 09 Dec 2019 07:23:09 +0900
+
 texlive-base (2019.20191208-1) unstable; urgency=medium
 
   * New upstream checkout
