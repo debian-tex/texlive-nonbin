@@ -2,8 +2,10 @@ texlive-extra (2019.2019MMDD-1) UNRELEASED; urgency=medium
 
   * New upstream checkout
   * Conflict with old biber due to new biblatex
+  * Make lualatex-dev point to luatex instead of the (upstream) luahbtex
+    since we don't ship luahbtex (Closes: #946567)
 
- -- Norbert Preining <norbert@preining.info>  Mon, 09 Dec 2019 10:59:22 +0900
+ -- Norbert Preining <norbert@preining.info>  Wed, 11 Dec 2019 11:33:07 +0900
 
 texlive-extra (2019.20191208-1) unstable; urgency=medium
 
