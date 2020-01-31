@@ -130,6 +130,11 @@ ifelse(_srcpackage_,texlive-base,<:
 	# this is just out of history, would be nicer to have changed
 	rm debian/texlive-base/usr/bin/etex 
 	rm debian/texlive-base/usr/bin/pdfetex
+	# remove installer stuff
+	#  tlpkg/installer/ctan-mirrors.pl
+	for i in  tlpkg/installer/install-menu-extl.pl tlpkg/installer/install-menu-perltk.pl tlpkg/installer/install-menu-text.pl tlpkg/installer/install-menu-wizard.pl tlpkg/installer/install-tl-gui.tcl tlpkg/installer/texlive.png ; do \
+	    rm debian/texlive-base/usr/share/texlive/$i ; \
+	done
 	# for the libpaper hook, install templates and
 	# translations. No need to modify postrm. I hope it accepts
 	# the missing config script
