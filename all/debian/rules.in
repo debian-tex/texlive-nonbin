@@ -117,6 +117,10 @@ ifelse(_srcpackage_,texlive-base,<:
 		debian/texlive-latex-base/usr/bin/mptopdf
 	# end of nasty trick
 	dh_installtex -ptexlive-base --flavor=tree:texlive
+	# TODO remove for TL2020
+	# /var/lib/tex-common/fmtutil-cnf/texlive/texlive-luatex.cnf
+	# contains only luahbtex definition, which we don't ship by now
+	rm debian/texlive-luatex/var/lib/tex-common/fmtutil-cnf/texlive/texlive-luatex.cnf
 	# /usr/bin/mf has been created by dh_installtex as symlink to 
 	# mf-nowin, but is also shipped by texlive-binaries, remove it.
 	rm debian/texlive-base/usr/bin/mf
@@ -138,8 +142,19 @@ ifelse(_srcpackage_,texlive-base,<:
 	# with different engines have the same name
 	dh_installtex -p texlive-lang-czechslovak --flavor=tree:texlive,format:no_links
 	dh_installtex -N texlive-lang-czechslovak --flavor=tree:texlive
-:>,<:
+:>,_srcpackage_,texlive-extra,<:
+	# this is the texlive-extra
 	dh_installtex -A --flavor=tree:texlive
+	# TODO remove for TL2020
+	# We can do this only after dh_installtex is called, otherwise it fails
+	# we don't ship luahbtex in Debian, so we need to fix the
+	# symlink of lualatex-dev which points to luahbtex
+	ln -sf luatex debian/texlive-latex-extra/usr/bin/lualatex-dev
+	# fix up the format definition
+	sed -i -e 's/luahbtex/luatex/' debian/texlive-latex-extra/var/lib/tex-common/fmtutil-cnf/texlive/texlive-latex-extra.cnf
+:>,<:
+	echo "UNKNWOWN SOURCE PACKAGE!!!"
+	false
 :>)
 	dh_installemacsen
 	dh_installchangelogs
