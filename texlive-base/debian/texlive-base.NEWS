@@ -1,0 +1,22 @@
+texlive-base (2019.20200203-1) unstable; urgency=low
+
+  * The deprecation of Python2 and the ongoing purge of Python2 packages in
+    Debian has left their mark on TeX Live in Debian: The following CTAN packages
+    have been removed from the Debian packaging:
+    - ebong
+    - de-macro
+    - lilyglyphs
+    - pygmentex
+    - sympytexpackage
+    Further packages might be removed in the future if found as not Python3
+    compatible.
+
+    The Debian TeX Maintainers are sorry for this incompatibility, it is out
+    of our hands. If you need these packages urgently, we recommend installing
+    TeX Live upstream from TUG, and Python2 independently from Debian packages.
+
+    If you find any further incompatibility, we suggest reporting it to the
+    original author, that is **not** to Debian BTS, nor TeX Live, but the original
+    author of the script/package, as only there fixes can be carried out.
+
+ -- Norbert Preining <norbert@preining.info>  Fri, 31 Jan 2020 19:14:58 +0900
