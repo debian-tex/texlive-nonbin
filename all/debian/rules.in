@@ -125,6 +125,15 @@ ifelse(_srcpackage_,texlive-base,<:
 	# this is just out of history, would be nicer to have changed
 	rm debian/texlive-base/usr/bin/etex 
 	rm debian/texlive-base/usr/bin/pdfetex
+	# TODO remove for TL2020 - check!!!
+	# after scripts rework we now have several "scripts" in /usr/bin that are
+	# originally contained in texlive-binaries
+	# remove them here so they don't interfer, but work on that when TL2020
+	# is released
+	rm debian/texlive-base/usr/bin/mktexlsr
+	rm debian/texlive-base/usr/bin/mktexmf
+	rm debian/texlive-base/usr/bin/mktexpk
+	rm debian/texlive-base/usr/bin/mktextfm
 	# for the libpaper hook, install templates and
 	# translations. No need to modify postrm. I hope it accepts
 	# the missing config script
