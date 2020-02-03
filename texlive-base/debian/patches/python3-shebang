@@ -1,0 +1,48 @@
+---
+ texmf-dist/scripts/latex-make/figdepth.py    |    2 +-
+ texmf-dist/scripts/latex-make/gensubfig.py   |    2 +-
+ texmf-dist/scripts/latex-make/latexfilter.py |    2 +-
+ texmf-dist/scripts/latex-make/svg2dev.py     |    2 +-
+ texmf-dist/scripts/latex-make/svgdepth.py    |    2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+--- texlive-base-2019.20200131.orig/texmf-dist/scripts/latex-make/figdepth.py
++++ texlive-base-2019.20200131/texmf-dist/scripts/latex-make/figdepth.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ #coding=utf8
+ 
+ """
+--- texlive-base-2019.20200131.orig/texmf-dist/scripts/latex-make/gensubfig.py
++++ texlive-base-2019.20200131/texmf-dist/scripts/latex-make/gensubfig.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ #coding=utf8
+ 
+ """
+--- texlive-base-2019.20200131.orig/texmf-dist/scripts/latex-make/latexfilter.py
++++ texlive-base-2019.20200131/texmf-dist/scripts/latex-make/latexfilter.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ #coding=utf8
+ 
+ """
+--- texlive-base-2019.20200131.orig/texmf-dist/scripts/latex-make/svg2dev.py
++++ texlive-base-2019.20200131/texmf-dist/scripts/latex-make/svg2dev.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ #coding=utf8
+ 
+ from optparse import OptionParser
+--- texlive-base-2019.20200131.orig/texmf-dist/scripts/latex-make/svgdepth.py
++++ texlive-base-2019.20200131/texmf-dist/scripts/latex-make/svgdepth.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ #coding=utf8
+ 
+ import sys

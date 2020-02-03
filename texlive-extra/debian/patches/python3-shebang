@@ -1,0 +1,48 @@
+---
+ texmf-dist/scripts/changes/pyMergeChanges.py          |    2 +-
+ texmf-dist/scripts/latex-papersize/latex-papersize.py |    2 +-
+ texmf-dist/scripts/pythontex/depythontex.py           |    2 +-
+ texmf-dist/scripts/pythontex/pythontex.py             |    2 +-
+ texmf-dist/scripts/texliveonfly/texliveonfly.py       |    2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+--- texlive-extra-2019.20200131.orig/texmf-dist/scripts/latex-papersize/latex-papersize.py
++++ texlive-extra-2019.20200131/texmf-dist/scripts/latex-papersize/latex-papersize.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ r"""
+ Calculate LaTeX paper and margin settings for arbitrary magnification
+ (C) Silas S. Brown, 2005-2009, 2016, 2019.  Version 1.63.
+--- texlive-extra-2019.20200131.orig/texmf-dist/scripts/pythontex/pythontex.py
++++ texlive-extra-2019.20200131/texmf-dist/scripts/pythontex/pythontex.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ # -*- coding: utf-8 -*-
+ 
+ '''
+--- texlive-extra-2019.20200131.orig/texmf-dist/scripts/pythontex/depythontex.py
++++ texlive-extra-2019.20200131/texmf-dist/scripts/pythontex/depythontex.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ # -*- coding: utf-8 -*-
+ 
+ '''
+--- texlive-extra-2019.20200131.orig/texmf-dist/scripts/texliveonfly/texliveonfly.py
++++ texlive-extra-2019.20200131/texmf-dist/scripts/texliveonfly/texliveonfly.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ # default options; feel free to change!
+ defaultCompiler = "pdflatex"
+--- texlive-extra-2019.20200131.orig/texmf-dist/scripts/changes/pyMergeChanges.py
++++ texlive-extra-2019.20200131/texmf-dist/scripts/changes/pyMergeChanges.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python3
+ """
+     pymergechanges: Merge commits made with changes package into text
+     Copyright (C) 2018  Y. Cui
