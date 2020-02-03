@@ -67,7 +67,6 @@ ifelse(_srcpackage_,texlive-base,<:
 	mkdir -p debian/texlive-base/usr/share/texlive/texmf-dist/scripts/texdoc/
 	install debian/Data.tlpdb.lua debian/texlive-base/usr/share/texlive/texmf-dist/scripts/texdoc/Data.tlpdb.lua
 :>,_srcpackage_,texlive-extra,<:
-	install debian/pythontex3 debian/depythontex3 debian/texlive-extra-utils/usr/bin
 :>)
 ifelse(_srcpackage_,texlive-lang,<:
 	# move ltx-help.el into emacs directory
@@ -79,10 +78,6 @@ ifelse(_srcpackage_,texlive-lang,<:
 ifelse(_srcpackage_,texlive-extra,<:
 	# rename wordcount to latex-wordcount
 	mv debian/texlive-latex-extra/usr/bin/wordcount debian/texlive-latex-extra/usr/bin/latex-wordcount
-	# TODO remove for TL2020
-	# we don't ship luahbtex in Debian, so we need to fix the
-	# symlink of lualatex-dev which points to luahbtex
-	ln -sf luatex debian/texlive-latex-extra/usr/bin/lualatex-dev
 :>)
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  bash debian/create-font-links $$i >> debian/$$i.links ; \
@@ -143,7 +138,7 @@ ifelse(_srcpackage_,texlive-base,<:
 	dh_installtex -p texlive-lang-czechslovak --flavor=tree:texlive,format:no_links
 	dh_installtex -N texlive-lang-czechslovak --flavor=tree:texlive
 :>,_srcpackage_,texlive-extra,<:
-	# this is the texlive-extra
+	# this is texlive-extra
 	dh_installtex -A --flavor=tree:texlive
 	# TODO remove for TL2020
 	# We can do this only after dh_installtex is called, otherwise it fails
