@@ -1,9 +1,9 @@
-texlive-lang (2019.20200131-1) unstable; urgency=medium
+texlive-lang (2019.20200203-1) unstable; urgency=medium
 
   * New upstream checkout
-  * Drop all Python2 relations, which *will* break some packages
+  * Drop Python2 packages and relations
 
- -- Norbert Preining <norbert@preining.info>  Fri, 31 Jan 2020 19:16:45 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 03 Feb 2020 11:05:17 +0900
 
 texlive-lang (2019.20191208-1) unstable; urgency=medium
 

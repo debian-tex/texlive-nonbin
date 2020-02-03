@@ -1,13 +1,12 @@
-texlive-extra (2019.20200131-1) unstable; urgency=medium
+texlive-extra (2019.202000203-1) unstable; urgency=medium
 
   * New upstream checkout
   * Conflict with old biber due to new biblatex
   * Make lualatex-dev point to luatex instead of the (upstream) luahbtex
     since we don't ship luahbtex (Closes: #946567)
-  * Drop all Python2 relations, which *will* break some packages
-    (Closes: #938656)
+  * Drop Python2 packages and relations (Closes: #938656)
 
- -- Norbert Preining <norbert@preining.info>  Fri, 31 Jan 2020 19:15:41 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 03 Feb 2020 11:04:57 +0900
 
 texlive-extra (2019.20191208-1) unstable; urgency=medium
 
