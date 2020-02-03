@@ -6,7 +6,7 @@ texlive-extra (2019.202000203-1) unstable; urgency=medium
     since we don't ship luahbtex (Closes: #946567)
   * Drop Python2 packages and relations (Closes: #938656)
 
- -- Norbert Preining <norbert@preining.info>  Mon, 03 Feb 2020 11:04:57 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 03 Feb 2020 14:41:42 +0900
 
 texlive-extra (2019.20191208-1) unstable; urgency=medium
 
