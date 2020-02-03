@@ -113,7 +113,7 @@ debdiff:
 	mv pool/*.debdiff pool/*.nodoc log
 
 update-scripts-file:
-	cat $(TLROOT)/Build/source/texk/texlive/linked_scripts/scripts.lst $(TLROOT)/Build/source/texk/texlive/tl_scripts/scripts.lst  > all/debian/scripts.lst
+	cp $(TLROOT)/Build/source/texk/texlive/linked_scripts/scripts.lst all/debian/scripts.lst
 
 packages:
 	bash scripts/build-infra -p . -nosign pool
