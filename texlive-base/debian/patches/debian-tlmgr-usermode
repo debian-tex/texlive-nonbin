@@ -3,8 +3,8 @@
  texmf-dist/scripts/texlive/tlmgr.pl |   64 +++++++++---------------------------
  2 files changed, 19 insertions(+), 47 deletions(-)
 
---- texlive-base-2019.20191203.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2019.20191203/texmf-dist/scripts/texlive/tlmgr.pl
+--- texlive-base-2019.20200206.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2019.20200206/texmf-dist/scripts/texlive/tlmgr.pl
 @@ -21,7 +21,7 @@ $datrev =~ s/ \(.*$//;
  $tlmgrversion = "$tlmgrrevision ($datrev)";
  
@@ -80,7 +80,7 @@
    #
    # the main tree we will be working on
    $::maintree = $Master;
-@@ -6047,7 +6011,9 @@ sub action_postaction {
+@@ -6066,7 +6030,9 @@ sub action_postaction {
  # sets up the user tree for tlmgr in user mode
  sub action_init_usertree {
    # init_local_db but do not die if localtlpdb is not found!
@@ -91,7 +91,7 @@
    my $tlpdb = TeXLive::TLPDB->new;
    my $usertree;
    if ($opts{"usertree"}) {
-@@ -6682,7 +6648,11 @@ sub init_local_db {
+@@ -6701,7 +6667,11 @@ sub init_local_db {
      if ($should_i_die == 2) {
        return undef;
      } else {
@@ -104,8 +104,8 @@
      }
    }
    # setup the programs, for w32 we need the shipped wget/xz etc, so we
---- texlive-base-2019.20191203.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2019.20191203/texmf-dist/doc/man/man1/tlmgr.1
+--- texlive-base-2019.20200206.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2019.20200206/texmf-dist/doc/man/man1/tlmgr.1
 @@ -154,6 +154,8 @@ the development sources) is available at
  <https://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
