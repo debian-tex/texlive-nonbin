@@ -1,4 +1,4 @@
-texlive-extra (2019.202000206-1) unstable; urgency=medium
+texlive-extra (2019.202000210-1) unstable; urgency=medium
 
   * New upstream checkout
   * Conflict with old biber due to new biblatex
@@ -6,7 +6,7 @@ texlive-extra (2019.202000206-1) unstable; urgency=medium
     since we don't ship luahbtex (Closes: #946567)
   * Drop Python2 packages and relations (Closes: #938656)
 
- -- Norbert Preining <norbert@preining.info>  Thu, 06 Feb 2020 12:14:15 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 10 Feb 2020 10:17:42 +0900
 
 texlive-extra (2019.20191208-1) unstable; urgency=medium
 
