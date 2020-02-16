@@ -123,7 +123,6 @@ sub usage {
   print STDERR "
 tl-paper: inquire and set paper settings for various programs in the TeX World.
 
-
 usage:
   tl-paper list <program>     lists available papers, current paper first
   tl-paper status             lists all current settings
@@ -131,6 +130,9 @@ usage:
   tl-paper set <program> <newpaper>    sets new paper for <program>
   tl-paper set all <a4|letter>         sets new paper for all programs
 
+Note: after changing the paper setting for pdftex or context, a rebuild
+      of formats (fmtutil-sys --all) is necessary to make the changes
+      take effect.
 ";
 }
 
