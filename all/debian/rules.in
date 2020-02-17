@@ -28,7 +28,7 @@ ifelse(_srcpackage_,texlive-extra,<:
 	rm -rf texmf-dist/source/latex/pax/lib
 	# will not be installed, so dh_missing might complain, we do the links
 	# via texlive-latex-extra.links
-	rm -rf texmf-dist/tex/latex/pax/lib
+	rm -rf texmf-dist/scripts/pax/lib
 :>)
 	touch build-stamp
 
