@@ -1,1 +1,3 @@
 usr/share/color/icc/sRGB_IEC61966-2-1_black_scaled.icc usr/share/texlive/texmf-dist/tex/latex/pdfx/sRGB_IEC61966-2-1_black_scaled.icc
+usr/share/java/commons-logging.jar usr/share/texlive/texmf-dist/tex/latex/pax/lib/commons-logging.jar
+usr/share/java/pdfbox.jar usr/share/texlive/texmf-dist/tex/latex/pax/lib/pdfbox.jar

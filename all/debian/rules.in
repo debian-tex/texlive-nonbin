@@ -19,6 +19,16 @@ ifelse(_srcpackage_,texlive-extra,<:
 	mkdir -p texmf-dist/tex4ht/bin
 	cd tex4ht ; javac *.java */*.java */*/*.java -d ../tex4ht-java
 	cd tex4ht-java ; jar cvf ../texmf-dist/tex4ht/bin/tex4ht.jar .
+	# build pax.jar
+	mkdir texmf-dist/source/latex/pax/lib
+	cd texmf-dist/source/latex/pax/lib ; ln -s /usr/share/java/commons-logging.jar .
+	cd texmf-dist/source/latex/pax/lib ; ln -s /usr/share/java/pdfbox.jar .
+	cd texmf-dist/source/latex/pax ; ant
+	# only needed for building
+	rm -rf texmf-dist/source/latex/pax/lib
+	# will not be installed, so dh_missing might complain, we do the links
+	# via texlive-latex-extra.links
+	rm -rf texmf-dist/tex/latex/pax/lib
 :>)
 	touch build-stamp
 
@@ -34,6 +44,7 @@ ifelse(_srcpackage_,texlive-base,<:
 :>)
 ifelse(_srcpackage_,texlive-extra,<:
 	rm -rf tex4ht-java texmf-dist/tex4ht/bin/tex4ht.jar
+	rm -f texmf-dist/tex/latex/pax.jar
 :>)
 	# texlive contains some .orig files we need to keep otherwise
 	# the copy will fail due to the files occurring in the tlpdb
