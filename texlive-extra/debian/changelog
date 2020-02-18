@@ -1,9 +1,9 @@
 texlive-extra (2019.202000218-1) unstable; urgency=medium
 
   * New upstream checkout
-  * Build pax.jar from source, thanks to Bastien ROUCARIES
+  * Build pax.jar from source, thanks to Bastien ROUCARIES (Closes: #951398)
 
- -- Norbert Preining <norbert@preining.info>  Tue, 18 Feb 2020 07:37:55 +0900
+ -- Norbert Preining <norbert@preining.info>  Tue, 18 Feb 2020 10:49:49 +0900
 
 texlive-extra (2019.202000210-1) unstable; urgency=medium
 
