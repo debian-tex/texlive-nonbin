@@ -1,12 +1,12 @@
 ---
- texmf-dist/scripts/pax/pdfannotextractor.pl            |  219 -----------------
+ texmf-dist/scripts/pax/pdfannotextractor.pl            |  243 -----------------
  texmf-dist/source/latex/pax/build.xml                  |   62 +++-
  texmf-dist/source/latex/pax/src/PDFAnnotExtractor.java |   16 -
  texmf-dist/source/latex/pax/src/StringVisitor.java     |    4 
- 4 files changed, 56 insertions(+), 245 deletions(-)
+ 4 files changed, 56 insertions(+), 269 deletions(-)
 
---- texlive-extra-2019.202000210.orig/texmf-dist/scripts/pax/pdfannotextractor.pl
-+++ texlive-extra-2019.202000210/texmf-dist/scripts/pax/pdfannotextractor.pl
+--- texlive-extra-2019.202000218.orig/texmf-dist/scripts/pax/pdfannotextractor.pl
++++ texlive-extra-2019.202000218/texmf-dist/scripts/pax/pdfannotextractor.pl
 @@ -39,18 +39,15 @@ ${title}Syntax:   $program [options] <PD
  Options:
    --help      print usage
@@ -52,11 +52,28 @@
  my $prg_java      = 'java';
  my %prg;
  
-@@ -193,16 +179,11 @@ sub find_jar_pdfbox () {
+@@ -175,34 +161,13 @@ sub find_jar_pax () {
      }
  }
  
-+
+-sub find_jar_pdfbox () {
+-    return if $path_jar_pdfbox;
+-    foreach my $dir (@dir_jar) {
+-        foreach my $jar (@jar_pdfbox) {
+-            my $path = "$dir/$jar";
+-            if (-f $path) {
+-                $path_jar_pdfbox = $path;
+-                debug $jar_pdfbox, $path_jar_pdfbox;
+-                return;
+-            }
+-        }
+-    }
+-    foreach my $jar_pdfbox (@jar_pdfbox) {
+-        $path_jar_pdfbox = find_jar $jar_pdfbox;
+-        last if $path_jar_pdfbox;
+-    }
+-}
+ 
  sub launch_pax () {
      check_prg $prg_java, 1;
      my @cmd = ($prg_java);
@@ -64,14 +81,15 @@
 -    my $cp = "$path_jar_pax";
 -    $cp .= "$sep$path_jar_pdfbox" if $path_jar_pdfbox;
 -    $cp .= "$sep$classpath" if $classpath;
--    push @cmd, '-cp';
+     push @cmd, '-cp';
 -    push @cmd, $cp;
 -    push @cmd, $main_class;
 +    push @cmd, $path_jar_pax;
++    push @cmd, 'pax.PDFAnnotExtractor';
      push @cmd, @ARGV;
      debug 'System', "@cmd";
      system @cmd;
-@@ -222,200 +203,6 @@ sub launch_pax () {
+@@ -222,212 +187,10 @@ sub launch_pax () {
      return $exit_code;
  }
  
@@ -272,8 +290,20 @@
  # main program
  
  my $ret = 0;
---- texlive-extra-2019.202000210.orig/texmf-dist/source/latex/pax/build.xml
-+++ texlive-extra-2019.202000210/texmf-dist/source/latex/pax/build.xml
+ find_jar_pax;
+-if ($pdfbox_in_classpath) {
+-    debug 'PDFBox in CLASSPATH', 'yes';
+-}
+-else {
+-    find_jar_pdfbox;
+-    $path_jar_pdfbox or die "$error Cannot find $pdfbox library!\n"
+-            . "See README and option `--install'.\n";
+-}
+ exit launch_pax;
+ 
+ __END__
+--- texlive-extra-2019.202000218.orig/texmf-dist/source/latex/pax/build.xml
++++ texlive-extra-2019.202000218/texmf-dist/source/latex/pax/build.xml
 @@ -6,44 +6,68 @@
  
    <property name="src"   location="src"/>
@@ -362,8 +392,8 @@
    </target>
  
  </project>
---- texlive-extra-2019.202000210.orig/texmf-dist/source/latex/pax/src/PDFAnnotExtractor.java
-+++ texlive-extra-2019.202000210/texmf-dist/source/latex/pax/src/PDFAnnotExtractor.java
+--- texlive-extra-2019.202000218.orig/texmf-dist/source/latex/pax/src/PDFAnnotExtractor.java
++++ texlive-extra-2019.202000218/texmf-dist/source/latex/pax/src/PDFAnnotExtractor.java
 @@ -24,14 +24,14 @@ import java.io.*;
  import java.text.*;
  import java.util.*;
@@ -387,8 +417,8 @@
  
  public class PDFAnnotExtractor implements Constants {
  
---- texlive-extra-2019.202000210.orig/texmf-dist/source/latex/pax/src/StringVisitor.java
-+++ texlive-extra-2019.202000210/texmf-dist/source/latex/pax/src/StringVisitor.java
+--- texlive-extra-2019.202000218.orig/texmf-dist/source/latex/pax/src/StringVisitor.java
++++ texlive-extra-2019.202000218/texmf-dist/source/latex/pax/src/StringVisitor.java
 @@ -22,8 +22,8 @@ package pax;
  
  import java.io.*;
