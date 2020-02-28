@@ -1,3 +1,11 @@
+texlive-lang (2019.20200228-1) UNRELEASED; urgency=medium
+
+  * New upstream checkout
+  * include fix from upcoming greek.ldf to fix interaction with current
+    LaTeX kernel and unicode engines (Closes: #952481)
+
+ -- Norbert Preining <norbert@preining.info>  Fri, 28 Feb 2020 13:26:36 +0900
+
 texlive-lang (2019.20200218-1) unstable; urgency=medium
 
   * New upstream checkout
