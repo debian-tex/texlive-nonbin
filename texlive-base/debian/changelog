@@ -1,10 +1,10 @@
-texlive-base (2019.20200228-1) UNRELEASED; urgency=medium
+texlive-base (2019.20200302-1) unstable; urgency=medium
 
   * New upstream checkout
     - move hyperref deps to tl-latex-base (Closes: #952460)
     - several patch levels of the LaTeX kernel
 
- -- Norbert Preining <norbert@preining.info>  Fri, 28 Feb 2020 13:26:19 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 02 Mar 2020 04:55:08 +0900
 
 texlive-base (2019.20200218-1) unstable; urgency=medium
 

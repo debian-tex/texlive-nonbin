@@ -1,4 +1,4 @@
-texlive-extra (2019.202000228-1) UNRELEASED; urgency=medium
+texlive-extra (2019.202000302-1) unstable; urgency=medium
 
   * stackengine (tl-latex-extra) needs listofitems (tl-plain-generic)
     (Closes: #921297)
@@ -7,7 +7,7 @@ texlive-extra (2019.202000228-1) UNRELEASED; urgency=medium
   * add breaks/replaces against buster's version of sdaps which installs
     files into /u/s/texlive (Closes: #952714)
 
- -- Norbert Preining <norbert@preining.info>  Fri, 28 Feb 2020 13:26:28 +0900
+ -- Norbert Preining <norbert@preining.info>  Mon, 02 Mar 2020 04:55:35 +0900
 
 texlive-extra (2019.202000218-1) unstable; urgency=medium
 
