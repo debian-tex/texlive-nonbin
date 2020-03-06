@@ -1,0 +1,11 @@
+usr/share/man/man1/dvilualatex-dev.1.gz			    tex/texlive-binaries,tex/texlive-latex-extra
+usr/share/man/man1/dviluatex.1.gz			    tex/texlive-base,tex/texlive-binaries
+usr/share/man/man1/latex-dev.1.gz			    tex/texlive-binaries,tex/texlive-latex-extra
+usr/share/man/man1/luahbtex.1.gz			    tex/texlive-binaries,tex/texlive-luatex
+usr/share/man/man1/luajittex.1.gz			    tex/texlive-binaries,tex/texlive-extra-utils
+usr/share/man/man1/lualatex-dev.1.gz			    tex/texlive-binaries,tex/texlive-latex-extra
+usr/share/man/man1/pdflatex-dev.1.gz			    tex/texlive-binaries,tex/texlive-latex-extra
+usr/share/man/man1/platex-dev.1.gz			    tex/texlive-binaries,tex/texlive-latex-extra
+usr/share/man/man1/uplatex-dev.1.gz			    tex/texlive-binaries,tex/texlive-latex-extra
+usr/share/man/man1/xelatex-dev.1.gz			    tex/texlive-binaries,tex/texlive-latex-extra
+
