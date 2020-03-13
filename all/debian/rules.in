@@ -123,10 +123,6 @@ ifelse(_srcpackage_,texlive-base,<:
 		debian/texlive-latex-base/usr/bin/mptopdf
 	# end of nasty trick
 	dh_installtex -ptexlive-base --flavor=tree:texlive
-	# TODO remove for TL2020
-	# /var/lib/tex-common/fmtutil-cnf/texlive/texlive-luatex.cnf
-	# contains only luahbtex definition, which we don't ship by now
-	rm debian/texlive-luatex/var/lib/tex-common/fmtutil-cnf/texlive/texlive-luatex.cnf
 	# /usr/bin/mf has been created by dh_installtex as symlink to 
 	# mf-nowin, but is also shipped by texlive-binaries, remove it.
 	rm debian/texlive-base/usr/bin/mf
@@ -136,15 +132,6 @@ ifelse(_srcpackage_,texlive-base,<:
 	# this is just out of history, would be nicer to have changed
 	rm debian/texlive-base/usr/bin/etex 
 	rm debian/texlive-base/usr/bin/pdfetex
-	# TODO remove for TL2020 - check!!!
-	# after scripts rework we now have several "scripts" in /usr/bin that are
-	# originally contained in texlive-binaries
-	# remove them here so they don't interfer, but work on that when TL2020
-	# is released
-	rm debian/texlive-base/usr/bin/mktexlsr
-	rm debian/texlive-base/usr/bin/mktexmf
-	rm debian/texlive-base/usr/bin/mktexpk
-	rm debian/texlive-base/usr/bin/mktextfm
 	# for the libpaper hook, install templates and
 	# translations. No need to modify postrm. I hope it accepts
 	# the missing config script
@@ -160,13 +147,6 @@ ifelse(_srcpackage_,texlive-base,<:
 :>,_srcpackage_,texlive-extra,<:
 	# this is texlive-extra
 	dh_installtex -A --flavor=tree:texlive
-	# TODO remove for TL2020
-	# We can do this only after dh_installtex is called, otherwise it fails
-	# we don't ship luahbtex in Debian, so we need to fix the
-	# symlink of lualatex-dev which points to luahbtex
-	ln -sf luatex debian/texlive-latex-extra/usr/bin/lualatex-dev
-	# fix up the format definition
-	sed -i -e 's/luahbtex/luatex/' debian/texlive-latex-extra/var/lib/tex-common/fmtutil-cnf/texlive/texlive-latex-extra.cnf
 :>,<:
 	echo "UNKNWOWN SOURCE PACKAGE!!!"
 	false
