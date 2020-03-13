@@ -1,8 +1,8 @@
-texlive-lang (2020.20200306-1) UNRELEASED; urgency=medium
+texlive-lang (2020.20200313-1) experimental; urgency=medium
 
   * start working on 2020
 
- -- Norbert Preining <norbert@preining.info>  Fri, 06 Mar 2020 10:29:33 +0900
+ -- Norbert Preining <norbert@preining.info>  Fri, 13 Mar 2020 11:01:07 +0900
 
 texlive-lang (2019.20200302-1) unstable; urgency=medium
 
