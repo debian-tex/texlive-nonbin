@@ -1,3 +1,9 @@
+texlive-extra (2020.20200329-1) experimental; urgency=medium
+
+  * TL 2020 (planned DVD release)
+
+ -- Norbert Preining <norbert@preining.info>  Sun, 29 Mar 2020 13:50:42 +0900
+
 texlive-extra (2020.20200313-1) experimental; urgency=medium
 
   * start working on 2020
