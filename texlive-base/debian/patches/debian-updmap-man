@@ -1,10 +1,10 @@
 ---
- texmf-dist/doc/man/man1/updmap.1 |   27 ++++++++++++++-------------
- 1 file changed, 14 insertions(+), 13 deletions(-)
+ texmf-dist/doc/man/man1/updmap.1 |   25 +++++++++++++------------
+ 1 file changed, 13 insertions(+), 12 deletions(-)
 
---- texlive-base-2018.20180404.orig/texmf-dist/doc/man/man1/updmap.1
-+++ texlive-base-2018.20180404/texmf-dist/doc/man/man1/updmap.1
-@@ -195,26 +195,27 @@
+--- texlive-base-2020.20200329.orig/texmf-dist/doc/man/man1/updmap.1
++++ texlive-base-2020.20200329/texmf-dist/doc/man/man1/updmap.1
+@@ -263,26 +263,27 @@ In either case, if multiple updmap.cfg f
  mentioned in all the updmap.cfg files are merged.
  .IP
  Thus, if updmap.cfg files are present in all trees, and the default
@@ -18,16 +18,15 @@
 -TEXMFSYSVAR    \fI\,$TEXLIVE/YYYY/texmf\-var/web2c/updmap.cfg\/\fP
 -TEXMFLOCAL     \fI\,$TEXLIVE/texmf\-local/web2c/updmap.cfg\/\fP
 -TEXMFDIST      \fI\,$TEXLIVE/YYYY/texmf\-dist/web2c/updmap.cfg\/\fP
-+TEXMFSYSCONFIG \fI/etc/texmf/web2c/updmap.cfg\/\fP
-+TEXMFSYSVAR    \fI/var/lib/texmf/web2c/updmap.cfg\/\fP
-+TEXMFLOCAL     \fI/usr/local/share/texmf/web2c/updmap.cfg\/\fP
-+TEXMFDIST      \fI/usr/share/texmf/web2c/updmap.cfg\/\fP
-+TEXMFDIST      \fI/usr/share/texlive/texmf\-dist/web2c/updmap.cfg\/\fP
++TEXMFSYSCONFIG \fI\,/etc/texmf/web2c/updmap.cfg\/\fP
++TEXMFSYSVAR    \fI\,/var/lib/texmf/web2c/updmap.cfg\/\fP
++TEXMFLOCAL     \fI\,/usr/local/share/texmf/web2c/updmap.cfg\/\fP
++TEXMFDEBIAN    \fI\,/usr/share/texmf/web2c/updmap.cfg\/\fP
++TEXMFDIST      \fI\,/usr/share/texlive/texmf/web2c/updmap.cfg\/\fP
  .IP
--For updmap:
+ For updmap\-user:
 -TEXMFCONFIG    $HOME/.texliveYYYY/texmf\-config/web2c/updmap.cfg
 -TEXMFVAR       $HOME/.texliveYYYY/texmf\-var/web2c/updmap.cfg
-+For updmap\-user:
 +TEXMFCONFIG    $HOME/.texmf\-config/web2c/updmap.cfg
 +TEXMFVAR       $HOME/.texmf\-var/web2c/updmap.cfg
  TEXMFHOME      \fI\,$HOME/texmf/web2c/updmap.cfg\/\fP
@@ -35,11 +34,11 @@
 -TEXMFSYSVAR    \fI\,$TEXLIVE/YYYY/texmf\-var/web2c/updmap.cfg\/\fP
 -TEXMFLOCAL     \fI\,$TEXLIVE/texmf\-local/web2c/updmap.cfg\/\fP
 -TEXMFDIST      \fI\,$TEXLIVE/YYYY/texmf\-dist/web2c/updmap.cfg\/\fP
-+TEXMFSYSCONFIG \fI/etc/texmf/web2c/updmap.cfg\/\fP
-+TEXMFSYSVAR    \fI/var/lib/texmf/web2c/updmap.cfg\/\fP
-+TEXMFLOCAL     \fI/usr/local/share/texmf/web2c/updmap.cfg\/\fP
-+TEXMFDIST      \fI/usr/share/texmf/web2c/updmap.cfg\/\fP
-+TEXMFDIST      \fI/usr/share/texlive/texmf\-dist/web2c/updmap.cfg\/\fP
++TEXMFSYSCONFIG \fI\,/etc/web2c/updmap.cfg\/\fP
++TEXMFSYSVAR    \fI\,/var/lib/texmf/web2c/updmap.cfg\/\fP
++TEXMFLOCAL     \fI\,/usr/local/share/texmf/web2c/updmap.cfg\/\fP
++TEXMFDEBIAN    \fI\,/usr/share/texmf/web2c/updmap.cfg\/\fP
++TEXMFDIST      \fI\,/usr/share/texlive/texmf/web2c/updmap.cfg\/\fP
  .IP
 -(where YYYY is the TeX Live release version).
  .fi
