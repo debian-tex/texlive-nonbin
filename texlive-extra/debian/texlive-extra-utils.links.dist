@@ -1,2 +1,5 @@
 usr/bin/pdfcrop usr/bin/rpdfcrop
 usr/bin/texdef usr/bin/latexdef
+usr/bin/allcm usr/bin/allec
+usr/bin/kpsetool usr/bin/kpsepath
+usr/bin/kpsetool usr/bin/kpsexpand
