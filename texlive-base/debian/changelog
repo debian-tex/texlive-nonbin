@@ -3,7 +3,7 @@ texlive-base (2020.20200329-2) unstable; urgency=medium
   * TeX Live 2020
   * fix dangling links moved to tl-extra-utils (Closes: #955737)
 
- -- Norbert Preining <norbert@preining.info>  Mon, 06 Apr 2020 04:27:04 +0900
+ -- Norbert Preining <norbert@preining.info>  Sat, 11 Apr 2020 08:46:35 +0900
 
 texlive-base (2020.20200329-1) experimental; urgency=medium
 
