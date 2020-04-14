@@ -1,8 +1,9 @@
-texlive-base (2020.20200329-3) UNRELEASED; urgency=medium
+texlive-base (2020.20200329-3) unstable; urgency=medium
 
+  [ Norbert Preining ]
   * Add lmodern dep for optex (Closes: #956625)
 
- -- Norbert Preining <norbert@preining.info>  Tue, 14 Apr 2020 07:29:02 +0900
+ -- Hilmar Preusse <hille42@web.de>  Tue, 14 Apr 2020 22:05:37 +0200
 
 texlive-base (2020.20200329-2) unstable; urgency=medium
 
