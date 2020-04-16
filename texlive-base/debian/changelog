@@ -1,3 +1,9 @@
+texlive-base (2020.20200329-4) UNRELEASED; urgency=medium
+
+  * Bump tex-common dep to 6.14 to get luajithbtex ignores.
+
+ -- Norbert Preining <norbert@preining.info>  Fri, 17 Apr 2020 07:25:07 +0900
+
 texlive-base (2020.20200329-3) unstable; urgency=medium
 
   [ Norbert Preining ]
