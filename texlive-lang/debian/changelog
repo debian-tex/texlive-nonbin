@@ -1,3 +1,9 @@
+texlive-lang (2020.20200417-1) unstable; urgency=medium
+
+  * New upstream checkout.
+
+ -- Norbert Preining <norbert@preining.info>  Fri, 17 Apr 2020 10:33:45 +0900
+
 texlive-lang (2020.20200329-2) unstable; urgency=medium
 
   * TeX Live 2020
