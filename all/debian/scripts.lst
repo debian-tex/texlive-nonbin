@@ -4,12 +4,12 @@ bibexport/bibexport.sh
 checklistings/checklistings.sh
 ctanbib/ctanbib
 dtxgen/dtxgen
+git-latexdiff/git-latexdiff
 installfont/installfont-tl
 latexfileversion/latexfileversion
 listbib/listbib
 listings-ext/listings-ext.sh
 ltxfileinfo/ltxfileinfo
-lua2dox/lua2dox_filter
 pdfbook2/pdfbook2
 pdfjam/pdfjam
 pdftex-quiet/pdftex-quiet
