@@ -2,6 +2,9 @@ texlive-base (2020.20200417-2) UNRELEASED; urgency=medium
 
   * Add missing texhash link (Closes: #960335)
 
+  [ Hilmar Preusse ]
+  * Change Maintainer field to "Debian TeX Task Force".
+
  -- Norbert Preining <norbert@preining.info>  Tue, 12 May 2020 08:59:38 +0900
 
 texlive-base (2020.20200417-1) unstable; urgency=medium
