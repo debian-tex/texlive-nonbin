@@ -1,3 +1,11 @@
+texlive-extra (2020.20200629-1) unstable; urgency=medium
+
+  * New upstream checkout
+  * Bump standards version to 4.5.0 (no changes necessary)
+  * Switch to dh 13
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 29 Jun 2020 10:59:11 +0900
+
 texlive-extra (2020.20200522-1) unstable; urgency=medium
 
   [ Hilmar Preusse ]
