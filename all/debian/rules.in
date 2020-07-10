@@ -36,7 +36,7 @@ clean:
 	for i in $(PACKAGES) $(METAPACKAGES) ; do \
 	  rm -f debian/$$i.{README.Debian,links,links.generated} ; \
 	  rm -f debian/$$i.{postinst,postrm,preinst,prerm} ; \
-	  rm -f debian/$$i.{maps,hyphens,formats,info,manpages} ; \
+	  rm -f debian/$$i.{maps,hyphens,formats,info} ; \
 	  rm -f debian/$$i.{lintian-overrides} ; \
 	done
 ifelse(_srcpackage_,texlive-base,<:
