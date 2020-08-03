@@ -5,7 +5,7 @@
  3 files changed, 542 insertions(+), 527 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2020.20200329/texmf-dist/dvips/config/config-paper.ps
++++ b/texmf-dist/dvips/config/config-paper.ps
 @@ -0,0 +1,533 @@
 +%
 +% config-paper.ps
@@ -540,8 +540,8 @@
 +@+ if
 +@+ %%EndPaperSize
 +
---- texlive-base-2020.20200329.orig/texmf-dist/dvips/config/config.ps
-+++ texlive-base-2020.20200329/texmf-dist/dvips/config/config.ps
+--- a/texmf-dist/dvips/config/config.ps
++++ b/texmf-dist/dvips/config/config.ps
 @@ -67,533 +67,13 @@ j
  %
  % emacs-page
@@ -1088,9 +1088,9 @@
  @ nopaper 0in 0in
  @+ % dvips-nopaper
 +
---- texlive-base-2020.20200329.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2020.20200329/tlpkg/texlive.tlpdb
-@@ -93492,6 +93492,7 @@ runfiles size=138
+--- a/tlpkg/texlive.tlpdb
++++ b/tlpkg/texlive.tlpdb
+@@ -94342,6 +94342,7 @@ runfiles size=138
   texmf-dist/dvips/config/config.mirrorprint
   texmf-dist/dvips/config/config.ot2
   texmf-dist/dvips/config/config.ps
