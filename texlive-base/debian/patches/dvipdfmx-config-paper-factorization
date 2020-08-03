@@ -39,7 +39,7 @@
  %%
 --- a/tlpkg/texlive.tlpdb
 +++ b/tlpkg/texlive.tlpdb
-@@ -93699,6 +93699,7 @@ docfiles size=995
+@@ -93641,6 +93641,7 @@ docfiles size=995
   texmf-dist/doc/man/man1/xdvipdfmx.man1.pdf
  runfiles size=40
   texmf-dist/dvipdfmx/dvipdfmx.cfg

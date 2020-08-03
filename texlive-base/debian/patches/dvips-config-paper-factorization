@@ -1090,7 +1090,7 @@
 +
 --- a/tlpkg/texlive.tlpdb
 +++ b/tlpkg/texlive.tlpdb
-@@ -94342,6 +94342,7 @@ runfiles size=138
+@@ -94284,6 +94284,7 @@ runfiles size=138
   texmf-dist/dvips/config/config.mirrorprint
   texmf-dist/dvips/config/config.ot2
   texmf-dist/dvips/config/config.ps

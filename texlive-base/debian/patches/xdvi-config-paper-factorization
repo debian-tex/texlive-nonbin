@@ -31,7 +31,7 @@
 +*paper: a4
 --- a/tlpkg/texlive.tlpdb
 +++ b/tlpkg/texlive.tlpdb
-@@ -317893,6 +317893,7 @@ docfiles size=70
+@@ -319295,6 +319295,7 @@ docfiles size=70
  runfiles size=9
   texmf-dist/dvips/xdvi/config.xdvi
   texmf-dist/xdvi/XDvi
