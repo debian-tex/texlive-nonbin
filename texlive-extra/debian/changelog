@@ -1,9 +1,11 @@
-texlive-extra (2020.20200629-2) UNRELEASED; urgency=medium
+texlive-extra (2020.20200804-1) unstable; urgency=medium
 
   * Fix disappearing .manpages files, thus install a5toa4 manpage
     (Closes: #964767)
+  * New upstream checkout
+  * More font replacements
 
- -- Norbert Preining <norbert@preining.info>  Fri, 10 Jul 2020 21:25:07 +0900
+ -- Norbert Preining <norbert@preining.info>  Tue, 04 Aug 2020 14:51:22 +0900
 
 texlive-extra (2020.20200629-1) unstable; urgency=medium
 
