@@ -178,6 +178,7 @@ usr/share/fonts/truetype/noto/NotoSerif-Regular.ttf usr/share/texlive/texmf-dist
 usr/share/fonts/truetype/noto/NotoMono-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/noto/NotoMono-Regular.ttf
 usr/share/fonts/truetype/noto/NotoSansMono-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/noto/NotoSansMono-Bold.ttf
 usr/share/fonts/truetype/noto/NotoSansMono-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/noto/NotoSansMono-Regular.ttf
+usr/share/fonts/truetype/noto/NotoColorEmoji.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/noto-emoji/NotoColorEmoji.ttf
 usr/share/fonts/truetype/croscore/Tinos-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/tinos/Tinos-Bold.ttf
 usr/share/fonts/truetype/croscore/Tinos-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/tinos/Tinos-BoldItalic.ttf
 usr/share/fonts/truetype/croscore/Tinos-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/tinos/Tinos-Italic.ttf
@@ -227,3 +228,7 @@ usr/share/fonts/truetype/roboto/unhinted/RobotoTTF/Roboto-Italic.ttf usr/share/t
 usr/share/fonts/truetype/roboto/unhinted/RobotoCondensed-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/google/roboto/RobotoCondensed-Italic.ttf
 usr/share/fonts/opentype/cantarell/Cantarell-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/gnome/cantarell/Cantarell-Bold.otf
 usr/share/fonts/opentype/cantarell/Cantarell-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/gnome/cantarell/Cantarell-Regular.otf
+usr/share/fonts/truetype/charis/CharisSIL-B.ttf usr/share/texlive/texmf-dist/fonts/truetype/SIL/charissil/CharisSIL-B.ttf
+usr/share/fonts/truetype/charis/CharisSIL-BI.ttf usr/share/texlive/texmf-dist/fonts/truetype/SIL/charissil/CharisSIL-BI.ttf
+usr/share/fonts/truetype/charis/CharisSIL-I.ttf usr/share/texlive/texmf-dist/fonts/truetype/SIL/charissil/CharisSIL-I.ttf
+usr/share/fonts/truetype/charis/CharisSIL-R.ttf usr/share/texlive/texmf-dist/fonts/truetype/SIL/charissil/CharisSIL-R.ttf
