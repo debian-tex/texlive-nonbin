@@ -1,3 +1,9 @@
+texlive-base (2020.20200804-2) unstable; urgency=medium
+
+  * Fix missing replace/breaks for cloze moved to tl-luatex (Closes: #967912)
+
+ -- Norbert Preining <norbert@preining.info>  Sun, 09 Aug 2020 21:19:03 +0900
+
 texlive-base (2020.20200804-1) unstable; urgency=medium
 
   * New upstream checkout
