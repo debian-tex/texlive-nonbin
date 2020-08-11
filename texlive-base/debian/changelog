@@ -1,3 +1,9 @@
+texlive-base (2020.20200804-3) UNRELEASED; urgency=medium
+
+  * Install README.tlmgr-on-debian.md (Closes: #968235)
+
+ -- Norbert Preining <norbert@preining.info>  Tue, 11 Aug 2020 21:52:15 +0900
+
 texlive-base (2020.20200804-2) unstable; urgency=medium
 
   * Fix missing replace/breaks for cloze moved to tl-luatex (Closes: #967912)
