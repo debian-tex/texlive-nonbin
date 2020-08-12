@@ -1,3 +1,9 @@
+texlive-extra (2020.20200804-3) UNRELEASED; urgency=medium
+
+  * Really fix font move to tl-fonts-extra-links (Closes: #968047)
+
+ -- Norbert Preining <norbert@preining.info>  Wed, 12 Aug 2020 09:51:48 +0900
+
 texlive-extra (2020.20200804-2) unstable; urgency=medium
 
   * Fix some replace/breaks due to font move to -links (Closes: #968047)
