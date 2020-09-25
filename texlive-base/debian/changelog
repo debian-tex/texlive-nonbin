@@ -1,3 +1,11 @@
+texlive-base (2020.20200923-1) unstable; urgency=medium
+
+  * New upstream checkout
+    Blacklist again bibtex.1 to avoid a clash w/ texlive-binaries
+    (Closes: #970838).
+
+ -- Hilmar Preusse <hille42@web.de>  Fri, 25 Sep 2020 08:12:59 +0200
+
 texlive-base (2020.20200804-3) unstable; urgency=medium
 
   [ Norbert Preining ]

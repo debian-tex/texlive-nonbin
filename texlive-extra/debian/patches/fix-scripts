@@ -14,15 +14,6 @@
  use strict;
  $^W=1; # turn warning on
  #
---- texlive-extra-2019.20191203.orig/texmf-dist/scripts/pst2pdf/pst2pdf.pl
-+++ texlive-extra-2019.20191203/texmf-dist/scripts/pst2pdf/pst2pdf.pl
-@@ -1,5 +1,4 @@
--eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
--  if 0;
-+#! /usr/bin/perl -w
- 
- use strict;			# to be sure, that all is safe ... :-)
- use v5.18;
 --- texlive-extra-2019.20191203.orig/texmf-dist/scripts/vpe/vpe.pl
 +++ texlive-extra-2019.20191203/texmf-dist/scripts/vpe/vpe.pl
 @@ -1,5 +1,4 @@

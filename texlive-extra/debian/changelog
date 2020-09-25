@@ -1,3 +1,11 @@
+texlive-extra (2020.20200923-1) unstable; urgency=medium
+
+  * New upstream checkout
+    - patch for texmf-dist/scripts/pst2pdf/pst2pdf.pl removed.
+    - contains updated package ebproof (Closes: #970775).
+
+ -- Hilmar Preusse <hille42@web.de>  Fri, 25 Sep 2020 08:12:59 +0200
+
 texlive-extra (2020.20200804-3) unstable; urgency=medium
 
   * Really fix font move to tl-fonts-extra-links (Closes: #968047)
