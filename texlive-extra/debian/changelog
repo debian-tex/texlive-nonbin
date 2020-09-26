@@ -1,4 +1,4 @@
-texlive-extra (2020.20200923-1) unstable; urgency=medium
+texlive-extra (2020.20200925-1) unstable; urgency=medium
 
   * New upstream checkout
     - patch for texmf-dist/scripts/pst2pdf/pst2pdf.pl removed.
