@@ -4,7 +4,7 @@ texlive-extra (2020.20200925-1) unstable; urgency=medium
     - patch for texmf-dist/scripts/pst2pdf/pst2pdf.pl removed.
     - contains updated package ebproof (Closes: #970775).
 
- -- Hilmar Preusse <hille42@web.de>  Fri, 25 Sep 2020 08:12:59 +0200
+ -- Hilmar Preusse <hille42@web.de>  Sat, 26 Sep 2020 22:41:12 +0200
 
 texlive-extra (2020.20200804-3) unstable; urgency=medium
 
