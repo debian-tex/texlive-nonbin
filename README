@@ -209,6 +209,10 @@ or 'all' to build all of them.
 4) Binary package build time
 ============================
 
+When building the binary packages you may treat all them as ordinary
+source packages and may use the common Debian tools "debuild",
+"dpkg-buildpackage" etc.
+
 Besides the rest as found in rules(.in) the main action is taken by
 	perl debian/tpm2deb-bin.pl $packages
 which does the following for each binary package $pkg
@@ -237,7 +241,6 @@ After this the debian/rules file continues and does the following
 	  done anymore AFAIS, so this whole stuff could be deleted)
 	- create the README.Debian files from the package specific
 	  and the general one.
-...
 
 
 5) Special stuff
