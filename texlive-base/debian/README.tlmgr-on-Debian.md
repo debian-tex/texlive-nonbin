@@ -19,7 +19,7 @@ Warning
 
 `tlmgr` on Debian automatically switches to user mode. Consequences of this are:
 
-- an initial setup setp is necessary (see the documentation)
+- an initial setup step is necessary (see the documentation)
 - packages will be installed into `TEXMFHOME` which normally is `$HOME/texmf`
 - packages installed into `TEXMFHOME` will override system-wide installed 
   packages, that means a later system update will **not** be seen by TeX
@@ -27,7 +27,7 @@ Warning
   for details
 
 We strongly recommend **not** to user the TeX Live Manager user mode on Debian.
-If you are using it despite the warnings, be prepared to fix your own TeX system,
+If you are using it despite the warnings, be prepared to fix your own TeX system.
 
 If you want the full power of TeX Live Manager, we recommend installing
 TeX Live from upstream https://tug.org/texlive/quickinstall.html
