@@ -61,6 +61,23 @@ case "$1" in
     rmdir --ignore-fail-on-non-empty /var/lib/texmf/dvipdfm
   fi
 
+  # location of pdftexconfig.tex has changed from 
+  #   TEXMFVAR/tex/generic/config/pdftexconfig.tex
+  # to
+  #   TEXMFVAR/tex/generic/tex-ini-files/pdftexconfig.tex
+  # Make sure that we remove the old file, if a new one is present,
+  # and if no new one is present, just move it over to the new location.
+  if [ -r /var/lib/texmf/tex/generic/config/pdftexconfig.tex ] ; then
+    if [ -r /var/lib/texmf/tex/generic/tex-ini-files/pdftexconfig.tex ] ; then
+      echo "Removing outdated pdftexconfig.tex file in /var/lib/texmf/tex/generic/config"
+      rm /var/lib/texmf/tex/generic/config/pdftexconfig.tex
+    else
+      mkdir -p /var/lib/texmf/tex/generic/tex-ini-files
+      mv /var/lib/texmf/tex/generic/config/pdftexconfig.tex /var/lib/texmf/tex/generic/tex-ini-files
+    fi
+    mktexlsr /var/lib/texmf
+  fi
+
   ;;
 
   *)
