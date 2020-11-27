@@ -1,16 +1,6 @@
 README TeX live for Debian
 ==========================
 
-First of all, if you need help with TeX on Debian, ie with respect to 
-file placement, configuration options, etc, please see the document
-	TeX-on-Debian
-in the tex-common package, which can be found in 
-	/usr/share/doc/tex-common/
-in the pdf, txt, and html format.
-
-This file contains additional information specific to TeX live.
-
-
 Differences to TeX live (upstream)
 ----------------------------------
 
