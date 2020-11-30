@@ -1,3 +1,10 @@
+texlive-lang (2020.20201129-1) unstable; urgency=medium
+
+  * New upstream checkout.
+  * Disable fix babel-french, fixed in upstream.
+
+ -- Hilmar Preusse <hille42@web.de>  Sun, 29 Nov 2020 23:56:10 +0100
+
 texlive-lang (2020.20200925-2) unstable; urgency=medium
 
   * Fix babel-french breaking older documents (Closes: #971919)
