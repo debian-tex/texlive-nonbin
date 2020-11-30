@@ -1,3 +1,11 @@
+texlive-base (2020.20201129-2) unstable; urgency=medium
+
+  * Add Breaks to old texlive-formats-extra to make sure lamed
+    format is not built any more (Closes: #976170).
+    Thanks to Norbert for fast analysis!
+
+ -- Hilmar Preusse <hille42@web.de>  Mon, 30 Nov 2020 23:08:28 +0100
+
 texlive-base (2020.20201129-1) unstable; urgency=medium
 
   [ Hilmar Preusse ]
