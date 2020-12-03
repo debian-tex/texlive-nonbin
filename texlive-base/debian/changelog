@@ -1,3 +1,11 @@
+texlive-base (2020.20201203-1) unstable; urgency=medium
+
+  * New upstream checkout. It (Closes: #976191).
+    Contains upstream revision "svn 57048": "l3packages (with xparse)
+    in c-latex, not just c-latexrecommended".
+
+ -- Hilmar Preusse <hille42@web.de>  Thu, 03 Dec 2020 23:04:47 +0100
+
 texlive-base (2020.20201129-2) unstable; urgency=medium
 
   * Add Breaks to old texlive-formats-extra to make sure lamed
