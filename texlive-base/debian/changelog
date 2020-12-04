@@ -1,3 +1,9 @@
+texlive-base (2020.20201203-2) unstable; urgency=medium
+
+  * Need another file conflict (Closes: #976393).
+
+ -- Hilmar Preusse <hille42@web.de>  Fri, 04 Dec 2020 20:07:57 +0100
+
 texlive-base (2020.20201203-1) unstable; urgency=medium
 
   * New upstream checkout. It (Closes: #976191).
