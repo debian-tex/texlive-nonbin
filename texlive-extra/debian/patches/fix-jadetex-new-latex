@@ -1,0 +1,18 @@
+---
+ texmf-dist/tex/jadetex/base/jadetex.ltx |    5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+--- a/texmf-dist/tex/jadetex/base/jadetex.ltx
++++ b/texmf-dist/tex/jadetex/base/jadetex.ltx
+@@ -1309,8 +1309,9 @@
+   \let\AtBeginDocument\@firstofone
+   \ifdim\topskip<1sp\global\topskip 1sp\relax\fi
+   \global\@maxdepth\maxdepth
+-  \@begindocumenthook
+-  \global\let\@begindocumenthook\@undefined
++  \@kernel@before@begindocument
++  \UseOneTimeHook{begindocument}%
++  \@kernel@after@begindocument
+   \global\let\@filelist\relax
+   \global\let\@addtofilelist\@gobble
+   \gdef\do##1{\global\let ##1\@notprerr}%
