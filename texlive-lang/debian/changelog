@@ -124,7 +124,7 @@ texlive-lang (2019.20190830-1) unstable; urgency=medium
 
 texlive-lang (2019.20190824-1) unstable; urgency=medium
 
-  * New upstream checkout 
+  * New upstream checkout
 
  -- Norbert Preining <norbert@preining.info>  Sat, 24 Aug 2019 15:17:22 +0900
 
@@ -680,7 +680,7 @@ texlive-lang (2013.20131112-2) unstable; urgency=low
 
 texlive-lang (2013.20131112-1) unstable; urgency=low
 
-  * new upstream checkout - includes kotex (ko.tex) 
+  * new upstream checkout - includes kotex (ko.tex)
 
  -- Norbert Preining <preining@debian.org>  Tue, 12 Nov 2013 15:49:34 +0900
 
@@ -726,7 +726,7 @@ texlive-lang (2013.20130530-1) unstable; urgency=low
 texlive-lang (2013.20130523-1) unstable; urgency=low
 
   * new upstream checkout
-  * add another few replaces against old doc pkgs 
+  * add another few replaces against old doc pkgs
     (Closes: #709227, #709233)
   * include thailatex again, provide transitional thailatex package
 
@@ -794,7 +794,7 @@ texlive-lang (2012.20120529-1) unstable; urgency=low
 texlive-lang (2012.20120516-1) unstable; urgency=low
 
   * new upstream snapshot based on TL2012 tlpretest
-  * undo changes by the old ptex-bin package in the current postinst of 
+  * undo changes by the old ptex-bin package in the current postinst of
     ptex-bin (diversions, files under /etc) (Closes: #670494)
     (thanks to Andreas Beckmann for suggestions and code)
   * switch to xz compression for orig and deb
@@ -819,7 +819,7 @@ texlive-lang (2011.20120424-1) unstable; urgency=low
 
 texlive-lang (2011.20120410-1) unstable; urgency=low
 
-  * ptex-* take over: create transitional ptex-bin package that depends on 
+  * ptex-* take over: create transitional ptex-bin package that depends on
     texlive-lang-cjk, try to fix upgrades (Closes: #665479)
 
  -- Norbert Preining <preining@debian.org>  Tue, 10 Apr 2012 14:09:02 +0900
@@ -876,7 +876,7 @@ texlive-lang (2009-1) experimental; urgency=low
   * New upstream version (pre-release, but not far from) with lots of
     internal changes, hence the upload to experimental. This upstream
     version fixes the following bugs:
-  
+
     - texlive-lang-cyrillic: closes: #448700, ukrhypmp.tex can't be
       processed by luatex due to missing UTF-8 encoding
     - texlive-lang-greek: closes: #450494, missing xgreek package
@@ -993,7 +993,7 @@ texlive-lang (2005.dfsg.2-5) unstable; urgency=low
     texlive-bin instead of texlive-lang)
   * Rebuild the source package to minimize diff output between the
     version in etch and this version. This version does NOT relate to any
-    automated build release from the svn depot but was created by putting 
+    automated build release from the svn depot but was created by putting
     the fix from -3 and -4 into the source of -2.
 
  -- Norbert Preining <preining@debian.org>  Wed, 28 Feb 2007 00:15:57 +0100
@@ -1045,7 +1045,7 @@ texlive-lang (2005.dfsg.1-1) unstable; urgency=low
 
 texlive-lang (2005-2) unstable; urgency=low
 
-  * first upload to unstable, sponsored by 
+  * first upload to unstable, sponsored by
     Frank Küster <frank@debian.org>
   * texdoc support
     - let tetex texdoc find documentation of texlive (Closes: #364776)

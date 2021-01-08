@@ -278,7 +278,7 @@ texlive-base (2018.20190131-1) unstable; urgency=medium
   * Add commit 2ac708cefd71c111e783ba00d2dc13c3fe480140 (patch
     texdoc-l_can_count) from Upstream to make "texdoc -l" work
     (Closes: #914984).
-  
+
   [Norbert Preining]
   * new upstream checkout
 
@@ -562,7 +562,7 @@ texlive-base (2016.20170118-1) unstable; urgency=medium
 texlive-base (2016.20161130-1) unstable; urgency=medium
 
   * new upstream checkout
-    - remove mpost from list of commands that are allowed in 
+    - remove mpost from list of commands that are allowed in
       restricted write18 mode
 
  -- Norbert Preining <preining@debian.org>  Wed, 30 Nov 2016 13:18:09 +0900
@@ -724,7 +724,7 @@ texlive-base (2015.20150703-1) unstable; urgency=medium
   * new upstream checkout
   * fix tex4ht/pgf combination (Closes: #790018)
   * don't install texlinks, it is not useful in Debian (Closes: #411288)
-  * don't install texconfig, it is not useful in Debian 
+  * don't install texconfig, it is not useful in Debian
     (Closes: #411636, #568799)
 
  -- Norbert Preining <preining@debian.org>  Fri, 03 Jul 2015 08:17:22 +0900
@@ -830,7 +830,7 @@ texlive-base (2014.20140513-1) experimental; urgency=medium
 texlive-base (2013.20140408-1) unstable; urgency=medium
 
   * re-include also latex-beamer and latex-xcolor and provide transitional
-    packages, thanks again to OHURA Makoto! (Closes: #377046, #387642, 
+    packages, thanks again to OHURA Makoto! (Closes: #377046, #387642,
     #405308, #408569, #305035, #402234, #399804, #245996, #617431, #499178)
   * texlive-pictures depends on t-l-r for xcolor (Closes: #741778)
   * upgrade logic in apt is broken, we need to break against old versions
@@ -1011,7 +1011,7 @@ texlive-base (2012.20120611-4) unstable; urgency=low
 
   * fix wrong format of zip list for texdoc, which broke searching for
     compressed documentation.
-  * fix updmap not honoring the dvipsDownloadBase35 setting 
+  * fix updmap not honoring the dvipsDownloadBase35 setting
     (Closes: #686335)
 
  -- Norbert Preining <preining@debian.org>  Sat, 01 Sep 2012 08:37:35 +0900
@@ -1046,7 +1046,7 @@ texlive-base (2012.20120529-1) unstable; urgency=low
 
   [ Norbert Preining ]
   * new upstream checkout
-   - update of xeCJK give now warning on uninitialized CJK font 
+   - update of xeCJK give now warning on uninitialized CJK font
      (Closes: #673205)
    - remove old patches (partially applied upstream)
    - remove fix-xyframe patch, fixed in upstream
@@ -1054,7 +1054,7 @@ texlive-base (2012.20120529-1) unstable; urgency=low
    - new koma-script fixes links in documentation (Closes: #671997)
   * Debian changes
     - patches/debian_updmap-search-path
-      give big fat warning and advice what to do when updmap --syncwithtrees 
+      give big fat warning and advice what to do when updmap --syncwithtrees
       is called
     - patches/texdoc-see-and-zip
       enable gz/bz2/xz compression for texdoc (Closes: #673258)
@@ -1089,7 +1089,7 @@ texlive-base (2011.20120509-1) unstable; urgency=low
 
   [ Frank Küster ]
   * add Breaks/Replaces for texlive-latex-base against older context
-    (Closes: #671716). 
+    (Closes: #671716).
 
  -- Frank Küster <frank@debian.org>  Sun, 06 May 2012 22:59:13 +0200
 
@@ -1180,7 +1180,7 @@ texlive-base (2009-15) unstable; urgency=low
 
   [ Hilmar Preuße ]
   * Updated Italian debconf translation (Dario Santamaria).  Closes:
-    #644737 
+    #644737
 
   [ Frank Küster ]
   * Update the TEXMF filename database before running texconfig in
@@ -1219,7 +1219,7 @@ texlive-base (2009-13) unstable; urgency=low
 texlive-base (2009-12) unstable; urgency=low
 
   [ Norbert Preining ]
-  * texlive-base conflict with texlive-base-bin-doc to get it removed 
+  * texlive-base conflict with texlive-base-bin-doc to get it removed
     (Closes: #589205)
 
   [ Hilmar Preuße ]
@@ -1258,7 +1258,7 @@ texlive-base (2009-10) unstable; urgency=low
 
 texlive-base (2009-9) unstable; urgency=low
 
-  * update patch upstream-pdftex.def-fixes to include latest addition 
+  * update patch upstream-pdftex.def-fixes to include latest addition
     to pdftex.def, fixing FTBFS when defining \undefined macro
     (LP: #534293)
   * move texdoc.cnf into /etc/texmf and create a link from the
@@ -1273,10 +1273,10 @@ texlive-base (2009-9) unstable; urgency=low
 
 texlive-base (2009-8) unstable; urgency=low
 
-  * update pdftex.def to latest version to fix pdfxmltex breakage 
+  * update pdftex.def to latest version to fix pdfxmltex breakage
     (Closes: #566591)
   * add texlive-base_cid-x.map_add-jis.patch from YOSHINO Yoshihito
-    that adds jis maps to cid-x.map fixing the usage of jis fonts with 
+    that adds jis maps to cid-x.map fixing the usage of jis fonts with
     ptex (Closes: #570901)
   * add patch epspdf-call-ruby-explicitely that make epspdf and epspdftk
     call the ruby implementations explicitely with ruby as interpreter
@@ -1314,7 +1314,7 @@ texlive-base (2009-6) unstable; urgency=low
 texlive-base (2009-5) unstable; urgency=low
 
   * ship dvipdfmx.cfg file
-  * patch dvipdfm (config) and dvipdfmx (dvipdfmx.cfg) config files to 
+  * patch dvipdfm (config) and dvipdfmx (dvipdfmx.cfg) config files to
     use gs instead of rungs. (Closes: #561151)
   * add code to texlive-base.preinst to disable offending lines that have
     been taken over from texlive-base-bin in oldstable and causing
@@ -1347,7 +1347,7 @@ texlive-base (2009-3) experimental; urgency=low
 
 texlive-base (2009-2) experimental; urgency=low
 
-  * texlive-base: bump dep on luatex to 0.44.0, and add a replace 
+  * texlive-base: bump dep on luatex to 0.44.0, and add a replace
     luatex (<= 0.40.6) since dviluatex moved (Closes: #557086)
   * fix typo in tpm2deb.cfg, let texlive-common conflict with
     texlive-base-bin instead of tex-base-bin (hopefully that is closing
@@ -1374,8 +1374,8 @@ texlive-base (2009-1) experimental; urgency=low
 
     - package updates: babel with new spanish (closes: #509592) and
       amsclass-related (closes: #406537) fixes, varioref (closes: #531764)
-  
-  [texlive-latex-recommended] 
+
+  [texlive-latex-recommended]
     - closes: #432517, just upgraded from tetex to texlive. Latex package
       "caption" no longer works
     - closes: #458269, "caption" package gets margins wrong in list
@@ -1386,15 +1386,15 @@ texlive-base (2009-1) experimental; urgency=low
       - closes: #509986, texlive-latex-recommended: typo in KOMAscript
       classes: KOMA@unkown@keyval
     - package updates or new packages included: oberdiek bundle (closes:
-      #445829), subcaption (closes: #492336), listings (closes: #495824) 
-  
+      #445829), subcaption (closes: #492336), listings (closes: #495824)
+
   [texlive-metapost]
     - closes: #435051, typo in mpman
     - closes: #435132, please include latest latexmp version
-  
+
   [other new or updated packages]
     - gnuplottex in texlive-pictures, closes: #503121
-  
+
   * Add a couple of conflicts with texlive-base-bin to force an update in
     one bunch, and removal of texlive-base-bin in advance
   * Add lots of versioned Replaces for files moved between binary packages
@@ -1403,7 +1403,7 @@ texlive-base (2009-1) experimental; urgency=low
     texlive-bin which doesn't use this config file.
   * This package will be built against tex-common 2.00 or newer, and
     therefore closes: #531581.
-  
+
   [ Hilmar Preusse ]
   * fix section of texlive-fonts-recommended
   * new source package format "3.0 (quilt)" can be used, thanks to Norbert
@@ -1435,7 +1435,7 @@ texlive-base (2007.dfsg.1-1) unstable; urgency=medium
     conffiles better (closes: #482656) [fk]
   * Add postrm code for texlive-common, so that it removes files it has
     renamed to $name.obsolete in the upgrade from teTeX (closes: #454324)
-    [fk] 
+    [fk]
   * Add code in postrm to properly take over settings from
     texlive-base-bin's old conffile in fmt.d to 10texlive-base.cnf, needed
     for the upgrade from etch to lenny (closes: #454344) [fk]
@@ -1474,7 +1474,7 @@ texlive-base (2007-14) unstable; urgency=low
     (Closes: #460878)
   * add a patch fix-txfonts-precapprox to switch the symbols \precapprox and
     \succapprox in txfonts.sty (Closes Ubuntu bug 184065)
-  * add a fancyheadings placeholder calling fancyhdr (Closes Ubuntu bug 
+  * add a fancyheadings placeholder calling fancyhdr (Closes Ubuntu bug
     132399)
   * add the LPPL to debian/copyright (Closes: #470479)
 
@@ -1725,7 +1725,7 @@ texlive-base (2005.dfsg.1-1) unstable; urgency=low
 
 texlive-base (2005-2) unstable; urgency=low
 
-  * first upload to unstable, sponsored by 
+  * first upload to unstable, sponsored by
     Frank Küster <frank@debian.org>
   * texdoc support
     - let tetex texdoc find documentation of texlive (Closes: #364776)
