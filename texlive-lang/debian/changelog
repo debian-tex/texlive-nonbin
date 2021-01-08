@@ -1,3 +1,9 @@
+texlive-lang (2020.20210106-1) unstable; urgency=medium
+
+  * New upstream checkout.
+
+ -- Hilmar Preusse <hille42@web.de>  Thu, 07 Jan 2021 16:23:40 +0100
+
 texlive-lang (2020.20201129-1) unstable; urgency=medium
 
   * New upstream checkout.

@@ -1,3 +1,11 @@
+texlive-extra (2020.20210106-1) unstable; urgency=medium
+
+  * New upstream checkout.
+  * Disable patch fix-jadetex-new-latex.
+  * Conflict with biber << 1.25 due to new biblatex.
+
+ -- Hilmar Preusse <hille42@web.de>  Thu, 07 Jan 2021 16:23:40 +0100
+
 texlive-extra (2020.20201129-2) unstable; urgency=medium
 
   * jadetex: fix compatibility with new LaTeX kernel (Closes: #977646)
