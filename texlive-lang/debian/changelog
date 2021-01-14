@@ -1,3 +1,10 @@
+texlive-lang (2020.20210113-1) unstable; urgency=medium
+
+  * New upstream checkout.
+    Contains new latex-base, latex-base-dev, l3packages, l3experimental.
+
+ -- Hilmar Preusse <hille42@web.de>  Wed, 13 Jan 2021 22:27:31 +0100
+
 texlive-lang (2020.20210106-1) unstable; urgency=medium
 
   * New upstream checkout.
