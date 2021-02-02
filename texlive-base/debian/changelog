@@ -1,3 +1,10 @@
+texlive-base (2020.20210202-1) unstable; urgency=medium
+
+  * New upstream checkout.
+  * Really fix the upgrade from buster (Closes: #978431)
+
+ -- Norbert Preining <norbert@preining.info>  Tue, 02 Feb 2021 13:05:25 +0900
+
 texlive-base (2020.20210113-1) unstable; urgency=medium
 
   * New upstream checkout, patch refresh.
