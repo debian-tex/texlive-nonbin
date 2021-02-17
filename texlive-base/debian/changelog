@@ -1,3 +1,9 @@
+texlive-base (2020.20210202-3) UNRELEASED; urgency=medium
+
+  * Cherry-pick fix for broken footnotehyper (Closes: #982988)
+
+ -- Norbert Preining <norbert@preining.info>  Thu, 18 Feb 2021 05:28:53 +0900
+
 texlive-base (2020.20210202-2) unstable; urgency=medium
 
   * Update cmap to fix regression with sphinx builds.
