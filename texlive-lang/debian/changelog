@@ -1,3 +1,9 @@
+texlive-lang (2020.20210202-2) unstable; urgency=medium
+
+  * Fix sym link to GFSPorson.otf (Closess: #985504).
+
+ -- Hilmar Preusse <hille42@web.de>  Fri, 19 Mar 2021 20:49:27 +0100
+
 texlive-lang (2020.20210202-1) unstable; urgency=medium
 
   * New upstream checkout.
