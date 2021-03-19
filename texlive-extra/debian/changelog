@@ -1,9 +1,9 @@
-texlive-extra (2020.20210202-3) UNRELEASED; urgency=medium
+texlive-extra (2020.20210202-3) unstable; urgency=medium
 
- * Location of GentiumPlusCompact TTF files is
-   /usr/share/fonts/truetype/gentiumplus-compact. ;-(
+  * Correct location of GentiumPlusCompact TTF files. It is
+    /usr/share/fonts/truetype/gentiumplus-compact. ;-(
 
- -- Hilmar Preusse <hille42@web.de>  Thu, 18 Mar 2021 23:20:06 +0100
+ -- Hilmar Preusse <hille42@web.de>  Fri, 19 Mar 2021 17:14:05 +0100
 
 texlive-extra (2020.20210202-2) unstable; urgency=medium
 
