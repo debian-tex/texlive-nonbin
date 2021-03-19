@@ -1,3 +1,10 @@
+texlive-extra (2020.20210202-3) UNRELEASED; urgency=medium
+
+ * Location of GentiumPlusCompact TTF files is
+   /usr/share/fonts/truetype/gentiumplus-compact. ;-(
+
+ -- Hilmar Preusse <hille42@web.de>  Thu, 18 Mar 2021 23:20:06 +0100
+
 texlive-extra (2020.20210202-2) unstable; urgency=medium
 
   * Some packages install their OTF fonts now in /u/s/fonts/opentype:
