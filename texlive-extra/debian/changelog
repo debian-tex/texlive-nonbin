@@ -1,3 +1,9 @@
+texlive-extra (2020.20210202-4) UNRELEASED; urgency=medium
+
+  * Include upstream patch for pdxup suuport for gs versions (Closes: #976080)
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 26 Apr 2021 22:17:10 +0900
+
 texlive-extra (2020.20210202-3) unstable; urgency=medium
 
   * Correct location of GentiumPlusCompact TTF files. It is
