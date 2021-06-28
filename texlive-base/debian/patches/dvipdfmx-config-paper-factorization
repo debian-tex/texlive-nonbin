@@ -5,7 +5,7 @@
  3 files changed, 14 insertions(+), 8 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2020.20200925/texmf-dist/dvipdfmx/dvipdfmx-paper.cfg
++++ b/texmf-dist/dvipdfmx/dvipdfmx-paper.cfg
 @@ -0,0 +1,11 @@
 +%% PDF Document Settings
 +%%
@@ -18,9 +18,9 @@
 +
 +p a4
 +
---- texlive-base-2020.20200925.orig/texmf-dist/dvipdfmx/dvipdfmx.cfg
-+++ texlive-base-2020.20200925/texmf-dist/dvipdfmx/dvipdfmx.cfg
-@@ -29,14 +29,8 @@
+--- a/texmf-dist/dvipdfmx/dvipdfmx.cfg
++++ b/texmf-dist/dvipdfmx/dvipdfmx.cfg
+@@ -29,14 +29,8 @@ V  5
  
  %% PDF Document Settings
  %%
@@ -37,11 +37,11 @@
  
  %% Annotation Box Margin:
  %%
---- texlive-base-2020.20200925.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2020.20200925/tlpkg/texlive.tlpdb
-@@ -94000,6 +94000,7 @@
-  texmf-dist/doc/man/man1/xdvipdfmx.man1.pdf
- runfiles size=40
+--- a/tlpkg/texlive.tlpdb
++++ b/tlpkg/texlive.tlpdb
+@@ -97302,6 +97302,7 @@ docfiles size=995
+ runfiles size=41
+  texmf-dist/dvipdfmx/dvipdfmx-unsafe.cfg
   texmf-dist/dvipdfmx/dvipdfmx.cfg
 + texmf-dist/dvipdfmx/dvipdfmx-paper.cfg
   texmf-dist/fonts/cmap/dvipdfmx/EUC-UCS2
