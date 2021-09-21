@@ -22,7 +22,7 @@ cd ${pkg}-$upversion
 dpkg-buildpackage -us -uc -rfakeroot -S
 dpkg-buildpackage -us -uc -rfakeroot -b
 cd ..
-rm -rf ${pkg}-$upversion
+# rm -rf ${pkg}-$upversion
 
 
 # for cowbuilder builds
