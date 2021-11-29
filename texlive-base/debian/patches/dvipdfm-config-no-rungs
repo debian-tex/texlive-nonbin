@@ -1,27 +1,20 @@
----
- texmf-dist/dvipdfmx/dvipdfmx-unsafe.cfg |    2 +-
- texmf-dist/dvipdfmx/dvipdfmx.cfg        |    2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
- % Distiller config. Uses ghostscript and works on compressed and
- % uncompressed files.  Use zcat -f <%i instead of zcat -f %i
---- a/texmf-dist/dvipdfmx/dvipdfmx.cfg
-+++ b/texmf-dist/dvipdfmx/dvipdfmx.cfg
-@@ -156,7 +156,7 @@ P  0x003C
+--- texlive-base-2021.20210921.orig/texmf-dist/dvipdfmx/dvipdfmx.cfg
++++ texlive-base-2021.20210921/texmf-dist/dvipdfmx/dvipdfmx.cfg
+@@ -149,7 +149,7 @@
  %%   kpsewhich -progname=dvipdfmx -format=othertext dvipdfmx.cfg
  %% and control which one is found by setting DVIPDFMXINPUTS.
  %%
--D  "rungs -q -dALLOWPSTRANSPARENCY -dSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile='%o' '%i' -c quit"
-+D  "gs -q -dALLOWPSTRANSPARENCY -dSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile='%o' '%i' -c quit"
- %% If you change the above invocation, also change dvipdfmx-unsafe.cfg!
+-D  "rungs -q -dSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile='%o' '%i' -c quit"
++D  "gs -q -dSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile='%o' '%i' -c quit"
+ %% If you change the above rungs invocation, also change dvipdfmx-unsafe.cfg!
  
  % other random ps converters people have experimented with.
---- a/texmf-dist/dvipdfmx/dvipdfmx-unsafe.cfg
-+++ b/texmf-dist/dvipdfmx/dvipdfmx-unsafe.cfg
-@@ -6,5 +6,5 @@
- %%   -output-driver="xdvipdfmx -i dvipdfmx-unsafe.cfg -q -E"
- %% (This is needed for PSTricks in XeTeX.)
- %% 
+--- texlive-base-2021.20210921.orig/texmf-dist/dvipdfmx/dvipdfmx-unsafe.cfg
++++ texlive-base-2021.20210921/texmf-dist/dvipdfmx/dvipdfmx-unsafe.cfg
+@@ -12,5 +12,5 @@
+ %% With the TL22 release and its dvipdfmx, we will remove -dNOSAFER here.
+ %% https://tug.org/pipermail/tex-live-commits/2021-November/019700.html
+ %%
 -D  "rungs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile='%o' '%i' -c quit"
 +D  "gs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile='%o' '%i' -c quit"
- %% If you change the above invocation, also change dvipdfmx.cfg!
+ %% If you change the above rungs invocation, also change dvipdfmx.cfg!

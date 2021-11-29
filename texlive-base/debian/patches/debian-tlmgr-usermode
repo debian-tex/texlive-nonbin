@@ -3,9 +3,9 @@
  texmf-dist/scripts/texlive/tlmgr.pl |   50 +++++++++++-------------------------
  2 files changed, 18 insertions(+), 34 deletions(-)
 
---- a/texmf-dist/scripts/texlive/tlmgr.pl
-+++ b/texmf-dist/scripts/texlive/tlmgr.pl
-@@ -41,38 +41,7 @@ END {
+--- texlive-base-2021.20210921.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2021.20210921/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -41,38 +41,7 @@
  
  BEGIN {
    $^W = 1;
@@ -31,7 +31,7 @@
 -  }
 -  if (-r "$bindir/$kpsewhichname") {
 -    # if not in bootstrapping mode => kpsewhich exists, so use it to get $Master
--    chomp($Master = `kpsewhich -var-value=SELFAUTOPARENT`);
+-    chomp($Master = `kpsewhich -var-value=TEXMFROOT`);
 -  }
 -
 -  # if we have no directory in which to find our modules,
@@ -45,7 +45,7 @@
    $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
  
    # make Perl find our packages first:
-@@ -620,6 +589,13 @@ for the full story.\n";
+@@ -620,6 +589,13 @@
      tldie("$prg: Try --help if you need it.\n");
    }
  
@@ -59,7 +59,7 @@
    #
    # the main tree we will be working on
    $::maintree = $Master;
-@@ -6228,7 +6204,9 @@ sub action_postaction {
+@@ -6243,7 +6219,9 @@
  # sets up the user tree for tlmgr in user mode
  sub action_init_usertree {
    # init_local_db but do not die if localtlpdb is not found!
@@ -70,7 +70,7 @@
    my $tlpdb = TeXLive::TLPDB->new;
    my $usertree;
    if ($opts{"usertree"}) {
-@@ -6868,7 +6846,11 @@ sub init_local_db {
+@@ -6883,7 +6861,11 @@
      if ($should_i_die == 2) {
        return undef;
      } else {
@@ -83,9 +83,9 @@
      }
    }
    # setup the programs, for w32 we need the shipped wget/xz etc, so we
---- a/texmf-dist/doc/man/man1/tlmgr.1
-+++ b/texmf-dist/doc/man/man1/tlmgr.1
-@@ -154,6 +154,8 @@ the development sources) is available at
+--- texlive-base-2021.20210921.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2021.20210921/texmf-dist/doc/man/man1/tlmgr.1
+@@ -154,6 +154,8 @@
  <https://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
  .PP

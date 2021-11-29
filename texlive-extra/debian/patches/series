@@ -6,9 +6,9 @@ tmp-dir-for-pdfjam
 #sympytex-path
 fix-tabu-920459
 fix-tabu-920459-reopened
-privacy-breaches
+#privacy-breaches
 webquiz-javascript-min
 python3-shebang
 pax-build
-replace_SELFAUTOPARENT
+#replace_SELFAUTOPARENT
 # fix-jadetex-new-latex

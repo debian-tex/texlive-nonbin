@@ -1,3 +1,9 @@
+texlive-lang (2021.20211127-1) UNRELEASED; urgency=medium
+
+  * New upstream snapshot.
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 27 Nov 2021 22:18:58 +0100
+
 texlive-lang (2021.20210921-1) unstable; urgency=medium
 
   * TeX Live 2021
