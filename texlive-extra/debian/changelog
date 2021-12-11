@@ -6,7 +6,7 @@ texlive-extra (2021.20211127-1) unstable; urgency=medium
 
 texlive-extra (2021.20210921-1) unstable; urgency=medium
 
-  * Include upstream patch for pdxup suuport for gs versions (Closes: #976080)
+  * Include upstream patch for pdxup support for gs versions (Closes: #976080)
   * TeX Live 2021
 
  -- Norbert Preining <norbert@preining.info>  Tue, 21 Sep 2021 11:32:40 +0900

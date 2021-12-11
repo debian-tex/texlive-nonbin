@@ -1,4 +1,3 @@
-texlive-extra source: configure-generated-file-in-source texmf-dist/source/plain/pdcmac/config.status
 #
 # sources are available in texmf-dist/source/latex/media9/players
 texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/APlayer.swf
