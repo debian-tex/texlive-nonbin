@@ -1,3 +1,10 @@
+texlive-extra (2021.20211217-1) unstable; urgency=high
+
+  * New upstream snapshot.
+    Update copy of log4j2 in arara.jar to version 2.16.0 (Closes: #1001785).
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 18 Dec 2021 08:32:49 +0100
+
 texlive-extra (2021.20211127-1) unstable; urgency=medium
 
   * New upstream snapshot.

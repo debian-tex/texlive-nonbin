@@ -1,3 +1,9 @@
+texlive-base (2021.20211217-1) unstable; urgency=high
+
+  * New upstream snapshot.
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 18 Dec 2021 00:07:04 +0100
+
 texlive-base (2021.20211127-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh patches.
