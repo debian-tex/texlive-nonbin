@@ -34,7 +34,7 @@ case "$1" in
     rm -f $file.ucf-new
     rm -f $file.ucf-dist
     ucf --purge $file
-    if command -v ucfr ; then
+    if command -v ucfr >/dev/null ; then
       ucfr --purge texlive-base $file
     fi
   done
