@@ -1,8 +1,8 @@
-texlive-lang (2022.20220405-1) UNRELEASED; urgency=medium
+texlive-lang (2022.20220405-1) experimental; urgency=medium
 
   * New upstream snapshot for TL 2022.
 
- -- Hilmar Preusse <hille42@web.de>  Sat, 09 Apr 2022 23:42:31 +0200
+ -- Hilmar Preusse <hille42@web.de>  Sat, 30 Apr 2022 22:45:11 +0200
 
 texlive-lang (2021.20220204-1) unstable; urgency=medium
 
