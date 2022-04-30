@@ -3,9 +3,9 @@
  texmf-dist/scripts/texlive/tlmgr.pl |   50 +++++++++++-------------------------
  2 files changed, 18 insertions(+), 34 deletions(-)
 
---- texlive-base-2021.20210921.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2021.20210921/texmf-dist/scripts/texlive/tlmgr.pl
-@@ -41,38 +41,7 @@
+--- texlive-base-2022.20220405.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2022.20220405/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -43,38 +43,7 @@
  
  BEGIN {
    $^W = 1;
@@ -45,7 +45,7 @@
    $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
  
    # make Perl find our packages first:
-@@ -620,6 +589,13 @@
+@@ -621,6 +590,13 @@
      tldie("$prg: Try --help if you need it.\n");
    }
  
@@ -59,7 +59,7 @@
    #
    # the main tree we will be working on
    $::maintree = $Master;
-@@ -6243,7 +6219,9 @@
+@@ -6244,7 +6220,9 @@
  # sets up the user tree for tlmgr in user mode
  sub action_init_usertree {
    # init_local_db but do not die if localtlpdb is not found!
@@ -70,7 +70,7 @@
    my $tlpdb = TeXLive::TLPDB->new;
    my $usertree;
    if ($opts{"usertree"}) {
-@@ -6883,7 +6861,11 @@
+@@ -6884,7 +6862,11 @@
      if ($should_i_die == 2) {
        return undef;
      } else {
@@ -83,8 +83,8 @@
      }
    }
    # setup the programs, for w32 we need the shipped wget/xz etc, so we
---- texlive-base-2021.20210921.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2021.20210921/texmf-dist/doc/man/man1/tlmgr.1
+--- texlive-base-2022.20220405.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2022.20220405/texmf-dist/doc/man/man1/tlmgr.1
 @@ -154,6 +154,8 @@
  <https://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.

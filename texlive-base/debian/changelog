@@ -1,3 +1,9 @@
+texlive-base (2022.20220405-1) UNRELEASED; urgency=medium
+
+  * New upstream snapshot for TL 2022, update patches.
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 09 Apr 2022 23:41:43 +0200
+
 texlive-base (2021.20220204-1) unstable; urgency=medium
 
   * New upstream snapshot, update patches.

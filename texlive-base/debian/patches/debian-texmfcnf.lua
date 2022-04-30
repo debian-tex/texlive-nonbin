@@ -32,7 +32,7 @@ Adjust the texmfcnf.lua file to realities in Debian
 -
 -            TEXMFSYSVAR     = "selfautoparent:texmf-var",
 +            TEXMFSYSVAR     = "/var/lib/texmf",
-             TEXMFVAR        = "home:.texlive2021/texmf-var",
+             TEXMFVAR        = "home:.texlive2022/texmf-var",
  
              -- We have only one cache path but there can be more. The first writable one
 @@ -61,13 +58,13 @@ return {
