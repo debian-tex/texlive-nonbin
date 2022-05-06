@@ -1,3 +1,9 @@
+texlive-extra (2022.20220405-2) experimental; urgency=medium
+
+  * Kill manual pages, which are also in texlive-binaries.
+
+ -- Hilmar Preusse <hille42@web.de>  Wed, 04 May 2022 23:42:30 +0200
+
 texlive-extra (2022.20220405-1) experimental; urgency=medium
 
   * New upstream snapshot for TL 2022.
