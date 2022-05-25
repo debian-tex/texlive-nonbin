@@ -1,3 +1,12 @@
+texlive-lang (2022.20220405-3) UNRELEASED; urgency=medium
+
+  * texlive-lang-japanese recommends texlive-latex-recommended
+    (Closes: #946715)
+  * texlive-lang-japanese suggests fonts-noto-cjk-extra
+    (Closes: #929156)
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 07 May 2022 23:38:40 +0200
+
 texlive-lang (2022.20220405-2) experimental; urgency=medium
 
   * Kill manual pages, which are also in texlive-binaries.
