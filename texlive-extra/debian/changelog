@@ -1,3 +1,10 @@
+texlive-extra (2022.20220405-3) UNRELEASED; urgency=medium
+
+  * texlive-latex-extra recommends libspreadsheet-parseexcel-perl
+    (Closes: #987778)
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 07 May 2022 23:38:56 +0200
+
 texlive-extra (2022.20220405-2) experimental; urgency=medium
 
   * Kill manual pages, which are also in texlive-binaries.
