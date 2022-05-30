@@ -1,4 +1,4 @@
-texlive-extra (2022.20220405-3) UNRELEASED; urgency=medium
+texlive-extra (2022.20220405-3) unstable; urgency=medium
 
   * texlive-latex-extra recommends libspreadsheet-parseexcel-perl
     (Closes: #987778)
