@@ -6,9 +6,9 @@ as the later entries are generated automatically.
 Sujet: Re: Licensing info in computational-complexity LaTeX class (Debian
 Bug#477152)
 Date: Tue, 22 Apr 2008 15:39:47 +0200
-De: Michael Nüsken <nuesken@bit.uni-bonn.de>
+De: Michael NÃ¼sken <nuesken@bit.uni-bonn.de>
 Pour: Manuel Pegourie-Gonnard <mpg@elzevir.fr>
-Références: <20080421124959.14552.11248.reportbug@josh-mobile>
+RÃ©fÃ©rences: <20080421124959.14552.11248.reportbug@josh-mobile>
 <20080421141940.GG6688@gamma.logic.tuwien.ac.at>
 <480CDD3C.9080108@freedesktop.org>
 <87zlrnhs4b.fsf@riesling.zuerich.kuesterei.ch> <480DD74A.3050904@elzevir.fr>
@@ -55,7 +55,7 @@ applied for the entire cc.dtx, cc.ins and all generated parts.
 Thanks for the hints!  That's really helpful.
 
 Kind regards,
-|\  /| Michael Nüsken, b-it computer security,
+|\  /| Michael NÃ¼sken, b-it computer security,
 | \/ | Room 1.22, <http://www.b-it-center.de/>,
 |  \ | ++49/228/2699-214, ++49/228/2619334,
 |   \| <http://cosec.bit.uni-bonn.de/cosec/members/nuesken.html>.
