@@ -25,7 +25,6 @@ texlive-fonts-extra-doc: missing-dep-for-interpreter fontforge => fontforge-nox 
 texlive-fonts-extra-doc: missing-dep-for-interpreter fontforge => fontforge-nox | fontforge (usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/utility/metafont/bulk_eps_import.py)
 texlive-fonts-extra-doc: missing-dep-for-interpreter fontforge => fontforge-nox | fontforge (usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/kernclasses.py)
 texlive-base: no-debconf-config
-tetex-base: maintainer-script-needs-depends-on-ucf postinst
 texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/beamer-themes.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
 texlive-lang-french: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/apprends-latex/exemples/polices.pl (#!/usr/pkg/bin/perl != /usr/bin/perl)
 texlive-music: wrong-path-for-interpreter usr/share/texlive/texmf-dist/doc/latex/songbook/contrib/crd2sb/crd2sb (#!/usr/local/bin/perl != /usr/bin/perl)
@@ -44,5 +43,4 @@ texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/s
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/make4ht/mkutils.lua
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/tex4ebook/exec_epub.lua
 texlive-extra-utils: executable-not-elf-or-script usr/share/texlive/texmf-dist/scripts/make4ht/lapp-mk4.lua
-texlive-base source: license-problem-gfdl-invariants texmf-dist/doc/dvipdfmx/dvipdfmx.tex invariant part is: label{sec:fdl
 texlive-luatex: missing-dep-for-interpreter lua => lua | lua40 | lua50 | lua5.1 | lua5.2 (usr/share/texlive/texmf-dist/tex/lualatex/bezierplot/bezierplot.lua) #!lua

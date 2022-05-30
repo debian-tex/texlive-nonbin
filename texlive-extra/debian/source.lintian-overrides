@@ -5,3 +5,8 @@ texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/APla
 texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/VPlayer.swf
 texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/VPlayer9.swf
 texlive-extra source: source-is-missing texmf-dist/tex/latex/media9/players/SlideShow.swf
+# Java Script
+texlive-extra source: source-is-missing texmf-dist/doc/latex/sdaps/html/_static/jquery.js
+texlive-extra source: source-is-missing texmf-dist/doc/latex/sdaps/html/_static/underscore.js
+# We are mostly binary files.
+texlive-extra source: very-long-line-length-in-source-file

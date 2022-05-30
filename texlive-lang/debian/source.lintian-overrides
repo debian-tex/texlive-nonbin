@@ -1,1 +1,7 @@
-texlive-lang source: license-problem-gfdl-invariants texmf-dist/doc/fonts/Type1fonts/fontinstallationguide.tex invariant part is: version 1.2, with no invariant sections, no front-cover texts, and no back-cover texts
+# It is a bogus hit: it is not Lenna.
+texlive-lang source: license-problem-non-free-img-lenna texmf-dist/doc/latex/xtuthesis/figures/Lenna_e.pdf
+# Wrong hits?
+texlive-lang source: license-problem-gfdl-non-official-text texmf-dist/doc/plain/impatient-cn/copyrght.tex invariant part is: with no invariant sections, with no front-cover texts, and with no back-cover texts
+texlive-lang source: license-problem-gfdl-non-official-text texmf-dist/doc/plain/impatient/copyrght.tex invariant part is: with no invariant sections, with no front-cover texts, and with no back-cover texts
+# We are mostly binary files.
+texlive-lang source: very-long-line-length-in-source-file
