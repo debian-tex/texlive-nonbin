@@ -1,8 +1,9 @@
-texlive-base (2022.20220405-2) unstable; urgency=medium
+texlive-base (2022.20220405-2) unstable; urgency=low
 
   * Upload to unstable.
+  * Some Lintian cleanup.
 
- -- Hilmar Preusse <hille42@web.de>  Wed, 04 May 2022 23:42:15 +0200
+ -- Hilmar Preusse <hille42@web.de>  Wed, 01 Jun 2022 09:03:41 +0200
 
 texlive-base (2022.20220405-1) experimental; urgency=medium
 

@@ -1,11 +1,13 @@
-texlive-lang (2022.20220405-3) unstable; urgency=medium
+texlive-lang (2022.20220405-3) unstable; urgency=low
 
+  * Upload to unstable.
   * texlive-lang-japanese recommends texlive-latex-recommended
     (Closes: #946715)
   * texlive-lang-japanese suggests fonts-noto-cjk-extra
     (Closes: #929156)
+  * Some Lintian cleanup.
 
- -- Hilmar Preusse <hille42@web.de>  Sat, 07 May 2022 23:38:40 +0200
+ -- Hilmar Preusse <hille42@web.de>  Wed, 01 Jun 2022 09:04:09 +0200
 
 texlive-lang (2022.20220405-2) experimental; urgency=medium
 

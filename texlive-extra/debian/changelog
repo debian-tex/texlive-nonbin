@@ -1,10 +1,12 @@
-texlive-extra (2022.20220405-3) unstable; urgency=medium
+texlive-extra (2022.20220405-3) unstable; urgency=low
 
+  * Upload to unstable.
   * texlive-latex-extra recommends libspreadsheet-parseexcel-perl
     (Closes: #987778)
   * texlive-latex-extra suggests texlive-science (Closes: #990494)
+  * Some Lintian cleanup.
 
- -- Hilmar Preusse <hille42@web.de>  Sat, 07 May 2022 23:38:56 +0200
+ -- Hilmar Preusse <hille42@web.de>  Wed, 01 Jun 2022 09:03:56 +0200
 
 texlive-extra (2022.20220405-2) experimental; urgency=medium
 
