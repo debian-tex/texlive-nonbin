@@ -1,3 +1,9 @@
+texlive-lang (2022.20220605-1) unstable; urgency=low
+
+  * New upstream snapshot.
+
+ -- Hilmar Preusse <hille42@web.de>  Wed, 01 Jun 2022 09:03:41 +0200
+
 texlive-lang (2022.20220405-3) unstable; urgency=low
 
   * Upload to unstable.
