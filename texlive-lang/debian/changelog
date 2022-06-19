@@ -1,6 +1,8 @@
 texlive-lang (2022.20220605-1) unstable; urgency=low
 
   * New upstream snapshot.
+  * Drop Depends on fonts-ipa* font packages to Suggests.
+    (Closes: #1013219).
 
  -- Hilmar Preusse <hille42@web.de>  Wed, 01 Jun 2022 09:03:41 +0200
 
