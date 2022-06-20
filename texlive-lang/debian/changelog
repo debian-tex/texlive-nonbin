@@ -1,10 +1,10 @@
 texlive-lang (2022.20220605-1) unstable; urgency=low
 
   * New upstream snapshot.
-  * Drop Depends on fonts-ipa* font packages to Suggests.
+  * Remove Depends on fonts-ipa* font packages, turn it into Suggests.
     (Closes: #1013219).
 
- -- Hilmar Preusse <hille42@web.de>  Wed, 01 Jun 2022 09:03:41 +0200
+ -- Hilmar Preusse <hille42@web.de>  Mon, 20 Jun 2022 09:26:13 +0200
 
 texlive-lang (2022.20220405-3) unstable; urgency=low
 
