@@ -2,9 +2,9 @@
  texmf-dist/scripts/texlive/updmap.pl |   17 ++++++++++++++++-
  1 file changed, 16 insertions(+), 1 deletion(-)
 
---- a/texmf-dist/scripts/texlive/updmap.pl
-+++ b/texmf-dist/scripts/texlive/updmap.pl
-@@ -24,7 +24,7 @@ BEGIN {
+--- texlive-base-2022.20220722.orig/texmf-dist/scripts/texlive/updmap.pl
++++ texlive-base-2022.20220722/texmf-dist/scripts/texlive/updmap.pl
+@@ -23,7 +23,7 @@
      die "$0: kpsewhich -var-value=TEXMFROOT failed, aborting early.\n";
    }
    chomp($TEXMFROOT);
@@ -12,8 +12,8 @@
 +  unshift (@INC, "/usr/share/texlive/tlpkg");
  }
  
- my $lastchdate = '$Date: 2021-05-09 23:49:52 +0200 (Sun, 09 May 2021) $';
-@@ -396,6 +396,21 @@ sub main {
+ my $lastchdate = '$Date: 2022-06-19 00:30:39 +0200 (Sun, 19 Jun 2022) $';
+@@ -395,6 +395,21 @@
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";

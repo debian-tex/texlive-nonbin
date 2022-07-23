@@ -3,8 +3,8 @@ fix mktexlsr bashism (thanks Thorsten Glaser) (Closes: #811092)
  texk/kpathsea/mktexlsr |    4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
---- source.orig/texmf-dist/scripts/texlive/mktexlsr
-+++ source/texmf-dist/scripts/texlive/mktexlsr
+--- texlive-base-2022.20220722.orig/texmf-dist/scripts/texlive/mktexlsr
++++ texlive-base-2022.20220722/texmf-dist/scripts/texlive/mktexlsr
 @@ -188,8 +188,8 @@
      # Use same permissions as parent directory, minus x,s, or t bits.
      chmod `kpsestat -xst "$db_dir"` "$db_file"
