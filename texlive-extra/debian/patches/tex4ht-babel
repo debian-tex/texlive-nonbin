@@ -1,3 +1,5 @@
+Patch comes from upstream. See https://tex.stackexchange.com/q/651631/2891 .
+
 --- texlive-extra-2022.20220722.orig/texmf-dist/tex/generic/tex4ht/babel.4ht
 +++ texlive-extra-2022.20220722/texmf-dist/tex/generic/tex4ht/babel.4ht
 @@ -1,6 +1,6 @@
