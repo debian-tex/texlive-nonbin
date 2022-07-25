@@ -1,9 +1,9 @@
-texlive-lang (2022.20220722-1) UNRELEASED; urgency=medium
+texlive-lang (2022.20220722-1) unstable; urgency=medium
 
   * New upstream snapshot.
   * Remove obsolete maintscripts.
 
- -- Hilmar Preusse <hille42@web.de>  Fri, 22 Jul 2022 17:25:13 +0200
+ -- Hilmar Preusse <hille42@web.de>  Mon, 25 Jul 2022 16:02:33 +0200
 
 texlive-lang (2022.20220605-1) unstable; urgency=low
 
