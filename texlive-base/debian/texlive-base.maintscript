@@ -1,5 +1,0 @@
-rm_conffile /etc/texmf/dvipdfm/config/config    2013.20130904-1~
-rm_conffile /etc/texmf/xdvi/xdvi.cfg		2013.20131010-2~
-rm_conffile /etc/texmf/fmt.d/10texlive-base.cnf	2015.20150524-1~
-rm_conffile /etc/texmf/fmt.d/10texlive-base.cnf 2015.20150524-1~
-rm_conffile /etc/texmf/fmt.d/10texlive-math-extra.cnf 2015.20150524-1~

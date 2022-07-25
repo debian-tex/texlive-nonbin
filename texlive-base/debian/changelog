@@ -1,6 +1,7 @@
 texlive-base (2022.20220722-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot.
+  * Remove obsolete maintscripts.
 
  -- Hilmar Preusse <hille42@web.de>  Fri, 22 Jul 2022 17:24:20 +0200
 

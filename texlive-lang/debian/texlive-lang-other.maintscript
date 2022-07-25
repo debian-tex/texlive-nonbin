@@ -1,5 +1,0 @@
-rm_conffile /etc/texmf/hyphen.d/20thailatex.cnf    2013.20130523-2~ thailatex
-rm_conffile /etc/emacs/site-start.d/50thailatex.el 2013.20130523-2~ thailatex
-rm_conffile /etc/texmf/hyphen.d/10texlive-lang-other.cnf 2015.20150524-1~
-rm_conffile /etc/texmf/hyphen.d/10texlive-lang-indic.cnf 2015.20150524-1~
-rm_conffile /etc/texmf/hyphen.d/10texlive-lang-african.cnf 2015.20150524-1~
