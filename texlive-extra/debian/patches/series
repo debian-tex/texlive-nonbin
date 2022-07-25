@@ -12,3 +12,4 @@ python3-shebang
 pax-build
 #replace_SELFAUTOPARENT
 # fix-jadetex-new-latex
+tex4ht-babel
