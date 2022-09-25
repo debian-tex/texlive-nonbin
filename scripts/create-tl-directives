@@ -4,11 +4,15 @@
 
 for i in $(grep duplicate-font-file |	\
 	sed 	-e 's/^W: //'				\
-	    	-e 's/: duplicate-font-file /;/'	\
-		-e 's/ also in /;/') ; do
+		-e 's/: duplicate-font-file also in /;/' \
+		-e 's/\ /;/' -e 's/\x28//' -e 's/\x29//' \
+		-e 's/\[//' -e 's/\]//') ; do
+  # Name of TL package
   pkg=$(echo $i | awk -F";" '{print$1}')
-  tlpath=$(echo $i | awk -F";" '{print$2}')
-  debpkg=$(echo $i | awk -F";" '{print$3}')
+  # Font name + patch in TL
+  tlpath=$(echo $i | awk -F";" '{print$3}')
+  # Debian package containing the duplicate
+  debpkg=$(echo $i | awk -F";" '{print$2}')
   fntname=$(basename $tlpath)
   debpath=$(grep /$fntname /var/lib/dpkg/info/$debpkg.list | sed -e 's!^/!!')
   echo "$debpath $tlpath" >> $pkg.links.dist
