@@ -74,9 +74,6 @@ usr/share/fonts/truetype/freefont/FreeSerif.ttf usr/share/texlive/texmf-dist/fon
 usr/share/fonts/truetype/freefont/FreeSerifBold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gnu-freefont/FreeSerifBold.ttf
 usr/share/fonts/truetype/freefont/FreeSerifBoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gnu-freefont/FreeSerifBoldItalic.ttf
 usr/share/fonts/truetype/freefont/FreeSerifItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gnu-freefont/FreeSerifItalic.ttf
-usr/share/fonts/truetype/junicode/Junicode-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicode-Bold.ttf
-usr/share/fonts/truetype/junicode/Junicode-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicode-BoldItalic.ttf
-usr/share/fonts/truetype/junicode/Junicode-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicode-Italic.ttf
 usr/share/fonts/opentype/stix-word/STIX-Bold.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIX-Bold.otf
 usr/share/fonts/opentype/stix-word/STIX-Italic.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIX-Italic.otf
 usr/share/fonts/opentype/stix-word/STIX-Regular.otf usr/share/texlive/texmf-dist/fonts/opentype/public/stix/STIX-Regular.otf
@@ -102,7 +99,6 @@ usr/share/fonts/opentype/linux-libertine/LinLibertine_RBI.otf usr/share/texlive/
 usr/share/fonts/opentype/linux-libertine/LinLibertine_RI.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf
 usr/share/fonts/opentype/linux-libertine/LinLibertine_RZ.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RZ.otf
 usr/share/fonts/opentype/linux-libertine/LinLibertine_RZI.otf usr/share/texlive/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RZI.otf
-usr/share/fonts/truetype/junicode/Junicode.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicode.ttf
 usr/share/fonts/truetype/lato/Lato-Black.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/lato/Lato-Bla.ttf
 usr/share/fonts/truetype/lato/Lato-BlackItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/lato/Lato-BlaIta.ttf
 usr/share/fonts/truetype/lato/Lato-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/lato/Lato-Bol.ttf
