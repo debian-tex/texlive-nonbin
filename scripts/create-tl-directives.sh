@@ -1,3 +1,6 @@
+#!/bin/bash
+#
+
 #texlive-fonts-extra;usr/share/texlive/texmf-dist/fonts/opentype/public/libertineotf/LinLibertine_aZL.otf;fonts-linuxlibertine
 
 # feed *.lintian.log into that
