@@ -306,3 +306,7 @@ usr/share/fonts/truetype/gentiumplus/GentiumPlus-Bold.ttf usr/share/texlive/texm
 usr/share/fonts/truetype/gentiumplus/GentiumPlus-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlus-BoldItalic.ttf
 usr/share/fonts/truetype/gentiumplus/GentiumPlus-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlus-Italic.ttf
 usr/share/fonts/truetype/gentiumplus/GentiumPlus-Regular.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/gentium-tug/GentiumPlus-Regular.ttf
+usr/share/fonts/truetype/junicode/Junicode-Bold.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicode-Bold
+usr/share/fonts/truetype/junicode/Junicode-BoldItalic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicod
+usr/share/fonts/truetype/junicode/Junicode-Italic.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicode-It
+usr/share/fonts/truetype/junicode/Junicode.ttf usr/share/texlive/texmf-dist/fonts/truetype/public/junicode/Junicode.ttf
