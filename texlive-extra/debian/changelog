@@ -2,7 +2,7 @@ texlive-extra (2022.20220923-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot, refresh patches.
   * Replace some fonts in texlive-fonts-extra by references to
-    font packages.
+    font packages and soft links in texlive-fonts-extra-links.links .
 
  -- Hilmar Preusse <hille42@web.de>  Fri, 23 Sep 2022 21:59:46 +0200
 
