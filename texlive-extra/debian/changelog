@@ -1,11 +1,11 @@
-texlive-extra (2022.20220923-1) UNRELEASED; urgency=medium
+texlive-extra (2022.20220923-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh patches.
   * Replace some fonts in texlive-fonts-extra by references to
     font packages and soft links in texlive-fonts-extra-links.links.
   * texlive-fonts-extra now recommends cm-super (instead of suggest).
 
- -- Hilmar Preusse <hille42@web.de>  Fri, 23 Sep 2022 21:59:46 +0200
+ -- Hilmar Preusse <hille42@web.de>  Mon, 10 Oct 2022 00:15:28 +0200
 
 texlive-extra (2022.20220722-2) unstable; urgency=high
 

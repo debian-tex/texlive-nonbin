@@ -1,10 +1,10 @@
-texlive-base (2022.20220923-1) UNRELEASED; urgency=medium
+texlive-base (2022.20220923-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh patches.
   * Move package hypdoc from texlive-latex-extra* to texlive-latex-base*
     as it is needed by doc.sty now (Closes: #1016218).
 
- -- Hilmar Preusse <hille42@web.de>  Fri, 23 Sep 2022 21:59:26 +0200
+ -- Hilmar Preusse <hille42@web.de>  Mon, 10 Oct 2022 00:15:19 +0200
 
 texlive-base (2022.20220722-1) unstable; urgency=medium
 
