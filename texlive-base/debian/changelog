@@ -1,6 +1,8 @@
 texlive-base (2022.20220923-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot, refresh patches.
+  * Move package hypdoc from texlive-latex-extra* to texlive-latex-base*
+    as it is needed by doc.sty now (Closes: #1016218).
 
  -- Hilmar Preusse <hille42@web.de>  Fri, 23 Sep 2022 21:59:26 +0200
 
