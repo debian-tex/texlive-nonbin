@@ -1,3 +1,10 @@
+texlive-extra (2022.20220923-2) unstable; urgency=medium
+
+  * Remove Dep on fonts-alegreya-sans, which does not migrate to
+    testing (see #944499).
+
+ -- Hilmar Preusse <hille42@web.de>  Tue, 11 Oct 2022 23:24:20 +0200
+
 texlive-extra (2022.20220923-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh patches.
