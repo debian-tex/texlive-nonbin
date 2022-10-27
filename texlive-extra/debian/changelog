@@ -1,3 +1,10 @@
+texlive-extra (2022.20220923-3) unstable; urgency=medium
+
+  * Add "Breaks: latexml (<= 0.8.6-4)" to texlive-latex-extra to
+    make sure the incompatible latexml is removed (see #1021658).
+
+ -- Hilmar Preusse <hille42@web.de>  Thu, 27 Oct 2022 13:51:42 +0200
+
 texlive-extra (2022.20220923-2) unstable; urgency=medium
 
   * Remove Dep on fonts-alegreya-sans, which does not migrate to
