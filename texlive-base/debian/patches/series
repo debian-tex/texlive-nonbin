@@ -16,15 +16,10 @@ xdvi-config-paper-factorization
 # debian internal, location of modules is different
 debian_updmap-search-path
 debian-updmap-man
-#debian-texconfig-adaptions
 texdoc-see-and-zip
 fix-natbib-add-spaces
 debian-tlmgr-usermode
 mptopdf-manpage-fixes
-# not really good a fix, upupstream is working on it
-# this patch creates different problems
-# fix-listings-bug
-#pgf-tex4ht-fix
 texdoctk-colors
 xypic-no-privacy-breach
 python3-shebang
