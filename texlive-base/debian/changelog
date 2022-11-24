@@ -1,3 +1,9 @@
+texlive-base (2022.20221123-1) UNRELEASED; urgency=medium
+
+  * New upstream snapshot.
+
+ -- Hilmar Preusse <hille42@web.de>  Thu, 24 Nov 2022 23:43:19 +0100
+
 texlive-base (2022.20220923-2) unstable; urgency=medium
 
   * Add "Breaks: latexml (<= 0.8.6-4)" to texlive-latex-base to
