@@ -1,3 +1,10 @@
+texlive-extra (2022.20221123-2) unstable; urgency=medium
+
+  * Bump "Breaks" version of latexml: it is incompatible to latest
+    version of glossaries.
+
+ -- Hilmar Preusse <hille42@web.de>  Tue, 13 Dec 2022 08:37:36 +0100
+
 texlive-extra (2022.20221123-1) unstable; urgency=medium
 
   * New upstream snapshot.
