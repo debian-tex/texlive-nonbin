@@ -5,8 +5,8 @@ texlive-base (2022.20230122-1) UNRELEASED; urgency=medium
     + de-macro
     + lilyglyphs
     + pygmentex
-  * Move package pdftexcmds from texlive-latex-recommended* to
-    texlive-latex-base* as it is needed by some packages to build
+  * Move package pdftexcmds & infwarerr from texlive-latex-recommended*
+    to texlive-latex-base* as it is needed by some packages to build
     (Closes: #1025985).
 
  -- Hilmar Preusse <hille42@web.de>  Tue, 03 Jan 2023 23:39:24 +0100
