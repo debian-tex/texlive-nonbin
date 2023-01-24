@@ -1,9 +1,9 @@
-texlive-lang (2022.20230122-1) UNRELEASED; urgency=medium
+texlive-lang (2022.20230122-1) unstable; urgency=medium
 
   * New upstream snapshot.
   * Blacklist another incarnation of Lenna (Closes: #1028056).
 
- -- Hilmar Preusse <hille42@web.de>  Tue, 03 Jan 2023 23:39:41 +0100
+ -- Hilmar Preusse <hille42@web.de>  Tue, 24 Jan 2023 23:31:57 +0100
 
 texlive-lang (2022.20221123-1) unstable; urgency=medium
 
