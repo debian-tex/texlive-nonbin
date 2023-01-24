@@ -1,6 +1,10 @@
 texlive-extra (2022.20230122-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot.
+  * Unblacklist a few packages, which were ported to Python3:
+    + de-macro
+    + lilyglyphs
+    + pygmentex
 
  -- Hilmar Preusse <hille42@web.de>  Tue, 03 Jan 2023 23:38:59 +0100
 

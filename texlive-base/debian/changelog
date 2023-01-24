@@ -1,10 +1,6 @@
 texlive-base (2022.20230122-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot.
-  * Unblacklist a few packages, which were ported to Python3:
-    + de-macro
-    + lilyglyphs
-    + pygmentex
   * Move package pdftexcmds & infwarerr from texlive-latex-recommended*
     to texlive-latex-base* as it is needed by some packages to build
     (Closes: #1025985).
