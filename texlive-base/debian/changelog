@@ -4,7 +4,7 @@ texlive-base (2022.20230122-2) unstable; urgency=medium
   * Include package in Vcs-Git/Vcs-Browser header.
 
   * New texlive-latex-base is incompatible to old
-    texlive-lang-japanese (Closes: #1030622).
+    texlive-lang-japanese, add Breaks statement (Closes: #1030622).
   * epspdf.tlu: patch from Siep Kroonenberg <siepo@bitmuis.nl>:
     Eliminate faulty check for writability system_tmpdir;
     just error out when no tempdir for epspdf can be created.
