@@ -1,6 +1,9 @@
 texlive-extra (2022.20230122-2) UNRELEASED; urgency=medium
 
   * Include package in Vcs-Git/Vcs-Browser header.
+  * Do not provide EBGaramond12-Italic.otf & EBGaramond12-Regular.otf
+    any more via fonts-ebgaramond; leads to wrong typesetting results.
+    (Closes: #1023391)
 
  -- Jelmer Vernooĳ <jelmer@debian.org>  Wed, 25 Jan 2023 22:27:56 +0000
 
