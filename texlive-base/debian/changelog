@@ -5,6 +5,10 @@ texlive-base (2022.20230122-2) UNRELEASED; urgency=medium
 
   * New texlive-latex-base is incompatible to old
     texlive-lang-japanese (Closes: #1030622).
+  * epspdf.tlu: patch from Siep Kroonenberg <siepo@bitmuis.nl>:
+    Eliminate faulty check for writability system_tmpdir;
+    just error out when no tempdir for epspdf can be created.
+    (Closes: #1029913)
 
  -- Hilmar Preusse <hille42@web.de>  Mon, 06 Feb 2023 11:52:29 +0100
 
