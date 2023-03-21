@@ -1,0 +1,1082 @@
+Description:  Error in odt conversion: Format error in the file, in the styles.xml #107
+Origin: Michal Hoftich <michal.h21@gmail.com>
+Forwarded: No. Patch comes from upstream.
+Author: Michal Hoftich <michal.h21@gmail.com>
+Last-Update: 20230125
+
+--- texlive-base-2022.20230122.orig/texmf-dist/tex/generic/tex4ht/ooffice.4ht	2023-01-19 22:32:03.000000000 +0100
++++ texlive-base-2022.20230122/texmf-dist/tex/generic/tex4ht/ooffice.4ht	2023-01-25 23:49:22.000000000 +0100
+@@ -1,4 +1,4 @@
+-% ooffice.4ht (2023-01-19-13:31), generated from tex4ht-ooffice.tex
++% ooffice.4ht (2023-01-24-13:16), generated from tex4ht-ooffice.tex
+ % Copyright 2009-2023 TeX Users Group
+ % Copyright 2001-2009 Maarten Wisse, James Naughton, Eitan M. Gurari
+ %
+@@ -17,7 +17,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2023-01-19-13:31}
++\immediate\write-1{version 2023-01-24-13:16}
+ 
+   \exit:ifnot{Preamble,% 
+ algorithmicx,% 
+@@ -3716,9 +3716,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -3821,7 +3821,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -3861,7 +3861,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -3897,11 +3897,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -3930,11 +3930,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -3963,11 +3963,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -3996,11 +3996,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -4029,11 +4029,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -5141,9 +5141,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -5246,7 +5246,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -5286,7 +5286,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -5322,11 +5322,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -5355,11 +5355,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -5388,11 +5388,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -5421,11 +5421,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -5454,11 +5454,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -6522,9 +6522,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -6627,7 +6627,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -6667,7 +6667,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -6703,11 +6703,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -6736,11 +6736,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -6769,11 +6769,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -6802,11 +6802,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -6835,11 +6835,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -7041,7 +7041,7 @@
+              fo:font-style="normal"
+              fo:font-weight="normal"
+ %              fo:font-size="75\%"
+-             style:text-position="0\prcnt:ch 100\prcnt:ch"
++             style:text-position="0\prcnt:ch\space 100\prcnt:ch"
+    />\Hnewline
+ </style:style>\Hnewline
+ }
+@@ -7655,9 +7655,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -7760,7 +7760,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -7800,7 +7800,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -7836,11 +7836,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -7869,11 +7869,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -7902,11 +7902,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -7935,11 +7935,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -7968,11 +7968,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -9642,9 +9642,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -9747,7 +9747,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -9787,7 +9787,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -9823,11 +9823,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -9856,11 +9856,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -9889,11 +9889,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -9922,11 +9922,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -9955,11 +9955,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -11052,9 +11052,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -11157,7 +11157,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -11197,7 +11197,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -11233,11 +11233,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -11266,11 +11266,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -11299,11 +11299,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -11332,11 +11332,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -11365,11 +11365,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -12462,9 +12462,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -12567,7 +12567,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -12607,7 +12607,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -12643,11 +12643,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -12676,11 +12676,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -12709,11 +12709,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -12742,11 +12742,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -12775,11 +12775,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -14450,9 +14450,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -14555,7 +14555,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -14595,7 +14595,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -14631,11 +14631,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -14664,11 +14664,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -14697,11 +14697,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -14730,11 +14730,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -14763,11 +14763,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -15843,9 +15843,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -15948,7 +15948,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -15988,7 +15988,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -16024,11 +16024,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -16057,11 +16057,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -16090,11 +16090,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -16123,11 +16123,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -16156,11 +16156,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
+@@ -17301,9 +17301,9 @@
+                   style:class="text">\Hnewline
+ <style:paragraph-properties  fo:font-size="17.2999992370605pt"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="115\prcnt:ch%"
++                  style:font-size-asian="115\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="115\prcnt:ch%"
++                  style:font-size-complex="115\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:margin-top="40pt"
+                   fo:margin-bottom="25pt"
+@@ -17406,7 +17406,7 @@
+                   fo:font-weight="bold"
+                   fo:margin-top="0.42cm"
+                   fo:margin-bottom="0cm"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-style-complex="italic"
+                   style:font-weight-complex="bold"
+ />
+@@ -17446,7 +17446,7 @@
+                   fo:font-size="12pt"
+                   fo:font-style="italic"
+                   fo:font-weight="normal"
+-                  style:font-size-complex="85\prcnt:ch%"
++                  style:font-size-complex="85\prcnt:ch"
+                   style:font-weight-complex="bold"
+                   fo:text-indent="0cm"
+                   style:auto-text-indent="false"/>
+@@ -17482,11 +17482,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-6-rtl"
+@@ -17515,11 +17515,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-7-rtl"
+@@ -17548,11 +17548,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-8-rtl"
+@@ -17581,11 +17581,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-9-rtl"
+@@ -17614,11 +17614,11 @@
+                   style:parent-style-name="Heading"
+                   style:next-style-name="Text-body"
+                   style:class="text">\Hnewline
+-<style:paragraph-properties  fo:font-size="75\prcnt:ch%"
++<style:paragraph-properties  fo:font-size="75\prcnt:ch"
+                   fo:font-weight="bold"
+-                  style:font-size-asian="75\prcnt:ch%"
++                  style:font-size-asian="75\prcnt:ch"
+                   style:font-weight-asian="bold"
+-                  style:font-size-complex="75\prcnt:ch%"
++                  style:font-size-complex="75\prcnt:ch"
+                   style:font-weight-complex="bold"/>
+ </style:style>
+ \Hnewline <style:style style:name="Heading-10-rtl"
