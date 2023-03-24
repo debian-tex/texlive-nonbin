@@ -3,7 +3,7 @@ texlive-extra (2022.20230122-3) unstable; urgency=medium
   * Apply patch for ooffice.4ht to fix conversion LaTeX ->
     OOffice documents (Closes: #1033008).
 
- -- Hilmar Preusse <hille42@web.de>  Wed, 15 Feb 2023 13:55:21 +0100
+ -- Hilmar Preusse <hille42@web.de>  Fri, 24 Mar 2023 09:56:36 +0100
 
 texlive-extra (2022.20230122-2) unstable; urgency=medium
 
