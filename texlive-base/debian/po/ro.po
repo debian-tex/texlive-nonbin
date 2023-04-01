@@ -1,0 +1,77 @@
+# Mesajele în limba română pentru pachetul texlive-base.
+# Romanian translation of texlive-base.
+# Copyright © 2023 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the texlive-base package.
+#
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2023.
+#
+# Cronologia traducerii fișierului „texlive-base”:
+# Traducerea inițială, făcută de R-GC, pentru versiunea texlive-base 2022.20230122-2(2012-04-24).
+# Actualizare a traducerii pentru versiunea Y, făcută de X, Y(anul).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: texlive-base 2022.20230122-2\n"
+"Report-Msgid-Bugs-To: texlive-base@packages.debian.org\n"
+"POT-Creation-Date: 2012-04-24 14:30+0900\n"
+"PO-Revision-Date: 2023-03-26 17:57+0200\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
+"Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
+"n%100<=19) ? 1 : 2);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid "Unmanageable system paper size (${libpaperPaper})"
+msgstr "Dimensiune de hârtie de sistem imposibil de gestionat (${libpaperPaper})"
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid ""
+"The currently defined system-wide paper size is ${libpaperPaper}. However, the "
+"TeX configuration system cannot handle this paper size for ${binary}."
+msgstr ""
+"Dimensiunea de hârtie definită în prezent pentru întregul sistem este "
+"${libpaperPaper}. Cu toate acestea, sistemul de configurare TeX nu poate "
+"gestiona această dimensiune de hârtie pentru ${binary}."
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid "The setting will remain unchanged."
+msgstr "Configurarea va rămâne neschimbată."
+
+#. Type: error
+#. Description
+#: ../texlive-base.templates:2001
+msgid ""
+"The following command can show the list of known paper sizes for ${binary}:"
+msgstr ""
+"Următoarea comandă poate afișa lista cu dimensiunile de hârtie cunoscute pentru "
+"${binary}:"
+
+#. Type: multiselect
+#. Description
+#: ../texlive-base.templates:3001
+msgid "TeX binaries that should use the system paper size:"
+msgstr "Binarele TeX care ar trebui să utilizeze dimensiunea hârtiei de sistem:"
+
+#. Type: multiselect
+#. Description
+#: ../texlive-base.templates:3001
+msgid ""
+"This system's TeX binaries currently use different default paper sizes. Please "
+"choose which of them should get the system paper size (${libpaperPaper}) as "
+"their default."
+msgstr ""
+"Binarele TeX ale acestui sistem folosesc în prezent diferite dimensiuni de "
+"hârtie implicite. Vă rugăm să alegeți care dintre ele ar trebui să primească "
+"dimensiunea hârtiei de sistem (${libpaperPaper}) ca implicită."
