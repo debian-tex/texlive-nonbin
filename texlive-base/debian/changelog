@@ -2,6 +2,8 @@ texlive-base (2022.20230122-3) UNRELEASED; urgency=medium
 
   * Add Romanian debconf translation by Remus-Gabriel Chelu
     <remusgabriel.chelu@disroot.org> (Closes: #1033738).
+  * Add patch to fix hyphenation penalties in german language
+    (Closes: #1034038).
 
  -- Hilmar Preusse <hille42@web.de>  Sat, 01 Apr 2023 12:57:29 +0200
 

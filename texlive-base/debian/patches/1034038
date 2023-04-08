@@ -1,0 +1,11 @@
+--- texlive-base-2022.20230122.orig/texmf-dist/tex/generic/babel/babel-transforms.lua
++++ texlive-base-2022.20230122/texmf-dist/tex/generic/babel/babel-transforms.lua
+@@ -364,7 +364,7 @@
+             goto next
+ 
+           elseif mode == 1 and crep and (crep.pre or crep.no or crep.post) then
+-            d = node.new(7, 0)   -- (disc, discretionary)
++            d = node.new(7, 3)   -- (disc, regular)
+             d.pre     = Babel.str_to_nodes(crep.pre, matches, item_base)
+             d.post    = Babel.str_to_nodes(crep.post, matches, item_base)
+             d.replace = Babel.str_to_nodes(crep.no, matches, item_base)
