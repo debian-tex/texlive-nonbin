@@ -1,3 +1,10 @@
+texlive-extra (2022.20230122-4) unstable; urgency=medium
+
+  * Apply patch for pstricks.tex to fix dvi color handling
+    (Closes: #1035313).
+
+ -- Hilmar Preusse <hille42@web.de>  Tue, 02 May 2023 12:56:07 +0200
+
 texlive-extra (2022.20230122-3) unstable; urgency=medium
 
   * Apply patch for ooffice.4ht to fix conversion LaTeX ->

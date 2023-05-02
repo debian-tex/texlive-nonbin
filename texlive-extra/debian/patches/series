@@ -14,3 +14,4 @@ pax-build
 # fix-jadetex-new-latex
 #tex4ht-babel
 update_ooffice.4ht
+pstricks_color

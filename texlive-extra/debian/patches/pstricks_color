@@ -1,0 +1,14 @@
+--- texlive-extra-2022.20230122.orig/texmf-dist/tex/generic/pstricks/pstricks.tex
++++ texlive-extra-2022.20230122/texmf-dist/tex/generic/pstricks/pstricks.tex
+@@ -4246,8 +4251,9 @@
+ \@namedef{endpspicture*}{\endpspicture}
+ %
+ \ifx\pstcustomize\relax \input pstricks.con \fi
+-\pstVerb{0.8 setlinewidth 0 setgray}%    default setting (needed for lualatex)
+-
++%%% changed 20230430 by hv, confuses otherwise the dvi color handling
++\ifluatex\pstVerb{0.8 setlinewidth 0 setgray}\fi%    default setting (needed for lualatex)
++%%%
+ \catcode`\@=\PstAtCode\relax
+ %
+ \endinput
