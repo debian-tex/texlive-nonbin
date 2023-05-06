@@ -15,3 +15,4 @@ pax-build
 #tex4ht-babel
 update_ooffice.4ht
 pstricks_color
+pdfjam--keepinfo

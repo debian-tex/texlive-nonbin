@@ -1,0 +1,11 @@
+--- texlive-extra-2022.20230122.orig/texmf-dist/scripts/pdfjam/pdfjam
++++ texlive-extra-2022.20230122/texmf-dist/scripts/pdfjam/pdfjam
+@@ -1138,7 +1138,7 @@
+ 	prattle "Calling ${pdfinfo}..."  ;
+ 	PDFinfo=$(pdfinfo "$uniqueName");
+ 	pdftitl=$(printf "%s" "$PDFinfo" | \
+-	    grep -e '^Title:'| 'sed s/^Title:\\\s\*//' | \
++	    grep -e '^Title:'| sed 's/^Title:\\\s\*//' | \
+ 	    sed -e 's/[#$%^&_{}~]/\\\&/g');
+ 	pdfauth=$(printf "%s" "$PDFinfo" | \
+ 	    grep -e '^Author:'| sed 's/^Author:\\\s\*//' | \
