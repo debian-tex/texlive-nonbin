@@ -1,3 +1,4 @@
+Forwarded: https://github.com/rrthomas/pdfjam/issues/62
 Respect TMPDIR env var in pdfjam (Closes: #714188) (thanks Ivan Shmakov)
 ---
  texmf-dist/scripts/pdfjam/pdfjam |    3 ++-
