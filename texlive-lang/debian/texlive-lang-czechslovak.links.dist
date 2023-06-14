@@ -1,8 +1,8 @@
-usr/share/man/man1/pdftex.1.gz usr/share/man/man1/cslatex.1.gz
+#usr/share/man/man1/pdftex.1.gz usr/share/man/man1/cslatex.1.gz
 usr/share/man/man1/pdftex.1.gz usr/share/man/man1/csplain.1.gz
-usr/share/man/man1/pdftex.1.gz usr/share/man/man1/pdfcslatex.1.gz
+#usr/share/man/man1/pdftex.1.gz usr/share/man/man1/pdfcslatex.1.gz
 usr/share/man/man1/pdftex.1.gz usr/share/man/man1/pdfcsplain.1.gz
 usr/bin/pdftex	usr/bin/csplain
 usr/bin/pdftex	usr/bin/pdfcsplain
-usr/bin/pdftex	usr/bin/cslatex
-usr/bin/pdftex	usr/bin/pdfcslatex
+#usr/bin/pdftex	usr/bin/cslatex
+#usr/bin/pdftex	usr/bin/pdfcslatex
