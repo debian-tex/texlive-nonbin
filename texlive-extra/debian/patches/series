@@ -1,7 +1,7 @@
 fix-scripts
 ulqda-use-digest-sha
 latex2man-mktemp
-tmp-dir-for-pdfjam
+#tmp-dir-for-pdfjam
 # sympytex is currently removed due to Py2 dependency
 #sympytex-path
 fix-tabu-920459
@@ -13,6 +13,6 @@ pax-build
 #replace_SELFAUTOPARENT
 # fix-jadetex-new-latex
 #tex4ht-babel
-update_ooffice.4ht
-pstricks_color
-pdfjam--keepinfo
+#update_ooffice.4ht
+#pstricks_color
+#pdfjam--keepinfo

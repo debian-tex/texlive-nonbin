@@ -3,9 +3,9 @@
  texmf-dist/scripts/texlive/tlmgr.pl |   50 +++++++++++-------------------------
  2 files changed, 18 insertions(+), 34 deletions(-)
 
---- texlive-base-2022.20220722.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2022.20220722/texmf-dist/scripts/texlive/tlmgr.pl
-@@ -43,38 +43,7 @@
+--- texlive-base-2022.20230613.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2022.20230613/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -44,38 +44,7 @@
  
  BEGIN {
    $^W = 1;
@@ -17,7 +17,7 @@
 -    $Master =~ s!\\!/!g;
 -    $Master =~ s![^/]*$!../../..!
 -      unless ($Master =~ s!/texmf-dist/scripts/texlive/tlmgr\.pl$!!i);
--    $bindir = "$Master/bin/win32";
+-    $bindir = "$Master/bin/windows";
 -    $kpsewhichname = "kpsewhich.exe";
 -    # path already set by wrapper batchfile
 -  } else {
@@ -45,7 +45,7 @@
    $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
  
    # make Perl find our packages first:
-@@ -621,6 +590,13 @@
+@@ -622,6 +591,13 @@
      tldie("$prg: Try --help if you need it.\n");
    }
  
@@ -59,7 +59,7 @@
    #
    # the main tree we will be working on
    $::maintree = $Master;
-@@ -6246,7 +6222,9 @@
+@@ -6249,7 +6225,9 @@
  # sets up the user tree for tlmgr in user mode
  sub action_init_usertree {
    # init_local_db but do not die if localtlpdb is not found!
@@ -70,7 +70,7 @@
    my $tlpdb = TeXLive::TLPDB->new;
    my $usertree;
    if ($opts{"usertree"}) {
-@@ -6886,7 +6864,11 @@
+@@ -6889,7 +6867,11 @@
      if ($should_i_die == 2) {
        return undef;
      } else {
@@ -83,8 +83,8 @@
      }
    }
    # setup the programs, for w32 we need the shipped wget/xz etc, so we
---- texlive-base-2022.20220722.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2022.20220722/texmf-dist/doc/man/man1/tlmgr.1
+--- texlive-base-2022.20230613.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2022.20230613/texmf-dist/doc/man/man1/tlmgr.1
 @@ -154,6 +154,8 @@
  <https://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
