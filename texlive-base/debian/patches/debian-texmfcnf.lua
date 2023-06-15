@@ -1,3 +1,5 @@
+Adjust the texmfcnf.lua file to realities in Debian
+---
 --- texlive-base-2022.20230613.orig/texmf-dist/web2c/texmfcnf.lua
 +++ texlive-base-2022.20230613/texmf-dist/web2c/texmfcnf.lua
 @@ -11,6 +11,7 @@
