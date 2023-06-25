@@ -169,6 +169,14 @@ ifelse(_srcpackage_,texlive-base,<:
 	dh_installmime
 	dh_lintian
 	dh_link
+ifelse(_srcpackage_,texlive-lang,<:
+	# we want to have ptex and uptex as links in
+	# texlive-binaries and not in texlive-lang-japanese, remove them here
+	# and add them via dh_link in texlive-binaries
+	# this is just out of history, would be nicer to have changed
+	rm debian/texlive-lang-japanese/usr/bin/ptex
+	rm debian/texlive-lang-japanese/usr/bin/uptex
+:>)
 	dh_strip_nondeterminism
 	dh_compress -X.pdf
 	dh_fixperms
