@@ -1,7 +1,11 @@
-texlive-extra (2022.20230122-5) UNRELEASED; urgency=medium
+texlive-extra (2023.20230613-1) UNRELEASED; urgency=medium
 
-  * Add patch to make pdfjam work with option "--keepinfo"
-    (Closes: #1035420).
+  * New upstream snapshot, disable upstreamed patches.
+    - texlive-latex-extra contains package tangocolors (Closes: #899413).
+  * Version 3.04 of pdfjam fixes option "--keepinfo" (Closes: #1035420).
+  * Contains biblatex compatible to biber 2.19.
+  * texlive-extra-utils now depends on libyaml-tiny-perl and
+    libfile-homedir-perl (Closes: #1031559).
 
  -- Hilmar Preusse <hille42@web.de>  Wed, 03 May 2023 22:26:16 +0200
 
