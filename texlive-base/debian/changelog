@@ -1,4 +1,4 @@
-texlive-base (2023.20230613-1) UNRELEASED; urgency=medium
+texlive-base (2023.20230613-1) experimental; urgency=medium
 
   * New upstream snapshot, update / disable patches.
     - Contains fixed version of pixelart (Closes: #1036054).
@@ -6,7 +6,7 @@ texlive-base (2023.20230613-1) UNRELEASED; urgency=medium
     ***** WARNING ******** CSLaTeX is obsolete, don't use it please *****
     ***** You can use ``normal'' LaTeX+Babel or XeLaTeX+polyglossia *****
 
- -- Hilmar Preusse <hille42@web.de>  Sun, 09 Apr 2023 11:54:45 +0200
+ -- Hilmar Preusse <hille42@web.de>  Wed, 19 Jul 2023 12:19:49 +0200
 
 texlive-base (2022.20230122-3) unstable; urgency=medium
 
