@@ -45,6 +45,8 @@ ifelse(_srcpackage_,texlive-base,<:
 ifelse(_srcpackage_,texlive-extra,<:
 	rm -rf tex4ht-java texmf-dist/tex4ht/bin/tex4ht.jar
 	rm -f texmf-dist/tex/latex/pax.jar
+	rm -f texmf-dist/scripts/pax/pax.jar
+	rm -f texmf-dist/source/latex/pax/build/pax/*class
 :>)
 	# texlive contains some .orig files we need to keep otherwise
 	# the copy will fail due to the files occurring in the tlpdb
