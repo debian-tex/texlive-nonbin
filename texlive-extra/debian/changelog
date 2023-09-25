@@ -1,5 +1,8 @@
 texlive-extra (2023.20230613-3) UNRELEASED; urgency=medium
 
+  * Blacklist parts of the pax lib, rather link these files from the
+    appropriate Debian packages and delete the links later. This makes
+    the build repeatable (Closes: 1045828)
   * Remove *jar and *class files generated during pax build.
     (Closes: #1045828).
 

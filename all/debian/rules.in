@@ -20,9 +20,9 @@ ifelse(_srcpackage_,texlive-extra,<:
 	cd tex4ht ; javac *.java */*.java */*/*.java -d ../tex4ht-java
 	cd tex4ht-java ; jar cvf ../texmf-dist/tex4ht/bin/tex4ht.jar .
 	# build pax.jar
-	#mkdir texmf-dist/source/latex/pax/lib
-	#cd texmf-dist/source/latex/pax/lib ; ln -s /usr/share/java/commons-logging.jar .
-	#cd texmf-dist/source/latex/pax/lib ; ln -s /usr/share/java/pdfbox.jar .
+	mkdir texmf-dist/source/latex/pax/lib
+	cd texmf-dist/source/latex/pax/lib ; ln -s /usr/share/java/commons-logging.jar .
+	cd texmf-dist/source/latex/pax/lib ; ln -s /usr/share/java/pdfbox.jar .
 	cd texmf-dist/source/latex/pax ; ant
 	# only needed for building
 	rm -rf texmf-dist/source/latex/pax/lib
