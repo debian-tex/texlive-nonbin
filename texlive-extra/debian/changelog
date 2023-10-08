@@ -1,6 +1,13 @@
 texlive-extra (2023.20231007-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot.
+  * Font moves (Closes: #1035857).
+    - Reinclude Junicode into texlive-f-extra; remove Dep on
+      fonts-junicode. This package does not ship the expected ttf
+      files any more.
+    - Reinclude Alegreya into texlive-f-extra; remove Dep on
+      fonts-alegreya-sans. This package is RC-buggy and does not
+      migrate to testing.
   * Blacklist parts of the pax lib, rather link these files from the
     appropriate Debian packages and delete the links later. This makes
     the build repeatable (Closes: 1045828)
