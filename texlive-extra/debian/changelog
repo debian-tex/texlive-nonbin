@@ -1,5 +1,6 @@
-texlive-extra (2023.20230613-3) UNRELEASED; urgency=medium
+texlive-extra (2023.20231007-1) UNRELEASED; urgency=medium
 
+  * New upstream snapshot.
   * Blacklist parts of the pax lib, rather link these files from the
     appropriate Debian packages and delete the links later. This makes
     the build repeatable (Closes: 1045828)
