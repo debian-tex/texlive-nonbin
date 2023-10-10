@@ -1,6 +1,8 @@
-texlive-extra (2023.20231007-1) UNRELEASED; urgency=medium
+texlive-extra (2023.20231007-1) unstable; urgency=medium
 
   * New upstream snapshot.
+    - Contains new version of NewTX (Closes: #1051497).
+    - abstract.bst is back in texlive-bibtex-extra (Closes: #992269)
   * Font moves (Closes: #1035857).
     - Reinclude Junicode into texlive-f-extra; remove Dep on
       fonts-junicode. This package does not ship the expected ttf
@@ -10,11 +12,11 @@ texlive-extra (2023.20231007-1) UNRELEASED; urgency=medium
       migrate to testing.
   * Blacklist parts of the pax lib, rather link these files from the
     appropriate Debian packages and delete the links later. This makes
-    the build repeatable (Closes: 1045828)
+    the build repeatable (Closes: #1045828)
   * Remove *jar and *class files generated during pax build.
-    (Closes: #1045828).
+    (Closes: #1046800).
 
- -- Hilmar Preusse <hille42@web.de>  Sun, 27 Aug 2023 23:39:08 +0200
+ -- Hilmar Preusse <hille42@web.de>  Sun, 08 Oct 2023 20:46:15 +0000
 
 texlive-extra (2023.20230613-2) unstable; urgency=medium
 
