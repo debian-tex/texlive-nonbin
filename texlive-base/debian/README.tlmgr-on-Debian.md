@@ -26,7 +26,7 @@ Warning
 - not all packages can be installed using the user mode, see the above link
   for details
 
-We strongly recommend **not** to user the TeX Live Manager user mode on Debian.
+We strongly recommend **not** to use the TeX Live Manager user mode on Debian.
 If you are using it despite the warnings, be prepared to fix your own TeX system.
 
 If you want the full power of TeX Live Manager, we recommend installing
