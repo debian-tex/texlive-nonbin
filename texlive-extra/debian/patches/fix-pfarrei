@@ -1,11 +1,20 @@
---- texlive-extra-2023.20231007.orig/texmf-dist/scripts/pfarrei/pfarrei.tlu
-+++ texlive-extra-2023.20231007/texmf-dist/scripts/pfarrei/pfarrei.tlu
-@@ -104,7 +104,7 @@
+--- texlive-extra-2023.20231007.orig/texmf-dist/scripts/pfarrei/pfarrei.tlu	2023-11-21 11:43:19.611137725 +0100
++++ texlive-extra-2023.20231007/texmf-dist/scripts/pfarrei/pfarrei.tlu	2023-11-21 11:46:53.993277671 +0100
+@@ -100,11 +100,15 @@
+       -- build the temporary tex file
+       local tmpdir = os.tmpdir("pfarrei.XXXXXX" )
+       local tmpfile = string.match( arg[i], '.*/(.*)$') or arg[i]
++      -- pdflatex's -output-directory search for source pdf works with path specification but fails
++      -- when simple file name in the current working directory is provided, we need to provide '../' then
++      local local_source=''
++      if tmpfile == arg[i] then local_source = '../' end
+       local basename = string.match( tmpfile,'(.*)%.[^.]*$') or tmpfile
        tmpfile = tmpdir..'/'..basename..'.tex'
        local file = assert( io.open( tmpfile, 'w' ) )
        if booklet then assert( file:write("\\PassOptionsToPackage{booklet}{pfarrei}\n") ) end
 -      assert( file:write("\\def\\OriginalFile{",arg[i],"}\n") )
-+      assert( file:write("\\def\\OriginalFile{../",arg[i],"}\n") )
++      assert( file:write("\\def\\OriginalFile{"..local_source,arg[i],"}\n") )
        assert( file:write("\\input{a5toa4.tex}\n") )
        assert( file:flush() )
        file:close()
+
