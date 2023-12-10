@@ -40,6 +40,7 @@ ctan-o-mat/ctan-o-mat.pl
 ctanupload/ctanupload.pl
 de-macro/de-macro
 diadia/diadia.lua
+digestif/digestif.texlua
 dosepsbin/dosepsbin.pl
 dtxgen/dtxgen
 dviasm/dviasm.py
@@ -77,6 +78,7 @@ latexindent/latexindent.pl
 latexmk/latexmk.pl
 latexpand/latexpand
 latex-papersize/latex-papersize.py
+light-latex-make/llmk.lua
 lilyglyphs/lily-glyph-commands.py
 lilyglyphs/lily-image-commands.py
 lilyglyphs/lily-rebuild-pdfs.py
@@ -125,7 +127,9 @@ pygmentex/pygmentex.py
 pythontex/depythontex.py
 pythontex/pythontex.py
 rubik/rubikrotation.pl
+runtexshebang/runtexshebang.lua
 simpdftex/simpdftex
+spix/spix.py
 splitindex/splitindex.pl
 srcredact/srcredact.pl
 sty2dtx/sty2dtx.pl
@@ -136,6 +140,7 @@ texdef/texdef.pl
 texdiff/texdiff
 texdirflatten/texdirflatten
 texdoc/texdoc.tlu
+texfindpkg/texfindpkg.lua
 texfot/texfot.pl
 texlive-extra/allcm.sh
 texlive-extra/allneeded.sh
@@ -167,6 +172,8 @@ texlive/updmap.pl
 texlive/updmap-sys.sh
 texlive/updmap-user.sh
 texloganalyser/texloganalyser
+texlogfilter/texlogfilter
+texlogsieve/texlogsieve
 texosquery/texosquery-jre5.sh
 texosquery/texosquery-jre8.sh
 texosquery/texosquery.sh

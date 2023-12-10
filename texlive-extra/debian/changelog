@@ -1,3 +1,12 @@
+texlive-extra (2023.20231207-1) unstable; urgency=high
+
+  * New upstream snapshot.
+    * Contains fix for a5toa4 (Closes: #1051542).
+    * Add more links from /usr/share/texlive/texmf-dist/scripts/
+      to /usr/bin in texlive-extra-utils (Closes: #1055846).
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 09 Dec 2023 23:42:06 +0000
+
 texlive-extra (2023.20231007-3) unstable; urgency=high
 
   * Add fix for pfarrei package (Closes: #1051542).
