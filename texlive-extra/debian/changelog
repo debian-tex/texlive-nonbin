@@ -1,3 +1,12 @@
+texlive-extra (2023.20231207-2) unstable; urgency=high
+
+  * Stop installing manual page, which is in liblatex-tounicode-perl.
+    (Closes: #1058462).
+  * Declare Dep on liblatex-tounicode-perl & libbibtex-parser-perl
+    instead, the files in TL will be killed in next upload.
+
+ -- Hilmar Preusse <hille42@web.de>  Wed, 13 Dec 2023 12:04:49 +0000
+
 texlive-extra (2023.20231207-1) unstable; urgency=high
 
   * New upstream snapshot.
