@@ -1,3 +1,9 @@
+texlive-lang (2023.20240207-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+
+ -- Hilmar Preusse <hille42@web.de>  Sat, 09 Dec 2023 23:42:16 +0000
+
 texlive-lang (2023.20231207-1) unstable; urgency=medium
 
   * New upstream snapshot.

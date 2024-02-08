@@ -2,12 +2,10 @@
  texmf-dist/doc/man/man1/mptopdf.1 |    2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Index: texlive-base-2020.20210113/texmf-dist/doc/man/man1/mptopdf.1
-===================================================================
---- texlive-base-2020.20210113.orig/texmf-dist/doc/man/man1/mptopdf.1	2021-01-14 08:49:21.748398026 +0100
-+++ texlive-base-2020.20210113/texmf-dist/doc/man/man1/mptopdf.1	2021-01-14 08:49:21.720397900 +0100
+--- texlive-base-2023.20240207.orig/texmf-dist/doc/man/man1/mptopdf.1
++++ texlive-base-2023.20240207/texmf-dist/doc/man/man1/mptopdf.1
 @@ -1,6 +1,6 @@
- .TH "mptopdf" "1" "01-01-2023" "version 1.4.1" "convert MetaPost figures to PDF"
+ .TH "mptopdf" "1" "01-01-2024" "version 1.4.1" "convert MetaPost figures to PDF"
  .SH NAME
 - mptopdf - convert MetaPost figures to PDF
 +mptopdf - convert MetaPost figures to PDF
