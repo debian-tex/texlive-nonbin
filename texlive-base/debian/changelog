@@ -2,7 +2,7 @@ texlive-base (2023.20240207-1) unstable; urgency=medium
 
   * New upstream snapshot (refresh / redo patches).
 
- -- Hilmar Preusse <hille42@web.de>  Sat, 09 Dec 2023 23:41:57 +0000
+ -- Hilmar Preusse <hille42@web.de>  Wed, 14 Feb 2024 14:08:19 +0000
 
 texlive-base (2023.20231207-1) unstable; urgency=medium
 
