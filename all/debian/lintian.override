@@ -8,14 +8,6 @@ texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fo
 texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/isMonoMono.py #!../utility/fontforge-interp.sh
 texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/validate.py #!../utility/fontforge-interp.sh
 texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/hfbright/simplify-rename.pe #!pfaedit
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/ligatureLookups.py #!../utility/fontforge-interp.sh
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/private_use.py #!../utility/fontforge-interp.sh
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/range_report.py #!../utility/fontforge-interp.sh
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/checkGlyphNumbers.py #!../utility/fontforge-interp.sh
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/findBackLayers.py #!../utility/fontforge-interp.sh
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/isMonoMono.py #!../utility/fontforge-interp.sh
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/test/validate.py #!../utility/fontforge-interp.sh
-texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/hfbright/simplify-rename.pe #!pfaedit
 texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-BoldItalicOsF.pe #!fontforge
 texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-BoldOsF.pe #!fontforge
 texlive-fonts-recommended: unusual-interpreter ./usr/share/texlive/texmf-dist/source/fonts/fpl/fpl/TeXPalladioL-ItalicOsF.pe #!fontforge
