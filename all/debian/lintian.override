@@ -1,5 +1,7 @@
 extra-license-file
 texlive-lang-german: spelling-error-in-description german German
+# Transitional, hopefully.
+texlive-fonts-extra: license-problem-font-adobe-copyrighted-fragment
 texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/ligatureLookups.py #!../utility/fontforge-interp.sh
 texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/private_use.py #!../utility/fontforge-interp.sh
 texlive-fonts-extra-doc: unusual-interpreter usr/share/texlive/texmf-dist/doc/fonts/gnu-freefont/tools/report/range_report.py #!../utility/fontforge-interp.sh
