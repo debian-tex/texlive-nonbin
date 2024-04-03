@@ -1,5 +1,5 @@
---- texlive-base-2023.20240207.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2023.20240207/texmf-dist/scripts/texlive/tlmgr.pl
+--- texlive-base-2023.20240401.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2023.20240401/texmf-dist/scripts/texlive/tlmgr.pl
 @@ -44,38 +44,7 @@
  
  BEGIN {
@@ -40,7 +40,7 @@
    $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
  
    # make Perl find our packages first:
-@@ -622,6 +591,13 @@
+@@ -625,6 +594,13 @@
      tldie("$prg: Try --help if you need it.\n");
    }
  
@@ -54,7 +54,7 @@
    # nice to have the version if debugging.
    debug("tlmgr version $tlmgrversion\n");
  
-@@ -6316,7 +6292,9 @@
+@@ -6333,7 +6309,9 @@
  # sets up the user tree for tlmgr in user mode
  sub action_init_usertree {
    # init_local_db but do not die if localtlpdb is not found!
@@ -65,7 +65,7 @@
    my $tlpdb = TeXLive::TLPDB->new;
    my $usertree;
    if ($opts{"usertree"}) {
-@@ -6956,7 +6934,11 @@
+@@ -7118,7 +7096,11 @@
      if ($should_i_die == 2) {
        return undef;
      } else {
@@ -78,8 +78,8 @@
      }
    }
    # setup the programs, for w32 we need the shipped wget/xz etc, so we
---- texlive-base-2023.20240207.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2023.20240207/texmf-dist/doc/man/man1/tlmgr.1
+--- texlive-base-2023.20240401.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2023.20240401/texmf-dist/doc/man/man1/tlmgr.1
 @@ -76,6 +76,8 @@
  <https://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.

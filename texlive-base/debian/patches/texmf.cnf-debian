@@ -2,8 +2,8 @@
  texmf-dist/web2c/texmf.cnf |   49 +++++++++++----------------------------------
  1 file changed, 13 insertions(+), 36 deletions(-)
 
---- texlive-base-2022.20230613.orig/texmf-dist/web2c/texmf.cnf
-+++ texlive-base-2022.20230613/texmf-dist/web2c/texmf.cnf
+--- texlive-base-2023.20240401.orig/texmf-dist/web2c/texmf.cnf
++++ texlive-base-2023.20240401/texmf-dist/web2c/texmf.cnf
 @@ -59,7 +59,7 @@
  % SELFAUTOPARENT (its grandparent = /usr/local/texlive/YYYY), and
  % SELFAUTOGRANDPARENT (its great-grandparent = /usr/local/texlive).

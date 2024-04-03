@@ -5,7 +5,7 @@
  3 files changed, 14 insertions(+), 8 deletions(-)
 
 --- /dev/null
-+++ texlive-base-2023.20240207/texmf-dist/dvipdfmx/dvipdfmx-paper.cfg
++++ texlive-base-2023.20240401/texmf-dist/dvipdfmx/dvipdfmx-paper.cfg
 @@ -0,0 +1,11 @@
 +%% PDF Document Settings
 +%%
@@ -18,8 +18,8 @@
 +
 +p a4
 +
---- texlive-base-2023.20240207.orig/texmf-dist/dvipdfmx/dvipdfmx.cfg
-+++ texlive-base-2023.20240207/texmf-dist/dvipdfmx/dvipdfmx.cfg
+--- texlive-base-2023.20240401.orig/texmf-dist/dvipdfmx/dvipdfmx.cfg
++++ texlive-base-2023.20240401/texmf-dist/dvipdfmx/dvipdfmx.cfg
 @@ -29,14 +29,8 @@
  
  %% PDF Document Settings
@@ -37,9 +37,9 @@
  
  %% Annotation Box Margin:
  %%
---- texlive-base-2023.20240207.orig/tlpkg/texlive.tlpdb
-+++ texlive-base-2023.20240207/tlpkg/texlive.tlpdb
-@@ -104347,6 +104347,7 @@
+--- texlive-base-2023.20240401.orig/tlpkg/texlive.tlpdb
++++ texlive-base-2023.20240401/tlpkg/texlive.tlpdb
+@@ -105038,6 +105038,7 @@
  runfiles size=41
   texmf-dist/dvipdfmx/dvipdfmx-unsafe.cfg
   texmf-dist/dvipdfmx/dvipdfmx.cfg
