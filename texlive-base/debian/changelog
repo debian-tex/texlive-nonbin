@@ -1,6 +1,8 @@
 texlive-base (2024.20240401-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot (update / refresh patches).
+    - texlive-base now provides manual pages, which were previously
+      in texlive-binaries.
 
  -- Hilmar Preusse <hille42@web.de>  Wed, 14 Feb 2024 14:08:19 +0000
 
