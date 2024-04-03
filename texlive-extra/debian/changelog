@@ -1,6 +1,7 @@
 texlive-extra (2024.20240401-1) UNRELEASED; urgency=medium
 
   * New upstream snapshot.
+    - Patch /usr/bin/de-macro, it uses python3 now (Closes: #1065876).
 
  -- Hilmar Preusse <hille42@web.de>  Wed, 14 Feb 2024 14:08:36 +0000
 
