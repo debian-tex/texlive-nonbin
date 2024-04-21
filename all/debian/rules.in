@@ -178,6 +178,7 @@ ifelse(_srcpackage_,texlive-lang,<:
 	# this is just out of history, would be nicer to have changed
 	rm debian/texlive-lang-japanese/usr/bin/ptex
 	rm debian/texlive-lang-japanese/usr/bin/uptex
+	rm debian/texlive-lang-japanese/usr/bin/eptex
 :>)
 	dh_strip_nondeterminism
 	dh_compress -X.pdf
