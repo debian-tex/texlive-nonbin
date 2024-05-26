@@ -1,3 +1,9 @@
+texlive-base (2024.20240401-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Hilmar Preusse <hille42@web.de>  Sun, 26 May 2024 16:01:45 +0200
+
 texlive-base (2024.20240401-1) experimental; urgency=medium
 
   * New upstream snapshot (update / refresh patches).
