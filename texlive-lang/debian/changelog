@@ -1,3 +1,10 @@
+texlive-lang (2024.20240401-3) unstable; urgency=medium
+
+  * pbibtex manual pages were in texlive-binaries in bookworm.
+    Add Breaks / Replaces statements (Closes: #1072211).
+
+ -- Hilmar Preusse <hille42@web.de>  Fri, 31 May 2024 23:14:31 +0200
+
 texlive-lang (2024.20240401-2) unstable; urgency=medium
 
   * Upload to unstable.
