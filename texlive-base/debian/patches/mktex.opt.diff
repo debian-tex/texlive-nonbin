@@ -1,0 +1,20 @@
+https://tug.org/svn/texlive?revision=71233&view=revision
+
+--- a/texmf-dist/web2c/mktex.opt	2024/05/11 08:27:20	71232
++++ b/texmf-dist/web2c/mktex.opt	2024/05/11 16:21:21	71233
+@@ -113,6 +113,15 @@ fi
+ # directories) by everyone.
+ umask 0
+ 
++# As of TL24, the --output-directory option sets the
++# TEXMF_OUTPUT_DIRECTORY envvar, so subprograms can see the value.
++# But we want mktexpk and the like to still output in their normal
++# locations (TEXMFVAR-ish), as they always have.
++# 
++# Don't try to unset it unless it's set. (Don't worry about it being set
++# to the empty string, which can't do anything useful anyway.)
++test -n "$TEXMF_OUTPUT_DIRECTORY" && unset TEXMF_OUTPUT_DIRECTORY
++
+ # Cache values that may be useful for recursive calls.
+ export MT_MKTEX_OPT MT_MKTEX_CNF 
+ export MT_MKTEXNAM MT_MKTEXNAM_OPT
