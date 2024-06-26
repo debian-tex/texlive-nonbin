@@ -166,7 +166,7 @@ texlive/mktexmf
 texlive/mktexpk
 texlive/mktextfm
 texliveonfly/texliveonfly.py
-texlive/rungs.tlu
+texlive/rungs.lua
 texlive/tlmgr.pl
 texlive/updmap.pl
 texlive/updmap-sys.sh
