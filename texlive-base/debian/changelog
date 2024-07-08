@@ -1,9 +1,10 @@
-texlive-base (2024.20240401-4) unstable; urgency=medium
+texlive-base (2024.20240706-1) UNRELEASED; urgency=medium
 
+  * New upstream snapshot, disable obsolete patch.
   * Create correct soft link to .../texmf-dist/scripts/texlive/rungs.lua
     (LP: #2038452).
 
- -- Hilmar Preusse <hille42@web.de>  Thu, 20 Jun 2024 11:39:03 +0200
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 06 Jul 2024 23:37:09 +0200
 
 texlive-base (2024.20240401-3) unstable; urgency=medium
 

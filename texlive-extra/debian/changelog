@@ -1,3 +1,9 @@
+texlive-extra (2024.20240706-1) UNRELEASED; urgency=medium
+
+  * New upstream snapshot.
+
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 06 Jul 2024 23:37:51 +0200
+
 texlive-extra (2024.20240401-2) unstable; urgency=medium
 
   * Upload to unstable.
