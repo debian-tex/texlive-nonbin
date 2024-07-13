@@ -1,3 +1,11 @@
+texlive-extra (2024.20240706-2) unstable; urgency=medium
+
+  * texlive-latex-extra needs a more recent LaTeX2e kernel / array (?)
+    -> add Breaks statements. This should fix piuparts tests and
+    autopkgtest of *sphinx* packages.
+
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 13 Jul 2024 14:49:53 +0200
+
 texlive-extra (2024.20240706-1) unstable; urgency=medium
 
   * New upstream snapshot.
