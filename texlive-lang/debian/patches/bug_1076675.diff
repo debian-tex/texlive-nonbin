@@ -1,0 +1,19 @@
+--- texlive-lang-2024.20240706.orig/texmf-dist/tex/generic/babel-french/french.ldf
++++ texlive-lang-2024.20240706/texmf-dist/tex/generic/babel-french/french.ldf
+@@ -1271,14 +1271,14 @@
+         Reported}%
+    \fi
+   }
+-\newcommand*{\FB@ListOldLayout@setup}[1]%
++\newcommand*{\FBListOldLayout@setup}[1]%
+   {\csname FBListOldLayout#1\endcsname
+    \ifFBListOldLayout
+      \FBStandardEnumerateEnvtrue
+      \renewcommand*{\FrenchLabelItem}{\textendash}%
+    \fi
+   }
+-\newcommand*{\FB@CompactItemize@setup}[1]%
++\newcommand*{\FBCompactItemize@setup}[1]%
+   {\csname FBCompactItemize#1\endcsname
+    \ifFBCompactItemize
+      \FBStandardItemizeEnvfalse

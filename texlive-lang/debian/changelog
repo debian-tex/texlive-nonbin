@@ -1,3 +1,9 @@
+texlive-lang (2024.20240706-2) unstable; urgency=medium
+
+  * Add patch for french.ldf (Closes: #1076675).
+
+ -- Hilmar Preuße <hille42@debian.org>  Thu, 25 Jul 2024 20:04:29 +0200
+
 texlive-lang (2024.20240706-1) unstable; urgency=medium
 
   * New upstream snapshot.
