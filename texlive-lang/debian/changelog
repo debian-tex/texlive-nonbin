@@ -1,3 +1,9 @@
+texlive-lang (2024.20240829-1) unstable; urgency=medium
+
+  * New upstream snapshot, disable upstreamed patch.
+
+ -- Hilmar Preuße <hille42@debian.org>  Fri, 30 Aug 2024 10:53:26 +0200
+
 texlive-lang (2024.20240706-2) unstable; urgency=medium
 
   * Add patch for french.ldf (Closes: #1076675).

@@ -1,3 +1,9 @@
+texlive-extra (2024.20240829-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+
+ -- Hilmar Preuße <hille42@debian.org>  Fri, 30 Aug 2024 10:53:22 +0200
+
 texlive-extra (2024.20240706-2) unstable; urgency=medium
 
   * texlive-latex-extra needs a more recent LaTeX2e kernel / array (?)
