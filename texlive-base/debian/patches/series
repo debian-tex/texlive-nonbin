@@ -3,7 +3,7 @@ fix-info-dir-sections
 # could be merged into the later fix-scripts patch
 fix-pgf2pdf-script
 # debian internal config
-dvipdfm-config-no-rungs
+#dvipdfm-config-no-rungs
 # debian internal
 texmf.cnf-debian
 debian-texmfcnf.lua
