@@ -1,3 +1,10 @@
+texlive-extra (2024.20241102-1) unstable; urgency=medium
+
+  * New upstream snapshot, refresh / disable patches.
+    - Patch: fix shebang line in chklref (Closes: #1085685)
+
+ -- Hilmar Preuße <hille42@debian.org>  Mon, 04 Nov 2024 14:40:33 +0100
+
 texlive-extra (2024.20240829-1) unstable; urgency=medium
 
   * New upstream snapshot.

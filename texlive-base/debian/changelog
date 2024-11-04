@@ -1,3 +1,9 @@
+texlive-base (2024.20241102-1) unstable; urgency=medium
+
+  * New upstream snapshot, refresh / disable patches.
+
+ -- Hilmar Preuße <hille42@debian.org>  Mon, 04 Nov 2024 14:40:23 +0100
+
 texlive-base (2024.20240829-2) unstable; urgency=medium
 
   * Add file conflict w/ texlive-extra-utils (Closes: #1080097).
