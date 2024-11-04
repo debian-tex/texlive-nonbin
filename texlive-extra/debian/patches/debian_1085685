@@ -1,0 +1,18 @@
+fix shebang line (thanks Oliver Sander) (Closes: #1085685)
+---
+
+--- texlive-extra-2024.20241102.orig/texmf-dist/scripts/chklref/chklref.pl
++++ texlive-extra-2024.20241102/texmf-dist/scripts/chklref/chklref.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl -w
++#!/usr/bin/env perl
+ 
+ #########################################################################
+ # Written and (C) by Jérôme Lelong <jerome.lelong@gmail.com>            #
+@@ -334,4 +334,4 @@
+     if (! $RUNDEBUG) {
+         unlink($chkfile);
+     }
+-}
+\ No newline at end of file
++}
