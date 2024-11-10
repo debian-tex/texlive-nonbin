@@ -127,6 +127,7 @@ make4ht/make4ht
 match_parens/match_parens
 mathspic/mathspic.pl
 mf2pt1/mf2pt1.pl
+minted/latexminted.py
 mkgrkindex/mkgrkindex
 mkjobtexmf/mkjobtexmf.pl
 mkpic/mkpic
