@@ -1,0 +1,296 @@
+--- texlive-extra-2024.20241102.orig/texmf-dist/doc/man/man1/bundledoc.1	2024-12-04 02:44:10.013548143 +0000
++++ texlive-extra-2024.20241102/texmf-dist/doc/man/man1/bundledoc.1	2024-12-04 03:16:37.132821366 +0000
+@@ -3,11 +3,12 @@
+ .\" Standard preamble:
+ .\" ========================================================================
+ .de Sp \" Vertical space (when we can't use .PP)
+-.if t .sp .5v
++.if t .sp 0.5v
+ .if n .sp
+ ..
+ .de Vb \" Begin verbatim text
+-.ft CW
++.  ie \\n(.g .ft CR
++.  el .ft CW
+ .nf
+ .ne \\$1
+ ..
+@@ -22,7 +23,7 @@
+ .\" therefore won't be available.  \*(C` and \*(C' expand to `' in nroff,
+ .\" nothing in troff, for use with C<>.
+ .tr \(*W-
+-.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
++.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s+2\v'.1v'\h'-1p'
+ .ie n \{\
+ .    ds -- \(*W-
+ .    ds PI pi
+@@ -74,14 +75,14 @@
+ .    \" fudge factors for nroff and troff
+ .if n \{\
+ .    ds #H 0
+-.    ds #V .8m
+-.    ds #F .3m
++.    ds #V 0.8m
++.    ds #F 0.3m
+ .    ds #[ \f1
+ .    ds #] \fP
+ .\}
+ .if t \{\
+ .    ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+-.    ds #V .6m
++.    ds #V 0.6m
+ .    ds #F 0
+ .    ds #[ \&
+ .    ds #] \&
+@@ -177,8 +178,10 @@ As the simplest example possible, consid
+ \&    \eend{document}
+ .Ve
+ .PP
+-The \f(CW\*(C`\eRequirePackage{snapshot}\*(C'\fR causes a \fIhello.dep\fR file to be produced.
+-When \fBbundledoc\fR is then given \f(CW\*(C`hello.dep\*(C'\fR as an argument, it locates the
++The
++\f(CR\*(C`\eRequirePackage{snapshot}\*(C'\fP
++causes a \fIhello.dep\fR file to be produced.
++When \fBbundledoc\fR is then given \f(CR\*(C`hello.dep\*(C'\fR as an argument, it locates the
+ dependent files \*(-- \fIsnapshot.sty\fR, \fIarticle.cls\fR, and \fIsize11.clo\fR \*(--
+ and bundles them into a single archive file, along with \fIhello.tex\fR and a
+ \&\fI\s-1MANIFEST\s0\fR file (described in \*(L"\s-1OPTIONS\*(R"\s0, below).
+@@ -199,17 +202,17 @@ of the remaining options.
+ .IX Item "--help"
+ Give a brief usage message.  This overrides all of the remaining options.
+ .ie n .IP "\fB\-\-\fR[\fBno\fR]\fBverbose\fR                    (default: ""noverbose"")" 4
+-.el .IP "\fB\-\-\fR[\fBno\fR]\fBverbose\fR                    (default: \f(CWnoverbose\fR)" 4
++.el .IP "\fB\-\-\fR[\fBno\fR]\fBverbose\fR                    (default: \f(CRnoverbose\fR)" 4
+ .IX Item "--[no]verbose (default: noverbose)"
+ \&\fBbundledoc\fR normally does not output anything except error messages.
+-With \f(CW\*(C`\-\-verbose\*(C'\fR, it outputs copious status messages.
++With \f(CR\*(C`\-\-verbose\*(C'\fR, it outputs copious status messages.
+ .IP "\fB\-\-texfile\fR=\fImain .tex file\fR            (default: \fIsomefile\fR\fI.tex\fR)" 4
+ .IX Item "--texfile=main .tex file (default: somefile.tex)"
+ \&\fBsnapshot\fR's dependency file does not list the main LaTeX file (the
+ one that gets passed to \fBlatex\fR).  In order for \fBbundledoc\fR to find
+ and bundle that file, \fBbundledoc\fR assumes it has the same name as the
+ \&\fBsnapshot\fR dependency file but with a \fI.tex\fR extension.  If this is
+-not the case, then use \f(CW\*(C`\-\-texfile\*(C'\fR to specify the correct filename.
++not the case, then use \f(CR\*(C`\-\-texfile\*(C'\fR to specify the correct filename.
+ .IP "\fB\-\-directory\fR=\fIarchive directory\fR       (default: \fIsomefile\fR)" 4
+ .IX Item "--directory=archive directory (default: somefile)"
+ When \fBbundledoc\fR creates an archive (e.g., a \fI.tar\fR or \fI.zip\fR file)
+@@ -218,25 +221,25 @@ avoid cluttering the current directory w
+ dependency file is called \fIsomefile\fR\fI.dep\fR then the resulting
+ archive will, by default, store all the dependent files in a
+ \&\fIsomefile\fR directory.  To change the directory name use the
+-\&\f(CW\*(C`\-\-directory\*(C'\fR option.
++\&\f(CR\*(C`\-\-directory\*(C'\fR option.
+ .ie n .IP "\fB\-\-\fR[\fBno\fR]\fBlocalonly\fR                  (default: ""nolocalonly"")" 4
+-.el .IP "\fB\-\-\fR[\fBno\fR]\fBlocalonly\fR                  (default: \f(CWnolocalonly\fR)" 4
++.el .IP "\fB\-\-\fR[\fBno\fR]\fBlocalonly\fR                  (default: \f(CRnolocalonly\fR)" 4
+ .IX Item "--[no]localonly (default: nolocalonly)"
+ Although \fBbundledoc\fR normally archives all of the files named in the
+-\&\fI.dep\fR file, the \f(CW\*(C`\-\-localonly\*(C'\fR option tells \fBbundledoc\fR to exclude
++\&\fI.dep\fR file, the \f(CR\*(C`\-\-localonly\*(C'\fR option tells \fBbundledoc\fR to exclude
+ all files located in a directory other than the \fI.tex\fR file's
+ directory or one of its subdirectories.
+ .IP "\fB\-\-exclude\fR=\fIstring\fR                    (default: \fInone\fR)" 4
+ .IX Item "--exclude=string (default: none)"
+-While \f(CW\*(C`\-\-localonly\*(C'\fR causes files outside of the \fI.tex\fR file's
+-directory tree to be omitted from the archive, \f(CW\*(C`\-\-exclude\*(C'\fR provides
++While \f(CR\*(C`\-\-localonly\*(C'\fR causes files outside of the \fI.tex\fR file's
++directory tree to be omitted from the archive, \f(CR\*(C`\-\-exclude\*(C'\fR provides
+ finer-grained control over files to omit from the archive.  The
+-\&\f(CW\*(C`\-\-exclude\*(C'\fR option, which can be specified repeatedly on the command
++\&\f(CR\*(C`\-\-exclude\*(C'\fR option, which can be specified repeatedly on the command
+ line, causes all files whose name contains \fIstring\fR to be omitted
+ from the archive.
+ .IP "\fB\-\-include\fR=\fIfilespec\fR                  (default: \fInone\fR)" 4
+ .IX Item "--include=filespec (default: none)"
+-The \f(CW\*(C`\-\-include\*(C'\fR option, which can be specified repeatedly on the
++The \f(CR\*(C`\-\-include\*(C'\fR option, which can be specified repeatedly on the
+ command line, instructs \fBbundledoc\fR to include in the archive all of
+ the files matching \fIfilespec\fR, even if they're not referenced in the
+ \&\fI.dep\fR file.
+@@ -246,26 +249,26 @@ In addition to the dependent files, \fBb
+ archive file one extra file called, by default, ``\fI\s-1MANIFEST\s0\fR''.
+ \&\fI\s-1MANIFEST\s0\fR is a text file that lists the original filenames of all
+ the dependencies.  To change the filename from ``\fI\s-1MANIFEST\s0\fR'' to
+-something else, use the \f(CW\*(C`\-\-manifest\*(C'\fR option.  As a special case,
+-\&\f(CW\*(C`\-\-manifest=""\*(C'\fR tells \fBbundledoc\fR not to include a manifest file at
++something else, use the \f(CR\*(C`\-\-manifest\*(C'\fR option.  As a special case,
++\&\f(CR\*(C`\-\-manifest=""\*(C'\fR tells \fBbundledoc\fR not to include a manifest file at
+ all.
+ .ie n .IP "\fB\-\-listdeps\fR=[yes|no|only|rel]...]       (default: ""no"")" 4
+-.el .IP "\fB\-\-listdeps\fR=[yes|no|only|rel]...]       (default: \f(CWno\fR)" 4
++.el .IP "\fB\-\-listdeps\fR=[yes|no|only|rel]...]       (default: \f(CRno\fR)" 4
+ .IX Item "--listdeps=[yes|no|only|rel]...] (default: no)"
+-\&\f(CW\*(C`\-\-listdeps\*(C'\fR accepts one or more of \f(CW\*(C`yes\*(C'\fR, \f(CW\*(C`no\*(C'\fR, \f(CW\*(C`only\*(C'\fR, or \f(CW\*(C`rel\*(C'\fR
+-as a comma-separated list.  As long as \f(CW\*(C`no\*(C'\fR does not appear in this
++\&\f(CR\*(C`\-\-listdeps\*(C'\fR accepts one or more of \f(CR\*(C`yes\*(C'\fR, \f(CR\*(C`no\*(C'\fR, \f(CR\*(C`only\*(C'\fR, or \f(CR\*(C`rel\*(C'\fR
++as a comma-separated list.  As long as \f(CR\*(C`no\*(C'\fR does not appear in this
+ list, \fBbundledoc\fR outputs all of the main LaTeX file's dependencies.
+-If the list contains \f(CW\*(C`rel\*(C'\fR, then \fBbundledoc\fR outputs the list of
+-dependencies with relative pathnames.  If the list contains \f(CW\*(C`only\*(C'\fR,
++If the list contains \f(CR\*(C`rel\*(C'\fR, then \fBbundledoc\fR outputs the list of
++dependencies with relative pathnames.  If the list contains \f(CR\*(C`only\*(C'\fR,
+ then \fBbundledoc\fR exits after displaying the list, without producing
+ an archive.
+ .ie n .IP "\fB\-\-\fR[\fBno\fR]\fBkeepdirs\fR                   (default: ""nokeepdirs"")" 4
+-.el .IP "\fB\-\-\fR[\fBno\fR]\fBkeepdirs\fR                   (default: \f(CWnokeepdirs\fR)" 4
++.el .IP "\fB\-\-\fR[\fBno\fR]\fBkeepdirs\fR                   (default: \f(CRnokeepdirs\fR)" 4
+ .IX Item "--[no]keepdirs (default: nokeepdirs)"
+ Normally, the archive file that \fBbundledoc\fR produces contains a
+ single directory \*(-- and subdirectories, if the document refers
+ explicitly to them \*(-- in which all the dependent files lie.  If
+-\&\f(CW\*(C`\-\-keepdirs\*(C'\fR is specified, all the dependent files are stored with
++\&\f(CR\*(C`\-\-keepdirs\*(C'\fR is specified, all the dependent files are stored with
+ their original pathnames.  For example, if \fIsomefile.tex\fR depends on
+ \&\fIfigures/somefigure.eps\fR, \fIarticle.cls\fR, and \fIsnapshot.sty\fR, then
+ the \fIsomefile\fR archive will normally contain the following files:
+@@ -283,7 +286,7 @@ the \fIsomefile\fR archive will normally
+ .RE
+ .RS 4
+ .Sp
+-However, \f(CW\*(C`\-\-keepdirs\*(C'\fR will cause the \fIsomefile\fR archive to contain
++However, \f(CR\*(C`\-\-keepdirs\*(C'\fR will cause the \fIsomefile\fR archive to contain
+ the following sorts of filenames instead:
+ .IP "\(bu" 4
+ \&\fIhome/me/mydocs/somefile.tex\fR
+@@ -296,13 +299,13 @@ the following sorts of filenames instead
+ .RE
+ .RS 4
+ .Sp
+-\&\f(CW\*(C`\-\-directory\*(C'\fR is not used when \f(CW\*(C`\-\-keepdirs\*(C'\fR is in effect.  In
++\&\f(CR\*(C`\-\-directory\*(C'\fR is not used when \f(CR\*(C`\-\-keepdirs\*(C'\fR is in effect.  In
+ addition, no manifest file is written to the archive file as it
+ contains redundant information.
+ .RE
+ .IP "\fB\-\-config\fR=\fIconfiguration file\fR         (default: <none>)" 4
+ .IX Item "--config=configuration file (default: <none>)"
+-The \f(CW\*(C`\-\-config\*(C'\fR option is used to point \fBbundledoc\fR to the
++The \f(CR\*(C`\-\-config\*(C'\fR option is used to point \fBbundledoc\fR to the
+ appropriate configuration (\fI.cfg\fR) file for your TeX distribution and
+ operating system.  \fBbundledoc\fR comes with a few configuration files
+ and it's easy to write more.  See \*(L"\s-1CONFIGURATION FILES\*(R"\s0 (below) for
+@@ -313,7 +316,7 @@ file can be specified without its \fI.cf
+ .SS "Format"
+ .IX Subsection "Format"
+ Configuration files follow a fairly simple format.  Lines beginning with
+-\&\f(CW\*(C`#\*(C'\fR are comments.  Blank lines are ignored.  All other lines are of the
++\&\f(CR\*(C`#\*(C'\fR are comments.  Blank lines are ignored.  All other lines are of the
+ form:
+ .PP
+ .Vb 1
+@@ -332,16 +335,16 @@ The affix to a command to discard its ou
+ The command to find a file within the TeX tree(s).
+ .PP
+ Values that are too long for one line can be split across multiple lines
+-by using \f(CW\*(C`\e\*(C'\fR as the line-continuation symbol.
++by using \f(CR\*(C`\e\*(C'\fR as the line-continuation symbol.
+ .PP
+ There are two environment variables that \fBbundledoc\fR makes available
+-for use by configuration-file commands: \f(CW\*(C`BDBASE\*(C'\fR, which is set to
+-\&\fIsomefile\fR (as in \*(L"\s-1OPTIONS\*(R"\s0), and \f(CW\*(C`BDINPUTS\*(C'\fR, which is set to a
++for use by configuration-file commands: \f(CR\*(C`BDBASE\*(C'\fR, which is set to
++\&\fIsomefile\fR (as in \*(L"\s-1OPTIONS\*(R"\s0), and \f(CR\*(C`BDINPUTS\*(C'\fR, which is set to a
+ space-separated list of files that a command is to operate upon.  That
+-is, when the command associated with \f(CW\*(C`bundle\*(C'\fR is running, \f(CW\*(C`BDINPUTS\*(C'\fR
++is, when the command associated with \f(CR\*(C`bundle\*(C'\fR is running, \f(CR\*(C`BDINPUTS\*(C'\fR
+ contains the list of all the files that are to be archived.  In
+-contrast, when the command associated with \f(CW\*(C`find\*(C'\fR is running,
+-\&\f(CW\*(C`BDINPUTS\*(C'\fR contains the name of the file to search for.
++contrast, when the command associated with \f(CR\*(C`find\*(C'\fR is running,
++\&\f(CR\*(C`BDINPUTS\*(C'\fR contains the name of the file to search for.
+ .SS "Examples"
+ .IX Subsection "Examples"
+ The following configuration file parallels \fBbundledoc\fR's default
+@@ -359,20 +362,20 @@ or \s-1GNU\s0 \fBtar\fR:
+ \&    find:   kpsewhich \-progname=latex $BDINPUTS
+ .Ve
+ .PP
+-The parentheses in the \f(CW\*(C`bundle:\*(C'\fR line tell the Unix shell to run the
+-command in a subshell.  This is to make the \f(CW\*(C`sink:\*(C'\fR affix work
+-properly (i.e., so there aren't two \f(CW\*(C`>\*(C'\fR's in the same command).
++The parentheses in the \f(CR\*(C`bundle:\*(C'\fR line tell the Unix shell to run the
++command in a subshell.  This is to make the \f(CR\*(C`sink:\*(C'\fR affix work
++properly (i.e., so there aren't two \f(CR\*(C`>\*(C'\fR's in the same command).
+ .PP
+-Notice how the commands treat \f(CW\*(C`BDBASE\*(C'\fR and \f(CW\*(C`BDINPUTS\*(C'\fR like any other
+-environment variables in a Unix shell, using \f(CW\*(C`$\*(C'\fR to take their value.
++Notice how the commands treat \f(CR\*(C`BDBASE\*(C'\fR and \f(CR\*(C`BDINPUTS\*(C'\fR like any other
++environment variables in a Unix shell, using \f(CR\*(C`$\*(C'\fR to take their value.
+ Other operating systems use different conventions for referring to
+ environment variables.  For instance, a configuration file for a
+-Windows-based TeX distribution would use \f(CW\*(C`%BDBASE%\*(C'\fR and \f(CW\*(C`%BDINPUTS%\*(C'\fR
++Windows-based TeX distribution would use \f(CR\*(C`%BDBASE%\*(C'\fR and \f(CR\*(C`%BDINPUTS%\*(C'\fR
+ instead.
+ .PP
+-The value for \f(CW\*(C`sink:\*(C'\fR is specific to an operating system.  The value
+-for \f(CW\*(C`find:\*(C'\fR is specific to a TeX distribution.  \f(CW\*(C`bundle:\*(C'\fR is where
+-the most opportunity for customization lies.  You can use \f(CW\*(C`bundle:\*(C'\fR
++The value for \f(CR\*(C`sink:\*(C'\fR is specific to an operating system.  The value
++for \f(CR\*(C`find:\*(C'\fR is specific to a TeX distribution.  \f(CR\*(C`bundle:\*(C'\fR is where
++the most opportunity for customization lies.  You can use \f(CR\*(C`bundle:\*(C'\fR
+ to specify your favorite archive format.  For example, you can produce
+ a shar file on Unix with something like:
+ .PP
+@@ -445,13 +448,13 @@ files; older version of MikTeX required
+ This is a variant of \fItexlive\-unix.cfg\fR that uses \fBarlatex\fR instead
+ of \fBgzip\fR to archive files.  \fBarlatex\fR is a script included in the
+ \&\fBbundledoc\fR distribution that generates a self-extracting \fI.tex\fR
+-file based on LaTeX's \f(CW\*(C`filecontents\*(C'\fR environment.
++file based on LaTeX's \f(CR\*(C`filecontents\*(C'\fR environment.
+ .SH "NOTES"
+ .IX Header "NOTES"
+ .SS "Including and excluding files"
+ .IX Subsection "Including and excluding files"
+-The \f(CW\*(C`\-\-localonly\*(C'\fR, \f(CW\*(C`\-\-exclude\*(C'\fR, and \f(CW\*(C`\-\-include\*(C'\fR options provide
+-control over the archive's contents.  \f(CW\*(C`\-\-exclude\*(C'\fR and \f(CW\*(C`\-\-include\*(C'\fR
++The \f(CR\*(C`\-\-localonly\*(C'\fR, \f(CR\*(C`\-\-exclude\*(C'\fR, and \f(CR\*(C`\-\-include\*(C'\fR options provide
++control over the archive's contents.  \f(CR\*(C`\-\-exclude\*(C'\fR and \f(CR\*(C`\-\-include\*(C'\fR
+ can be specified repeatedly on the command line.  The order in which
+ these options are specified is immaterial; \fBbundledoc\fR processes file
+ inclusions and exclusions in the following order:
+@@ -459,26 +462,26 @@ inclusions and exclusions in the followi
+ All files referenced by the \fI.dep\fR file are added to the list of
+ files to archive.
+ .IP "2." 4
+-If \f(CW\*(C`\-\-localonly\*(C'\fR is specified, all files not found in the \fI.tex\fR
++If \f(CR\*(C`\-\-localonly\*(C'\fR is specified, all files not found in the \fI.tex\fR
+ file's directory are removed from the list.
+ .IP "3." 4
+-For each \f(CW\*(C`\-\-exclude\*(C'\fR string specified, all files containing that
++For each \f(CR\*(C`\-\-exclude\*(C'\fR string specified, all files containing that
+ string are removed from the list.
+ .IP "4." 4
+-For each \f(CW\*(C`\-\-include\*(C'\fR file specification, the set of files designated
++For each \f(CR\*(C`\-\-include\*(C'\fR file specification, the set of files designated
+ by its expansion are added to the list.
+ .SS "Issues When Running Under Microsoft Windows"
+ .IX Subsection "Issues When Running Under Microsoft Windows"
+ First, because \fBbundledoc\fR is a Perl script, you should do one of the
+ following to run it under Windows:
+ .IP "\(bu" 4
+-\&\f(CW\*(C`perl bundledoc\*(C'\fR
++\&\f(CR\*(C`perl bundledoc\*(C'\fR
+ .IP "\(bu" 4
+-Rename \fIbundledoc\fR to \fIbundledoc.pl\fR and run \f(CW\*(C`bundledoc.pl\*(C'\fR.  (This
++Rename \fIbundledoc\fR to \fIbundledoc.pl\fR and run \f(CR\*(C`bundledoc.pl\*(C'\fR.  (This
+ is assuming you have a file association set up for \fI.pl\fR.)
+ .IP "\(bu" 4
+ Run the \fBpl2bat\fR script (if you have it) to convert \fIbundledoc\fR to
+-\&\fIbundledoc.bat\fR, then run \f(CW\*(C`bundledoc\*(C'\fR.
++\&\fIbundledoc.bat\fR, then run \f(CR\*(C`bundledoc\*(C'\fR.
+ .PP
+ Second, Windows uses a multi-rooted filesystem (i.e., multiple drive
+ letters).  I wouldn't be surprised if bad things were to happen if the
+@@ -525,8 +528,8 @@ other common font formats, as well.
+ .SS "Acknowledgments"
+ .IX Subsection "Acknowledgments"
+ Thanks to Fabien Vignes-Tourneret for suggesting what became the
+-\&\f(CW\*(C`\-\-localonly\*(C'\fR option and for a discussion that led to the
+-\&\f(CW\*(C`\-\-exclude\*(C'\fR and \f(CW\*(C`\-\-include\*(C'\fR options; to Marius Kleiner for updating
++\&\f(CR\*(C`\-\-localonly\*(C'\fR option and for a discussion that led to the
++\&\f(CR\*(C`\-\-exclude\*(C'\fR and \f(CR\*(C`\-\-include\*(C'\fR options; to Marius Kleiner for updating
+ \&\fBbundledoc\fR to properly handle document subdirectories; and to Frank
+ Mittelbach for suggesting using Kpathsea to help find \fI.cfg\fR files
+ and to automatically append \fI.cfg\fR and \fI.dep\fR extensions if
+

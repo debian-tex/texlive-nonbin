@@ -1,3 +1,11 @@
+texlive-extra (2024.20241115-2) unstable; urgency=medium
+
+  * Patches for manual pages from Bjarni Ingi Gislason <bjarniig@simnet.is>
+    - arara.1 (Closes: #1088732)
+    - bundledoc.1 (Closes: #1089003)
+
+ -- Hilmar Preuße <hille42@debian.org>  Fri, 06 Dec 2024 23:23:12 +0100
+
 texlive-extra (2024.20241115-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.
