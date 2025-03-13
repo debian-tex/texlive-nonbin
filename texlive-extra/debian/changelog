@@ -1,3 +1,10 @@
+texlive-extra (2024.20250309-1) unstable; urgency=medium
+
+  * New upstream snapshot, refresh / disable patches.
+    - disable the patch for #1089003, it does not apply any more.
+
+ -- Hilmar Preuße <hille42@debian.org>  Thu, 13 Mar 2025 23:13:53 +0100
+
 texlive-extra (2024.20250114-1) unstable; urgency=medium
 
   * New upstream snapshot.
