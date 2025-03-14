@@ -1,3 +1,10 @@
+texlive-extra (2024.20250309-2) unstable; urgency=medium
+
+  * Fix the Breaks / Replaces statement texlive-extra-utils <->
+    texlive-binaries (Closes: #1100530).
+
+ -- Hilmar Preuße <hille42@debian.org>  Fri, 14 Mar 2025 22:58:58 +0100
+
 texlive-extra (2024.20250309-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.
