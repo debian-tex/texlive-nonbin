@@ -1,3 +1,11 @@
+texlive-extra (2025.20250727-1) experimental; urgency=medium
+
+  * New upstream snapshot, refresh / disable patches.
+    - Disable (non forwarded) patch for #1088732: does not
+      apply any more.
+
+ -- Hilmar Preuße <hille42@debian.org>  Wed, 30 Jul 2025 23:36:46 +0200
+
 texlive-extra (2024.20250309-2) unstable; urgency=medium
 
   * Fix the Breaks / Replaces statement texlive-extra-utils <->
