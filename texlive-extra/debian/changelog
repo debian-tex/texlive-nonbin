@@ -1,3 +1,9 @@
+texlive-extra (2025.20250727-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Hilmar Preuße <hille42@debian.org>  Thu, 14 Aug 2025 22:56:27 +0200
+
 texlive-extra (2025.20250727-1) experimental; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.
