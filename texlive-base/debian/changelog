@@ -1,8 +1,9 @@
-texlive-base (2025.20250727-4) UNRELEASED; urgency=medium
+texlive-base (2025.20250927-1) unstable; urgency=medium
 
+  * New upstream snapshot, refresh / disable patches.
   * Remove link to jquery.js and Dep on libjs-jquery (Closes: #1114545).
 
- -- Hilmar Preuße <hille42@debian.org>  Tue, 02 Sep 2025 22:14:43 +0200
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 27 Sep 2025 22:58:17 +0200
 
 texlive-base (2025.20250727-3) unstable; urgency=medium
 
