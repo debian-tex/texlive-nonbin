@@ -1,3 +1,11 @@
+texlive-extra (2025.20250927-2) unstable; urgency=medium
+
+  * Some files to build luatex based format files are in texlive-luatex.
+    Add this package to Depends in texlive-latex-extra for now
+    (Closes: #1116606).
+
+ -- Hilmar Preuße <hille42@debian.org>  Mon, 29 Sep 2025 07:55:44 +0200
+
 texlive-extra (2025.20250927-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.
