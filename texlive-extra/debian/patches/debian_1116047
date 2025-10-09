@@ -1,0 +1,17 @@
+Description: Fix for htlatex.
+Forwarded: Yes.
+Author: michal_h21
+Applied-Upstream: https://svn.gnu.org.ua/viewvc/tex4ht/trunk/lit/tex4ht-html4.tex?r1=1750&r2=1749&pathrev=1750
+Bug-Debian: http://bugs.debian.org/1116047
+Last-Update: 2025-10-08
+
+--- texlive-extra-2025.20250927.orig/texmf-dist/tex/generic/tex4ht/html4.4ht
++++ texlive-extra-2025.20250927/texmf-dist/tex/generic/tex4ht/html4.4ht
+@@ -3531,6 +3531,7 @@
+     \xdef\VBorder{\VBorder<col\Hnewline id="TBL-\TableNo
+        -\ar:cnt"\xml:empty>}\xdef\AllColMargins{\AllColMargins1}}
+    {\xdef\AllColMargins{\AllColMargins 0}}
++\providecommand\hline:color{000}
+ \Configure{HBorder}
+    {<tr\Hnewline class="hline">} {<td><hr\xml:empty></td>}   {</tr>}
+    {<tr\Hnewline  class="cline">}

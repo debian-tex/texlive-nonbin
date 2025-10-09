@@ -1,3 +1,9 @@
+texlive-extra (2025.20250927-4) UNRELEASED; urgency=medium
+
+  * Fix for htlatex (Closes: #1116047)
+
+ -- Hilmar Preuße <hille42@debian.org>  Tue, 30 Sep 2025 00:31:37 +0200
+
 texlive-extra (2025.20250927-3) unstable; urgency=medium
 
   * The depend introduced in last upload must be versioned.
