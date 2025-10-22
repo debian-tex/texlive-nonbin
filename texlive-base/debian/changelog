@@ -1,3 +1,9 @@
+texlive-base (2025.20250927-4) UNRELEASED; urgency=medium
+
+  * Remove broken link /usr/share/texmf/web2c/texmfcnf.lua.
+
+ -- Hilmar Preuße <hille42@debian.org>  Tue, 30 Sep 2025 00:31:50 +0200
+
 texlive-base (2025.20250927-3) unstable; urgency=medium
 
   * The depend introduced in last upload must be versioned.
