@@ -1,3 +1,9 @@
+texlive-base (2025.20251127-1) UNRELEASED; urgency=medium
+
+  * New upstream snapshot, refresh / disable patches.
+
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 27 Sep 2025 22:58:17 +0200
+
 texlive-base (2025.20250927-4) unstable; urgency=medium
 
   * Remove broken link /usr/share/texmf/web2c/texmfcnf.lua.

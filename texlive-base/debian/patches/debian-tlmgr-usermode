@@ -1,6 +1,6 @@
---- texlive-base-2024.20250727.orig/texmf-dist/scripts/texlive/tlmgr.pl
-+++ texlive-base-2024.20250727/texmf-dist/scripts/texlive/tlmgr.pl
-@@ -44,38 +44,7 @@
+--- texlive-base-2025.20251127.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2025.20251127/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -44,38 +44,38 @@
  
  BEGIN {
    $^W = 1;
@@ -36,11 +36,42 @@
 -         . "maybe shared library woes?\nCheck for error messages above");
 -  }
 -
++#  # make subprograms (including kpsewhich) have the right path:
++#  my $kpsewhichname;
++#  if ($^O =~ /^MSWin/i) {
++#    # on w32 $0 and __FILE__ point directly to tlmgr.pl; they can be relative
++#    $Master = __FILE__;
++#    $Master =~ s!\\!/!g;
++#    $Master =~ s![^/]*$!../../..!
++#      unless ($Master =~ s!/texmf-dist/scripts/texlive/tlmgr\.pl$!!i);
++#    $bindir = "$Master/bin/windows";
++#    $kpsewhichname = "kpsewhich.exe";
++#    # path already set by wrapper batchfile
++#  } else {
++#    $Master = __FILE__;
++#    $Master =~ s,/*[^/]*$,,;
++#    $bindir = $Master;
++#    $Master = "$Master/../..";
++#    # make subprograms (including kpsewhich) have the right path:
++#    $ENV{"PATH"} = "$bindir:$ENV{PATH}";
++#    $kpsewhichname = "kpsewhich";
++#  }
++#  if (-r "$bindir/$kpsewhichname") {
++#    # not in bootstrapping mode => kpsewhich exists, so use it to get $Master
++#    chomp($Master = `kpsewhich -var-value=TEXMFROOT`);
++#  }
++
++#  # if we have no directory in which to find our modules,
++#  # no point in going on.
++#  if (! $Master) {
++#    die ("Could not determine directory of tlmgr executable, "
++#         . "maybe shared library woes?\nCheck for error messages above");
++#  }
 +  $Master = "/usr/share/texlive";
    $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
  
    # make Perl find our packages first:
-@@ -629,6 +598,13 @@
+@@ -629,6 +629,13 @@
      tldie("$prg: Try --help if you need it.\n");
    }
  
@@ -54,7 +85,7 @@
    # nice to have the version if debugging.
    debug("tlmgr version $tlmgrversion\n");
  
-@@ -6386,7 +6362,9 @@
+@@ -6393,7 +6400,9 @@
  # sets up the user tree for tlmgr in user mode
  sub action_init_usertree {
    # init_local_db but do not die if localtlpdb is not found!
@@ -65,7 +96,7 @@
    my $tlpdb = TeXLive::TLPDB->new;
    my $usertree;
    if ($opts{"usertree"}) {
-@@ -7171,7 +7149,11 @@
+@@ -7178,7 +7187,11 @@
      if ($should_i_die == 2) {
        return undef;
      } else {
@@ -78,14 +109,14 @@
      }
    }
    # setup the programs, for w32 we need the shipped wget/xz etc, so we
---- texlive-base-2024.20250727.orig/texmf-dist/doc/man/man1/tlmgr.1
-+++ texlive-base-2024.20250727/texmf-dist/doc/man/man1/tlmgr.1
-@@ -76,6 +76,8 @@
+--- texlive-base-2025.20251127.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2025.20251127/texmf-dist/doc/man/man1/tlmgr.1
+@@ -79,6 +79,8 @@
  <https://tug.org/texlive/tlmgr.html>, along with procedures for updating
  \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
  .PP
 +WARNING: tlmgr in Debian runs always in user mode
 +.PP
- TeX Live is organized into a few top-level \fIschemes\fR, each of which is
+ TeX Live is organized into a few top\-level \fIschemes\fR, each of which is
  specified as a different set of \fIcollections\fR and \fIpackages\fR, where a
  collection is a set of packages, and a package is what contains actual
