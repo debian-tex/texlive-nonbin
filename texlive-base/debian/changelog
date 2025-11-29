@@ -1,8 +1,8 @@
-texlive-base (2025.20251127-1) UNRELEASED; urgency=medium
+texlive-base (2025.20251127-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.
 
- -- Hilmar Preuße <hille42@debian.org>  Sat, 27 Sep 2025 22:58:17 +0200
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 29 Nov 2025 15:35:00 +0100
 
 texlive-base (2025.20250927-4) unstable; urgency=medium
 
