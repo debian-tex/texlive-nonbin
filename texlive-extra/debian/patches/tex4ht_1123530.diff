@@ -1,0 +1,410 @@
+Origin: upstream
+Bug-Debian: https://bugs.debian.org/1123530
+Description: Patch TeX4HT to latest version.
+
+diff -urN a/texmf-dist/tex/generic/tex4ht/amsmath.4ht b/texmf-dist/tex/generic/tex4ht/amsmath.4ht
+--- a/texmf-dist/tex/generic/tex4ht/amsmath.4ht	2025-01-09 00:09:13.000000000 +0100
++++ b/texmf-dist/tex/generic/tex4ht/amsmath.4ht	2025-12-11 22:47:07.000000000 +0100
+@@ -1,4 +1,4 @@
+-% amsmath.4ht (2025-01-08-13:38), generated from tex4ht-4ht.tex
++% amsmath.4ht (2025-12-11-13:10), generated from tex4ht-4ht.tex
+ % Copyright 1997-2009 Eitan M. Gurari
+ % Copyright 2009-2025 TeX Users Group
+ %
+@@ -17,7 +17,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2025-01-08-13:38}
++\immediate\write-1{version 2025-12-11-13:10}
+ 
+ \HRestore\cases
+ \HRestore\matrix
+@@ -133,6 +133,22 @@
+ \newcommand\:temp:xleftarrow[2][]{\a:xleftarrow {\o:xleftarrow:[#1]{#2}}\b:xleftarrow}
+ \HLet\xleftarrow\:temp:xleftarrow
+ \NewConfigure{xleftarrow}{2}
++\def\:amsmathrobust#1{\def#1{\protect#1}}
++\Configure{writetoc}{
++  \:amsmathrobust\prod
++  \:amsmathrobust\coprod
++  \:amsmathrobust\bigvee
++  \:amsmathrobust\bigwedge
++  \:amsmathrobust\biguplus
++  \:amsmathrobust\bigcap
++  \:amsmathrobust\bigcup
++  \:amsmathrobust\prod
++  \:amsmathrobust\sum
++  \:amsmathrobust\bigotimes
++  \:amsmathrobust\bigoplus
++  \:amsmathrobust\bigodot
++  \:amsmathrobust\bigsqcup
++}
+ \def\:tempc#1{\a:eqref\o:eqref:{#1}\b:eqref}
+ \NewConfigure{eqref}{2}
+ 
+diff -urN texmf-dist/tex/generic/tex4ht/ccicons.4ht texmf-dist/tex/generic/tex4ht/ccicons.4ht
+--- a/texmf-dist/tex/generic/tex4ht/ccicons.4ht	1970-01-01 01:00:00.000000000 +0100
++++ b/texmf-dist/tex/generic/tex4ht/ccicons.4ht	2025-11-27 22:08:10.000000000 +0100
+@@ -0,0 +1,49 @@
++% ccicons.4ht (2025-11-27-12:58), generated from tex4ht-4ht.tex
++% Copyright 2025 TeX Users Group
++%
++% This work may be distributed and/or modified under the
++% conditions of the LaTeX Project Public License, either
++% version 1.3c of this license or (at your option) any
++% later version. The latest version of this license is in
++%   http://www.latex-project.org/lppl.txt
++% and version 1.3c or later is part of all distributions
++% of LaTeX version 2005/12/01 or later.
++%
++% This work has the LPPL maintenance status "maintained".
++%
++% The Current Maintainer of this work
++% is the TeX4ht Project <http://tug.org/tex4ht>.
++%
++% If you modify this program, changing the
++% version identification would be appreciated.
++\immediate\write-1{version 2025-11-27-12:58}
++
++
++\NewConfigure{ccicons}{2}
++
++% make images for compound icons
++\def\:tempa#1{%
++  \def\:tempb{\a:ccicons\expandafter\csname o:#1:\endcsname\b:ccicons}%
++  \expandafter\HLet\csname#1\endcsname\:tempb%
++}
++
++\:tempa{ccby}%
++\:tempa{ccbysa}%
++\:tempa{ccbynd}%
++\:tempa{ccbync}%
++\:tempa{ccbynceu}%
++\:tempa{ccbyncjp}%
++\:tempa{ccbyncsa}%
++\:tempa{ccbyncsaeu}%
++\:tempa{ccbyncsajp}%
++\:tempa{ccbyncnd}%
++\:tempa{ccbyncndeu}%
++\:tempa{ccbyncndjp}%
++\:tempa{cczero}%
++\:tempa{ccpd}%
++
++\Configure{ccicons}{\Picture+{}}{\EndPicture}
++
++\Hinput{ccicons}
++\endinput
++
+diff -urN texmf-dist/tex/generic/tex4ht/html4.4ht texmf-dist/tex/generic/tex4ht/html4.4ht
+--- a/texmf-dist/tex/generic/tex4ht/html4.4ht	2025-10-31 22:59:14.000000000 +0100
++++ b/texmf-dist/tex/generic/tex4ht/html4.4ht	2025-12-05 00:15:15.000000000 +0100
+@@ -1,4 +1,4 @@
+-% html4.4ht (2025-10-31-14:45), generated from tex4ht-html4.tex
++% html4.4ht (2025-12-04-13:51), generated from tex4ht-html4.tex
+ % Copyright 2009-2025 TeX Users Group
+ % Copyright 1997-2009 Eitan M. Gurari
+ %
+@@ -17,7 +17,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2025-10-31-14:45}
++\immediate\write-1{version 2025-12-04-13:51}
+ 
+ \exit:ifnot{8859-6,% 
+ CJK,% 
+@@ -3561,7 +3561,11 @@
+ \:CheckOption{pic-tabbing}  \if:Option
+     \ConfigureEnv{tabbing}{\Picture*{}}{\EndPicture}{}{}
+ \else
+-    \Configure{tabbing}[1.5]{%
++    \ExplSyntaxOn
++% define tabbing position width in em units
++\def\:tabbingtoem{\fp_eval:n{\TabWidth/\f@size}em}
++\ExplSyntaxOff
++\Configure{tabbing}[1.5]{%
+     \ifvmode \IgnorePar\fi\EndP \leavevmode\ht:special{t4ht=<table
+      \Hnewline\:zbsp{tabbing}><tr \Hnewline style="vertical-align:baseline;"
+      class="tabbing">}}
+@@ -3578,7 +3582,7 @@
+ %
+    }
+    {\ht:special{t4ht=<td \ifx \TabWidth\empty \else
+-                style="width:\TabWidth;"\fi \Hnewline
++                style="width:\:tabbingtoem;"\fi \Hnewline
+                 class="tabbing\ifx \`\TabType -right\fi">}}
+    {\ht:special{t4ht=</td>}}
+ \ConfigureEnv{tabbing}{\IgnorePar\EndP}{}{}{}
+@@ -41396,6 +41400,7 @@
+ 
+ 
+ 
++
+ 
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+diff -urN texmf-dist/tex/generic/tex4ht/html-mml.4ht texmf-dist/tex/generic/tex4ht/html-mml.4ht
+--- a/texmf-dist/tex/generic/tex4ht/html-mml.4ht	2025-10-03 23:43:44.000000000 +0200
++++ b/texmf-dist/tex/generic/tex4ht/html-mml.4ht	2025-12-06 00:37:36.000000000 +0100
+@@ -1,4 +1,4 @@
+-% html-mml.4ht (2025-10-03-14:13), generated from tex4ht-mathml.tex
++% html-mml.4ht (2025-12-05-15:05), generated from tex4ht-mathml.tex
+ % Copyright 2009-2025 TeX Users Group
+ % Copyright 1999-2009 Eitan M. Gurari
+ %
+@@ -17,7 +17,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2025-10-03-14:13}
++\immediate\write-1{version 2025-12-05-15:05}
+ 
+ \exit:ifnot{amsmath,% 
+ array,% 
+@@ -63,6 +63,12 @@
+ \fi
+ 
+ \fi
++\Configure{IMG}
++  {\ht:special{t4ht=\ifmathml <\a:mathml semantics><\a:mathml annotation-xml encoding="application/xhtml+xml">\fi<img\Hnewline \ifmathml xmlns="http://www.w3.org/1999/xhtml"\fi src="\a:imgdir }}
++  {\ht:special{t4ht=" alt="}}
++  {" }
++  {\ht:special{t4ht=" }}
++  {\ht:special{t4ht=\xml:empty>\ifmathml </\a:mathml annotation-xml></\a:mathml semantics>\fi}}
+ \Configure{DviMath}
+     {\a:DviMathML \mathmltrue
+        \ifOption{mml-fonts}{\Configure{htf}{0}{+}{<\a:mathml mstyle\Hnewline
+@@ -957,6 +963,8 @@
+ 
+ 
+ 
++
++
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                 \ConfigureHinput{array}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@@ -1052,6 +1060,7 @@
+ 
+ 
+ 
++
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                 \ConfigureHinput{color}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@@ -1144,7 +1153,6 @@
+ 
+ 
+ 
+-
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                 \ConfigureHinput{rlbabel}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@@ -1215,6 +1223,8 @@
+ 
+ 
+ 
++
++
+ 
+ 
+ 
+diff -urN texmf-dist/tex/generic/tex4ht/latex.4ht texmf-dist/tex/generic/tex4ht/latex.4ht
+--- a/texmf-dist/tex/generic/tex4ht/latex.4ht	2025-11-09 23:05:00.000000000 +0100
++++ b/texmf-dist/tex/generic/tex4ht/latex.4ht	2025-12-05 00:15:15.000000000 +0100
+@@ -1,4 +1,4 @@
+-% latex.4ht (2025-11-09-13:35), generated from tex4ht-4ht.tex
++% latex.4ht (2025-12-04-13:51), generated from tex4ht-4ht.tex
+ % Copyright 1997-2009 Eitan M. Gurari
+ % Copyright 2009-2025 TeX Users Group
+ %
+@@ -17,7 +17,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2025-11-09-13:35}
++\immediate\write-1{version 2025-12-04-13:51}
+ 
+ \ifx\SaveMkHalignConf:g\:UnDef \else \expandafter\endinput\fi
+ 
+@@ -1140,7 +1140,7 @@
+ \HLet\@stopline\:tempc
+ \let\:tempc\kill
+ \pend:def\:tempc{%
+-  \bgroup\@stopfield%
++  %\bgroup\@stopfield% <- why was \@stopfield used? it results in an error
+   \tmp:dim  \if@rjfield \the\wd\@curfield\else \z@\fi
+ \tmp:dim\m:tab\tmp:dim
+ \xdef\locs:tab{\locs:tab\space 0 }%
+@@ -2425,7 +2425,7 @@
+ \expandafter\:temp\usepackage!*?: 
+ \def\:tempa{\@latex@e@error}
+ \ifx \:temp\:tempa
+-   % latex209.4ht (2025-11-09-13:35), generated from tex4ht-4ht.tex
++   % latex209.4ht (2025-12-04-13:51), generated from tex4ht-4ht.tex
+ % Copyright 1997-2009 Eitan M. Gurari
+ % Copyright 2009-2025 TeX Users Group
+ %
+@@ -2444,7 +2444,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2025-11-09-13:35}
++\immediate\write-1{version 2025-12-04-13:51}
+ 
+ \let\:fnsymbol\@fnsymbol
+ \def\@fnsymbol#1{{\hbox{$\:fnsymbol{#1}$}}}
+diff -urN texmf-dist/tex/generic/tex4ht/longtable.4ht texmf-dist/tex/generic/tex4ht/longtable.4ht
+--- a/texmf-dist/tex/generic/tex4ht/longtable.4ht	2025-10-01 23:38:16.000000000 +0200
++++ b/texmf-dist/tex/generic/tex4ht/longtable.4ht	2025-12-03 00:09:50.000000000 +0100
+@@ -1,4 +1,4 @@
+-% longtable.4ht (2025-10-01-13:36), generated from tex4ht-4ht.tex
++% longtable.4ht (2025-12-02-14:49), generated from tex4ht-4ht.tex
+ % Copyright 1997-2009 Eitan M. Gurari
+ % Copyright 2009-2025 TeX Users Group
+ %
+@@ -17,7 +17,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2025-10-01-13:36}
++\immediate\write-1{version 2025-12-02-14:49}
+ 
+    \def\:tempc[#1]#2{%
+   \gHAdvance\float:cnt  1
+@@ -107,7 +107,7 @@
+   \LT@cols\ar:cnt
+ %
+   \LT@make@row
+-  \m@th\let\par\@empty
++  \m@th% \let\par\@empty <- this causes fatal error with current LaTeX settings for paragraphs
+   \everycr{}\lineskip\z@\baselineskip\z@
+   \ifx \EndPicture\:UnDef
+      \SaveMkHalignConfig \ifx \recall:ar\:UnDef
+diff -urN texmf-dist/tex/generic/tex4ht/tex4ht.sty texmf-dist/tex/generic/tex4ht/tex4ht.sty
+--- a/texmf-dist/tex/generic/tex4ht/tex4ht.sty	2025-11-13 22:44:34.000000000 +0100
++++ b/texmf-dist/tex/generic/tex4ht/tex4ht.sty	2025-12-14 22:45:25.000000000 +0100
+@@ -1,7 +1,7 @@
+ \ifnum\the\catcode`\%=14\else\expandafter\edef\csname
+   \string:RestoreCatcodes\endcsname{\catcode`\%\the
+   \catcode`\%}\catcode`\%14\fi
+-% tex4ht.sty (2025-11-13-13:19), generated from tex4ht-sty.tex
++% tex4ht.sty (2025-12-14-13:41), generated from tex4ht-sty.tex
+ % Copyright 2009-2025 TeX Users Group
+ % Copyright 1996-2009 Eitan M. Gurari
+ %
+@@ -20,7 +20,7 @@
+ %
+ % If you modify this program, changing the
+ % version identification would be appreciated.
+-\immediate\write-1{version 2025-11-13-13:19}
++\immediate\write-1{version 2025-12-14-13:41}
+ 
+ 
+ \ifx  \Preamble\UnDef  \else
+@@ -43,6 +43,13 @@
+ %   \def\DocumentMetadata#1{\def\:DocumentMetadata{#1}}
+ % \fi
+ 
++% This is new TeX primitive which is set by the current LaTeX to produce
++% more paragraphs. The problem is that it can lead to infinite loops with TeX4ht
++% especially in tables. I've found several of these cases, which are not easy to fix sometimes.
++% For example, I've found such infinite loop when using \vbox inside tabular.
++% So for now, we just disable it.
++\partokencontext=0
++
+ \def\writesixteen#1{\immediate\write99999{#1}}
+ \expandafter\edef\csname :RestoreCatcodes\endcsname{%
+    \expandafter\ifx \csname :RestoreCatcodes\endcsname\relax\else
+diff -urN texmf-dist/tex/generic/tex4ht/xy.4ht texmf-dist/tex/generic/tex4ht/xy.4ht
+--- a/texmf-dist/tex/generic/tex4ht/xy.4ht	2009-07-03 19:08:55.000000000 +0200
++++ b/texmf-dist/tex/generic/tex4ht/xy.4ht	2025-12-06 00:37:36.000000000 +0100
+@@ -1,31 +1,23 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-% xy.4ht                                2009-05-21-09:32 %
+-% Copyright (C) 2000--2009       Eitan M. Gurari         %
+-%                                                        %
+-% This work may be distributed and/or modified under the %
+-% conditions of the LaTeX Project Public License, either %
+-% version 1.3c of this license or (at your option) any   %
+-% later version. The latest version of this license is   %
+-% in                                                     %
+-%   http://www.latex-project.org/lppl.txt                %
+-% and version 1.3c or later is part of all distributions %
+-% of LaTeX version 2005/12/01 or later.                  %
+-%                                                        %
+-% This work has the LPPL maintenance status "maintained".%
+-%                                                        %
+-% This Current Maintainer of this work                   %
+-% is Eitan M. Gurari.                                    %
+-%                                                        %
+-% If you modify this program your changing its signature %
+-% with a directive of the following form will be         %
+-% appreciated.                                           %
+-%            \message{signature}                         %
+-%                                                        %
+-%                             gurari@cse.ohio-state.edu  %
+-%                 http://www.cse.ohio-state.edu/~gurari  %
+-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-\immediate\write-1{version 2009-05-21-09:32}
+-
++% xy.4ht                                2025-12-05-15:05 %
++% Copyright (C) 2000-2009       Eitan M. Gurari         %
++% Copyright 2009-2025 TeX Users Group
++%
++% This work may be distributed and/or modified under the
++% conditions of the LaTeX Project Public License, either
++% version 1.3c of this license or (at your option) any
++% later version. The latest version of this license is in
++%   https://www.latex-project.org/lppl.txt
++% and version 1.3c or later is part of all distributions
++% of LaTeX version 2005/12/01 or later.
++%
++% This work has the LPPL maintenance status "maintained".
++%
++% The Current Maintainer of this work
++% is the TeX4ht Project <https://tug.org/tex4ht>.
++%
++% If you modify this program, changing the
++% version identification would be appreciated.
+ 
+ \pend:def\xy{\a:xypic}
+ \append:def\endxy{\b:xypic}
+@@ -62,6 +54,15 @@
+ \NewConfigure{diagram}{2}
+ 
+ \fi
++\xyoption{dvips}\xyoption{ps}
++
++\ifdefined\xymatrix
++  % \xymatrixcompile fails to create a picture, so we need to disable it, but a copy is available in \:xymatrixnocompile if necessary
++  \let\xymatrix\xymatrixnocompile
++  \let\:xymatrixnocompile\xymatrixnocompile
++  \let\xymatrixcompile\xymatrixnocompile
++\fi
++
+ \Hinput{xy}
+ \endinput
+ 
+diff -urN texmf-dist/tex4ht/ht-fonts/unicode/ccicons/ccicons.htf texmf-dist/tex4ht/ht-fonts/unicode/ccicons/ccicons.htf
+--- a/texmf-dist/tex4ht/ht-fonts/unicode/ccicons/ccicons.htf	1970-01-01 01:00:00.000000000 +0100
++++ b/texmf-dist/tex4ht/ht-fonts/unicode/ccicons/ccicons.htf	2025-11-27 22:47:57.000000000 +0100
+@@ -0,0 +1,18 @@
++ccicons 0 13
++'c' '1' c 0                  % generated from ccicons.tfm, 2025-11-27-15:17
++'b' '1' b 1                  % Copyright 2025 TeX Users Group
++'a' '1' a 2                  %
++'d' '1' d 3                  % This work may be distributed and/or modified under the
++'n' '1' n 4                  % conditions of the LaTeX Project Public License, either
++'e' '1' e 5                  % version 1.3c of this license or (at your option) any
++'y' '1' y 6                  % later version. The latest version of this license is in
++'p' '1' p 7                  %   http://www.latex-project.org/lppl.txt
++'z' '1' z 8                  % and version 1.3c or later is part of all distributions
++'m' '1' m 9                  % of LaTeX version 2005/12/01 or later.
++'s' '1' s 10                 %
++'r' '1' r 11                 % This work has the LPPL maintenance status "maintained".
++'&#x00A9;' '1' copyright 12  %
++'P' '1' P 13                 % The Current Maintainer of this work
++ccicons 0 13                % is the TeX4ht Project <http://tug.org/tex4ht>.
++htfcss:  ccicons  font-family: 'CCIcons', serif;
++

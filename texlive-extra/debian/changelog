@@ -1,3 +1,10 @@
+texlive-extra (2025.20251127-2) unstable; urgency=medium
+
+  * Patch TeX4HT to latest version to fix infinite loops in code.
+    (see https://tug.org/tex4ht/changelog.html)
+
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 20 Dec 2025 00:05:27 +0100
+
 texlive-extra (2025.20251127-1) unstable; urgency=medium
 
   * New upstream snapshot.
