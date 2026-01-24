@@ -1,3 +1,9 @@
+texlive-extra (2025.20260124-1) unstable; urgency=medium
+
+  * New upstream snapshot, refresh / disable patches.
+
+ -- Hilmar Preuße <hille42@debian.org>  Sat, 29 Nov 2025 15:35:00 +0100
+
 texlive-extra (2025.20251127-2) unstable; urgency=medium
 
   * Patch TeX4HT to latest version to fix infinite loops in code.

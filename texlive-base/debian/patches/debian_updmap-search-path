@@ -2,18 +2,18 @@
  texmf-dist/scripts/texlive/updmap.pl |   17 ++++++++++++++++-
  1 file changed, 16 insertions(+), 1 deletion(-)
 
---- texlive-base-2023.20240401.orig/texmf-dist/scripts/texlive/updmap.pl
-+++ texlive-base-2023.20240401/texmf-dist/scripts/texlive/updmap.pl
-@@ -23,7 +23,7 @@
-     die "$0: kpsewhich -var-value=TEXMFROOT failed, aborting early.\n";
+--- texlive-base-2025.20260124.orig/texmf-dist/scripts/texlive/updmap.pl
++++ texlive-base-2025.20260124/texmf-dist/scripts/texlive/updmap.pl
+@@ -42,7 +42,7 @@
+     die  "$0:   had PATH: $ENV{PATH}\n";
    }
    chomp($TEXMFROOT);
 -  unshift(@INC, "$TEXMFROOT/tlpkg");
 +  unshift (@INC, "/usr/share/texlive/tlpkg");
  }
  
- my $lastchdate = '$Date: 2024-03-19 23:03:22 +0100 (Tue, 19 Mar 2024) $';
-@@ -396,6 +396,21 @@
+ my $lastchdate = '$Date: 2026-01-09 17:20:28 +0100 (Fri, 09 Jan 2026) $';
+@@ -415,6 +415,21 @@
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";
