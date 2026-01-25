@@ -2,7 +2,7 @@ texlive-lang (2025.20260124-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.
 
- -- Hilmar Preuße <hille42@debian.org>  Sat, 29 Nov 2025 15:35:00 +0100
+ -- Hilmar Preuße <hille42@debian.org>  Sun, 25 Jan 2026 20:35:38 +0100
 
 texlive-lang (2025.20251127-1) unstable; urgency=medium
 
