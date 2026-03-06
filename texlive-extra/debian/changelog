@@ -1,3 +1,9 @@
+texlive-extra (2025.2026XXXX-1) UNRELEASED; urgency=medium
+
+  * New version of latexminted (Closes #1129920).
+
+ -- Hilmar Preuße <hille42@debian.org>  Sun, 25 Jan 2026 20:35:30 +0100
+
 texlive-extra (2025.20260124-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.
