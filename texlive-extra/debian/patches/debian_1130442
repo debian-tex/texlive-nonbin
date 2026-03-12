@@ -1,0 +1,42 @@
+From 30b0e8c96eada8592b63333c614d2f0420fc0ef6 Mon Sep 17 00:00:00 2001
+From: Bruno Loff <bruno.loff@gmail.com>
+Date: Sun, 12 Jan 2020 11:12:42 +0000
+Subject: [PATCH] Fix bug after pgf change
+
+Origin: https://github.com/sfranzen/chordbox/pull/2
+Bug: https://github.com/sfranzen/chordbox/issues/4
+Bug-Debian: https://bugs.debian.org/1130442
+
+the pgf package changed the foreach loop so that the [count=\n] option went from defining a global variable to a local variable, breaking chordbox. Fixed this.
+---
+ chordbox.sty | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/chordbox.sty b/chordbox.sty
+index b008c01..d3c0561 100644
+--- texlive.orig/texmf-dist/tex/latex/chordbox/chordbox.sty
++++ texlive/texmf-dist/tex/latex/chordbox/chordbox.sty
+@@ -117,19 +117,20 @@
+         % Put coordinates at finger positions and above the frets (index 0),
+         % store string count, then draw the string grid and decorations
+         \foreach[count=\n] \fretposition in {#3} {
++            \global\let\chordbox@n\n
+             \foreach \fret in {0,...,\numfrets}
+                 \coordinate (\n\fret) at (\n - 1, 0.5 - \fret);
+             % Extra coordinate for text below each string
+             \coordinate (\n) at (\n - 1, -\numfrets);
+         }
+-        \draw grid (\n - 1, -\numfrets);
++        \draw grid (\chordbox@n - 1, -\numfrets);
+         \ifthenelse{\isempty{#1}\or#1<2}{% Draw the "nut"
+-            \fill rectangle (\n - 1, .2);
++            \fill rectangle (\chordbox@n - 1, .2);
+         }{% Draw the position indicator
+             \node[left] at (11) {\pgfkeys{base fret={#1}}};
+         }
+         % Center chord name over strings
+-        \pgfmathparse{0.5 * (\n - 1)}
++        \pgfmathparse{0.5 * (\chordbox@n - 1)}
+         \node[above] at (\pgfmathresult, 1.25) {\pgfkeys{name={#2}}};
+         % Draw the string symbols according to argument #3
+         \foreach[count=\s] \fret in {#3} {

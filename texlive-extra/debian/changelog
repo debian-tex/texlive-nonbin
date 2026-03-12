@@ -1,6 +1,7 @@
-texlive-extra (2025.2026XXXX-1) UNRELEASED; urgency=medium
+texlive-extra (2025.20260124-2) UNRELEASED; urgency=medium
 
   * New version of latexminted (Closes #1129920).
+  * Fix for chordbox.sty (Closes: #1130442).
 
  -- Hilmar Preuße <hille42@debian.org>  Sun, 25 Jan 2026 20:35:30 +0100
 
