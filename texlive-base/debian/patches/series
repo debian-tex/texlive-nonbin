@@ -2,11 +2,8 @@
 fix-info-dir-sections
 # could be merged into the later fix-scripts patch
 fix-pgf2pdf-script
-# debian internal config
-#dvipdfm-config-no-rungs
 # debian internal
 texmf.cnf-debian
-#debian-texmfcnf.lua
 # fix for various invocations
 fix-scripts
 # debian internal stuff
@@ -25,4 +22,3 @@ texdoctk-colors
 xypic-no-privacy-breach
 python3-shebang
 debian-fix-quote-in-quote
-#mktex.opt.diff
