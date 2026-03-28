@@ -2,9 +2,9 @@
  texmf-dist/doc/man/man1/updmap.1 |   25 +++++++++++++------------
  1 file changed, 13 insertions(+), 12 deletions(-)
 
---- a/texmf-dist/doc/man/man1/updmap.1
-+++ b/texmf-dist/doc/man/man1/updmap.1
-@@ -265,26 +265,27 @@ In either case, if multiple updmap.cfg f
+--- texlive-base-2026.20260328.orig/texmf-dist/doc/man/man1/updmap.1
++++ texlive-base-2026.20260328/texmf-dist/doc/man/man1/updmap.1
+@@ -271,26 +271,27 @@
  mentioned in all the updmap.cfg files are merged.
  .IP
  Thus, if updmap.cfg files are present in all trees, and the default

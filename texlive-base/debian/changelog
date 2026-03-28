@@ -1,3 +1,9 @@
+texlive-base (2026.20260328-1) UNRELEASED; urgency=medium
+
+  * New upstream snapshot for TL 2026; refresh / disable patches.
+
+ -- Hilmar Preuße <hille42@debian.org>  Sun, 25 Jan 2026 20:35:18 +0100
+
 texlive-base (2025.20260124-1) unstable; urgency=medium
 
   * New upstream snapshot, refresh / disable patches.

@@ -1,0 +1,51 @@
+--- texlive-base-2026.20260328.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2026.20260328/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -631,6 +631,13 @@
+     tldie("$prg: Try --help if you need it.\n");
+   }
+ 
++  # automatically switch to user mode on Debian, and warn
++  if (!$opts{"usermode"} && $action ne "init-usertree") {
++    $opts{"usermode"} = 1;
++    print "(running on Debian, switching to user mode!)\n";
++    print "(see /usr/share/doc/texlive-base/README.tlmgr-on-Debian.md)\n";
++  }
++
+   # nice to have the version if debugging.
+   debug("tlmgr version $tlmgrversion\n");
+ 
+@@ -6395,7 +6402,9 @@
+ # sets up the user tree for tlmgr in user mode
+ sub action_init_usertree {
+   # init_local_db but do not die if localtlpdb is not found!
+-  init_local_db(2);
++  # Debian: we don't ship tlpdb for system files, so don't even
++  # try to initialize it.
++  # init_local_db(2);
+   my $tlpdb = TeXLive::TLPDB->new;
+   my $usertree;
+   if ($opts{"usertree"}) {
+@@ -7180,7 +7189,11 @@
+     if ($should_i_die == 2) {
+       return undef;
+     } else {
+-      die("cannot setup TLPDB in $::maintree");
++      if ($opts{'usermode'}) {
++        die("$prg: user mode not initialized, please read the documentation!\n");
++      } else {
++        die("cannot setup TLPDB in $::maintree");
++      }
+     }
+   }
+   # setup the programs, for w32 we need the shipped wget/xz etc, so we
+--- texlive-base-2026.20260328.orig/texmf-dist/doc/man/man1/tlmgr.1
++++ texlive-base-2026.20260328/texmf-dist/doc/man/man1/tlmgr.1
+@@ -79,6 +79,8 @@
+ <https://tug.org/texlive/tlmgr.html>, along with procedures for updating
+ \&\f(CW\*(C`tlmgr\*(C'\fR itself and information about test versions.
+ .PP
++WARNING: tlmgr in Debian runs always in user mode
++.PP
+ TeX Live is organized into a few top\-level \fIschemes\fR, each of which is
+ specified as a different set of \fIcollections\fR and \fIpackages\fR, where a
+ collection is a set of packages, and a package is what contains actual

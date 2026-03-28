@@ -1,0 +1,79 @@
+--- texlive-base-2026.20260328.orig/texmf-dist/scripts/texlive/tlmgr.pl
++++ texlive-base-2026.20260328/texmf-dist/scripts/texlive/tlmgr.pl
+@@ -43,41 +43,41 @@
+ }
+ 
+ BEGIN {
+-  $^W = 1;
+-  # make subprograms (including kpsewhich) have the right path:
+-  my $kpsewhichname;
+-  $Master = __FILE__;
+-  if ($^O =~ /^MSWin/i) {
+-    # on w32 $0 and __FILE__ point directly to tlmgr.pl; they can be relative
+-    $Master =~ s!\\!/!g;
+-    $Master =~ s![^/]*$!../../..!
+-      unless ($Master =~ s!/texmf-dist/scripts/texlive/tlmgr\.pl$!!i);
+-    $bindir = "$Master/bin/windows";
+-    $kpsewhichname = "kpsewhich.exe";
+-    # PATH already set by wrapper batchfile
+-  } else {
+-    $Master =~ s,/*[^/]*$,,;
+-    $bindir = $Master;
+-    $Master = "$Master/../..";
+-    $kpsewhichname = "kpsewhich";
+-    $ENV{"PATH"} = "$bindir:$ENV{PATH}";
+-  }
+-  if (-r "$bindir/$kpsewhichname") {
+-    # not in bootstrapping mode => kpsewhich exists, so use it to get $Master
+-    chomp($Master = `kpsewhich -var-value=TEXMFROOT`);
+-  }
+-
+-  # if we have no directory in which to find our modules,
+-  # no point in going on.
+-  if (! $Master) {
+-    warn "$0: Could not determine (Master) directory of tlmgr executable.\n";
+-    warn "$0:   with __FILE__: ", __FILE__, "\n";
+-    warn "$0:   and bindir: $bindir\n";
+-    warn "$0:   and PATH: $ENV{PATH}\n";
+-    die  "$0: Check for error messages above.\n";
+-
+-  }
+-
++#  $^W = 1;
++#  # make subprograms (including kpsewhich) have the right path:
++#  my $kpsewhichname;
++#  $Master = __FILE__;
++#  if ($^O =~ /^MSWin/i) {
++#    # on w32 $0 and __FILE__ point directly to tlmgr.pl; they can be relative
++#    $Master =~ s!\\!/!g;
++#    $Master =~ s![^/]*$!../../..!
++#      unless ($Master =~ s!/texmf-dist/scripts/texlive/tlmgr\.pl$!!i);
++#    $bindir = "$Master/bin/windows";
++#    $kpsewhichname = "kpsewhich.exe";
++#    # PATH already set by wrapper batchfile
++#  } else {
++#    $Master =~ s,/*[^/]*$,,;
++#    $bindir = $Master;
++#    $Master = "$Master/../..";
++#    $kpsewhichname = "kpsewhich";
++#    $ENV{"PATH"} = "$bindir:$ENV{PATH}";
++#  }
++#  if (-r "$bindir/$kpsewhichname") {
++#    # not in bootstrapping mode => kpsewhich exists, so use it to get $Master
++#    chomp($Master = `kpsewhich -var-value=TEXMFROOT`);
++#  }
++#
++#  # if we have no directory in which to find our modules,
++#  # no point in going on.
++#  if (! $Master) {
++#    warn "$0: Could not determine (Master) directory of tlmgr executable.\n";
++#    warn "$0:   with __FILE__: ", __FILE__, "\n";
++#    warn "$0:   and bindir: $bindir\n";
++#    warn "$0:   and PATH: $ENV{PATH}\n";
++#    die  "$0: Check for error messages above.\n";
++#
++#  }
++#
+   $::installerdir = $Master;  # for config.guess et al., see TLUtils.pm
+ 
+   # make Perl find our packages first:

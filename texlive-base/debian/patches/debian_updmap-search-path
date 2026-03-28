@@ -2,8 +2,8 @@
  texmf-dist/scripts/texlive/updmap.pl |   17 ++++++++++++++++-
  1 file changed, 16 insertions(+), 1 deletion(-)
 
---- texlive-base-2025.20260124.orig/texmf-dist/scripts/texlive/updmap.pl
-+++ texlive-base-2025.20260124/texmf-dist/scripts/texlive/updmap.pl
+--- texlive-base-2026.20260328.orig/texmf-dist/scripts/texlive/updmap.pl
++++ texlive-base-2026.20260328/texmf-dist/scripts/texlive/updmap.pl
 @@ -42,7 +42,7 @@
      die  "$0:   had PATH: $ENV{PATH}\n";
    }
@@ -12,8 +12,8 @@
 +  unshift (@INC, "/usr/share/texlive/tlpkg");
  }
  
- my $lastchdate = '$Date: 2026-01-09 17:20:28 +0100 (Fri, 09 Jan 2026) $';
-@@ -415,6 +415,21 @@
+ my $lastchdate = '$Date: 2026-02-24 17:08:16 +0100 (Tue, 24 Feb 2026) $';
+@@ -418,6 +418,21 @@
          print "\t$m (in $orig)\n";
        }
        print "in $changes_config_file\n";

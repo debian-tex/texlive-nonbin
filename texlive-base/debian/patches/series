@@ -18,7 +18,8 @@ debian_updmap-search-path
 debian-updmap-man
 texdoc-see-and-zip
 fix-natbib-add-spaces
-debian-tlmgr-usermode
+debian-tlmgr-usermode_1
+debian-tlmgr-usermode_2
 mptopdf-manpage-fixes
 texdoctk-colors
 xypic-no-privacy-breach
